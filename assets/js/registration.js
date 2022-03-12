@@ -43,7 +43,15 @@ function nextPrev(n) {
   }
   showTab(currentTab);
 }
-console.log(currentTab);
+
+function yesnoCheck() {
+  if (document.getElementById('yesCheck').checked) {
+    document.getElementById('ifYes').style.visibility = 'visible';
+  }
+  else document.getElementById('ifYes').style.visibility = 'hidden';
+
+}
+
 function validateForm() {
   var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");

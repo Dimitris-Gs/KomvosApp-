@@ -26,13 +26,15 @@
           <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"></p>
         
           <p>Υπάρχει διέυθυνση σταθερής κατοικίας; :</p>
-           <label class="container">Ναι <input type="radio" name="radioAdress">
+           <label class="container">Ναι <input id="yesCheck" type="radio" name="yesno" onclick="yesnoCheck();">
             <span class="checkmark"></span> </label>
-          </label> <label class="container">Οχι <input type="radio" name="radioAdress">
+          </label> <label class="container">Οχι <input type="radio" name="yesno" onclick="yesnoCheck();" >
             <span class="checkmark"></span> </label>
         
-          <p>Διέυθηνση: </p>
-          <p><input placeholder="Street Address" oninput="this.className = ''" name="address"></p>
+          <div id="ifYes">
+            <p>Διέυθυνση: </p>
+            <p><input placeholder="Street Address"  id='yes' oninput="this.className = ''" name="yes"></p>
+          </div>
         </div>
 
         <div class="tab">
