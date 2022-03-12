@@ -19,7 +19,8 @@
      width: 100%;
      font-size: 17px;
      font-family: Raleway;
-     border: 1px solid #aaaaaa
+     border: 1px solid #aaaaaa;
+     border-radius: 5px;
  }
 
  input.invalid {
@@ -31,7 +32,8 @@
  }
 
  button {
-     background-color: #4CAF50;
+     background-color: #5a5a5a;
+     border-radius: 5px;
      color: #ffffff;
      border: none;
      padding: 10px 20px;
@@ -64,7 +66,7 @@
  }
 
  .step.finish {
-     background-color: #4CAF50
+     background-color: #5a5a5a
  }
 
  .all-steps {

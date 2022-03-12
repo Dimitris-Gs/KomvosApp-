@@ -24,6 +24,8 @@ module.exports.routes = {
   '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'}
 
+  
+  
 
   /***************************************************************************
   *                                                                          *
