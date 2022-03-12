@@ -3,7 +3,7 @@
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-md-6">
       <form id="regForm">
-        <h1 id="register">Donate</h1>
+        <h1 id="register">Εγγραφή</h1>
         <div class="all-steps" id="all-steps"> <span class="step"></span> <span class="step"></span> <span
             class="step"></span> <span class="step"></span> </div>
         <div class="tab">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="tab">
-          <h3>Φύλο: </h3>
+          <p>Φύλο:</p>
           <label class="container">Male <input type="radio" checked="checked" name="radio">
             <span class="checkmark"></span>
           </label> <label class="container">Female <input type="radio" name="radio">
@@ -28,16 +28,16 @@
           </label> <label class="container">Other <input type="radio" name="radio">
             <span class="checkmark"></span> </label>
         
-          <h3>Ημερομηνία Γέννησης: </h3>
+          <p>Ημερομηνία Γέννησης: </p>
           <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"></p>
         
-          <h3>Υπάρχει διέυθυνση σταθερής κατοικίας; :</h3>
+          <p>Υπάρχει διέυθυνση σταθερής κατοικίας; :</p>
           </label> <label for="" class="container">Ναι <input type="radio" name="radio">
             <span class="checkmark"></span> </label>
           </label> <label for="" class="container">Οχι <input type="radio" name="radio">
             <span class="checkmark"></span> </label>
         
-          <h1>Διέυθηνση</h1>
+          <p>Διέυθηνση: </p>
           <p><input placeholder="Street Address" oninput="this.className = ''" name="address"></p>
         </div>
 
@@ -48,8 +48,13 @@
               <input type="file" class="form-control-file" id="profileImg">
             </div>
           </div>
+          <div class="form-group row ">
+            <label for="small_bio" class="col-4 col-form-label">Λίγα λόγια για εμένα: </label>
+            <div class="col-6">
+              <textarea class="form-control" name="small_bio" id="small_bio" rows="5"></textarea>
+          </div>
         </div>
-
+      </div>
 
         <div class="tab">
           <p>Μερικές ερωτήσεις για να γνωριστούμε καλύτερα. Αυτές οι πληροφορίες δεν θα γίνουν ποτέ γνωστές σε τρίτους.
