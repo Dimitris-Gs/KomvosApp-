@@ -43,7 +43,7 @@ function nextPrev(n) {
   }
   showTab(currentTab);
 }
-
+console.log(currentTab);
 function validateForm() {
   var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");
