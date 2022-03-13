@@ -10,6 +10,12 @@
      border-radius: 10px
  }
 
+ #divAddress {
+
+     display:none
+
+     }
+
  h1 {
      text-align: center
  }
@@ -25,6 +31,16 @@
 
  input.invalid {
      background-color: #ffdddd
+ }
+
+ #emailValidation {
+     display: none;
+     color: #ff0000;
+ }
+
+ #genderValidation {
+    display: none;
+    color: #ff0000;
  }
 
  .tab {
