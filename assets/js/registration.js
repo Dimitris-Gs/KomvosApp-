@@ -171,7 +171,7 @@ function validateForm() {
     case secondTab:
 
     // validation for gender selection radio buttons
-      let radioGenderValue = document.querySelector('input[name="radioGender"]:checked');
+      let radioGenderValue = document.querySelector('input[name="gender"]:checked');
 
       if (radioGenderValue == null) {
         valid = false;

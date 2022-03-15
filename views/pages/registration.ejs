@@ -16,34 +16,34 @@
 
         <!-- First tab -->
         <div class="tab">
-          <p><input placeholder="Όνομα" oninput="this.className = ''" name="regFirstName"></p>
-          <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="regLastName"></p>
-          <p><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="regEmail" id="regEmail">
-            <small id="emailValidation" >*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+          <p><input placeholder="Όνομα" oninput="this.className = ''" name="firstName"></p>
+          <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></p>
+          <p><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail">
+            <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
           </p>
           
-          <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="regPassword"></p>
+          <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>
         </div>
 
         <!-- Second tab -->
         <div class="tab">
           <p>Φύλο:</p>
           <label class="container" for="male">
-            Άνδρας <input type="radio" name="radioGender" id="male" value="male" onclick="hideGenderValidation();">
+            Άνδρας <input type="radio" name="gender" id="male" value="Male" onclick="hideGenderValidation();">
             <span class="checkmark"></span>
           </label> 
           <label class="container" for="female">
-            Γυναίκα <input type="radio" name="radioGender" id="female" value="female" onclick="hideGenderValidation();">
+            Γυναίκα <input type="radio" name="gender" id="female" value="Female" onclick="hideGenderValidation();">
             <span class="checkmark"></span> 
           </label>
           <label class="container" for="other">
-            Άλλο <input type="radio" name="radioGender" id="other" value="other" onclick="hideGenderValidation();">
+            Άλλο <input type="radio" name="gender" id="other" value="Non-Binary" onclick="hideGenderValidation();">
             <span class="checkmark"></span> 
           </label>
           <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
         
           <p>Ημερομηνία Γέννησης: </p>
-          <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="regDateOfBirth" id="regDateOfBirth"></p>
+          <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth" id="regDateOfBirth"></p>
         
           <p>Υπάρχει διεύθυνση σταθερής κατοικίας; :</p>
            <label class="container">
@@ -57,7 +57,7 @@
         
           <div id="divAddress">
             <p>Διεύθυνση: </p>
-            <p><input placeholder="Πανεπιστημίου 39"  oninput="this.className = ''" id="regAddress" name="regAddress"></p>
+            <p><input placeholder="Πανεπιστημίου 39"  oninput="this.className = ''" id="regAddress" name="address"></p>
           </div>
         </div>
 
@@ -67,13 +67,13 @@
             <label for="profileImg" class="col-4 col-form-label"> Προσθέστε φωτογραφία : </label>
             <!-- to be modified when time comes, ideally display a round image-->
             <div class="col-6">
-              <input type="file" class="form-control-file" id="regProfileImg" name="regProfileImg">
+              <input type="file" class="form-control-file" id="regProfileImg" name="photo">
             </div>
           </div>
           <div class="form-group row ">
             <label for="regSmallΒbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
             <div class="col-6">
-              <textarea class="form-control" name="regSmallΒbio" id="regSmallΒbio" rows="5"></textarea>
+              <textarea class="form-control" name="description" id="regSmallΒbio" rows="5"></textarea>
           </div>
         </div>
       </div>
@@ -85,49 +85,49 @@
         
           <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="radioWork" id="workYes" value="workYes">
+            Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="workYes">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="radioWork" id="workNo" value="workNo">
+            Οχι<input type="radio" name="employeed" id="workNo" value="workNo">
             <span class="checkmark"></span>
           </label>
         
           <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="radioDisabled" id="disabledYes" value="disabledYes">
+            Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="disabledYes">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="radioDisabled" id="disabledNo" value="disabledNo">
+            Οχι<input type="radio" name="disabled" id="disabledNo" value="disabledNo">
             <span class="checkmark"></span>
           </label>
         
           <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="radioVoluntarism" id="voluntarismYes" value="voluntarismYes" >
+            Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="voluntarismYes" >
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="radioVoluntarism" id="voluntarismNo" value="voluntarismNo">
+            Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="voluntarismNo">
             <span class="checkmark"></span>
           </label>
         
           <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
           <label class="container"> 
-            Καθόλου<input type="radio" checked="checked" name="radioFreeTime" id="freeTimeNone" value="freeTimeNone">
+            Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone" value="freeTimeNone">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Ελάχιστο χρόνο<input type="radio" name="radioFreeTime" id="freeTimeMinimum" value="freeTimeMinimum">
+            Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Κυρίως τα σαββατοκύριακα<input type="radio" name="radioFreeTime" id="freeTimeWeekend" value="freeTimeWeekend">
+            Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend" value="freeTimeWeekend">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Μερικές μέρες της εβδομάδας<input type="radio" name="radioFreeTime" id="freeTimeSome" value="freeTimeSome">
+            Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome" value="freeTimeSome">
             <span class="checkmark"></span>
           </label>
         
