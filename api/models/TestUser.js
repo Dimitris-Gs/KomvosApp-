@@ -25,7 +25,7 @@ module.exports = {
     employeed: { type:'boolean', required: true},
     disabled: { type:'boolean', required: true},
     volunteer: { type:'boolean', required: true},
-    freeTime: { type:'boolean', required: true, columnName:'free_time' }, //isIn: ['ΚΑΘΟΛΟΥ', 'ΜΕΡΙΚΩΣ', 'Σ-Κ']
+    freeTime: { type:'string', required: true, columnName:'free_time' }, //isIn: ['ΚΑΘΟΛΟΥ', 'ΜΕΡΙΚΩΣ', 'Σ-Κ']
     admin: { type: 'boolean', required: true },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗

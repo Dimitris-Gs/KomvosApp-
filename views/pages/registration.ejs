@@ -2,7 +2,7 @@
 <div class="container mt-5">
   <div class="row d-flex justify-content-center align-items-center">
     <div class="col-md-6">
-      <form id="regForm">
+      <form id="regForm" action="/rest" method="POST">
 
         <h1 id="register">Εγγραφή</h1>
 
@@ -85,31 +85,31 @@
         
           <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="workYes">
+            Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="employeed" id="workNo" value="workNo">
+            Οχι<input type="radio" name="employeed" id="workNo" value="false">
             <span class="checkmark"></span>
           </label>
         
           <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="disabledYes">
+            Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true">
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="disabled" id="disabledNo" value="disabledNo">
+            Οχι<input type="radio" name="disabled" id="disabledNo" value="false">
             <span class="checkmark"></span>
           </label>
         
           <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
           <label class="container"> 
-            Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="voluntarismYes" >
+            Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true" >
             <span class="checkmark"></span>
           </label>
           <label class="container">
-            Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="voluntarismNo">
+            Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false">
             <span class="checkmark"></span>
           </label>
         
