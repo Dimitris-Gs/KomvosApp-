@@ -61,7 +61,10 @@ function showTab(tabIndex) {
   }
 
   if (tabIndex == (tabs.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Εγγραφή";
+    //document.getElementById("nextBtn").innerHTML = "Εγγραφή";
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("submitBtn").style.display = "inline";
+
   }
   else {
     document.getElementById("nextBtn").innerHTML = "Επόμενο";
