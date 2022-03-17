@@ -2,7 +2,7 @@ dy {
     background: #000
 }
 
-.card {
+#form1 {
     border: none;
     height: 320px
 }
@@ -31,7 +31,7 @@ dy {
     border: 2px solid #000
 }
 
-.btn {
+.log-btn {
     height: 50px
 }
 
@@ -48,7 +48,7 @@ dy {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.btn {
+.log-btn {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: large;
     background-color: #5a5a5a;
