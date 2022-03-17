@@ -25,7 +25,8 @@ module.exports.routes = {
   '/login'   : {view : 'pages/loginform'},
   '/create'  : {action:'create'},
   '/profile' : {action:"profile"},
-  'POST /rest': {action:"rest-api/create-user"}
+  'POST /rest': {action:"rest-api/create-user"},
+  '/viewuserprofile' : {action :'user-profile'}
 
   
   

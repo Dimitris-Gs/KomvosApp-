@@ -16,7 +16,9 @@ module.exports = {
     receiving_user_id: { model: 'testuser'},
     listing_id: { model: 'listing'},
     pointsOfTransaction: { type: 'number', defaultsTo: 1, columnName: 'pointsoftransaction'},
-    status: {type:'string', required: true } //in progress,finished,canceled
+    status: {type:'string', required: true }, //in progress,finished,canceled,
+    //ίσως θα ήταν χρήσιμο να έχουμε ημερομηνία είτε που γίνεται η συμφωνία είτε που ολοκληρώνεται 
+    // σdate:{type:'string',required: false}// Υπάρχει πρόβλημα εάν ένας χρήστης έχει χρησιμοποιήσει ένα listing παραπάνω από μια φορά 
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

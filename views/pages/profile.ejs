@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <div id="receivingListings">
+        
+
+    </div>
+    <!-- <layout 1 edit  display="none"> -->
+
+    <!-- </layout> -->
+    <h1>This is the user profile</h1>
+    <button onclick="xhttp.onreadystatechange.printReceivedListings()"> Get receiving arrangements </button>
+</body>
+<script >
+    
+    var xhttp = new XMLHttpRequest();
+    console.log(xhttp);
+              xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                    //   var result = this.responseText;
+                    // console.log(Array.from(JSON.parse(result)));
+                      var mixedArray = Array.from(JSON.parse(this.responseText));
+                      var receivingArrangements = mixedArray[0];
+                      var offeringArrangements = mixedArray[1];
+                    //   console.log(receivingArrangements);
+                    //   console.log(offeringArrangements);
+                    //   receivingArrangements.forEach(element => {console.log(element.name)
+                          
+                    //   });;
+                
+
+                
+                    let entry = document.getElementById("receivingListings");
+                      
+                    let output = "" ;
+
+                    output = receivingArrangements.map(element => `<p> You received ${element.name} from user ${element.arrangements[0].offering_user_id} with description ${element.description} </p> ` ).join('');
+                    entry.innerHTML=output;
+                
+                    let offeringUsersArray = receivingArrangements.map(element => element.arrangements[0].offering_user_id);
+                    // console.log(offeringUsersArray);
+
+                    //   let i = 0;
+                    //   resultProductIds.forEach(quantity => {
+                    //       let entry = document.getElementById(o${orderId}p${arrayOfProductIds[i++]});
+                    //       entry.innerHTML = quantity;
+                    //   });
+                    }
+                  }
+                  xhttp.open("GET", "http://localhost:1337/profile", true);
+                  xhttp.setRequestHeader("Content-type", "application/json");
+                  xhttp.send();
+    
+                
+</script>
+</html>

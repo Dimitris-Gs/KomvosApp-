@@ -32,13 +32,15 @@ module.exports = {
 
     */
 
+   // attempt to find the arrangements where user is the receiver
+
     let user = await TestUser.findOne({ 
       where: {id:1},
       select: ['firstName', 'email', "dateOfBirth"]
     })
 
     
-    let userArrangements = await Arrangement.find({ 
+    let userArrangementsReceiving = await Arrangement.find({ 
       where: {
         receiving_user_id: user.id,
         status: {in: ['finished','inProgress']}
@@ -46,13 +48,33 @@ module.exports = {
       select: ['listing_id']
     })
     
-    let numbers = userArrangements.map(element => element.listing_id)
-    console.log(numbers);
+    let numbersReceiving = userArrangementsReceiving.map(element => element.listing_id)
+    console.log(numbersReceiving);
     // console.log(userListing);
     
-    let userListing = await Listing.find({
-      where: {id: { in: numbers } }
-    }).populate('arrangements')
+    let userListingReceiving = await Listing.find({
+      where: {id: { in: numbersReceiving } }
+    }).populate('arrangements');
+    
+    let userArrangementsOffering = await Arrangement.find({ 
+      where: {
+        offering_user_id: user.id,
+        status: {in: ['finished','inProgress']}
+      },
+      select: ['listing_id']
+    })
+    
+    // attempt to find the arrangements where user is the provider
+
+    let numbersOffering = userArrangementsOffering.map(element => element.listing_id)
+    console.log(numbersOffering);
+    // console.log(userListing);
+    
+    let userListingOffering = await Listing.find({
+      where: {id: { in: numbersOffering } }
+    }).populate('arrangements');
+
+   
     // , {
     //   where: {
     //     offering_user_id: user.id,
@@ -64,7 +86,7 @@ module.exports = {
     // console.log(userListing.populate());
     
     // All done.
-    return userListing;
+    return [userListingReceiving,userListingOffering];
 
   }
 
