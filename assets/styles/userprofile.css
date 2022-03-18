@@ -118,3 +118,14 @@ hr .new1 {
   color: white;
 }
 
+
+/* Edit form */
+
+#editform{
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    width: 100%;
+    background: white
+}
