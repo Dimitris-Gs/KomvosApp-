@@ -52,7 +52,7 @@
  }
 
  button {
-     background-color: #5a5a5a;
+     background-color: #e33e5a;
      border-radius: 5px;
      color: #ffffff;
      border: none;
@@ -67,7 +67,7 @@
  }
 
  #prevBtn {
-     background-color: #bbbbbb
+     background-color: #1f4068
  }
 
  .step {
@@ -86,7 +86,7 @@
  }
 
  .step.finish {
-     background-color: #5a5a5a
+     background-color: #5a5a5a;
  }
 
  .all-steps {

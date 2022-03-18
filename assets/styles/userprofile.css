@@ -11,7 +11,7 @@ body {
 }
 
 #main {
-  background-color: #aeaeae;
+  background-color: #d4d3d3;
 }
 
 
@@ -21,6 +21,8 @@ body {
   border-radius: 50%;
   margin-right: 20px;
 }
+
+
 
 .userProfile {
   padding-left: 7.5rem;
@@ -43,13 +45,15 @@ body {
 }
 
 .user-card:hover .image img {
-    transform: scale(1.5)
+    transform: scale(1.5);
+    background-color: #2a476b;
 } 
 
 .imgBtn {
     height: 140px;
     width: 140px;
-    border-radius: 50%
+    border-radius: 50%;
+    background-color: #1f4068;
 }
 
 .name {
@@ -62,35 +66,20 @@ body {
     font-weight: 600
 }
 
-.idd1 {
-    font-size: 12px
-}
-
-.number {
-    font-size: 22px;
-    font-weight: bold
-}
-
-.follow {
-    font-size: 12px;
-    font-weight: 500;
-    color: #444444
-}
-
 .editBtn {
     height: 40px;
     width: 200px;
     border: none;
-    background-color: #000;
+    background-color:  #e33e5a;
     color: white;
     font-size: 15px
 }
 
-.text span {
+/* .text span {
     font-size: 13px;
     color: #545454;
     font-weight: 500
-}
+} */
 
 .icons i {
     font-size: 19px
@@ -100,23 +89,18 @@ hr .new1 {
     border: 1px solid
 }
 
-.join {
-    font-size: 14px;
-    color: #a0a0a0;
-    font-weight: bold
-}
-
+/* 
 .date {
     background-color: #ccc
-}
+} */
 
-.ads {
+/* .ads {
   margin-top: 3rem;
   max-width: 80%;
   height: auto;
   background-color: #838388;
   color: white;
-}
+} */
 
 
 /* Edit form */
