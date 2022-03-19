@@ -4,7 +4,6 @@
 
 body {
   padding-top: 3rem;
-  padding-bottom: 3rem;
   color: #5a5a5a;
 }
 
@@ -34,6 +33,9 @@ body {
   height: 32rem;
 }
 
+.carousel-btn{
+  background-color: #e33e5a;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
