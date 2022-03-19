@@ -20,14 +20,14 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
-  '/register': {view: 'pages/registration'},
-  '/aboutus' : {view: 'pages/aboutus'},
-  '/login'   : {view : 'pages/loginform'},
-  '/create'  : {action:'create'},
-  '/profile' : {action:"profile"},
-  'POST /rest': {action:"rest-api/create-user"},
-  '/userprofile' : {view: 'pages/userprofile'},
-  'POST /userprofile': {action: 'rest-api/user-profile'}
+  '/register': { view : 'pages/registration' },
+  '/aboutus' : { view : 'pages/aboutus' },
+  '/login'   : { view : 'pages/loginform' },
+  '/create'  : { action : 'create' },
+  '/profile' : { action : 'profile' },
+  'POST /rest': { action : 'rest-api/create-user' },
+  '/userprofile' : { view : 'pages/userprofile' },
+  'POST /userprofile': { action : 'rest-api/user-profile' }
 
   
   
