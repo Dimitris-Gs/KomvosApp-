@@ -1,0 +1,226 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Αρχική</a>
+        </li>
+        <!-- <li class="nav-item">
+              <a class="nav-link" href="#">Features</a>
+            </li> -->
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Ποιοι είμαστε</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Κοινότητα
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Αγγελίες Προσφοράς</a></li>
+            <li><a class="dropdown-item" href="#">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="dropdown userProfile">
+      <button class="btn-profile btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Προφίλ</a></li>
+        <li><a class="dropdown-item" href="#">Επεξεργασία Προφίλ</a></li>
+        <li><a class="dropdown-item" href="#">Συνδρομή</a></li>
+        <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+<div id="main">
+
+  <div class="row">
+    <div class="col-4">
+
+      <div class="container mt-4 mb-4 p-3 d-flex">
+        <div class="card user-card p-4">
+          <div class=" image d-flex flex-column justify-content-center align-items-center">
+            <button class="imgBtn btn-secondary">
+              <img src="" height="100" width="100" />
+            </button>
+            <span class="name mt-3">user</span>
+            <span class="idd">@user</span>
+            <div class=" d-flex mt-2">
+              <button class="editBtn btn-dark" id="toggle">Εξεργασία Προφίλ</button>
+            </div>
+            <div class=" d-flex mt-2">
+              <button class="editBtn btn-dark">Σχόλια</button>
+            </div>
+            <div class=" d-flex mt-2">
+              <button class="editBtn btn-dark" id="offered" value="offering">έχει προσφαίρει</button>
+            </div>
+            <div class=" d-flex mt-2">
+              <button class="editBtn btn-dark" id="received" value="receiving">έχει δεχθεί</button>
+            </div>
+            <div class=" d-flex mt-2">
+              <button class="editBtn btn-dark">Μηνύματα</button>
+            </div>
+            <div class="text mt-3">
+              <span>
+                user infos
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Edit profile card -->
+    <div class="col-8">
+      <div class="col-md-8 border-right">
+        <div id="editform" style="display: none;">
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Επεξεργασία Προφιλ</h4>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Ονομα</label><input type="text" class="form-control"
+                  placeholder="Ονομα" value="" oninput="this.className = ''" name="firstName"></div>
+              <div class="col-md-6"><label class="labels">Επώνυμο</label><input type="text" class="form-control"
+                  value="" placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control"
+                  placeholder="Email" value="" oninput="emailInputEventHandler()" name="email" id="regEmail"></div>
+              <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+              <div class="col-md-12"><label class="labels">Κωδικός</label><input type="password" class="form-control"
+                  placeholder="Κωδικός" value="" oninput="this.className = ''" name="password"></div>
+              <div class="col-md-12"><label class="labels">Φύλο:</label>
+                <label class="container" for="male">
+                  Άνδρας <input type="radio" name="gender" id="male" value="Male" onclick="hideGenderValidation();">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container" for="female">
+                  Γυναίκα <input type="radio" name="gender" id="female" value="Female"
+                    onclick="hideGenderValidation();">
+                  <span class="checkmark"></span>
+                </label>
+                <label class="container" for="other">
+
+                  Άλλο <input type="radio" name="gender" id="other" value="Non-Binary"
+                    onclick="hideGenderValidation();">
+                  <span class="checkmark"></span>
+                </label>
+                <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
+              </div>
+              <div class="col-md-12"><label class="labels">Ημερομηνία Γέννησης:</label><input type="date"
+                  oninput="this.className = ''" name="dateOfBirth" id="regDateOfBirth" class="form-control"
+                  placeholder="Ημερομηνία Γέννησης:" value=""></div>
+              <div class="col-md-12">
+                <div class="col-md-12"><label class="labels">Διεύθυνση Κατοικίας</label>
+                  <label class="container">
+                    Ναι <input id="addressYes" type="radio" name="radioAddress" value="addressYes"
+                      onclick="displayAddress();">
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="container">
+                    Όχι <input id="addressNo" type="radio" name="radioAddress" value="addressNo"
+                      onclick="displayAddress();">
+                    <span class="checkmark"></span>
+                  </label>
+                  <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας" value=""
+                    oninput="this.className = ''" id="regAddress" name="address">
+                </div>
+                <div class="col-md-12"><label class="labels">Προσθέστε φωτογραφία :</label>
+                  <div>
+                    <input type="file" class="form-control-file" id="regProfileImg" name="photo">
+                    <div class="col-md-12"><label for="regSmallBio" class="labels">Λίγα λόγια για εμένα:</label>
+                      <div class="col-12">
+                        <textarea class="form-control" name="description" id="regSmallΒbio" rows="5"></textarea>
+                      </div>
+
+                      <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
+                      <label class="container">
+                        Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Οχι<input type="radio" name="employeed" id="workNo" value="false">
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
+                      <label class="container">
+                        Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Οχι<input type="radio" name="disabled" id="disabledNo" value="false">
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
+                      <label class="container">
+                        Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false">
+                        <span class="checkmark"></span>
+                      </label>
+
+                      <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
+                      <label class="container">
+                        Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone"
+                          value="freeTimeNone">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend"
+                          value="freeTimeWeekend">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="container">
+                        Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome"
+                          value="freeTimeSome">
+                        <span class="checkmark"></span>
+                      </label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      <div class="col-md-12">
+                        <div class="mt-5 text-center"><button class="btn btn-dark profile-button" type="button">Save
+                            Profile</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
