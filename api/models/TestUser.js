@@ -12,10 +12,11 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
+
     firstName: { type: 'string', required: true, columnName: 'first_name' },
     lastName: { type: 'string', required: true, columnName: 'last_name' },
     email: { type: 'string', required: true, isEmail: true, unique: true, maxLength: 200},
-    password: {type:'string', required: true, },
+    password: {type:'string', required: true },
     gender: {type:'string', required:true, isIn: ['Male', 'Female', 'Non-Binary'] }, //isIn: ['Male', 'Female', 'Non-Binary']
     dateOfBirth: { type: 'string', required: true, columnName: 'date_of_birth', isAfter: new Date('Mon Jan 01 1940 00:00:00 GMT-0000'), isBefore: new Date('Thr Jan 01 2004 00:00:00 GMT-0000'), columnType: 'date'}, //
     address: { type: 'string', required: true }, //Is required true necessary
@@ -36,6 +37,7 @@ module.exports = {
     //  ╔═╗╔═╗╔═╗╔═╗╔═╗╦╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
     //  ╠═╣╚═╗╚═╗║ ║║  ║╠═╣ ║ ║║ ║║║║╚═╗
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
+    
     categories: {
       collection: 'categories',
       via: 'user_id',
