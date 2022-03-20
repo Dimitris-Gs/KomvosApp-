@@ -10,7 +10,7 @@ body {
 }
 
 #main {
-  background-image: url(/images/paul-earle-wVjd0eWNqI8-unsplash.jpg);
+  background-color: #64656b;
   padding-bottom: 3rem;
   height: 100%;
  
@@ -74,7 +74,7 @@ body {
     height: 40px;
     width: 200px;
     border: none;
-    background-color:  #e33e5a;
+    background-color: #1f4068;
     color: white;
     font-size: 15px
 }
