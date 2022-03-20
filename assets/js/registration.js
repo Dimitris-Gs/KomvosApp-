@@ -10,7 +10,6 @@ const fourthTab = 3;
 
 // when the page is loaded we call the function showTab
 document.addEventListener("DOMContentLoaded", function (event) {
-  
   showTab(currentTab);
 });
 
@@ -82,7 +81,7 @@ function showTab(tabIndex) {
  *     else returns true
  * 
  * Description:  -hides the current tab and displays the previous or the next tab depending on the input 
- *                and whether the inputs are validated or not
+ *                and whether the inputs are validated or not (calls validateForm())
  *               -changes the value of the global var currentTab depending on the input
  *               -displays a thank you message at the final tab and hides not necessary elements
  *               -calls showTab()
@@ -99,9 +98,6 @@ function nextPrev(nextOrPrevious) {
   currentTab = currentTab + nextOrPrevious;
 
   if (currentTab >= tabs.length) {
-    // document.getElementById("regForm").submit();
-    // return false;
-    //alert("sdf");
     document.getElementById("nextprevious").style.display = "none";
     document.getElementById("all-steps").style.display = "none";
     document.getElementById("register").style.display = "none";
@@ -109,14 +105,6 @@ function nextPrev(nextOrPrevious) {
 
   }
   showTab(currentTab);
-}
-
-
-function displayAddress() {
-  if (document.getElementById('addressYes').checked) {
-    document.getElementById('divAddress').style.display = 'block';
-  }
-  else document.getElementById('divAddress').style.display = 'none';
 
 }
 
@@ -144,9 +132,57 @@ function validateEmail(emailString) {
   }
 }
 
+/***************************************
+ * function checkDateOfBirth(dateValue)
+ * Inputs:
+ *    -dateValue: (string) the date to be checked
+ * Outputs:
+ *    -(boolean) returns true if the calculated user's age is between 18 and 80 and false if it's not
+ * 
+ *  Description: -calculates the user's age
+ *               -returns true if the calculated user's age is between 18 and 80 and false if it's not
+ */
+ function checkDateOfBirth(dateValue) {
+
+  if (dateValue) {
+    const msPerYearNormal = 31557600000;
+    const msPerYearLarge = 31622400000;
+    const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
+
+    let properDateValue = +new Date(dateValue);
+    // let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
+    let age = ((Date.now() - properDateValue) / (msPerYearNormal));
+    console.log(age);
+
+    if (age < 18 || age > 80) {
+      return false;
+    }
+
+    return true;
+  }
+  else {
+    return false;
+  }
+
+}
+
+/**************************
+ * function validateForm()
+ * Inputs:
+ *      -none
+ * Outputs:
+ *      -(boolean) returns true if the fields of each tab are valid and false if they're not
+ * 
+ * Description: - in a switch statement the inputs of each tab are checked, 
+ *              - if they are not valid a class "invalid" (css: background-color: pink) is added on input elements and text area
+ *              - calls validateEmail() for email inputs
+ *              - calls checkDateOfBirth() for date inputs
+ *              - displays validation messages
+ *              - adds class "finish" to color the steps that mark each tab
+ */
 
 function validateForm() {
- 
+
   let valid = true;
 
   switch (currentTab) {
@@ -173,7 +209,7 @@ function validateForm() {
 
     case secondTab:
 
-    // validation for gender selection radio buttons
+      // validation for gender selection radio buttons
       let radioGenderValue = document.querySelector('input[name="gender"]:checked');
 
       if (radioGenderValue == null) {
@@ -181,26 +217,38 @@ function validateForm() {
         document.getElementById("genderValidation").style.display = "block";
       }
 
-    // validation for users age between 18 and 80
-      let dateValue = document.getElementById("regDateOfBirth");
-
-      if(!checkDateOfBirth(dateValue.value)){
+      // validation for users age between 18 and 80
+      let date = document.getElementById("regDateOfBirth");
+      
+      if (!checkDateOfBirth(date.value)) {
         valid = false;
-        dateValue.className += " invalid";
+        date.className += " invalid";
       }
 
-    // validation for address
+      // validation for address
       let radioAddressValue = document.querySelector('input[name="radioAddress"]:checked');
 
       if (radioAddressValue == null) {
         valid = false;
-        
+
       }
       else if (document.getElementById('addressYes').checked) {
-        if (document.getElementById("regAddress").value == "" ){
+        if (document.getElementById("regAddress").value == "") {
           valid = false;
           document.getElementById("regAddress").className += " invalid";
         }
+      }
+
+      break;
+
+    case thirdTab:
+
+      //validation for textarea
+      let textarea = document.getElementById("regSmallΒbio");
+     
+      if (textarea.value == "") {
+        valid = false;
+        textarea.className += " invalid";
       }
 
       break;
@@ -234,32 +282,32 @@ function emailInputEventHandler() {
   document.getElementById("regEmail").className = "";
   document.getElementById("emailValidation").style.display = 'none';
 }
-
+/**********************************
+ * function hideGenderValidation()
+ * Inputs:
+ *    -none
+ * Outputs:
+ *    -none
+ * 
+ * Description: -hides the validation message below the radio buttons
+ */
 function hideGenderValidation() {
   document.getElementById("genderValidation").style.display = 'none';
 }
 
-function checkDateOfBirth(dateValue){
+/****************************
+ * function displayAddress()
+ * Inputs: 
+ *      -none
+ * Outputs:
+ *      -none
+ * 
+ * Description: -displays or hides the div containing the input for the address
+ */
 
-  if(dateValue){
-    const msPerYearNormal = 31557600000;
-    const msPerYearLarge = 31622400000;
-    const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
-
-    let properDateValue = +new Date(dateValue);
-    // let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
-    let age = ((Date.now() - properDateValue) / (msPerYearNormal));
-    console.log(age);
-
-    if ( age < 18 || age > 80) {
-      return false;
-    }
-    
-    return true;
+ function displayAddress() {
+  if (document.getElementById('addressYes').checked) {
+    document.getElementById('divAddress').style.display = 'block';
   }
-  else {
-    return false;
-  }
-
-
+  else document.getElementById('divAddress').style.display = 'none';
 }
