@@ -5,106 +5,86 @@
 }
  
 
+
 body {  
   color: #5a5a5a; 
+  
 }
 
-#main {
-  background-color: #64656b;
-  padding-bottom: 3rem;
-  height: 100%;
+#main{
+    background-color: #69707a;
+    padding-top: 4rem;
+    padding-bottom: 100%;
  
 }
 
 
-.btn-profile {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  margin-right: 20px;
-  background-color:  rgb(255, 255, 255);
-}
 
+.img-account-profile {
+        height: 10rem;
+    }
+    .rounded-circle {
+        border-radius: 50% !important;
+    }
+    .card {
+        box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+    }
+    .card .card-header {
+        font-weight: 500;
+    }
+    .card-header:first-child {
+        border-radius: 0.35rem 0.35rem 0 0;
+    }
+    .card-header {
+        padding: 1rem 1.35rem;
+        margin-bottom: 0;
+        background-color: rgba(33, 40, 50, 0.03);
+        border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+    }
+    .form-control, .dataTable-input {
+        display: block;
+        width: 100%;
+        padding: 0.875rem 1.125rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1;
+        color: #69707a;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #c5ccd6;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 0.35rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    
+    .nav-borders .nav-link.active {
+        color: #1f4068;
+        border-bottom-color: #1f4068;
+    }
+    .nav-borders .nav-link {
+        color: #69707a;
+        border-bottom-width: 0.125rem;
+        border-bottom-style: solid;
+        border-bottom-color: transparent;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 
+    .btnProf {
+        width: 150px;
+        background-color: #1f4068;
+    }
 
-.userProfile {
-  padding-left: 7.5rem;
-}
-
-.causer-cardrd {
-    width: 10%;
-    background-color: #efefef;
-    border: none;
-    cursor: pointer;
-    transition: all 0.5s
-}
-
-.image img {
-    transition: all 0.5s
-} 
-
-.user-card {
-  width: 90%;
-  background-color: #efefefd3;
-}
-
-.user-card:hover .image img {
-    transform: scale(1.5);
-    background-color: #2a476b;
-} 
-
-.imgBtn {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    background-color: #1f4068;
-}
-
-.name {
-    font-size: 22px;
-    font-weight: bold
-}
-
-.idd {
-    font-size: 14px;
-    font-weight: 600
-}
-
-.editBtn {
-    height: 40px;
-    width: 200px;
-    border: none;
-    background-color: #1f4068;
-    color: white;
-    font-size: 15px
-}
-
-/* .text span {
-    font-size: 13px;
-    color: #545454;
-    font-weight: 500
-} */
-
-.icons i {
-    font-size: 19px
-}
-
-hr .new1 {
-    border: 1px solid
-}
-
-/* 
-.date {
-    background-color: #ccc
-} */
-
-/* .ads {
-  margin-top: 3rem;
-  max-width: 80%;
-  height: auto;
-  background-color: #838388;
-  color: white;
-} */
+    a {
+        text-decoration: none;
+        color: #1f4068;
+    }
 
 
 /* Edit form */
@@ -115,5 +95,5 @@ hr .new1 {
     border: 1px solid #efefef;
     border-radius: 5px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.726)
+    background: rgba(255, 255, 255, 0.473)
 }

@@ -11,31 +11,21 @@ module.exports = {
 
   },
 
-
   exits: {
-
+    success: {
+      viewTemplatePath: 'pages/userprofile'
+    }
   },
 
 
-  find: async function (inputs) {
+  fn: async function (inputs) {
     // Find user in db
     const user = await TestUser.findOne({
       where: { id: 1 },
-      select: ['firstName', 'email', "dateOfBirth"]
+      select: ['firstName', 'lastName', 'email', "gender", "dateOfBirth", "address", "photo", "description", "employeed", "disabled", "volunteer", "freeTime"]
     });
 
     // All done.
-    return user;
-  },
-
-  update: async function (inputs) {
-    // Find user in db
-    const user = await TestUser.findOne({
-      where: { id: 1 },
-      select: ['firstName', 'email', "dateOfBirth"]
-    });
-
-    // All done.
-    return user;
+    return { user };
   },
 };
