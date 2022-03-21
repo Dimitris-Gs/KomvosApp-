@@ -1,34 +1,35 @@
-<div class="container mt-5">
-  <div class="row d-flex justify-content-center align-items-center">
-    <div class="col-md-6">
-      <form id="regForm" action="/rest" method="POST">
+<div id="registrationBody">
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-md-6">
+        <form id="regForm" action="/rest" method="POST">
 
-        <h1 id="register">Εγγραφή</h1>
+          <h1 id="register">Εγγραφή</h1>
 
-        <!-- Small dots displaying on top of the form to track the progress of each tab -->
-        <div class="all-steps" id="all-steps">
-          <span class="step"></span>
-          <span class="step"></span>
-          <span class="step"></span>
-          <span class="step"></span>
-        </div>
+          <!-- Small dots displaying on top of the form to track the progress of each tab -->
+          <div class="all-steps" id="all-steps">
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+            <span class="step"></span>
+          </div>
 
-        <!-- First tab -->
-        <div class="tab">
-          <p><input placeholder="Όνομα" oninput="this.className = ''" name="firstName"></p>
-          <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></p>
-          <p><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail">
-            <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
-          </p>
+          <!-- First tab -->
+          <div class="tab">
+            <p><input placeholder="Όνομα" oninput="this.className = ''" name="firstName"></p>
+            <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></p>
+            <p><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail">
+              <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+            </p>
 
-          <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>
-        </div>
+            <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>
+          </div>
 
-        <!-- Second tab -->
-        <div class="tab">
-          <p>Φύλο:</p>          
+          <!-- Second tab -->
+          <div class="tab">
+            <p>Φύλο:</p>
             <label class="container" for="male">
-              Άνδρας <input type="radio" name="gender" id="male" value="Male"  onclick="hideGenderValidation();">
+              Άνδρας <input type="radio" name="gender" id="male" value="Male" onclick="hideGenderValidation();">
               <span class="checkmark"></span>
             </label>
             <label class="container" for="female">
@@ -40,131 +41,116 @@
               <span class="checkmark"></span>
             </label>
             <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
-          
-          <p>Ημερομηνία Γέννησης: </p>
-          <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"
-              id="regDateOfBirth"></p>
 
-          <p>Υπάρχει διεύθυνση σταθερής κατοικίας; :</p>
-          <label class="container">
-            Ναι <input id="addressYes" type="radio" name="radioAddress" value="addressYes" onclick="displayAddress();">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Όχι <input id="addressNo" type="radio" name="radioAddress" value="addressNo" onclick="displayAddress();">
-            <span class="checkmark"></span>
-          </label>
-          <div id="divAddress">
-            <p>Διεύθυνση: </p>
-            <p><input placeholder="Πανεπιστημίου 39" oninput="this.className = ''" id="regAddress" name="address"></p>
-          </div>
-        </div>
+            <p>Ημερομηνία Γέννησης: </p>
+            <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"
+                id="regDateOfBirth"></p>
 
-        <!-- Third tab -->
-        <div class="tab">
-          <p>Εμπλουτίστε το προφίλ σας! Οι ακόλουθες πληροφορίες θα είναι διαθέσιμες στους εγγεγραμένους χρήστες που επισκέπτονται το προφίλ σας.</p>
-          <div class="form-group row pt-3">
-            <label for="profileImg" class="col-5 col-form-label pt-2"> Προσθέστε φωτογραφία : </label>
-            <!-- to be modified when time comes, ideally display a round image-->
-            <div class="col-6">
-              <input type="file" class="form-control-file" id="regProfileImg" name="photo">
+            <p>Υπάρχει διεύθυνση σταθερής κατοικίας; :</p>
+            <label class="container">
+              Ναι <input id="addressYes" type="radio" name="radioAddress" value="addressYes"
+                onclick="displayAddress();">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Όχι <input id="addressNo" type="radio" name="radioAddress" value="addressNo" onclick="displayAddress();">
+              <span class="checkmark"></span>
+            </label>
+            <div id="divAddress">
+              <p>Διεύθυνση: </p>
+              <p><input placeholder="Πανεπιστημίου 39" oninput="this.className = ''" id="regAddress" name="address"></p>
             </div>
           </div>
-          <div class="pt-2">
-            <label for="regSmallΒbio" class="form-label"> Λίγα λόγια για εμένα: </label>
-            <div class="pb-4 pt-2">
-              <textarea class="form-control" name="description" id="regSmallΒbio" placeholder="Περιγράψτε τις δεξιότητες και τους τομείς προσφοράς του κόμβου που σας ενδιαφέρουν! Βοηθήστε τους άλλους χρήστες να σας γνωρίσουν καλύτερα!"  oninput="this.className = ''" maxlength="200" ></textarea>
+
+          <!-- Third tab -->
+          <div class="tab">
+            <div class="form-group row">
+              <label for="profileImg" class="col-4 col-form-label"> Προσθέστε φωτογραφία : </label>
+              <!-- to be modified when time comes, ideally display a round image-->
+              <div class="col-6">
+                <input type="file" class="form-control-file" id="regProfileImg" name="photo">
+              </div>
+            </div>
+            <div class="form-group row ">
+              <label for="regSmallΒbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
+              <div class="col-6">
+                <textarea class="form-control" name="description" id="regSmallΒbio" rows="5"></textarea>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Παλιά μορφή της tab 3 για όποιον διαφωνεί με το παρόν layout -->
-        <!-- <div class="tab">
-          <div class="form-group row">
-            <label for="profileImg" class="col-4 col-form-label"> Προσθέστε φωτογραφία : </label>
-            <to be modified when time comes, ideally display a round image
-            <div class="col-6">
-              <input type="file" class="form-control-file" id="regProfileImg" name="photo">
+          <!-- Fourth tab -->
+          <div class="tab">
+            <p>Μερικές ερωτήσεις για να γνωριστούμε καλύτερα. Αυτές οι πληροφορίες δεν θα γίνουν ποτέ γνωστές σε
+              τρίτους.
+              Μπορείτε ανα πάσα στιγμή να τις ανανεώσετε.</p>
+
+            <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="employeed" id="workNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="disabled" id="disabledNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
+            <label class="container">
+              Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false">
+              <span class="checkmark"></span>
+            </label>
+
+            <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
+            <label class="container">
+              Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone" value="freeTimeNone">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend" value="freeTimeWeekend">
+              <span class="checkmark"></span>
+            </label>
+            <label class="container">
+              Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome" value="freeTimeSome">
+              <span class="checkmark"></span>
+            </label>
+
+
+          </div>
+
+          <div class="thanks-message text-center" id="thanks-text-message"> <img src="https://i.imgur.com/O18mJ1K.png"
+              width="100" class="mb-4">
+            <h3>Ευχαριστούμε για την εγγραφή σας </h3>
+            <span>Παρακαλούμε επιβεβαιώστε την εγγραφή σας στο email σας!</span>
+          </div>
+
+          <div style="overflow:auto;" id="nextprevious">
+            <div style="float:right;">
+              <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
+              <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
+              <button type="submit" id="submitBtn">Εγγραφή</button>
             </div>
           </div>
-          <div class="form-group row pt-2">
-            <label for="regSmallΒbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
-            <div class="col-8 pb-4 pt-4">
-              <textarea class="form-control" name="description" id="regSmallΒbio" rows="5"></textarea>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- Fourth tab -->
-        <div class="tab pb-3">
-          <p>Μερικές ερωτήσεις για να γνωριστούμε καλύτερα. Αυτές οι πληροφορίες δεν θα γίνουν ποτέ γνωστές σε τρίτους.
-            Μπορείτε ανα πάσα στιγμή να τις ανανεώσετε.</p>
-
-          <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
-          <label class="container">
-            Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Οχι<input type="radio" name="employeed" id="workNo" value="false">
-            <span class="checkmark"></span>
-          </label>
-
-          <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
-          <label class="container">
-            Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Οχι<input type="radio" name="disabled" id="disabledNo" value="false">
-            <span class="checkmark"></span>
-          </label>
-
-          <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
-          <label class="container">
-            Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false">
-            <span class="checkmark"></span>
-          </label>
-
-          <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
-          <label class="container">
-            Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone" value="freeTimeNone">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend" value="freeTimeWeekend">
-            <span class="checkmark"></span>
-          </label>
-          <label class="container">
-            Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome" value="freeTimeSome">
-            <span class="checkmark"></span>
-          </label>
-
-
-        </div>
-
-        <div class="thanks-message text-center" id="thanks-text-message"> <img src="https://i.imgur.com/O18mJ1K.png"
-            width="100" class="mb-4">
-          <h3>Ευχαριστούμε για την εγγραφή σας </h3>
-          <span>Παρακαλούμε επιβεβαιώστε την εγγραφή σας στο email σας!</span>
-        </div>
-
-        <div style="overflow:auto;" id="nextprevious">
-          <div style="float:right;">
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
-            <button type="submit" id="submitBtn">Εγγραφή</button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </div>
