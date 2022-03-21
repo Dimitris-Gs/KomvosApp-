@@ -84,7 +84,7 @@ module.exports = {
      * */
 
 
-    // initialize an array that is about to be populated with the correct data
+    // // initialize an array that is about to be populated with the correct data
     let listingsWithArrangements = [];
     
     
@@ -123,6 +123,9 @@ module.exports = {
           //add properties according to the original object Arrangement's properties
           currentArrangement.id = userListing[i].arrangements[j].id;
           currentArrangement.points = userListing[i].arrangements[j].pointsOfTransaction;
+
+          //Ερώτηση: Δεν θέλουμε να φέρουμε και το offering_user_id? Μας πειράζει ?
+
           
           // find the receiving user's name
           let receiver =  await TestUser.findOne({
@@ -150,7 +153,71 @@ module.exports = {
        
 
 
-    return listingsWithArrangements ;
+
+
+    //Users that are on the receiving end of the arrangements 
+    let userReceivingArrangements = await Arrangement.find({
+      where: {
+        receiving_user_id: user.id,
+        status: { in: ['finished', 'inProgress'] }
+      },
+      select: ['listing_id']
+    });
+
+
+    //We get the listing Ids of the arrangements that our requested user is on the receiving end .
+    let receivingListingIds = userReceivingArrangements.map(element => element.listing_id);
+
+
+    let userReceivingListings = await Listing.find({
+      where: {
+        id : {in : receivingListingIds}
+      }
+      
+    }).populate('arrangements');
+
+    let receivingListingsWithArrangements = [] ; 
+
+    for ( let k = 0 ; k < userReceivingListings.length ; k++)
+    {
+      let currentReceivingListing = {};
+      currentReceivingListing.arrangements= [] ;
+      currentReceivingListing.name = userReceivingListings[k].name;
+      currentReceivingListing.description = userReceivingListings[k].description;
+      
+      let categoryNameForReceivingListings = await ListingCategories.findOne({where: {
+        id:userReceivingListings[k].category_id
+      }, select:['name']});
+      
+      currentReceivingListing.category = categoryNameForReceivingListings.name;
+      currentReceivingListing.startingDate = userReceivingListings[k].startingDate;
+      currentReceivingListing.endingDate = userReceivingListings[k].endingDate;
+      // console.log(currentReceivingListing);
+      // console.log(userReceivingListings[k].arrangements);
+
+      for( let m = 0 ; m < userReceivingListings[k].arrangements.length ; m++)
+      {
+        let currentReceivingArrangement = {};
+
+        // currentReceivingArrangement.receiving_user_id = userReceivingListings[k].arrangements[m].receiving_user_id;
+        // console.log(userReceivingListings[k].arrangements[0].id);
+        // console.log(userReceivingListings[k].arrangements[m].id);
+
+        currentReceivingArrangement.id = userReceivingListings[k].arrangements[m].id;
+        currentReceivingArrangement.points = userReceivingListings[k].arrangements[m].pointsOfTransaction;
+
+        let providers = await TestUser.findOne({where:{id:userReceivingListings[k].arrangements[m].offering_user_id},select:['firstName','lastName']});
+        currentReceivingArrangement.offering_user = `${providers.firstName} ${providers.lastName}`;
+        currentReceivingListing.arrangements.push(currentReceivingArrangement);
+
+      }
+      receivingListingsWithArrangements.push(currentReceivingListing);
+
+    }
+
+    console.log(receivingListingsWithArrangements);
+
+    return [listingsWithArrangements,receivingListingsWithArrangements];
 
 
   }
