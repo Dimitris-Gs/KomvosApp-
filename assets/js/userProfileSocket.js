@@ -27,7 +27,7 @@ function getListings() {
             },
             function (result, response) {
                
-                let root = document.getElementById("root");
+                let root = document.getElementById("arrangementsOffered");
 
                 let listings = `<h1> Listings </h1>`
                 for (let i = 0; i < result.length; i++) {
