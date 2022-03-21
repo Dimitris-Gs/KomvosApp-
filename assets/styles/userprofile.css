@@ -18,7 +18,9 @@ body {
  
 }
 
-
+.profileDropdown{
+    padding-left: 9rem;
+}
 
 .img-account-profile {
         height: 10rem;
