@@ -24,7 +24,15 @@ module.exports.routes = {
   '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'},
   '/create'  : {action:'create'},
+<<<<<<< Updated upstream
   '/profile' : {action:"profile"}
+=======
+  '/profile' : {action:"profile"},
+  'POST /rest': {action:"rest-api/create-user"},
+  '/userprofile' : {view: 'pages/userprofile'},
+  'POST /userprofileoffered': {action: 'rest-api/user-profile-offering'},
+  'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'}
+>>>>>>> Stashed changes
 
   
   
