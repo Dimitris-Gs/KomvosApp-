@@ -121,7 +121,23 @@
                 <div class="col-md-12">
                   <label class="labels">Ημερομηνία Γέννησης:</label>
                   <input type="date" oninput="this.className = ''" name="dateOfBirth" id="regDateOfBirth"
-                    class="form-control" placeholder="Ημερομηνία Γέννησης:" value=<%=user.dateOfBirth %> >
+                    class="form-control" placeholder="Ημερομηνία Γέννησης:">
+                      <script>
+                        let now = '<%= user.dateOfBirth %>';
+                        // set to js date object
+                        now = new Date(now);
+                        // create a format yyyy-mm-dd 
+                        const day = ("0" + now.getDate()).slice(-2)
+                        const month = ("0" + (now.getMonth() + 1)).slice(-2);
+                        const year = now.getFullYear();
+                        // save it in value
+                        let value = `${ year }-${ month }-${ day }`;
+                        // on window load set the value of the input type date to the user's birth date
+                        let date = document.getElementById("regDateOfBirth");
+                        window.onload = (event) => {
+                          date.value = value;
+                        }
+                      </script>
                 </div>
                 <div class="col-md-12"><label class="labels">Διεύθυνση Κατοικίας</label>
                   <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
@@ -139,30 +155,29 @@
                   <input type="file" class="form-control-file" id="regProfileImg" name="photo">
                 </div>
                 <div class="col-12">
-                  <label for="regSmallBio" class="labels">Λίγα λόγια για εμένα:</label>
-                  <textarea class="form-control" name="description" id="regSmallBio" value="<%= user.description %> "
-                    rows="5"></textarea>
+                  <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
+                  <textarea class="form-control" name="description" id="regSmallBio"
+                    rows="5"><%= user.description %></textarea>
                 </div>
                 <div class="col-12">
                   <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
                   <label class="container">
                     Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true"
-                      <%=user.employeed==='workYes' ? 'checked' : '' %> >
+                      <%=user.employeed===true ? 'checked' : '' %> >
                     <span class="checkmark"></span>
                   </label>
                   <label class="container"> Οχι<input type="radio" name="employeed" id="workNo" value="false"
-                      <%=user.employeed==='workNo' ? 'checked' : '' %>>
+                      <%=user.employeed===false ? 'checked' : '' %>>
                     <span class="checkmark"></span>
                   </label>
-
                   <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
                   <label class="container">
                     Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true"
-                      <%=user.disabled==='disabledYes' ? 'checked' : '' %>>
+                      <%=user.disabled===true ? 'checked' : '' %>>
                     <span class="checkmark"></span>
                   </label>
                   <label class="container">
-                    Οχι<input type="radio" name="disabled" id="disabledNo" value="false" <%=user.disabled==='disabledNo'
+                    Οχι<input type="radio" name="disabled" id="disabledNo" value="false" <%=user.disabled===false
                       ? 'checked' : '' %>>
                     <span class="checkmark"></span>
                   </label>
@@ -170,12 +185,12 @@
                   <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
                   <label class="container">
                     Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true"
-                      <%=user.volunteer==='voluntarismYes' ? 'checked' : '' %>>
+                      <%=user.volunteer===true ? 'checked' : '' %>>
                     <span class="checkmark"></span>
                   </label>
                   <label class="container">
                     Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false"
-                      <%=user.volunteer==='voluntarismNo' ? 'checked' : '' %>>
+                      <%=user.volunteer===false ? 'checked' : '' %>>
                     <span class="checkmark"></span>
                   </label>
 
