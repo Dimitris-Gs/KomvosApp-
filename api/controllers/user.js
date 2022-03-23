@@ -20,12 +20,14 @@ module.exports = {
 
   fn: async function (inputs) {
     // Find user in db
-    const user = await TestUser.findOne({
-      where: { id: 1 },
-      select: ['firstName', 'lastName', 'email', "gender", "dateOfBirth", "address", "photo", "description", "employeed", "disabled", "volunteer", "freeTime"]
+    let user = await TestUser.findOne({
+       where: { id: 1 }
     });
 
     // All done.
-    return { user };
-  },
+    return  { user } ;
+  }
 };
+
+
+      // select: ['firstName', 'lastName', 'email', "gender", "dateOfBirth", "address", "photo", "description", "employeed", "disabled", "volunteer", "freeTime"]
