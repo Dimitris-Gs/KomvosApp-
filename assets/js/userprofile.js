@@ -1,15 +1,90 @@
-// Toggle edit user menu
-const editProfile = document.getElementById("editform");
-const btn = document.getElementById("toggle");
+// For the profile edit page: 
 
-btn.onclick = function () {
-  if (editProfile.style.display !== "none") {
-    editProfile.style.display = "none";
-  } else {
-    editProfile.style.display = "block";
+// set dateOfBirth to js date object
+dateOfBirth = new Date(dateOfBirth);
+
+// create a format yyyy-mm-dd 
+let day = ("0" + dateOfBirth.getDate()).slice(-2)
+
+let month = ("0" + (dateOfBirth.getMonth() + 1)).slice(-2);
+
+let year = dateOfBirth.getFullYear();
+
+// save the proper format
+let inputValue = `${year}-${month}-${day}`;
+
+let inputDateOfBirth = document.getElementById("regDateOfBirth");
+
+/****************************
+ * function displayContent(id)
+ * Inputs:
+ *     -id of the div to be displayed
+ * Outputs:
+ *     -none
+ * 
+ * Description: -displays the divs editCard or profileCard
+ *              -hides other content by calling hideOtherContent();
+ *              -on editCard displays the user's date of birth
+ */
+function displayContent(id) {
+
+  let content = id;
+  if (content.style.display !== "none") {
+    content.style.display = "none";
   }
-};
-
-updateUser = function (event) {
-  console.log(event);
+  else {
+    hideOtherContent();
+    content.style.display = "block";
+    if (id == editCard) {
+      // on div display set the value of the input type date to the user's birth date
+      inputDateOfBirth.value = inputValue;
+    }
+  }
 }
+
+function hideOtherContent() {
+  let tabs = document.getElementsByClassName("content");
+
+  for (let i = 0; i < tabs.length; i++) {
+    tabs[i].style.display = "none"
+  }
+}
+
+// calculate user's age
+let usersAge = Math.floor((Date.now() - dateOfBirth) / (31557600000));
+
+/***************************
+ * function printGender(gender)
+ * Inputs:
+ *      - (str) from ejs script let gender = '<%= user.gender %>'
+ *         "Male" or "Female" or "Non-Binary"
+ * Outputs:
+ *      - (str) "Άνδρας" or "Γυναίκα" or "Άλλο"
+ * 
+ * Description: -depending on the input returns "Άνδρας" or "Γυναίκα" or "Άλλο" 
+ */
+
+function printGender(gender) {
+  if (gender == "Male") {
+    return "Άνδρας";
+  }
+  else if (gender == "Female") {
+    return "Γυναίκα";
+  }
+  else {
+    return "Άλλο";
+  }
+}
+
+// initialize genderStr and store printGender(gender) result
+let genderStr = printGender(gender);
+
+let ageDiv = document.getElementById("cardAge");
+let usersGender = document.getElementById("cardGender");
+
+//on window load display the proper format of gender and age
+window.onload = () => {
+  usersGender.innerHTML = genderStr;
+  ageDiv.innerHTML = usersAge;
+}
+
