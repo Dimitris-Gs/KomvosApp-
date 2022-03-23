@@ -75,143 +75,140 @@
           </div>
         </div>
       </div>
-
-      <div class="col-xl-8  col-md-8">
-
-        <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
-        <div class="card mb-4 content" id="editCard" style="display: none;">
-          <div id="editform">
-
+      <div class="col-xl-8">
+        <!-- Account details card-->
+        <div class="card mb-4 content" style="display: none;" id="editCard">
+          <div id="editform" >
             <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4 class="text-right">Επεξεργασία Προφιλ</h4>
-              </div>
-              <div class="row mt-2">
-                <div class="col-md-6"><label class="labels">Ονομα</label>
-                  <input type="text" class="form-control" value="<%= user.firstName %>" name="firstName">
+              <form action="/updateuser" method="POST">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h4 class="text-right">Επεξεργασία Προφιλ</h4>
                 </div>
-                <div class="col-md-6"><label class="labels">Επώνυμο</label><input type="text" class="form-control"
-                    value="<%= user.lastName %>" name="lastName">
-                </div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-md-12">
-                  <label class="labels">Email</label>
-                  <input type="text" class="form-control" placeholder="Email" value="<%= user.email %>"
-                    oninput="emailInputEventHandler()" name="email" id="regEmail">
-                  <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
-                </div>
-                <div class="col-md-12">
-                  <label value="Male" class="labels">Φύλο:</label>
-                  <!-- male -->
-                  <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
-                      <%=user.gender==='Male' ? 'checked' : '' %>
-                    onclick="hideGenderValidation();">
-                    <span class="checkmark"></span>
-                  </label>
-                  <!-- female -->
-                  <label class="container" for="female"> Γυναίκα <input type="radio" name="gender" id="female"
-                      value="Female" onclick="hideGenderValidation();" <%=user.gender==='Female' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <!-- other -->
-                  <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
-                      value="Non-Binary" onclick="hideGenderValidation();" <%=user.gender==='Non-Binary' ? 'checked'
-                      : '' %> >
-                    <span class="checkmark"></span>
-                  </label>
-                  <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
-                </div>
-                <div class="col-md-12">
-                  <label class="labels">Ημερομηνία Γέννησης:</label>
-                  <input type="date" name="dateOfBirth" id="regDateOfBirth" class="form-control"
-                    placeholder="Ημερομηνία Γέννησης:">
-                </div>
-                <div class="col-md-12"><label class="labels">Διεύθυνση Κατοικίας</label>
-                  <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
-                      value="addressYes" onclick="displayAddress();">
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress" value="addressNo"
-                      onclick="displayAddress();">
-                    <span class="checkmark"></span>
-                  </label>
-                  <input type="text" class="form-control" value="<%= user.address %>" oninput="this.className = ''"
-                    id="regAddress" name="address">
-                </div>
-                <div class="col-md-12"><label class="labels">Προσθέστε φωτογραφία :</label>
-                  <input type="file" class="form-control-file" id="regProfileImg" name="photo">
-                </div>
-                <div class="col-12">
-                  <label for="regSmallBio" class="labels">Λίγα λόγια για εμένα:</label>
-                  <textarea class="form-control" name="description" id="regSmallBio"
-                    rows="5"><%= user.description %></textarea>
-                </div>
-                <div class="col-12">
-                  <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
-                  <label class="container">
-                    Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true"
-                      <%=user.employeed===true ? 'checked' : '' %> >
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container"> Οχι<input type="radio" name="employeed" id="workNo" value="false"
-                      <%=user.employeed===false ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-
-                  <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
-                  <label class="container">
-                    Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true"
-                      <%=user.disabled===true ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    Οχι<input type="radio" name="disabled" id="disabledNo" value="false" <%=user.disabled===false
-                      ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-
-                  <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
-                  <label class="container">
-                    Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true"
-                      <%=user.volunteer==='voluntarismYes' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false"
-                      <%=user.volunteer==='voluntarismNo' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-
-                  <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
-                  <label class="container">
-                    Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone" value="freeTimeNone"
-                      <%=user.freeTime==='freeTimeNone' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum"
-                      <%=user.freeTime==='freeTimeMinimum' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend"
-                      value="freeTimeWeekend" <%=user.freeTime==='freeTimeWeekend' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="container">
-                    Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome"
-                      value="freeTimeSome" <%=user.freeTime==='freeTimeSome' ? 'checked' : '' %>>
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-                <div class="col-md-12">
-                  <div class="mt-5 text-center">
-                    <button class="editBtn btn btn-danger profile-button" type="button">Save
-                      Profile</button>
+                <div class="row mt-2">
+                  <div class="col-md-6"><label class="labels">Ονομα</label><input type="text" class="form-control"
+                      placeholder="Ονομα" value=<%=user.firstName %> oninput="this.className = ''" name="firstName">
+                  </div>
+                  <div class="col-md-6"><label class="labels">Επώνυμο</label><input type="text" class="form-control"
+                      value=<%=user.lastName %> placeholder="Επώνυμο" oninput="this.className = ''" name="lastName">
                   </div>
                 </div>
-              </div>
+                <div class="row mt-3">
+                  <div class="col-md-12">
+                    <label class="labels">Email</label>
+                    <input type="text" class="form-control" placeholder="Email" value=<%=user.email %>
+                    oninput="emailInputEventHandler()" name="email" id="regEmail">
+                    <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+                  </div>
+                  <div class="col-md-12">
+                    <label value="Male" class="labels">Φύλο:</label>
+                    <!-- male -->
+                    <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
+                        <%=user.gender==='Male' ? 'checked' : '' %> onclick="hideGenderValidation();">
+                      <span class="checkmark"></span>
+                    </label>
+                    <!-- female -->
+                    <label class="container" for="female"> Γυναίκα <input type="radio" name="gender" id="female"
+                        value="Female" onclick="hideGenderValidation();" <%=user.gender==='Female' ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <!-- other -->
+                    <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
+                        value="Non-Binary" onclick="hideGenderValidation();" <%=user.gender==='Non-Binary' ? 'checked'
+                        : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
+                  </div>
+                  <div class="col-md-12">
+                    <label class="labels">Ημερομηνία Γέννησης:</label>
+                    <input type="date" oninput="this.className = ''" name="dateOfBirth" id="regDateOfBirth"
+                      class="form-control" placeholder="Ημερομηνία Γέννησης:">
+                  </div>
+                  <!-- όταν φτιαχτεί στην βάση true false -->
+                  <div class="col-md-12"><label class="labels">Διεύθυνση Κατοικίας</label>
+                    <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
+                        value="addressYes" onclick="displayAddress();">
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress"
+                        value="addressNo" onclick="displayAddress();">
+                      <span class="checkmark"></span>
+                    </label>
+                    <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
+                      value="<%= user.address %> " oninput="this.className = ''" id="regAddress" name="address">
+                  </div>
+                  <div class="col-md-12"><label class="labels">Προσθέστε φωτογραφία :</label>
+                    <input type="file" class="form-control-file" id="regProfileImg" name="photo">
+                  </div>
+                  <div class="col-12">
+                    <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
+                    <textarea class="form-control" name="description" id="regSmallBio"
+                      rows="5"><%= user.description %></textarea>
+                  </div>
+                  <div class="col-12">
+                    <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
+                    <label class="container">
+                      Ναι<input type="radio" checked="checked" name="employeed" id="workYes" value="true"
+                        <%=user.employeed===true ? 'checked' : '' %> >
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container"> Οχι<input type="radio" name="employeed" id="workNo" value="false"
+                        <%=user.employeed===false ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <p>Υπάρχει κάποια μορφή αναπηρίας:</p>
+                    <label class="container">
+                      Ναι<input type="radio" checked="checked" name="disabled" id="disabledYes" value="true"
+                        <%=user.disabled===true ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                      Οχι<input type="radio" name="disabled" id="disabledNo" value="false" <%=user.disabled===false
+                        ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+
+                    <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
+                    <label class="container">
+                      Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true"
+                        <%=user.volunteer===true ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                      Οχι<input type="radio" name="volunteer" id="voluntarismNo" value="false" <%=user.volunteer===false
+                        ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <p>Πόσο ελεύθερο χρόνο διαθέτετε μέσα στη βδομάδα για εθελοντικές δράσεις:</p>
+                    <label class="container">
+                      Καθόλου<input type="radio" checked="checked" name="freeTime" id="freeTimeNone"
+                        value="freeTimeNone" <%=user.freeTime==='freeTimeNone' ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                      Ελάχιστο χρόνο<input type="radio" name="freeTime" id="freeTimeMinimum" value="freeTimeMinimum"
+                        <%=user.freeTime==='freeTimeMinimum' ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                      Κυρίως τα σαββατοκύριακα<input type="radio" name="freeTime" id="freeTimeWeekend"
+                        value="freeTimeWeekend" <%=user.freeTime==='freeTimeWeekend' ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                    <label class="container">
+                      Μερικές μέρες της εβδομάδας<input type="radio" name="freeTime" id="freeTimeSome"
+                        value="freeTimeSome" <%=user.freeTime==='freeTimeSome' ? 'checked' : '' %>>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="mt-5 text-center"><button class="editBtn btn btn-danger profile-button"
+                        type="submit">Αποθήκευση
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
