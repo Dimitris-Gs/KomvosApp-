@@ -9,3 +9,7 @@ btn.onclick = function () {
     editProfile.style.display = "block";
   }
 };
+
+updateUser = function (event) {
+  console.log(event);
+}
