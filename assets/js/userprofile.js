@@ -13,7 +13,6 @@ let year = dateOfBirth.getFullYear();
 // save the proper format
 let inputValue = `${year}-${month}-${day}`;
 
-let inputDateOfBirth = document.getElementById("regDateOfBirth");
 
 /****************************
  * function displayContent(id)
@@ -36,6 +35,7 @@ function displayContent(id) {
     hideOtherContent();
     content.style.display = "block";
     if (id == editCard) {
+      let inputDateOfBirth = document.getElementById("regDateOfBirth");
       // on div display set the value of the input type date to the user's birth date
       inputDateOfBirth.value = inputValue;
     }
@@ -51,7 +51,7 @@ function hideOtherContent() {
 }
 
 // calculate user's age
-let usersAge = Math.floor((Date.now() - dateOfBirth) / (31557600000));
+let usersAge = Math.floor((Date.now() - dateOfBirth) / (3157380000));
 
 /***************************
  * function printGender(gender)

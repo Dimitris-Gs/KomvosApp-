@@ -148,10 +148,11 @@ function validateEmail(emailString) {
     const msPerYearNormal = 31557600000;
     const msPerYearLarge = 31622400000;
     const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
+    console.log(msPerYear);
 
     let properDateValue = +new Date(dateValue);
     // let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
-    let age = ((Date.now() - properDateValue) / (msPerYearNormal));
+    let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
     console.log(age);
 
     if (age < 18 || age > 80) {
