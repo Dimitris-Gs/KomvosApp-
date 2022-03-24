@@ -26,9 +26,9 @@ module.exports.routes = {
   '/profile' : { action : 'profile' },
   'POST /rest': { action : 'rest-api/create-user' },
   '/userprofile' : { view : 'pages/userprofile' },
-  'POST /userprofile': { action : 'rest-api/user-profile' }
-
-  
+  'POST /userprofileoffered': {action: 'rest-api/user-profile-offering'},
+  'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'}
+  //'POST /userprofile': { action : 'rest-api/user-profile' }
   
 
   /***************************************************************************
