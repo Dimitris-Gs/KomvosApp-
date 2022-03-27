@@ -100,10 +100,6 @@
      margin-bottom: 30px
  }
 
- .thanks-message {
-     display: none
- }
-
  /** Custom radio buttons */
 
  /* Customize the label (the container) */
@@ -170,4 +166,23 @@
      height: 8px;
      border-radius: 50%;
      background: white
+ }
+
+ /* registration buttons */
+ #nextprevious {
+    overflow:auto;
+ }
+
+ #regbtns {
+    float:right;
+ }
+
+ /* left arrow for homepage  */
+ a {
+     text-decoration: none;
+     color: #fff;
+ }
+
+ a:hover {
+     color: #e33e5a;
  }

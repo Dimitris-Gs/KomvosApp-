@@ -1,5 +1,13 @@
-dy {
-    background: #000
+#login a {
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    color: #5a5a5a;
+    background: #5a5a5a;
 }
 
 #form1 {
@@ -23,7 +31,12 @@ dy {
 
 .forms-inputs input {
     height: 50px;
-    border: 2px solid #eee
+    border: 2px solid #eee;
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Raleway;
+    border-radius: 5px;
 }
 
 .forms-inputs input:focus {

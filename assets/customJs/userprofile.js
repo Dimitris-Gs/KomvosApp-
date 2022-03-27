@@ -3,6 +3,7 @@
 // set dateOfBirth to js date object
 dateOfBirth = new Date(dateOfBirth);
 
+
 // create a format yyyy-mm-dd 
 let day = ("0" + dateOfBirth.getDate()).slice(-2)
 
@@ -26,19 +27,23 @@ let inputValue = `${year}-${month}-${day}`;
  *              -on editCard displays the user's date of birth
  */
 function displayContent(id) {
-
+  
   let content = id;
   if (content.style.display !== "none") {
     content.style.display = "none";
   }
   else {
+    
     hideOtherContent();
     content.style.display = "block";
+    
     if (id == editCard) {
       let inputDateOfBirth = document.getElementById("regDateOfBirth");
       // on div display set the value of the input type date to the user's birth date
       inputDateOfBirth.value = inputValue;
     }
+    
+    
   }
 }
 
@@ -51,7 +56,12 @@ function hideOtherContent() {
 }
 
 // calculate user's age
-let usersAge = Math.floor((Date.now() - dateOfBirth) / (3157380000));
+const msPerYearNormal = 31557600000;
+const msPerYearLarge = 31622400000;
+const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
+let usersAge = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
+
+
 
 /***************************
  * function printGender(gender)

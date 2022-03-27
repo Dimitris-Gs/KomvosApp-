@@ -60,7 +60,6 @@ function showTab(tabIndex) {
   }
 
   if (tabIndex == (tabs.length - 1)) {
-    //document.getElementById("nextBtn").innerHTML = "Εγγραφή";
     document.getElementById("nextBtn").style.display = "none";
     document.getElementById("submitBtn").style.display = "inline";
 
@@ -82,8 +81,7 @@ function showTab(tabIndex) {
  * 
  * Description:  -hides the current tab and displays the previous or the next tab depending on the input 
  *                and whether the inputs are validated or not (calls validateForm())
- *               -changes the value of the global var currentTab depending on the input
- *               -displays a thank you message at the final tab and hides not necessary elements
+ *               -changes the value of the global var currentTab depending on the input            
  *               -calls showTab()
  */
 
@@ -97,15 +95,7 @@ function nextPrev(nextOrPrevious) {
   tabs[currentTab].style.display = "none";
   currentTab = currentTab + nextOrPrevious;
 
-  if (currentTab >= tabs.length) {
-    document.getElementById("nextprevious").style.display = "none";
-    document.getElementById("all-steps").style.display = "none";
-    document.getElementById("register").style.display = "none";
-    document.getElementById("thanks-text-message").style.display = "block";
-
-  }
   showTab(currentTab);
-
 }
 
 /*************************************

@@ -1,6 +1,15 @@
+<link rel="stylesheet" href="/customCss/registration.css">
 <div id="registrationBody">
   <div class="container mt-5">
+    <div class="pb-4" >
+      <a href="/">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+      </svg>
+    </a>
+    </div>
     <div class="row d-flex justify-content-center align-items-center">
+      
       <div class="col-md-6">
         <form id="regForm" action="/rest" method="POST">
 
@@ -40,7 +49,7 @@
               Άλλο <input type="radio" name="gender" id="other" value="Non-Binary" onclick="hideGenderValidation();">
               <span class="checkmark"></span>
             </label>
-            <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
+            <small id="genderValidation">*Παρακαλούμε εισάγετε το φύλο σας.</small>
 
             <p>Ημερομηνία Γέννησης: </p>
             <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"
@@ -64,23 +73,23 @@
 
           <!-- Third tab -->
           <div class="tab">
-            <div class="form-group row">
-              <label for="profileImg" class="col-4 col-form-label"> Προσθέστε φωτογραφία : </label>
+            <div class="form-group row pt-3">
+              <label for="profileImg" class="col-4 col-form-label pt-2"> Προσθέστε φωτογραφία : </label>
               <!-- to be modified when time comes, ideally display a round image-->
               <div class="col-6">
                 <input type="file" class="form-control-file" id="regProfileImg" name="photo">
               </div>
             </div>
-            <div class="form-group row ">
+            <div class="form-group row pt-2 pb-4">
               <label for="regSmallΒbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
               <div class="col-6">
-                <textarea class="form-control" name="description" id="regSmallΒbio" rows="5"></textarea>
+                <textarea class="form-control" name="description" id="regSmallΒbio" rows="5" placeholder="Περιγράψτε τις δεξιότητες και τους τομείς προσφοράς του κόμβου που σας ενδιαφέρουν! Βοηθήστε τους άλλους χρήστες να σας γνωρίσουν καλύτερα!"  oninput="this.className = ''" maxlength="200"></textarea>
               </div>
             </div>
           </div>
 
           <!-- Fourth tab -->
-          <div class="tab">
+          <div class="tab pb-3">
             <p>Μερικές ερωτήσεις για να γνωριστούμε καλύτερα. Αυτές οι πληροφορίες δεν θα γίνουν ποτέ γνωστές σε
               τρίτους.
               Μπορείτε ανα πάσα στιγμή να τις ανανεώσετε.</p>
@@ -136,14 +145,8 @@
 
           </div>
 
-          <div class="thanks-message text-center" id="thanks-text-message"> <img src="https://i.imgur.com/O18mJ1K.png"
-              width="100" class="mb-4">
-            <h3>Ευχαριστούμε για την εγγραφή σας </h3>
-            <span>Παρακαλούμε επιβεβαιώστε την εγγραφή σας στο email σας!</span>
-          </div>
-
-          <div style="overflow:auto;" id="nextprevious">
-            <div style="float:right;">
+          <div id="nextprevious">
+            <div id="regbtns" >
               <button type="button" id="prevBtn" onclick="nextPrev(-1)">Προηγούμενο</button>
               <button type="button" id="nextBtn" onclick="nextPrev(1)">Επόμενο</button>
               <button type="submit" id="submitBtn">Εγγραφή</button>
@@ -156,3 +159,4 @@
 </div>
 
 <!-- textarea and buttons styling needed in order to be responsive -->
+<script src="/customJs/registration.js"></script>

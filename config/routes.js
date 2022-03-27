@@ -23,6 +23,7 @@ module.exports.routes = {
   '/register': {view: 'pages/registration'},
   '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'},
+  '/thankyou': { view : 'pages/thankumsg'},
   '/create'  : {action:'create'},
   '/profile': { action: "profile" },
   '/userprofile': { action: "user" },

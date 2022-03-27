@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ 
+body {  
+  color: #5a5a5a; 
+  
+}
+
+#main{
+    background-color: #69707a;
+    padding-top: 4rem;
+    padding-bottom: 100%; 
+}
+
+.profileDropdown{
+    padding-left: 9rem;
+}
+
+#dropdownMenuButton1{
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 17px;
+}
+
+.img-account-profile {
+    height: 10rem;
+}
+.rounded-circle {
+     border-radius: 50% !important;
+}
+.card {
+  box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
+}
+.card .card-header {
+    font-weight: 500;
+}
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
+}
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
+}
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btnProf {
+    width: 150px;
+    background-color: #1f4068;
+}
+
+a {
+ text-decoration: none;
+ color: #1f4068;
+}
+
+
+/* Edit form */
+
+#editform{
+    margin-top: 2.5rem;
+    margin-bottom: 3rem;
+    border: 1px solid #efefef;
+    border-radius: 5px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.473)
+}
+
+#editCard {
+    display: none;
+}
+
+/** Custom radio buttons */
+
+ /* Customize the label (the container) */
+ .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none
+}
+
+/* Hide the browser's default radio button */
+.container input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: #ccc
+}
+
+/* When the radio button is checked, add a dark gray background */
+.container input:checked~.checkmark {
+    background-color: #38434d
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+    display: block
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white
+}

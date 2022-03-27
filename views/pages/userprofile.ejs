@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="/customCss/userprofile.css">
+
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -8,13 +10,10 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Αρχική</a>
+          <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
         </li>
-        <!-- <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="#features">Ποιοι είμαστε</a>
+          <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
@@ -34,8 +33,8 @@
         aria-expanded="false">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#">Προφίλ</a></li>
-        <li><a class="dropdown-item" href="#">Επεξεργασία Προφίλ</a></li>
+        <li class="dropdown-item" onclick="displayContent(profileCard)">Προφίλ</li>
+        <li class="dropdown-item" onclick="displayContent(editCard)">Επεξεργασία Προφίλ</li>
         <li><a class="dropdown-item" href="#">Συνδρομή</a></li>
         <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
       </ul>
@@ -77,30 +76,33 @@
       </div>
       <div class="col-xl-8">
         <!-- Account details card-->
-        <div class="card mb-4 content" style="display: none;" id="editCard">
+        <div class="card mb-4 content" id="editCard">
           <div id="editform" >
             <div class="p-3 py-5">
               <form action="/updateuser" method="POST">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4 class="text-right">Επεξεργασία Προφιλ</h4>
+                  <h4 class="text-right">Επεξεργασία Προφίλ</h4>
                 </div>
                 <div class="row mt-2">
-                  <div class="col-md-6"><label class="labels">Ονομα</label><input type="text" class="form-control"
-                      placeholder="Ονομα" value=<%=user.firstName %> oninput="this.className = ''" name="firstName">
+                  <div class="col-md-6">
+                    <label class="labels">Όνομα:</label>
+                    <input type="text" class="form-control"
+                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %>  >
                   </div>
-                  <div class="col-md-6"><label class="labels">Επώνυμο</label><input type="text" class="form-control"
-                      value=<%=user.lastName %> placeholder="Επώνυμο" oninput="this.className = ''" name="lastName">
+                  <div class="col-md-6">
+                    <label class="labels">Επώνυμο:</label>
+                    <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
+                      value=<%=user.lastName %> >
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
-                    <label class="labels">Email</label>
-                    <input type="text" class="form-control" placeholder="Email" value=<%=user.email %>
-                    oninput="emailInputEventHandler()" name="email" id="regEmail">
-                    <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+                    <label class="labels">Email:</label>
+                    <input type="text" class="form-control" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <!-- <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small> -->
                   </div>
-                  <div class="col-md-12">
-                    <label value="Male" class="labels">Φύλο:</label>
+                  <div class="col-md-12 mt-3">
+                    <label value="Male" class="labels mb-1">Φύλο:</label>
                     <!-- male -->
                     <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
                         <%=user.gender==='Male' ? 'checked' : '' %> onclick="hideGenderValidation();">
@@ -117,15 +119,16 @@
                         : '' %>>
                       <span class="checkmark"></span>
                     </label>
-                    <small id="genderValidation">Παρακαλούμε εισάγετε το φύλο σας.</small>
+                    <!-- <small id="genderValidation">*Παρακαλούμε εισάγετε το φύλο σας.</small> -->
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
-                    <input type="date" oninput="this.className = ''" name="dateOfBirth" id="regDateOfBirth"
-                      class="form-control" placeholder="Ημερομηνία Γέννησης:">
+                    <input type="date" class="form-control" name="dateOfBirth" id="regDateOfBirth"
+                       placeholder="Ημερομηνία Γέννησης:">
                   </div>
                   <!-- όταν φτιαχτεί στην βάση true false -->
-                  <div class="col-md-12"><label class="labels">Διεύθυνση Κατοικίας</label>
+                  <div class="col-md-12 mt-3">
+                    <label class="labels">Διεύθυνση Κατοικίας</label>
                     <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
                         value="addressYes" onclick="displayAddress();">
                       <span class="checkmark"></span>
@@ -135,12 +138,13 @@
                       <span class="checkmark"></span>
                     </label>
                     <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
-                      value="<%= user.address %> " oninput="this.className = ''" id="regAddress" name="address">
+                      value="<%= user.address %>" id="regAddress" name="address">
                   </div>
-                  <div class="col-md-12"><label class="labels">Προσθέστε φωτογραφία :</label>
+                  <div class="col-md-12 mt-3">
+                    <label class="labels">Προσθέστε φωτογραφία :</label>
                     <input type="file" class="form-control-file" id="regProfileImg" name="photo">
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
                     <textarea class="form-control" name="description" id="regSmallBio"
                       rows="5"><%= user.description %></textarea>
@@ -219,11 +223,8 @@
 
           <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
-              <li class="nav-item">
-                <!-- <a class="nav-link active" aria-current="true" href="#">Eva Papageorgiou </a> -->
-                <a class="nav-link active" aria-current="true" href="#">
-                  <%= user.firstName + " " + user.lastName %>
-                </a>
+              <li class="nav-link active">
+                <%= user.firstName + " " + user.lastName %>
               </li>
             </ul>
           </div>
@@ -273,7 +274,6 @@
   </div>
 </div>
 
-
 <script>
   // get the users gender from the controller
   let gender = '<%= user.gender %>';
@@ -282,3 +282,6 @@
   let dateOfBirth = '<%= user.dateOfBirth %>';
 
 </script>
+<script src="/customJs/userprofile.js"></script>
+
+
