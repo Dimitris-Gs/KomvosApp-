@@ -1,4 +1,6 @@
+
 <link rel="stylesheet" href="/customCss/userprofile.css">
+
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
@@ -57,16 +59,18 @@
             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
               alt="">
             <!-- Profile picture help block-->
-            <div class="small font-italic text-muted mb-4" onclick="displayContent(editCard)"> <a href="#"
-                >Επεξεργασία προφίλ</a> </div>
+            <div class="small font-italic text-muted mb-4" onclick="displayContent(editCard)"> <a href="#">Επεξεργασία
+                προφίλ</a> </div>
             <!-- JPG or PNG no larger than 5 MB -->
-            <p onclick="displayContent(profileCard)"> <a href="#"><%= user.firstName + " " + user.lastName %></a> </p>
+            <p onclick="displayContent(profileCard)"> <a href="#">
+                <%= user.firstName + " " + user.lastName %>
+              </a> </p>
             <!-- Profile picture upload button-->
 
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Έχει προσφέρει</button>
+            <button class="btn btn-dark btnProf mt-2" type="button">Ενεργές αγγελίες</button>
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Έχει δεχθεί</button>
+            <button class="btn btn-dark btnProf mt-2" type="button" onclick="displayContent(historyCard)">Ιστορικό αγγελιών</button>
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
             <br>
@@ -77,7 +81,7 @@
       <div class="col-xl-8">
         <!-- Account details card-->
         <div class="card mb-4 content" id="editCard">
-          <div id="editform" >
+          <div id="editform">
             <div class="p-3 py-5">
               <form action="/updateuser" method="POST">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -86,19 +90,20 @@
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="labels">Όνομα:</label>
-                    <input type="text" class="form-control"
-                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %>  >
+                    <input type="text" class="form-control" placeholder="Ονομα" name="firstName" value=<%=user.firstName
+                      %> >
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Επώνυμο:</label>
-                    <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
-                      value=<%=user.lastName %> >
+                    <input type="text" class="form-control" placeholder="Επώνυμο" name="lastName" value=<%=user.lastName
+                      %> >
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
                     <label class="labels">Email:</label>
-                    <input type="text" class="form-control" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <input type="text" class="form-control" placeholder="Email" name="email" id="regEmail"
+                      value=<%=user.email %>>
                     <!-- <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small> -->
                   </div>
                   <div class="col-md-12 mt-3">
@@ -124,17 +129,17 @@
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
                     <input type="date" class="form-control" name="dateOfBirth" id="regDateOfBirth"
-                       placeholder="Ημερομηνία Γέννησης:">
+                      placeholder="Ημερομηνία Γέννησης:">
                   </div>
                   <!-- όταν φτιαχτεί στην βάση true false -->
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
                     <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
-                        value="true onclick="displayAddress();">
+                        value="true onclick=" displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress"
-                        value="false" onclick="displayAddress();">
+                    <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress" value="false"
+                        onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
                     <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
@@ -268,20 +273,48 @@
         </div>
         <!-- User's Profile card  -->
 
-      </div>
+        <!-- Ιστορικότητα -->
+        <div class="card mb-4 content" id="historyCard">
+          <!-- bootstrap 5 nav tabs -->
+          <div class="card-header">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-offer-tab" data-bs-toggle="tab" data-bs-target="#nav-offer"
+                  type="button" role="tab" aria-controls="nav-offer" aria-selected="true" value="offered">Έχω προσφέρει</button>
+                <button class="nav-link" id="nav-receive-tab" data-bs-toggle="tab" data-bs-target="#nav-receive"
+                  type="button" role="tab" aria-controls="nav-receive" aria-selected="false" value="received">Έχω δεχτεί</button>
 
+              </div>
+            </nav>
+          </div>
+          <div class="tab-content" id="nav-tabContent">
+            <!-- <br>
+            <br>
+            <div id="listings"></div>
+            <br>
+            <br> -->
+            <div class="tab-pane fade show active" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
+              <div id="offering"></div>
+            </div>
+            <div class="tab-pane fade" id="nav-receive" role="tabpanel" aria-labelledby="nav-receive-tab">
+              <div id="receiving"></div>
+            </div>
+
+          </div>
+          <!-- Ιστορικότητα -->
+
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  // get the users gender from the controller
-  let gender = '<%= user.gender %>';
+  <script>
+    // get the users gender from the controller
+    let gender = '<%= user.gender %>';
 
-  // get the users date of birth from the controller
-  let dateOfBirth = '<%= user.dateOfBirth %>';
+    // get the users date of birth from the controller
+    let dateOfBirth = '<%= user.dateOfBirth %>';
 
-</script>
-<script src="/customJs/userprofile.js"></script>
-
-
+  </script>
+  
