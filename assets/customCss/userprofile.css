@@ -157,3 +157,14 @@ a {
     border-radius: 50%;
     background: white
 }
+
+/* validations */
+
+.invalid {
+     background-color: #ffdddd;
+ }
+
+ #emailValidation {
+     display: none;
+     color: #ff0000;
+ }

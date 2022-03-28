@@ -98,3 +98,19 @@ window.onload = () => {
   ageDiv.innerHTML = usersAge;
 }
 
+// validations 
+
+
+function validateEmail() {
+  const emailString = document.getElementById('regEmail').value;
+
+  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (emailString.match(validRegex)) {
+    document.getElementById("emailValidation").style.display = 'none';
+    return true;
+  } else {
+    document.getElementById("emailValidation").style.display = 'block';
+    return false;
+  }
+}

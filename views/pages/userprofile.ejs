@@ -64,9 +64,7 @@
             <!-- Profile picture upload button-->
 
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Έχει προσφέρει</button>
-            <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Έχει δεχθεί</button>
+            <button class="btn btn-dark btnProf mt-2" type="button">Αγγελίες</button>
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
             <br>
@@ -87,19 +85,19 @@
                   <div class="col-md-6">
                     <label class="labels">Όνομα:</label>
                     <input type="text" class="form-control"
-                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %>  >
+                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %> required >
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Επώνυμο:</label>
                     <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
-                      value=<%=user.lastName %> >
+                      value=<%=user.lastName %> required>
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
                     <label class="labels">Email:</label>
-                    <input type="text" class="form-control" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
-                    <!-- <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small> -->
+                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
                   </div>
                   <div class="col-md-12 mt-3">
                     <label value="Male" class="labels mb-1">Φύλο:</label>
@@ -171,7 +169,6 @@
                         ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
-
                     <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
                     <label class="container">
                       Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true"
@@ -217,7 +214,6 @@
           </div>
         </div>
         <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
-
         <!-- User's Profile card  -->
         <div class="card mb-4 content" id="profileCard">
 
@@ -228,7 +224,6 @@
               </li>
             </ul>
           </div>
-
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
