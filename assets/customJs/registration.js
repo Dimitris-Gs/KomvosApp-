@@ -235,7 +235,7 @@ function validateForm() {
     case thirdTab:
 
       //validation for textarea
-      let textarea = document.getElementById("regSmallΒbio");
+      let textarea = document.getElementById("regSmallbio");
      
       if (textarea.value == "") {
         valid = false;

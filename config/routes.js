@@ -29,7 +29,10 @@ module.exports.routes = {
   '/userprofile': { action: "user" },
   'POST /updateuser' : {action: "update-user"},
   'POST /rest': {action:"rest-api/create-user"},
-  'POST /userprofile': {action: 'rest-api/user-profile'}
+  'POST /userprofile': {action: 'rest-api/user-profile'},
+  '/create-listing' : {action : 'listing-categories'},
+  'POST /restlisting': {action:"rest-api/create-listing"},
+ 
 
   
   
