@@ -35,6 +35,15 @@ function getListings(offeredOrReceived) {
                 console.log(result[1]);
               let result1 = result[0];
               let div = result[1];
+              let link ;
+
+              if( div === "offering")
+              {
+                  link = `result1[i].arrangements[j].offering`;
+              }
+              else{
+                  link = `result1[i].arrangements[j].receiving`;
+              }
                 // let root = document.getElementById("arrangementsOffered");
                  let root = document.getElementById(div);
                 
