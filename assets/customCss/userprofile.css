@@ -95,13 +95,7 @@ a {
     background: rgba(255, 255, 255, 0.473)
 }
 
-#editCard {
-    display: none;
-}
 
-#historyCard {
-    display: none;
-}
 
 /** Custom radio buttons */
 
@@ -169,4 +163,20 @@ a {
     height: 8px;
     border-radius: 50%;
     background: white
+}
+
+/* τι συμβαίνει εδώ;*/
+.demo-card{
+    width: 70%; 
+    margin: 0 auto;
+}
+
+#nav-intro {
+    width: 90%; 
+    margin: 0 auto;
+}
+
+.card-header p a {
+    text-decoration: none;
+    color: black;
 }
