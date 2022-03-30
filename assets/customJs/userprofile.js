@@ -1,3 +1,7 @@
+// Hide the cards/tabs 
+document.getElementById("editCard").style.display = "none";
+document.getElementById("historyCard").style.display = "none";
+
 // For the profile edit page: 
 
 // set dateOfBirth to js date object
