@@ -190,6 +190,13 @@ function validateForm() {
             inputsOfTab[i].className += " invalid";
             valid = false;
           }
+          else if(inputsOfTab[i].style.backgroundColor !== "rgb(205, 245, 175)"){
+            console.log(inputsOfTab[i].style.backgroundColor);
+            inputsOfTab[i].className += " invalid";
+            let checkingValidation = document.getElementById("emailChecking");
+            checkingValidation.style.display = "block" ;
+            valid = false;
+          }
         }
         else if (inputsOfTab[i].value == "") {
           inputsOfTab[i].className += " invalid";
@@ -271,10 +278,8 @@ function validateForm() {
 
 function emailInputEventHandler() {
   document.getElementById("regEmail").className = "";
-  document.getElementById("regEmail").style.backgroundColor = "#fff";
   document.getElementById("emailValidation").style.display = 'none';
-  document.getElementById("emailExists").style.display = 'none';
-  
+  document.getElementById("emailExists").style.display = 'none';  
 }
 /**********************************
  * function hideGenderValidation()
@@ -326,7 +331,8 @@ function getEmail(){
 
 document.getElementById("checkIfUnique").addEventListener('click', (e) => {
   // prevent form from being submitted
-  e.preventDefault();
+  // e.preventDefault();
+  document.getElementById("emailChecking").style.display = 'none';
   let emailInput = document.getElementById("regEmail");
 
    let emailValue = getEmail();
@@ -338,4 +344,11 @@ document.getElementById("checkIfUnique").addEventListener('click', (e) => {
     checkEmail(emailValue);
    }
  
+});
+
+document.addEventListener('keypress', function (e) {
+  if (e.keyCode === 13 || e.which === 13) {
+      e.preventDefault();
+      return false;
+  }
 });

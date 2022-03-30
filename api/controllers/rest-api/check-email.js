@@ -21,7 +21,7 @@ module.exports = {
     let email = await TestUser.findOne({
                       where: { email: inputs.email}
     });
- 
+    
     // All done.
     return email;
     
