@@ -121,14 +121,15 @@
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
-                    <input type="date" class="form-control" name="dateOfBirth" id="regDateOfBirth"
+                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth" id="regDateOfBirth"
                        placeholder="Ημερομηνία Γέννησης:">
+                        <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
                   </div>
                   <!-- όταν φτιαχτεί στην βάση true false -->
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
                     <label class="container">Ναι 
-                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> > onclick="displayAddress();">
+                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> onclick="displayAddress();"> 
                       <span class="checkmark"></span>
                     </label>
                     <label class="container"> Όχι 
@@ -136,7 +137,7 @@
                       <span class="checkmark"></span>
                     </label>
                     <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
-                      value="<%= user.address %>" oninput="this.className = ''" id="regAddress" name="address">
+                      value="<%= user.address %>" id="regAddress" name="address">
                   </div>
                   <div class="col-md-12 mt-3">
                     <label class="labels">Προσθέστε φωτογραφία :</label>
@@ -144,8 +145,9 @@
                   </div>
                   <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
-                    <textarea class="form-control" name="description" id="regSmallBio"
-                      rows="5"><%= user.description %></textarea>
+                    <textarea onchange="descriptionValidation()" class="form-control" name="description" id="regSmallBio"
+                      rows="5" maxlength="200"><%= user.description %></textarea>
+                      <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
                   </div>
                   <div class="col-12">
                     <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>

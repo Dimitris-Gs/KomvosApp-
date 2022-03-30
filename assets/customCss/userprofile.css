@@ -6,6 +6,7 @@
  
 body {  
   color: #5a5a5a; 
+  font-family: Raleway;
   
 }
 
@@ -90,6 +91,7 @@ a {
     display: none;
 }
 
+
 /** Custom radio buttons */
 
  /* Customize the label (the container) */
@@ -165,6 +167,16 @@ a {
  }
 
  #emailValidation {
+     display: none;
+     color: #ff0000;
+ }
+ 
+ #dateOfBirthValidation {
+     display: none;
+     color: #ff0000;
+ }
+
+ #bioValidation {
      display: none;
      color: #ff0000;
  }
