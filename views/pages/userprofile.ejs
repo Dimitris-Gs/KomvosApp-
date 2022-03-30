@@ -90,21 +90,20 @@
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="labels">Όνομα:</label>
-                    <input type="text" class="form-control" placeholder="Ονομα" name="firstName" value=<%=user.firstName
-                      %> >
+                    <input type="text" class="form-control"
+                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %> required >
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Επώνυμο:</label>
-                    <input type="text" class="form-control" placeholder="Επώνυμο" name="lastName" value=<%=user.lastName
-                      %> >
+                    <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
+                      value=<%=user.lastName %> required>
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
                     <label class="labels">Email:</label>
-                    <input type="text" class="form-control" placeholder="Email" name="email" id="regEmail"
-                      value=<%=user.email %>>
-                    <!-- <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small> -->
+                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
                   </div>
                   <div class="col-md-12 mt-3">
                     <label value="Male" class="labels mb-1">Φύλο:</label>
@@ -128,21 +127,22 @@
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
-                    <input type="date" class="form-control" name="dateOfBirth" id="regDateOfBirth"
-                      placeholder="Ημερομηνία Γέννησης:">
+                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth" id="regDateOfBirth"
+                       placeholder="Ημερομηνία Γέννησης:">
+                        <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
                   </div>
                   <!-- όταν φτιαχτεί στην βάση true false -->
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
-                    <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
-                        value="true onclick=" displayAddress();">
+                    <label class="container">Ναι 
+                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> onclick="displayAddress();"> 
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress" value="false"
-                        onclick="displayAddress();">
+                    <label class="container"> Όχι 
+                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false ? 'checked' : '' %>  onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
+                    <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
                       value="<%= user.address %>" id="regAddress" name="address">
                   </div>
                   <div class="col-md-12 mt-3">
@@ -151,8 +151,9 @@
                   </div>
                   <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
-                    <textarea class="form-control" name="description" id="regSmallBio"
-                      rows="5"><%= user.description %></textarea>
+                    <textarea onchange="descriptionValidation()" class="form-control" name="description" id="regSmallBio"
+                      rows="5" maxlength="200"><%= user.description %></textarea>
+                      <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
                   </div>
                   <div class="col-12">
                     <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
@@ -176,7 +177,6 @@
                         ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
-
                     <p>Έχετε ασχοληθεί στο παρελθόν ξανά με εθελοντισμό:</p>
                     <label class="container">
                       Ναι<input type="radio" checked="checked" name="volunteer" id="voluntarismYes" value="true"
@@ -222,7 +222,6 @@
           </div>
         </div>
         <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
-
         <!-- User's Profile card  -->
         <div class="card mb-4 content" id="profileCard">
 
@@ -233,7 +232,6 @@
               </li>
             </ul>
           </div>
-
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
