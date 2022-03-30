@@ -127,16 +127,16 @@
                   <!-- όταν φτιαχτεί στην βάση true false -->
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
-                    <label class="container">Ναι <input id="addressYes" type="radio" name="radioAddress"
-                        value="true onclick="displayAddress();">
+                    <label class="container">Ναι 
+                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> > onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Όχι <input id="addressNo" type="radio" name="radioAddress"
-                        value="false" onclick="displayAddress();">
+                    <label class="container"> Όχι 
+                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false ? 'checked' : '' %>  onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <input type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
-                      value="<%= user.address %>" id="regAddress" name="address">
+                    <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
+                      value="<%= user.address %>" oninput="this.className = ''" id="regAddress" name="address">
                   </div>
                   <div class="col-md-12 mt-3">
                     <label class="labels">Προσθέστε φωτογραφία :</label>

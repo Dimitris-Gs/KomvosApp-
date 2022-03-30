@@ -100,7 +100,7 @@ window.onload = () => {
 
 // validations 
 
-
+// email validation
 function validateEmail() {
   const emailString = document.getElementById('regEmail').value;
 
@@ -113,4 +113,26 @@ function validateEmail() {
     document.getElementById("emailValidation").style.display = 'block';
     return false;
   }
+}
+
+// validation for address
+let radioAddressValue = document.querySelector('input[name="radioAddress"]:checked');
+
+if (radioAddressValue == null) {
+  valid = false;
+
+}
+else if (document.getElementById('addressYes').checked) {
+  if (document.getElementById("regAddress").value == "") {
+    valid = false;
+    document.getElementById("regAddress").className += " invalid";
+  }
+}
+
+// display address input 
+function displayAddress() {
+  if (document.getElementById('addressYes').checked) {
+    document.getElementById('addressInput').style.display = 'block';
+  }
+  else document.getElementById('addressInput').style.display = 'none';
 }
