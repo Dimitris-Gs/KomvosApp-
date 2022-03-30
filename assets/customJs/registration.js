@@ -190,6 +190,13 @@ function validateForm() {
             inputsOfTab[i].className += " invalid";
             valid = false;
           }
+          else if(inputsOfTab[i].style.backgroundColor !== "rgb(205, 245, 175)"){
+            console.log(inputsOfTab[i].style.backgroundColor);
+            inputsOfTab[i].className += " invalid";
+            let checkingValidation = document.getElementById("emailChecking");
+            checkingValidation.style.display = "block" ;
+            valid = false;
+          }
         }
         else if (inputsOfTab[i].value == "") {
           inputsOfTab[i].className += " invalid";
@@ -272,6 +279,7 @@ function validateForm() {
 function emailInputEventHandler() {
   document.getElementById("regEmail").className = "";
   document.getElementById("emailValidation").style.display = 'none';
+  document.getElementById("emailExists").style.display = 'none';  
 }
 /**********************************
  * function hideGenderValidation()
@@ -302,3 +310,45 @@ function hideGenderValidation() {
   }
   else document.getElementById('divAddress').style.display = 'none';
 }
+/********************
+ * 
+ */
+
+function getEmail(){
+  let emailInput = document.getElementById("regEmail");
+  let emailInputValue = emailInput.value;
+ 
+  if (!validateEmail(emailInputValue)) {
+    emailInput.className += " invalid";
+    return "false";
+  }
+  else if(emailInputValue == ""){
+    emailInput.className += " invalid";
+    return "false";
+  }
+  return emailInputValue;
+}
+
+document.getElementById("checkIfUnique").addEventListener('click', (e) => {
+  // prevent form from being submitted
+  // e.preventDefault();
+  document.getElementById("emailChecking").style.display = 'none';
+  let emailInput = document.getElementById("regEmail");
+
+   let emailValue = getEmail();
+
+   if(emailValue == "false"){
+    emailInput.className += " invalid";
+   }
+   else{
+    checkEmail(emailValue);
+   }
+ 
+});
+
+document.addEventListener('keypress', function (e) {
+  if (e.keyCode === 13 || e.which === 13) {
+      e.preventDefault();
+      return false;
+  }
+});
