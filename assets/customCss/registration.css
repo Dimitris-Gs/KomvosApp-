@@ -30,16 +30,30 @@
      border-radius: 5px;
  }
 
+
+
+ #checkIfUnique{
+    width: 100%;
+    background-color: #69707a;
+ }
+
  /* validations */
  /* add pink background on invalid input / textarea*/
 
  .invalid {
      background-color: #ffdddd;
+     /* background-color: #cdf5af; */
+
  }
 
  #emailValidation {
      display: none;
      color: #ff0000;
+ }
+
+ #emailExists {
+    display: none;
+    color: #ff0000;
  }
 
  #genderValidation {
