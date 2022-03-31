@@ -5,8 +5,7 @@
 }
  
 body {  
-  color: #5a5a5a; 
-  
+  color: #5a5a5a;   
 }
 
 #main{
@@ -97,6 +96,7 @@ a {
 
 
 
+
 /** Custom radio buttons */
 
  /* Customize the label (the container) */
@@ -165,6 +165,26 @@ a {
     background: white
 }
 
+/* validations */
+
+.invalid {
+     background-color: #ffdddd;
+ }
+
+ #emailValidation {
+     display: none;
+     color: #ff0000;
+ }
+ 
+ #dateOfBirthValidation {
+     display: none;
+     color: #ff0000;
+ }
+
+ #bioValidation {
+     display: none;
+     color: #ff0000;
+ }
 /* τι συμβαίνει εδώ;*/
 .demo-card{
     width: 70%; 
