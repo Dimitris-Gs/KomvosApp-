@@ -32,8 +32,10 @@ module.exports.routes = {
   'POST /userprofile': {action: 'rest-api/user-profile'},
   '/create-listing' : {action : 'listing-categories'},
   'POST /restlisting': {action:"rest-api/create-listing"},
- 
-
+  '/create-event' : {view: 'pages/create-event'},
+  'POST /restevent': {action:"rest-api/create-event"},
+  '/update-event': { action: "event" },
+  'POST /updateevent' : {action: "update-event"},
   
   
 
