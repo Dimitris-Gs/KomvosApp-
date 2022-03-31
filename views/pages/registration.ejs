@@ -27,8 +27,16 @@
           <div class="tab">
             <p><input placeholder="Όνομα" oninput="this.className = ''" name="firstName"></p>
             <p><input placeholder="Επώνυμο" oninput="this.className = ''" name="lastName"></p>
-            <p><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail">
+            <p>
+              <div class="row">
+                <div class="col-lg-8"><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail"></div>
+                <div class="col-lg-4"><button type="button" id="checkIfUnique">Επιβεβαίωση</button></div>
+              </div>
+              
+              
               <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
+              <small id="emailExists">*Αυτή η διεύθυνση email υπάρχει ήδη.</small>
+              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση .</small>
             </p>
 
             <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>

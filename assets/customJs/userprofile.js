@@ -1,3 +1,7 @@
+// Hide the cards/tabs 
+document.getElementById("editCard").style.display = "none";
+document.getElementById("historyCard").style.display = "none";
+
 // For the profile edit page: 
 
 // set dateOfBirth to js date object
@@ -96,5 +100,99 @@ let usersGender = document.getElementById("cardGender");
 window.onload = () => {
   usersGender.innerHTML = genderStr;
   ageDiv.innerHTML = usersAge;
+}
+
+// validations 
+
+// email validation
+function validateEmail() {
+  const emailString = document.getElementById('regEmail').value;
+
+  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (emailString.match(validRegex)) {
+    document.getElementById("emailValidation").style.display = 'none';
+    return true;
+  } else {
+    document.getElementById("emailValidation").style.display = 'block';
+    return false;
+  }
+}
+
+// validation for address
+let radioAddressValue = document.querySelector('input[name="radioAddress"]:checked');
+
+if (radioAddressValue == null) {
+  valid = false;
+
+}
+else if (document.getElementById('addressYes').checked) {
+  if (document.getElementById("regAddress").value == "") {
+    valid = false;
+    document.getElementById("regAddress").className += " invalid";
+  }
+}
+
+// display address input 
+function displayAddress() {
+  if (document.getElementById('addressYes').checked) {
+    document.getElementById('addressInput').style.display = 'block';
+  }
+  else document.getElementById('addressInput').style.display = 'none';
+}
+
+
+ // validation for users age between 18 and 80
+ 
+function checkDateOfBirth(dateValue) {
+
+  if (dateValue) {
+    const msPerYearNormal = 31557600000;
+    const msPerYearLarge = 31622400000;
+    const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
+    console.log(msPerYear);
+
+    let properDateValue = +new Date(dateValue);
+    // let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
+    let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
+    console.log(age);
+
+    if (age < 18 || age > 80) {
+      return false;
+    }
+
+    return true;
+  }
+  else {
+    return false;
+  }
+
+}
+
+function validateDate() {
+
+  let date = document.getElementById("regDateOfBirth");
+
+  if (checkDateOfBirth(date.value)) {
+    document.getElementById("dateOfBirthValidation").style.display = 'none';
+    return true;
+  } else {
+    document.getElementById("dateOfBirthValidation").style.display = 'block';
+    return false;
+  }
+}
+
+//validation for textarea
+function descriptionValidation() {
+
+  let textarea = document.getElementById("regSmallBio");
+  
+  if (!textarea.value?.length) {
+    document.getElementById("bioValidation").style.display = 'block';
+    return false;
+  } else {
+    document.getElementById("bioValidation").style.display = 'none';
+    return true;
+  }
 }
 

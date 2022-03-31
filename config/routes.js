@@ -21,7 +21,6 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/register': {view: 'pages/registration'},
-  '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'},
   '/thankyou': { view : 'pages/thankumsg'},
   '/create'  : {action:'create'},
@@ -30,12 +29,17 @@ module.exports.routes = {
   'POST /updateuser' : {action: "update-user"},
   'POST /rest': {action:"rest-api/create-user"},
   'POST /userprofile': {action: 'rest-api/user-profile'},
+  'POST /userprofileoffered': {action: 'rest-api/user-profile-offering'},
+  'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'},
   '/create-listing' : {action : 'listing-categories'},
   'POST /restlisting': {action:"rest-api/create-listing"},
   '/create-event' : {view: 'pages/create-event'},
   'POST /restevent': {action:"rest-api/create-event"},
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
+  'POST /register/check-email': { action: "rest-api/check-email"},
+ 
+
   
   
 
