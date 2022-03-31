@@ -14,7 +14,7 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     user_id: { model : 'testuser'},
     category_id: { model: 'listingcategories'},
-    name: {type:'string', required:true, maxLength:20},
+    name: {type:'string', required:true, maxLength:50},
     description: {type:'string', maxLength:200},
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
     endingDate: { type: 'string', required: true, columnName: 'endingdate', columnType: 'date'},
