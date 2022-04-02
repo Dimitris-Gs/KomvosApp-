@@ -12,8 +12,8 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    user_id: { model : 'testuser', required: true},
-    category_id: { model: 'listingcategories', required: true},
+    user_id: { model : 'testuser'},
+    category_id: { model: 'listingcategories'},
     name: {type:'string', required:true, maxLength:50},
     description: {type:'string', maxLength:200},
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
