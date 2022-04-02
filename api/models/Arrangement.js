@@ -14,9 +14,11 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     offering_user_id: { model: 'testuser'},
     receiving_user_id: { model: 'testuser'},
+    createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
+    updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     listing_id: { model: 'listing'},
     pointsOfTransaction: { type: 'number', defaultsTo: 1, columnName: 'pointsoftransaction'},
-    status: {type:'string', required: true } //in progress,finished,canceled
+    status: {type:'string', required: true, isIn:['in progress', 'finished', 'canceled'] }//in progress,finished,canceled
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
