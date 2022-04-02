@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'User profile',
 
 
-  description: '',
+  description: 'NOT IN USE',
 
 
   inputs: {

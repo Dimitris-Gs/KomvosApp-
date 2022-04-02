@@ -9,7 +9,7 @@ body {
 }
 
 #main{
-    background-color: #69707a;
+    background-color: #cfcdcd;
     padding-top: 4rem;
     padding-bottom: 100%; 
 }
@@ -65,20 +65,20 @@ body {
 
 .btnProf {
     width: 150px;
-    background-color: #1f4068;
+    background-color: #31363b;
 }
 
 a {
  text-decoration: none;
- color: #1f4068;
+ color: #69707a;
 }
 
 .nav-link{
-    color: #495057;
+    color: #3c3e40;
 }
 
 .nav-link:hover{
-    color: #1f4068;
+    color: #1e252f;
 }
 
 
