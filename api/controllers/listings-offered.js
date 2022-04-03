@@ -32,7 +32,7 @@ module.exports = {
 
     let users = await TestUser.find({
       where: { id: { in: userIds } }
-    })
+    });
     
 
     let userListings = await TestUser.find({
@@ -55,6 +55,7 @@ module.exports = {
 
       for (let j = 0; j < userListings[i].listings.length; j++) {
         let currentListing = {};
+        currentListing.userId = userListings[i].id;
         currentListing.fullname = userListings[i].firstName + " " + userListings[i].lastName;
         currentListing.email = userListings[i].email;
         let dateOfBirth = userListings[i].dateOfBirth;

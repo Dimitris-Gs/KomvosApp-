@@ -27,7 +27,7 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
                                 <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
-                                <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+                                <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -89,7 +89,7 @@
 
                 <div class="card-header">
                     <div>
-                        <p class="h5" style="text-align: center;" data-dragon="dragons are awesome">
+                        <p class="h5" style="text-align: center;">
                             <%= listingsWithUsers[i].name %>
                         </p>
                     </div>
@@ -150,20 +150,48 @@
 
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="float-end"
-                        style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ενδιαφέρομαι</button>
+                    <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#createArrangement" style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">
+                        Ενδιαφέρομαι
+                      </button>
+                    <!-- <button type="button" class="float-end"
+                        style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ενδιαφέρομαι</button> -->
                 </div>
 
 
 
 
             </div>
+
+            <!-- Modal for creating arrangement -->
+            <div class="modal fade" id="createArrangement" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="createArrangementLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο δημιουργό της αγγελίας ότι ενδιαφέρεστε για την προσφορά του. Αν επιθυμείτε να συνεχίσετε πατήστε επιβεβαίωση, διαφορετικά ακύρωση. Μη διστάσετε να έρθετε σε επαφή με το δημιουργό της αγγελίας για περισσότερες διευκρινήσεις και λεπτομέρειες.
+
+                      <form action="/create-arrangement-offered" method="POST" hidden>
+                          <input type="text" name="offering_user_id" value="<%= listingsWithUsers[i].userId %>">
+                          <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>">
+                          <!-- ideally send the receiving user id from the user logged in -->
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                      <button type="submit" class="btn btn-primary">Επιβεβαίωση</button>
+                    </div>
+                </form>
+                  </div>
+                </div>
+              </div>
             <% } %>
     </div>
 
 
 
-    <!-- Modal -->
+    <!-- Modal for creating listing -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -237,6 +265,9 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for creating arrangement -->
+    
 
 
 </main>

@@ -8,8 +8,8 @@ module.exports = {
 
 
   inputs: {
-    userId: { type: 'number', required: true },
-    offerOrReceive: { type: 'string', required: true }
+    // userId: { type: 'number', required: true },
+    // offerOrReceive: { type: 'string', required: true }
   },
 
 

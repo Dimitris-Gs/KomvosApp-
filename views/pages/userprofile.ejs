@@ -22,8 +22,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
-            <li><a class="dropdown-item" href="#">Αγγελίες Ζήτησης</a></li>
-            <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
           </ul>
         </li>
       </ul>
@@ -90,19 +90,20 @@
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="labels">Όνομα:</label>
-                    <input type="text" class="form-control"
-                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %> required >
+                    <input type="text" class="form-control" placeholder="Ονομα" name="firstName" value=<%=user.firstName
+                      %> required >
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Επώνυμο:</label>
-                    <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
-                      value=<%=user.lastName %> required>
+                    <input type="text" class="form-control" placeholder="Επώνυμο" name="lastName" value=<%=user.lastName
+                      %> required>
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
                     <label class="labels">Email:</label>
-                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email"
+                      id="regEmail" value=<%=user.email %>>
                     <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
                   </div>
                   <div class="col-md-12 mt-3">
@@ -127,19 +128,21 @@
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
-                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth" id="regDateOfBirth"
-                       placeholder="Ημερομηνία Γέννησης:">
-                        <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
+                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth"
+                      id="regDateOfBirth" placeholder="Ημερομηνία Γέννησης:">
+                    <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
                   </div>
                   <!-- όταν φτιαχτεί στην βάση true false -->
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
-                    <label class="container">Ναι 
-                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> onclick="displayAddress();"> 
+                    <label class="container">Ναι
+                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true
+                        ? 'checked' : '' %> onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Όχι 
-                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false ? 'checked' : '' %>  onclick="displayAddress();">
+                    <label class="container"> Όχι
+                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false
+                        ? 'checked' : '' %> onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
                     <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
@@ -151,9 +154,9 @@
                   </div>
                   <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
-                    <textarea onchange="descriptionValidation()" class="form-control" name="description" id="regSmallBio"
-                      rows="5" maxlength="200"><%= user.description %></textarea>
-                      <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
+                    <textarea onchange="descriptionValidation()" class="form-control" name="description"
+                      id="regSmallBio" rows="5" maxlength="200"><%= user.description %></textarea>
+                    <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
                   </div>
                   <div class="col-12">
                     <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
@@ -304,7 +307,7 @@
               <div class="card demo-card">
                 <div class="card-header">
                   <p>
-                      <a href="#demoOffer" role="button">Ο τίτλος της αγγελίας</a>
+                    <a href="#demoOffer" role="button">Ο τίτλος της αγγελίας</a>
                   </p>
                 </div>
 
@@ -432,11 +435,14 @@
               <br>
             </div>
           </div>
-          <!-- Ιστορικότητα -->
+        </div>
+        <!-- Ιστορικότητα -->
+
+        <!-- test arrangement in progress -->
+        <div class="card mb-4 content" id="test">
 
         </div>
-       
-
+        <!-- test arrangement in progress -->
       </div>
     </div>
   </div>

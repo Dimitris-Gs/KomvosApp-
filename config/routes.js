@@ -25,8 +25,9 @@ module.exports.routes = {
   '/thankyou': { view : 'pages/thankumsg'},
   '/listings-offered': {action : 'listings-offered'},
   '/listings-received': {action : 'listings-received'},
-  '/events': { view : 'pages/events'},
+  '/events': { action : 'events'},
   '/create'  : {action:'create'},
+  '/delete' : { action : 'delete'},
   '/userprofile': { action: "user" },
   'POST /updateuser' : {action: "update-user"},
   'POST /rest': {action:"rest-api/create-user"},
@@ -40,6 +41,10 @@ module.exports.routes = {
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
   'POST /register/check-email': { action: "rest-api/check-email"},
+  'POST /create-arrangement-offered': { action: "create-arrangement-offered"},
+  'POST /create-arrangement-received': { action: "create-arrangement-received"},
+  'POST /arrangements-receiver': { action : "arrangements-receiver"},
+  'POST /update-arrangement-finish' : { action : "update-arrangement-finish"},
  
 
   
