@@ -60,4 +60,4 @@ function getArrangementsReceived() {
     })
 }
 
-window.onload = getArrangementsReceived;
+// window.onload = getArrangementsReceived;

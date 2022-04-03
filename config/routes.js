@@ -29,6 +29,7 @@ module.exports.routes = {
   '/create'  : {action:'create'},
   '/delete' : { action : 'delete'},
   '/userprofile': { action: "user" },
+  '/userprofileAntonis':  { action: "user-antonis" },
   'POST /updateuser' : {action: "update-user"},
   'POST /rest': {action:"rest-api/create-user"},
   'POST /userprofile': {action: 'rest-api/user-profile'},
@@ -45,6 +46,7 @@ module.exports.routes = {
   'POST /create-arrangement-received': { action: "create-arrangement-received"},
   'POST /arrangements-receiver': { action : "arrangements-receiver"},
   'POST /update-arrangement-finish' : { action : "update-arrangement-finish"},
+  '/owner' :{ action: "active-arrangements/owner-offering"},
  
 
   

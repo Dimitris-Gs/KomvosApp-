@@ -36,7 +36,8 @@ module.exports = {
 
     let userListings = await TestUser.find({
       where: { id: { in: userIds } }
-    }).populate('listings', { where: { isOffered: false }
+    }).populate('listings', { where: { isOffered: false,
+                                       endingDate: { '>=': new Date() } }
                                });
 
     let listingsWithUsers = [];
