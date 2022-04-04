@@ -66,7 +66,18 @@
             <!-- Profile picture upload button-->
 
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Διαχείριση</button>
+            <!-- <button class="btn btn-dark btnProf dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">Διαχείριση</button> -->
+            <div class="btn-group dropend">
+              <!-- <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropright
+              </button> -->
+              <button class="btn btn-dark btnProf dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false"> Διαχείριση &nbsp; </button>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item" onclick="displayContent(arrangements)">Συμφωνίες</li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button"
               onclick="displayContent(historyCard)">Αρχείο</button>
@@ -225,6 +236,7 @@
           </div>
         </div>
         <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
+
         <!-- User's Profile card  -->
         <div class="card mb-4 content" id="profileCard">
 
@@ -283,7 +295,7 @@
                 <button class="nav-link active" id="nav-intro-tab" data-bs-toggle="tab" data-bs-target="#nav-intro"
                   type="button" role="tab" aria-controls="nav-intro" aria-selected="true">Τι συμβαίνει εδώ;</button>
                 <button class="nav-link" id="nav-offer-tab" data-bs-toggle="tab" data-bs-target="#nav-offer"
-                  type="button" role="tab" aria-controls="nav-offer" aria-selected="true" value="offered">Έχω
+                  type="button" role="tab" aria-controls="nav-offer" aria-selected="false" value="offered">Έχω
                   προσφέρει</button>
                 <button class="nav-link" id="nav-receive-tab" data-bs-toggle="tab" data-bs-target="#nav-receive"
                   type="button" role="tab" aria-controls="nav-receive" aria-selected="false" value="received">Έχω
@@ -443,6 +455,19 @@
 
         </div>
         <!-- test arrangement in progress -->
+
+        <!-- κάρτα διαχείρισης -->
+        <div class="card mb-4 content" id="arrangements">
+          <button type="button" id="arrangementShow">Click!</button>
+          <div id="firstcase">
+
+          </div>
+          <div id="secondcase">
+
+          </div>
+
+        </div>
+
       </div>
     </div>
   </div>

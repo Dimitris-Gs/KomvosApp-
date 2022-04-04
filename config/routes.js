@@ -46,7 +46,9 @@ module.exports.routes = {
   'POST /create-arrangement-received': { action: "create-arrangement-received"},
   'POST /arrangements-receiver': { action : "arrangements-receiver"},
   'POST /update-arrangement-finish' : { action : "update-arrangement-finish"},
-  '/owner' :{ action: "active-arrangements/owner-offering"},
+  '/owner-offering' :{ action: "active-arrangements/owner-offering"},
+  'POST /first-case' : { action: "active-arrangements/first-case"},
+  'POST /second-case' : { action: "active-arrangements/second-case"},
  
 
   

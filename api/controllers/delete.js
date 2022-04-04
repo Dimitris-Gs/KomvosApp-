@@ -20,8 +20,8 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    //  let event = await Arrangement.updateOne({ id: 19 }).set({ status : "accepted"});
-    await Arrangement.destroyOne({ id: 23});
+     let event = await Arrangement.updateOne({ id: 1 }).set({ status : "accepted"});
+    //await Arrangement.destroyOne({ id: 23});
     // await Arrangement.destroyOne({ id: 13});
     // await Arrangement.destroyOne({ id: 14});
     // await Arrangement.destroyOne({ id: 15});

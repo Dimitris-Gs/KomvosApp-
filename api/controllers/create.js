@@ -54,22 +54,22 @@ module.exports = {
     await Categories.create( { name: "elderly person", description: "A user with age-related needs and capacities"} ).fetch();
 
     // await ListingCategories.create( { name: "A", description: "i am nobody"}).fetch();
-    await Listing.create( { user_id: 1, category_id: 1, name: 'Υπηρεσία σχετική με την προμήθεια έτοιμου φαγητού', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-28", endingDate: "2022-03-28", isOffered: true }).fetch();
+    await Listing.create( { user_id: 1, category_id: 1, name: 'Υπηρεσία σχετική με την προμήθεια έτοιμου φαγητού', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-28", endingDate: "2022-05-28", isOffered: true }).fetch();
 
-    await Listing.create( { user_id: 1, category_id: 2, name: 'Υπηρεσία σχετική με την παροχή προσωρινής στέγης', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-28", endingDate: "2022-02-03", isOffered: false }).fetch();
+    await Listing.create( { user_id: 1, category_id: 2, name: 'Υπηρεσία σχετική με την παροχή προσωρινής στέγης', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-28", endingDate: "2022-05-03", isOffered: false }).fetch();
 
-    await Listing.create( { user_id: 2, category_id: 3, name: 'Υπηρεσία σχετική με την προσφορά μαθημάτων', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-03-02", endingDate: "2022-04-30", isOffered: true }).fetch();
+    await Listing.create( { user_id: 2, category_id: 3, name: 'Υπηρεσία σχετική με την προσφορά μαθημάτων', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-03-02", endingDate: "2022-06-30", isOffered: true }).fetch();
 
-    await Listing.create( { user_id: 3, category_id: 4, name: 'Υπηρεσία σχετική με την μεταφορά ατόμων', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-03-22", endingDate: "2022-04-03", isOffered: true }).fetch();
+    await Listing.create( { user_id: 3, category_id: 4, name: 'Υπηρεσία σχετική με την μεταφορά ατόμων', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-03-22", endingDate: "2022-07-03", isOffered: true }).fetch();
 
-    await Listing.create( { user_id: 4, category_id: 5, name: 'Υπηρεσία σχετική με την προσφορά τεχνικών εργασιών', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-02", endingDate: "2022-05-03", isOffered: true }).fetch();
+    await Listing.create( { user_id: 4, category_id: 5, name: 'Υπηρεσία σχετική με την προσφορά τεχνικών εργασιών', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-02", endingDate: "2022-02-03", isOffered: true }).fetch();
 
-    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, pointsOfTransaction:1, status:'finished'}).fetch();
-    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:3, listing_id: 1, pointsOfTransaction:1, status:'finished'}).fetch();
-    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'finished'}).fetch();
-    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'finished'}).fetch();
-    await Arrangement.create ( {offering_user_id: 2, receiving_user_id:4, listing_id: 3, pointsOfTransaction:1, status:'finished'}).fetch();
-    await Arrangement.create ( {offering_user_id: 4, receiving_user_id:3, listing_id: 5, pointsOfTransaction:1, status:'finished'}).fetch();
+    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:3, listing_id: 1, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 2, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 2, receiving_user_id:4, listing_id: 3, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 4, receiving_user_id:3, listing_id: 5, pointsOfTransaction:1, status:'pending'}).fetch();
 
   
     return;

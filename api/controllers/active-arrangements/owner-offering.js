@@ -1,10 +1,10 @@
 module.exports = {
 
 
-  friendlyName: 'Owner offering',
+  friendlyName: 'Owner offering in his own listing',
 
 
-  description: 'Finds all the active arrangements where status is pending and the user is owner of this listing for this moment the user is user with id : 1',
+  description: 'Finds all the active arrangements where status is pending or accepted and the user is owner of this listing and is the offering user (for this moment the user is user with id : 1)',
 
 
   inputs: {
@@ -49,7 +49,14 @@ module.exports = {
         currentArrangement.listingDescription = listingsWithArrangements[j].description;
         currentArrangement.startingDate = listingsWithArrangements[j].startingDate;
         currentArrangement.endingDate = listingsWithArrangements[j].endingDate;
-        currentArrangement.categoryId = listingsWithArrangements[j].category_id;
+        let categoryName = await ListingCategories.findOne({
+          where: {
+            id: listingsWithArrangements[j].category_id
+          },
+          select: ['name']
+        });
+        
+        currentArrangement.category = categoryName.name;
 
         let receiving_user = await TestUser.findOne({
                                                 where: { id : listingsWithArrangements[j].arrangements[k].receiving_user_id },
