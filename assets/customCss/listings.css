@@ -88,6 +88,12 @@ input {
 .carousel-caption {
     bottom: 3rem;
     z-index: 10;
+    background-color: #101214bb;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 2% ;
+    padding-right: 2%;
+    color: #ffffff;
 }
 
 /* Declare heights because of positioning of img element */

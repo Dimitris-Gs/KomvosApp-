@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/customCss/listings-offered.css">
+<link rel="stylesheet" href="/customCss/listings.css">
 <style>
   body {
     padding-top: 40px;
@@ -58,8 +58,8 @@
 
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Καλώς ήρθατε στον Κόμβο</h1>
-            <p>Μία πλατφόρμα αλληλεγγύης και αλληλοβοήθειας.</p>
+            <h1>Καθαρισμός άλσους </h1>
+            <p>Κυριακή 8 Μαίου 12:00. Σημείο συνάντησης:  </p>
             <!-- <p><a class="btn carousel-btn btn-lg btn-danger" href="/register">Γίνε μέλος</a></p> -->
           </div>
         </div>
@@ -71,10 +71,10 @@
         </img>
 
         <div class="container">
-          <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn carousel-btn btn-lg btn-danger" href="#">Learn more</a></p>
+          <div class="carousel-caption  text-start">
+            <h1>Συγκέντρωση ειδών πρώτης ανάγκης <br> για την Ουκρανία.</h1>
+            <p>Σάββατο 9 Απριλίου, 12:00 - 14:00. Πλατεία Καλλιθέας.</p>
+            <!-- <p><a class="btn carousel-btn btn-lg btn-danger" href="#">Learn more</a></p> -->
           </div>
         </div>
       </div>
@@ -85,10 +85,10 @@
         </img>
 
         <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn carousel-btn btn-lg btn-danger" href="#">Browse gallery</a></p>
+          <div class="carousel-caption text-start">
+            <h1>Εθελοντική αιμοδοσία.</h1>
+            <p>Σάββατο 7 Μαίου 10:00 - 15:00. Δήμος Αχαρνών. Φιλαδελφείας 87 & Μπόσδα, Αχαρνές Αττικής. </p>
+            <!-- <p><a class="btn carousel-btn btn-lg btn-danger" href="#">Browse gallery</a></p> -->
           </div>
         </div>
       </div>
@@ -128,6 +128,60 @@
     </div>
   </div>
 
+  <!-- Modal for creating event -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία Δράσης</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="createForm" class="" action="/restevent" method="POST">
+
+                  
+                  <div class="form-group row">
+                      <label for="type" class="col-md-4 col-form-label">Τίτλος: </label>
+                      <div class="col-md-8">
+                          <input placeholder="Τίτλος δράσης" name="title" maxlength="50" required>
+                      </div>
+                  </div>
+                  <div class="form-group row ">
+                      <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
+                      <div class="col-md-8">
+                          <textarea class="form-control" name="description" maxlength="200" id="small_bio"
+                              rows="5" required placeholder="Δώστε περισσότερες πληροφορίες σχετικά με τη συγκεκριμένη δράση. Ποιες ώρες θα διαδραματιστεί; Ποιο είναι το σημείο συνάντησης; Χρειάζεται να παρέχετε κάποιο τηλέφωνο επικοινωνίας;"></textarea>
+                      </div>
+                  </div>
+
+                  <div class="form-group row ">
+                      <label for="startingDate" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
+                      <div class="col-md-8">
+                          <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
+
+                      </div>
+                  </div>
+                  <div class="form-group row ">
+                      <label for="endingDate" class="col-md-4 col-form-label">Διαθέσιμη έως: </label>
+                      <div class="col-md-8">
+                          <input type="date" name="endingDate" id="endingDate" oninput="this.className = ''"
+                              required autofocus>
+                          <small id="validationDate">*Παρακαλούμε εισάγετε έγκυρη
+                              ημερομηνία.</small>
+                      </div>
+                  </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-danger">Δημιουργία</button>
+          </div>
+      </form>
+      </div>
+  </div>
+</div>
 
 
 </main>
+
+<script src="/customJs/creating-listing-event.js"></script>

@@ -13,9 +13,9 @@ module.exports = {
 
 
   exits: {
-    // success: {
-    //   viewTemplatePath: 'pages/events'
-    // }
+    success: {
+      viewTemplatePath: 'pages/events'
+    }
   },
 
 
@@ -59,7 +59,7 @@ module.exports = {
 
 
     // All done.
-    return eventsWithUsers //{ events: events };
+    return { eventsWithUsers: eventsWithUsers };
 
   }
 
