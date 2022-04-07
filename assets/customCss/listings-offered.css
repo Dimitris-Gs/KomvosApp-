@@ -1,0 +1,95 @@
+img {
+    width: 100px;
+    height: 100px;
+}
+
+/*in order to fit content after the two fixed navbars*/
+body {
+    padding-top: 130px;
+}
+
+#navbarNavDropdown1 {
+    padding-left: 24.5%
+}
+
+#navbarDropdownMenuLink1,
+#navbarDropdownMenuLink2 {
+    border: 1px solid black;
+    margin-right: 1px;
+}
+
+#navbarNavDropdown1 ul li a {
+    padding-left: 20px !important;
+    padding-right: 20px;
+}
+
+/*create listing form in modal*/
+form {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.form-group {
+    padding-bottom: 2%;
+}
+
+.form-group label {
+    padding-top: 0;
+    text-align: right;
+}
+
+input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem 2.25rem .375rem .75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+    margin-bottom: 1rem;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel-item {
+    height: 32rem;
+    background-color: rgb(0, 0, 0);
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 80%;
+    height: 32rem;
+    
+}
+
+.carousel-btn {
+    background-color: #e33e5a;
+    
+}
+
+
+@media screen and (max-width:790px) {
+    .form-group label {
+        text-align: left;
+    }
+}

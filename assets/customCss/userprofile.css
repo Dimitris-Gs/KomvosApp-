@@ -5,12 +5,11 @@
 }
  
 body {  
-  color: #5a5a5a; 
-  
+  color: #5a5a5a;   
 }
 
 #main{
-    background-color: #69707a;
+    background-color: #cfcdcd;
     padding-top: 4rem;
     padding-bottom: 100%; 
 }
@@ -66,20 +65,20 @@ body {
 
 .btnProf {
     width: 150px;
-    background-color: #1f4068;
+    background-color: #31363b;
 }
 
 a {
  text-decoration: none;
- color: #1f4068;
+ color: #69707a;
 }
 
 .nav-link{
-    color: #495057;
+    color: #3c3e40;
 }
 
 .nav-link:hover{
-    color: #1f4068;
+    color: #1e252f;
 }
 
 
@@ -95,13 +94,8 @@ a {
     background: rgba(255, 255, 255, 0.473)
 }
 
-#editCard {
-    display: none;
-}
 
-#historyCard {
-    display: none;
-}
+
 
 /** Custom radio buttons */
 
@@ -169,4 +163,40 @@ a {
     height: 8px;
     border-radius: 50%;
     background: white
+}
+
+/* validations */
+
+.invalid {
+     background-color: #ffdddd;
+ }
+
+ #emailValidation {
+     display: none;
+     color: #ff0000;
+ }
+ 
+ #dateOfBirthValidation {
+     display: none;
+     color: #ff0000;
+ }
+
+ #bioValidation {
+     display: none;
+     color: #ff0000;
+ }
+/* τι συμβαίνει εδώ;*/
+.demo-card{
+    width: 70%; 
+    margin: 0 auto;
+}
+
+#nav-intro {
+    width: 90%; 
+    margin: 0 auto;
+}
+
+.card-header p a {
+    text-decoration: none;
+    color: black;
 }
