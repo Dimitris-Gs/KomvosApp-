@@ -23,23 +23,45 @@ module.exports = {
   fn: async function (inputs) {
 
     let listings = await Listing.find({
-      where: { isOffered: true },
-      select: ['user_id']
-    });
+      where: {user_id : { '!=' : 1 } , 
+              isOffered: true,
+              // add another constraint  : show only the active listings (fotis implementation)
+              endingDate: { '>=': new Date() }  }     
+    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
+                                            receiving_user_id : 1 } });
 
-    let userIds = listings.map(element => element.user_id);
-    
+    let rightListingIds = [];
+    let rightListingUsers = [];
 
-    let users = await TestUser.find({
-      where: { id: { in: userIds } }
-    });
-    
+    for (let i = 0; i < listings.length; i++) {
+      if (listings[i].arrangements.length == 0) {
+        rightListingIds.push(listings[i].id);
+        rightListingUsers.push(listings[i].user_id);
+      }
+    }
 
-    let userListings = await TestUser.find({
-      where: { id: { in: userIds } }
-    }).populate('listings', { where: { isOffered: true,
-                                       endingDate: { '>=': new Date() }  }
+    let userListings = await TestUser.find({ 
+      where: {id : {in : rightListingUsers}}
+    }).populate('listings', { where: {  id : { in : rightListingIds},
+                                        isOffered: true,
+                                        endingDate: { '>=': new Date() }  }
                                });
+
+
+    
+    // let listings = await Listing.find({
+    //   where: { isOffered: true },
+    //   select: ['user_id']
+    // });
+
+    // let userIds = listings.map(element => element.user_id);
+    
+
+    // let userListings = await TestUser.find({
+    //   where: { id: { in: userIds } }
+    // }).populate('listings', { where: { isOffered: true,
+    //                                    endingDate: { '>=': new Date() }  }
+    //                            });
 
     let listingsWithUsers = [];
 
@@ -76,7 +98,7 @@ module.exports = {
           },
           select: ['name']
         });
-
+        currentListing.category_id = userListings[i].listings[j].category_id;
         currentListing.category = categoryName.name;
 
         listingsWithUsers.push(currentListing);
@@ -85,7 +107,7 @@ module.exports = {
     }
 
     // All done.
-    return { listingsWithUsers : listingsWithUsers } ;
+    return  { listingsWithUsers : listingsWithUsers } ;
   }
 
 

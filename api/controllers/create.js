@@ -64,10 +64,10 @@ module.exports = {
 
     await Listing.create( { user_id: 4, category_id: 5, name: 'Υπηρεσία σχετική με την προσφορά τεχνικών εργασιών', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-02", endingDate: "2022-02-03", isOffered: true }).fetch();
 
-    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, pointsOfTransaction:1, status:'accepted'}).fetch();
     await Arrangement.create ( {offering_user_id: 1, receiving_user_id:3, listing_id: 1, pointsOfTransaction:1, status:'pending'}).fetch();
     await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 2, pointsOfTransaction:1, status:'pending'}).fetch();
-    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'accepted'}).fetch();
     await Arrangement.create ( {offering_user_id: 2, receiving_user_id:4, listing_id: 3, pointsOfTransaction:1, status:'pending'}).fetch();
     await Arrangement.create ( {offering_user_id: 4, receiving_user_id:3, listing_id: 5, pointsOfTransaction:1, status:'pending'}).fetch();
 

@@ -1,9 +1,9 @@
-// document.getElementById("pills-myListings-tab").addEventListener('click', () => {
-//     getArrangementsOfferingByOwner()
-// });
-document.getElementById("arrangementShow").addEventListener('click', () => {
+
+document.getElementById("nav-notifications-tab").addEventListener('click', () => {
     getFirstCase();
     getSecondCase();
+    getThirdCase();
+    getFourthCase();
 });
 
 function getFirstCase() {
@@ -64,6 +64,7 @@ function getFirstCase() {
                        <div>
                            <span class="badge bg-secondary">${offered[i].category}</span>
                        </div>
+                       <div class="text-center"> <b>${offered[i].listingName}</b></div>
                        <div style="text-align: justify;">
                        ${offered[i].listingDescription}
                        </div>
@@ -101,10 +102,16 @@ function getFirstCase() {
 
            </div>
            <div class="card-footer">
-               <button type="button" class="float-end"
+           <form action="/update-canceled" method="POST">
+                <input type="text" name="id" value="${offered[i].id}"  hidden>
+                <button type="submit" class="float-end"
                    style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Απόρριψη</button>
-               <button type="button" class="float-end"
+            </form>
+            <form action="/update-accepted" method="POST">
+                <input type="text" name="id" value="${offered[i].id}"  hidden>
+                <button type="submit" class="float-end"
                    style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Επιβεβαίωση</button>
+            </form>
            </div>
            </div>
           
@@ -150,6 +157,7 @@ function getFirstCase() {
                        <div>
                            <span class="badge bg-secondary">${received[i].category}</span>
                        </div>
+                       <div class="text-center"> <b>${received[i].listingName}</b></div>
                        <div style="text-align: justify;">
                        ${received[i].listingDescription}
                        </div>
@@ -187,10 +195,16 @@ function getFirstCase() {
 
            </div>
            <div class="card-footer">
-               <button type="button" class="float-end"
-                   style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Απόρριψη</button>
-               <button type="button" class="float-end"
-                   style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Επιβεβαίωση</button>
+           <form action="/update-canceled" method="POST">
+           <input type="text" name="id" value="${received[i].id}"  hidden>
+           <button type="submit" class="float-end"
+              style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Απόρριψη</button>
+       </form>
+       <form action="/update-accepted" method="POST">
+           <input type="text" name="id" value="${received[i].id}"  hidden>
+           <button type="submit" class="float-end"
+              style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Επιβεβαίωση</button>
+       </form>
            </div>
            </div>
           
@@ -292,16 +306,19 @@ function getSecondCase() {
                             <div>
                                 <span class="badge bg-secondary">${offered[i].category}</span>
                             </div>
-
+                            <div class="text-center"> <b>${offered[i].listingName}</b></div>
                             <div style="text-align: justify;  width: 80%;">
                             ${offered[i].listingDescription}
                             </div>
 
                         </div>
                         <div class="card-footer">
-
-                            <button type="button" class="float-end"
+                            <form action="/update-canceled" method="POST">
+                                <input type="text" name="id" value="${offered[i].id}"  hidden>
+                                <button type="submit" class="float-end"
                                 style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
+                            </form>
+                            
                         </div>
 
                         </div>`
@@ -372,7 +389,7 @@ function getSecondCase() {
                                             <div>
                                                 <span class="badge bg-secondary">${received[i].category}</span>
                                             </div>
-                
+                                            <div class="text-center"> <b>${received[i].listingName}</b></div>
                                             <div style="text-align: justify;  width: 80%;">
                                             ${received[i].listingDescription}
                                             </div>
@@ -380,8 +397,12 @@ function getSecondCase() {
                                         </div>
                                         <div class="card-footer">
                 
-                                            <button type="button" class="float-end"
-                                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
+                                        <div class="card-footer">
+                                        <form action="/update-canceled" method="POST">
+                                            <input type="text" name="id" value="${received[i].id}"  hidden>
+                                            <button type="submit" class="float-end"
+                                            style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
+                                        </form>
                                         </div>
                 
                                         </div>`;
@@ -394,6 +415,245 @@ function getSecondCase() {
             })
     })
 }
+
+function getThirdCase() {
+
+    var mySocket = io.sails.connect();
+
+    mySocket.on('connect', function onConnect() {
+        console.log("Socket arrangements connected!");
+        mySocket.request(
+            {
+                method: 'post',
+                url: '/third-case',
+                data: {}
+
+            },
+            function (result, response) {
+                console.log(result);
+                let root = document.getElementById("thirdcase");
+
+              
+
+               let confirmedArrangements = '';
+               for(let i = 0; i < result.length; i++){
+                confirmedArrangements += 
+                        `<div class="card mb-4 content">
+
+
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-3">
+                                Στις <br>
+                                ${new Date(result[i].updatedAt).getDate()}/${new Date(result[i].updatedAt).getMonth() + 1}/${new Date(result[i].updatedAt).getFullYear()} 
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="h5">Έχετε επιβεβαιώσει μία συμφωνία με το/τη χρήστη ${result[i].receiver} για την αγγελία:</p>
+                                    <!--  ${result[i].createdAt}
+                                    ${result[i].updatedAt}  -->
+                                    
+                                    
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="card-body">
+                            <br>
+    
+                            <div class="row ">
+                                <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                        width="100px" height="100px"></div>
+                                <div class="col-sm-5">
+                                    <div>${result[i].receiver} </div>
+                                    <div>${result[i].receiverMail}</div>
+                                </div>
+                            </div>
+    
+                            <br>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div>
+                                        <span class="badge bg-secondary">${result[i].category}</span>
+                                    </div>
+                                    <div class="text-center"> <b>${result[i].listingName}</b></div>
+                                    <div style="text-align: justify;">
+                                    ${result[i].listingDescription}
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                                            <path
+                                                d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                            <path
+                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                        </svg>
+                                        &nbsp;
+                                        ${new Date(result[i].startingDate).getDate()}/${new Date(result[i].startingDate).getMonth() + 1}/${new Date(result[i].startingDate).getFullYear()}
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                                        </svg>
+                                        &nbsp;
+                                        ${new Date(result[i].endingDate).getDate()}/${new Date(result[i].endingDate).getMonth() + 1}/${new Date(result[i].endingDate).getFullYear()}
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="card-footer">
+    
+                        <form action="/update-canceled" method="POST">
+                                <input type="text" name="id" value="${result[i].id}"  hidden>
+                                <button type="submit" class="float-end"
+                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
+                        </form>
+                        </div>
+    
+                    </div>`
+                                    }
+
+                                    
+                
+
+                root.innerHTML = confirmedArrangements ;
+
+            })
+    })
+}
+
+function getFourthCase() {
+
+    var mySocket = io.sails.connect();
+
+    mySocket.on('connect', function onConnect() {
+        console.log("Socket arrangements connected!");
+        mySocket.request(
+            {
+                method: 'post',
+                url: '/fourth-case',
+                data: {}
+            },
+            function (result, response) {
+                console.log(result);
+                let root = document.getElementById("fourthcase");
+
+               let confirmedArrangements = '';
+               for(let i = 0; i < result.length; i++){
+                confirmedArrangements += 
+                        `<div class="card mb-4 content">
+
+
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-md-3">
+                                Στις <br>
+                                ${new Date(result[i].updatedAt).getDate()}/${new Date(result[i].updatedAt).getMonth() + 1}/${new Date(result[i].updatedAt).getFullYear()} 
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="h5">Ο/H ${result[i].offerer} έχει επιβεβαιώσει τη συμφωνία για την αγγελία:</p>
+                                    <!--  ${result[i].createdAt}
+                                    ${result[i].updatedAt}  -->
+                                    
+                                    
+                                </div>
+                            </div>
+    
+                        </div>
+    
+                        <div class="card-body">
+                            <br>
+    
+                            <div class="row ">
+                                <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                        width="100px" height="100px"></div>
+                                <div class="col-sm-5">
+                                    <div>${result[i].offerer} </div>
+                                    <div>${result[i].offererMail}</div>
+                                </div>
+                            </div>
+    
+                            <br>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div>
+                                        <span class="badge bg-secondary">${result[i].category}</span>
+                                    </div>
+                                    <div class="text-center"> <b>${result[i].listingName}</b></div>
+                                    <div style="text-align: justify;">
+                                    ${result[i].listingDescription}
+                                    </div>
+    
+                                </div>
+                                <div class="col-md-4 text-end">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                                            <path
+                                                d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                            <path
+                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                        </svg>
+                                        &nbsp;
+                                        ${new Date(result[i].startingDate).getDate()}/${new Date(result[i].startingDate).getMonth() + 1}/${new Date(result[i].startingDate).getFullYear()}
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                            class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                                        </svg>
+                                        &nbsp;
+                                        ${new Date(result[i].endingDate).getDate()}/${new Date(result[i].endingDate).getMonth() + 1}/${new Date(result[i].endingDate).getFullYear()}
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                        <div class="card-footer">
+                            <form action="/update-canceled" method="POST">
+                                <input type="text" name="id" value="${result[i].id}"  hidden>
+                                <button type="submit" class="float-end"
+                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
+                            </form>
+                            <form action="/update-finished" method="POST">
+                                <input type="text" name="id" value="${result[i].id}"  hidden>
+                                <input type="text" name="offererId" value="${result[i].offererId}"  hidden>
+                                <input type="text" name="receiverId" value="${result[i].receiverId}"  hidden>
+                                <input type="text" name="categoryrId" value="${result[i].categoryrId}"  hidden>
+                                <button type="submit" class="float-end"
+                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ολοκληρώθηκε</button>
+                            </form>
+                        </div>
+    
+                    </div>`
+                                    }
+
+                                    
+                
+
+                root.innerHTML = confirmedArrangements ;
+
+            })
+    })
+}
+
+
+
 // function getArrangementsOfferingByOwner() {
 
 //     var mySocket = io.sails.connect();

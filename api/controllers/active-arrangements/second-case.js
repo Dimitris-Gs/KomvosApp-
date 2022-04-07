@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'Second case',
 
 
-  description: '',
+  description: 'All the arrangements in state pending, for listings that haven t yet expired and the user doesn t own them and he is either the receiver or offerer',
 
 
   inputs: {
@@ -18,49 +18,26 @@ module.exports = {
 
 
   fn: async function (inputs) {
-    let listing = await Listing.find({
-      where:{
-        user_id: 1,
-       
-      }
-    });
-
-    //i am owner of these listings
-    let listings = listing.map( element => element.id);
    
-
-    let arrReceiving = await Arrangement.find({
-      where: {
-        receiving_user_id : 1,
-        status: 'pending'
-      },
-      select: ['listing_id']
-    });
-
-    let listingIds1 = arrReceiving.map(element => element.listing_id);
-
-    
-
-    let arrOffering = await Arrangement.find({
-      where: {
-        offering_user_id : 1,
-        status: 'pending'
-      },
-      select: ['listing_id']
-    });
-
-    let listingIds2 = arrOffering.map(element => element.listing_id) ;
-    let listingIds = listingIds1.concat(listingIds2);
-    console.log(listings);
-    console.log(listingIds);
-    // console.log( typeof listings[0]);
+    // let listingsWithArrangements = await Listing.find({
+    //   where: {
+    //     // Possibly I could have written where user_id != 1
+    //     // to be tested
+    //     id : { nin :  listings },        
+    //   }
+    // }).populate('arrangements', { where: { listing_id : { in: listingIds} } });
 
     let listingsWithArrangements = await Listing.find({
-      where: {
-        id : { nin :  listings },        
+        where: {
+          user_id : { '!=' : 1 }, 
+          endingDate: { '>=': new Date() }       
+        }
+      }).populate('arrangements', { 
+        where: { status: 'pending',
+        or : [ { receiving_user_id: 1 }, { offering_user_id: 1 }]
       }
-    }).populate('arrangements', { where: { listing_id : { in: listingIds} } });
-    
+                
+      });
    
 
     let properArrangements = [];
@@ -90,7 +67,8 @@ module.exports = {
         });
 
         currentArrangement.category = categoryName.name;
-
+        
+        currentArrangement.id = properArrangements[j].arrangements[k].id;
         let receiving_user = await TestUser.findOne({
           where: { id: properArrangements[j].arrangements[k].receiving_user_id },
           select: ['firstName', 'lastName', 'email']
@@ -110,10 +88,12 @@ module.exports = {
 
         currentArrangement.createdAt = properArrangements[j].arrangements[k].createdAt;
         currentArrangement.status = properArrangements[j].arrangements[k].status;
+        currentArrangement.id = properArrangements[j].arrangements[k].id;
 
         dto.push(currentArrangement);
       }
     }
+
     // εδω πανε οι συμφωνιες στις οποιες ο χρηστης 1 ειναι ο receiver
     let offeringListing = [];
     // εδω πανε οι συμφωνιες στις οποιες ο χρηστης 1 ειναι ο offerer
@@ -133,6 +113,7 @@ module.exports = {
     secondCaseResult.push(offeringListing);
     secondCaseResult.push(receivingListing);
     // All done.
+    
     return secondCaseResult;
 
   }

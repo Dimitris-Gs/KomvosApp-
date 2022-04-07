@@ -142,7 +142,9 @@
                     </div>
 
                     <br>
-
+                    <div>
+                        <span class="badge bg-secondary" style="width: 28%;"><%= listingsWithUsers[i].category %></span>
+                    </div>
                     <div style="text-align: justify;  width: 80%;">
                         <%= listingsWithUsers[i].description %>
                     </div>
@@ -175,11 +177,12 @@
                       
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                      
                       <form action="/create-arrangement-received" method="POST">
                         <input type="text" name="receiving_user_id" value="<%= listingsWithUsers[i].userId %>"  hidden>
                         <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"  hidden>
                         <!-- ideally send the offering user id from the user logged in -->
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                       <button type="submit" class="btn btn-primary">Επιβεβαίωση</button>
                     </form>
                     </div>
@@ -203,7 +206,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-create-listing " action="/restlisting" method="POST">
+                    <form class="form-create-listing " action="/create-listing" method="POST">
 
                         <div class="form-group row">
                             <label for="type" class="col-md-4 col-form-label">Τύπος: </label>

@@ -143,7 +143,9 @@
                     </div>
 
                     <br>
-
+                    <div>
+                        <span class="badge bg-secondary"  style="width: 28%;"><%= listingsWithUsers[i].category %></span>
+                    </div>
                     <div style="text-align: justify;  width: 80%;">
                         <%= listingsWithUsers[i].description %>
                     </div>
@@ -153,7 +155,7 @@
                     <button type="button" class="btn float-end" data-bs-toggle="modal" data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>" style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">
                         Ενδιαφέρομαι
                       </button>
-
+                       <!-- Modal for creating arrangement -->
                       <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
                         <div class="modal-dialog">
                           <div class="modal-content">
@@ -168,10 +170,12 @@
                                   <!-- ideally send the receiving user id from the user logged in -->
                             </div>
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                              
                               <form action="/create-arrangement-offered" method="POST">
+                                  <!-- ideally send the receiving user id from the user logged in -->
                                 <input type="text" name="offering_user_id" value="<%= listingsWithUsers[i].userId %>"  hidden>
                                 <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"  hidden>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                               <button type="submit" class="btn btn-primary">Επιβεβαίωση</button>
                             </form>
                             </div>
@@ -186,10 +190,7 @@
 
 
 
-            </div>
-
-            <!-- Modal for creating arrangement -->
-            
+            </div>            
             <% } %>
     </div>
 
@@ -205,7 +206,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-create-listing " action="/restlisting" method="POST">
+                    <form class="form-create-listing " action="/create-listing" method="POST">
 
                         <div class="form-group row">
                             <label for="type" class="col-md-4 col-form-label">Τύπος: </label>

@@ -15,7 +15,7 @@ function getListings(offeredOrReceived) {
     // var offerOrReceive = offeredOrReceived
     var mySocket = io.sails.connect();
     mySocket.on('connect', function onConnect() {
-        console.log("Socket connected!");
+        console.log("Socket history connected!");
         mySocket.request(
             {
                 method: 'post',
@@ -23,7 +23,7 @@ function getListings(offeredOrReceived) {
                 data: { userId: 1 }
             },
             function (result, response) {
-
+                console.log(result);
                 let dto = result[0];
                 let div = result[1];
 

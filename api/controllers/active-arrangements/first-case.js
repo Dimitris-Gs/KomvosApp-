@@ -4,7 +4,7 @@ module.exports = {
   friendlyName: 'First case',
 
 
-  description: '',
+  description: 'state 1, owner, receiver or offerer',
 
 
   inputs: {
@@ -30,7 +30,7 @@ module.exports = {
     let properArrangements = [];
 
     for (let i = 0; i < listings.length; i++) {
-      if (listings[i].arrangements.length !== 0) {
+      if (listings[i].arrangements.length > 0) {
         properArrangements.push(listings[i]);
       }
     }
@@ -59,6 +59,7 @@ module.exports = {
           select: ['firstName', 'lastName', 'email']
         });
         
+        currentArrangement.id = properArrangements[j].arrangements[k].id;
         currentArrangement.receiver = receiving_user.firstName + " " + receiving_user.lastName;
         currentArrangement.receiverMail = receiving_user.email;
 

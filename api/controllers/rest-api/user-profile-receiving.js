@@ -28,7 +28,9 @@ module.exports = {
     let userReceivingArrangements = await Arrangement.find({
       where: {
         receiving_user_id: user.id,
-        status: { in: ['finished', 'inProgress'] }
+        // should be 'finished'
+        //now only for display puproses
+        status: { in: ['accepted'] }
       },
       select: ['listing_id']
     })
