@@ -24,7 +24,7 @@ body {
 }
 
 /*create listing form in modal*/
-form {
+.modal-body form {
     padding-top: 10px;
     padding-bottom: 20px;
 }
@@ -49,6 +49,31 @@ input {
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
+}
+#validationDate {
+    display: none;
+}
+
+/* Listings */
+.listing {
+    width: 50%; 
+    margin: 0 auto;
+}
+.h5 {
+    text-align: center; 
+}
+
+.badge {
+    width: 28%;
+}
+
+.description {
+    text-align: justify;  
+    width: 80%;
+}
+
+.warning {
+    text-align: justify;
 }
 
 /* CUSTOMIZE THE CAROUSEL
