@@ -20,7 +20,7 @@ function getFirstCase() {
 
             },
             function (result, response) {
-                console.log(result);
+                //console.log(result);
                 let root = document.getElementById("firstcase");
 
                let offered = result[0];
@@ -31,93 +31,120 @@ function getFirstCase() {
                 resultOffered += 
 
                 `<div class="card mb-4">
-                <div class="card-header">
-               <div class="row">
-                   <div class="col-md-3">
-                   Στις <br>
-                   ${new Date(offered[i].createdAt).getDate()}/${new Date(offered[i].createdAt).getMonth() + 1}/${new Date(offered[i].createdAt).getFullYear()} 
-                       
-                   </div>
-                   <div class="col-md-9">
-                       <p class="h5">Ο/H ${offered[i].receiver} εκδήλωσε ενδιαφέρον για την αγγελία σας:
-                       </p>
-                   </div>
-               </div>
-           </div>
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-md-3">
+                            Στις <br>
+                            ${new Date(offered[i].createdAt).getDate()}/${new Date(offered[i].createdAt).getMonth() + 1}/${new Date(offered[i].createdAt).getFullYear()} 
+                                
+                            </div>
+                            <div class="col-md-9">
+                                <p class="h5">Ο/H ${offered[i].receiver} εκδήλωσε ενδιαφέρον για την αγγελία σας:
+                                </p>
+                            </div>
+                        </div>
+                    </div>
 
-           <div class="card-body">
-               <br>
+                    <div class="card-body">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
+                                    width="100px" height="100px"></div>
+                            <div class="col-sm-5">
+                                <div>${offered[i].receiver} </div>
+                                <div>${offered[i].receiverMail}</div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <span class="badge bg-secondary">${offered[i].category}</span>
+                                <div class="text-center"> <b>${offered[i].listingName}</b></div>
+                                <div style="text-align: justify;">${offered[i].listingDescription}</div>
+                            </div>
+                            <div class="col-md-4 text-end">
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                                    <path
+                                    d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                    <path
+                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                    <path
+                                    d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                    </svg>
+                                    &nbsp;
+                                    ${new Date(offered[i].startingDate).getDate()}/${new Date(offered[i].startingDate).getMonth() + 1}/${new Date(offered[i].startingDate).getFullYear()}
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                                    <path
+                                    d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                                    <path
+                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                                    </svg>
+                                    &nbsp;
+                                    ${new Date(offered[i].endingDate).getDate()}/${new Date(offered[i].endingDate).getMonth() + 1}/${new Date(offered[i].endingDate).getFullYear()}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#confirmArrangement${offered[i].id}">Επιβεβαίωση</button>                      
+         
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Απόρριψη</button>
+                    </div>
+                </div>
 
-               <div class="row ">
-                   <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
-                           width="100px" height="100px"></div>
-                   <div class="col-sm-5">
-                       <div>${offered[i].receiver} </div>
-                       <div>${offered[i].receiverMail}</div>
-                   </div>
+                <!-- Modal for canceling the arrangement -->
+                        <div class="modal fade" id="cancelArrangement${offered[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body warning">
+                                    Πατώντας Απόρριψη ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                    <br>              
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/update-canceled" method="POST">
+                                            <input type="text" name="id" value="${offered[i].id}" hidden>
+                                            <button type="submit" class="btn btn-danger float-end">Απόρριψη</button>
+                                        </form>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>
+                
+                        <!-- Modal for accepting the arrangement -->
+                        <div class="modal fade" id="confirmArrangement${offered[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
 
-               </div>
+                                    <div class="modal-body warning">
+                                        Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι επιβεβαιώνετε τη συμφωνία. Μη διστάσετε να επικοινωνήσετε μαζί του/της για περισσότερες διευκρινήσεις και λεπτομέρειες.
+                                        <br>   
+                                    </div>
 
-               <br>
-               <div class="row">
-                   <div class="col-md-8">
-                       <div>
-                           <span class="badge bg-secondary">${offered[i].category}</span>
-                       </div>
-                       <div class="text-center"> <b>${offered[i].listingName}</b></div>
-                       <div style="text-align: justify;">
-                       ${offered[i].listingDescription}
-                       </div>
+                                    <div class="modal-footer">
+                                        <form action="/update-accepted" method="POST">
+                                            <input type="text" name="id" value="${offered[i].id}"  hidden>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                            <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                   </div>
-                   <div class="col-md-4 text-end">
-                       <div>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                               class="bi bi-calendar2-date" viewBox="0 0 16 16">
-                               <path
-                                   d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                               <path
-                                   d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
-                               <path
-                                   d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
-                           </svg>
-                           &nbsp;
-                           ${new Date(offered[i].startingDate).getDate()}/${new Date(offered[i].startingDate).getMonth() + 1}/${new Date(offered[i].startingDate).getFullYear()}
-                         
-                       </div>
-                       <div>
-                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                               class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
-                               <path
-                                   d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
-                               <path
-                                   d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
-                           </svg>
-                           &nbsp;
-                           ${new Date(offered[i].endingDate).getDate()}/${new Date(offered[i].endingDate).getMonth() + 1}/${new Date(offered[i].endingDate).getFullYear()}
-                       </div>
-                   </div>
-               </div>
-              
-
-           </div>
-           <div class="card-footer">
-           <form action="/update-canceled" method="POST">
-                <input type="text" name="id" value="${offered[i].id}"  hidden>
-                <button type="submit" class="float-end"
-                   style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Απόρριψη</button>
-            </form>
-            <form action="/update-accepted" method="POST">
-                <input type="text" name="id" value="${offered[i].id}"  hidden>
-                <button type="submit" class="float-end"
-                   style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Επιβεβαίωση</button>
-            </form>
-           </div>
-           </div>
-          
-
-`;
-               }
+            `;}
 
                let resultReceived = '';
                for(let i = 0; i < received.length; i++){
@@ -195,18 +222,58 @@ function getFirstCase() {
 
            </div>
            <div class="card-footer">
-           <form action="/update-canceled" method="POST">
-           <input type="text" name="id" value="${received[i].id}"  hidden>
-           <button type="submit" class="float-end"
-              style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Απόρριψη</button>
-       </form>
-       <form action="/update-accepted" method="POST">
-           <input type="text" name="id" value="${received[i].id}"  hidden>
-           <button type="submit" class="float-end"
-              style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Επιβεβαίωση</button>
-       </form>
+                <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button>                      
+                
+                <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${received[i].id}">Απόρριψη</button>
            </div>
            </div>
+
+           <!-- Modal for canceling the arrangement -->
+                        <div class="modal fade" id="cancelArrangement${received[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body warning">
+                                    Πατώντας Απόρριψη ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                    <br>              
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/update-canceled" method="POST">
+                                            <input type="text" name="id" value="${received[i].id}" hidden>
+                                            <button type="submit" class="btn btn-danger float-end">Απόρριψη</button>
+                                        </form>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>
+                
+                        <!-- Modal for accepting the arrangement -->
+                        <div class="modal fade" id="confirmArrangement${received[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body warning">
+                                        Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι επιβεβαιώνετε τη συμφωνία. Μη διστάσετε να επικοινωνήσετε μαζί του/της για περισσότερες διευκρινήσεις και λεπτομέρειες.
+                                        <br>   
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <form action="/update-accepted" method="POST">
+                                            <input type="text" name="id" value="${received[i].id}"  hidden>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                            <button type="submit" class="btm btn-danger float-end">Επιβεβαίωση</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
           
 
 `;
@@ -313,15 +380,33 @@ function getSecondCase() {
 
                         </div>
                         <div class="card-footer">
-                            <form action="/update-canceled" method="POST">
-                                <input type="text" name="id" value="${offered[i].id}"  hidden>
-                                <button type="submit" class="float-end"
-                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
-                            </form>
-                            
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Ακύρωση</button>                            
                         </div>
 
-                        </div>`
+                        </div>
+                        
+                        <!-- Modal for canceling arrangement -->
+                        <div class="modal fade" id="cancelArrangement${offered[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body warning">
+                                    Πατώντας Ακύρωση ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                    <br>              
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/update-canceled" method="POST">
+                                            <input type="text" name="id" value="${offered[i].id}" hidden>
+                                            <button type="submit" class="btn btn-danger float-end">Ακύρωση</button>
+                                        </form>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>
+                        `
                                     }
 
                                     let resultReceived = '';
@@ -395,17 +480,36 @@ function getSecondCase() {
                                             </div>
                 
                                         </div>
+                                                        
                                         <div class="card-footer">
-                
-                                        <div class="card-footer">
-                                        <form action="/update-canceled" method="POST">
-                                            <input type="text" name="id" value="${received[i].id}"  hidden>
-                                            <button type="submit" class="float-end"
-                                            style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
-                                        </form>
+                                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${received[i].id}">Ακύρωση</button>         
                                         </div>
                 
-                                        </div>`;
+                                        </div>
+                                        
+                                        
+                                        <!-- Modal for canceling arrangement -->
+                                        <div class="modal fade" id="cancelArrangement${received[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body warning">
+                                                    Πατώντας Ακύρωση ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                                    <br>              
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action="/update-canceled" method="POST">
+                                                            <input type="text" name="id" value="${received[i].id}" hidden>
+                                                            <button type="submit" class="btn btn-danger float-end">Ακύρωση</button>
+                                                        </form>
+                                                    </div>
+                                                </div>              
+                                            </div>
+                                        </div>
+                                        `;
                }
                
                 
@@ -430,7 +534,7 @@ function getThirdCase() {
 
             },
             function (result, response) {
-                console.log(result);
+                // console.log(result);
                 let root = document.getElementById("thirdcase");
 
               
@@ -512,15 +616,35 @@ function getThirdCase() {
     
                         </div>
                         <div class="card-footer">
-    
-                        <form action="/update-canceled" method="POST">
-                                <input type="text" name="id" value="${result[i].id}"  hidden>
-                                <button type="submit" class="float-end"
-                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
-                        </form>
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${result[i].id}">Ακύρωση</button>  
                         </div>
     
-                    </div>`
+                    </div>
+                    
+                   
+                                        
+                                        
+                                        <!-- Modal for canceling arrangement -->
+                                        <div class="modal fade" id="cancelArrangement${result[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body warning">
+                                                    Πατώντας Ακύρωση ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                                    <br>              
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <form action="/update-canceled" method="POST">
+                                                            <input type="text" name="id" value="${result[i].id}" hidden>
+                                                            <button type="submit" class="btn btn-danger float-end">Ακύρωση</button>
+                                                        </form>
+                                                    </div>
+                                                </div>              
+                                            </div>
+                                        </div>`
                                     }
 
                                     
@@ -625,22 +749,68 @@ function getFourthCase() {
     
                         </div>
                         <div class="card-footer">
-                            <form action="/update-canceled" method="POST">
-                                <input type="text" name="id" value="${result[i].id}"  hidden>
-                                <button type="submit" class="float-end"
-                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ακύρωση</button>
-                            </form>
-                            <form action="/update-finished" method="POST">
-                                <input type="text" name="id" value="${result[i].id}"  hidden>
-                                <input type="text" name="offererId" value="${result[i].offererId}"  hidden>
-                                <input type="text" name="receiverId" value="${result[i].receiverId}"  hidden>
-                                <input type="text" name="categoryrId" value="${result[i].categoryrId}"  hidden>
-                                <button type="submit" class="float-end"
-                                style="padding: 5px; border-radius: 10%; background-color: rgb(156, 38, 38); color: white;">Ολοκληρώθηκε</button>
-                            </form>
+                        
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#finishArrangement${result[i].id}">Ολοκληρώθηκε</button>                      
+         
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#cancelArrangement${result[i].id}">Απόρριψη</button>
+
+                            
                         </div>
     
-                    </div>`
+                    </div>
+
+                <!-- Modal for canceling the arrangement -->
+                        <div class="modal fade" id="cancelArrangement${result[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body warning">
+                                    Πατώντας Απόρριψη ακυρώνετε τη συγκεκριμένη συμφωνία.
+                                    <br>              
+                                    </div>
+                                    <div class="modal-footer">
+                                        <form action="/update-canceled" method="POST">
+                                            <input type="text" name="id" value="${result[i].id}" hidden>
+                                            <button type="submit" class="btn btn-danger float-end">Απόρριψη</button>
+                                        </form>
+                                    </div>
+                                </div>              
+                            </div>
+                        </div>
+                
+                        <!-- Modal for finishing the arrangement -->
+                        <div class="modal fade" id="finishArrangement${result[i].id}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body warning">
+                                        Πατώντας επιβεβαίωση ολοκληρώνετε τη συμφωνία! Ένας πόντος φεύγει από σας και πηγαίνει στο χρήστη που προσφέρθηκε να συνδράμει! (αυτό δεν ισχύει στην περίπτωση υπηρεσιών σίτισης ή στέγασης)
+                                        <br>   
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <form action="/update-finished" method="POST">
+                                            
+                                            <input type="text" name="id" value="${result[i].id}"  hidden>
+                                            <input type="text" name="offererId" value="${result[i].offererId}"  hidden>
+                                            <input type="text" name="receiverId" value="${result[i].receiverId}"  hidden>
+                                            <input type="text" name="categoryrId" value="${result[i].categoryrId}"  hidden>
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                            <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    `
                                     }
 
                                     

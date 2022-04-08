@@ -42,29 +42,28 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse " id="navbarNavDropdown1">
                     <ul class="navbar-nav">
-                       
+
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle ps-5" href="#" id="navbarDropdownMenuLink1" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Κατηγορίες
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1" id="sortCategories">
-                               
+
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false"
-                                >
+                                data-bs-toggle="dropdown" aria-expanded="false">
                                 Σειρά εμφάνισης
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                                 <li><a class="dropdown-item" href="#">Αύξουσα σειρά</a></li>
                                 <li><a class="dropdown-item" href="#">Φθίνουσα σειρά</a></li>
-                                
+
                             </ul>
                         </li>
 
@@ -77,7 +76,7 @@
                 </div>
             </div>
         </nav>
-        
+
     </div>
 </header>
 
@@ -126,12 +125,9 @@
                                         d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                 </svg>
                                 &nbsp;
-                                <%= listingsWithUsers[i].startingDate.toLocaleDateString("en-GB", {
-                                    year: "numeric",
-                                    month: "2-digit",
-                                    day: "2-digit",
-                                  }) %>
-                                
+                                <%= listingsWithUsers[i].startingDate.toLocaleDateString("en-GB", { year: "numeric" ,
+                                    month: "2-digit" , day: "2-digit" , }) %>
+
 
                             </div>
                             <div>
@@ -143,11 +139,8 @@
                                         d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                 </svg>
                                 &nbsp;
-                                <%= listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", {
-                                    year: "numeric",
-                                    month: "2-digit",
-                                    day: "2-digit",
-                                  }) %>
+                                <%= listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" ,
+                                    month: "2-digit" , day: "2-digit" , }) %>
                             </div>
                         </div>
 
@@ -155,7 +148,9 @@
 
                     <br>
                     <div>
-                        <span class="badge bg-secondary" ><%= listingsWithUsers[i].category %></span>
+                        <span class="badge bg-secondary">
+                            <%= listingsWithUsers[i].category %>
+                        </span>
                     </div>
                     <div class="description">
                         <%= listingsWithUsers[i].description %>
@@ -163,42 +158,52 @@
 
                 </div>
                 <div class="card-footer">
-                    <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>" >
+                    <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal"
+                        data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>">
                         Ενδιαφέρομαι
-                      </button>
-                       <!-- Modal for creating arrangement -->
-                      <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                    </button>
+                    <!-- Modal for creating arrangement -->
+                    <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>"
+                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                        aria-labelledby="createArrangementLabel" aria-hidden="true">
                         <div class="modal-dialog">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b></h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b>
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body warning">
+                                    Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι
+                                    ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί του/της
+                                    για περισσότερες διευκρινήσεις και λεπτομέρειες.
+                                    <br>
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <form action="/create-arrangement-offered" method="POST">
+                                        <!-- ideally send the receiving user id from the user logged in -->
+                                        <input type="text" name="offering_user_id"
+                                            value="<%= listingsWithUsers[i].userId %>" hidden>
+                                        <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"
+                                            hidden>
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Ακύρωση</button>
+                                        <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
+                                    </form>
+                                </div>
+
                             </div>
-                            <div class="modal-body warning">
-                              Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί του/της για περισσότερες διευκρινήσεις και λεπτομέρειες.
-                              <br>
-                                       
-                            </div>
-                            <div class="modal-footer">
-                              
-                              <form action="/create-arrangement-offered" method="POST">
-                                  <!-- ideally send the receiving user id from the user logged in -->
-                                <input type="text" name="offering_user_id" value="<%= listingsWithUsers[i].userId %>"  hidden>
-                                <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"  hidden>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
-                              <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
-                            </form>
-                            </div>
-                        
-                          </div>
                         </div>
-                      </div>
+                    </div>
                 </div>
 
 
 
 
-            </div>            
+            </div>
             <% } %>
     </div>
 
@@ -231,7 +236,7 @@
                             <div class="col-md-8">
                                 <select id="category_id" class="form-select" aria-label="multiple select example"
                                     name="category_id">
-                                   
+
                                 </select>
                             </div>
                         </div>
@@ -245,7 +250,8 @@
                             <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
                             <div class="col-md-8">
                                 <textarea class="form-control" name="description" maxlength="200" id="small_bio"
-                                    rows="5" required placeholder="Δώστε περισσότερες πληροφορίες σχετικά με τη διαθεσιμότητά σας. Ποιες μέρες και ώρες επιθυμείτε να αφιερώσετε; Πως θα προτιμούσατε να επικοινωνήσει κανείς μαζί σας;"></textarea>
+                                    rows="5" required
+                                    placeholder="Δώστε περισσότερες πληροφορίες σχετικά με τη διαθεσιμότητά σας. Ποιες μέρες και ώρες επιθυμείτε να αφιερώσετε; Πως θα προτιμούσατε να επικοινωνήσει κανείς μαζί σας;"></textarea>
 
                             </div>
                         </div>
@@ -267,20 +273,20 @@
                             </div>
                         </div>
 
-                    
+
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-danger">Δημιουργία</button>
                 </div>
-            </form>
+                </form>
             </div>
         </div>
     </div>
 
 
-    
+
 
 
 </main>
