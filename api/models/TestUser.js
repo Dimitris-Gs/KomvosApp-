@@ -62,6 +62,14 @@ module.exports = {
       collection: 'arrangement',
       via: 'receiving_user_id'
     },
+    messages: {
+      collection: 'chatmessages',
+      via: 'user1'
+    },
+    messages: {
+      collection: 'chatmessages',
+      via: 'user2'
+    }
   },
 
 };

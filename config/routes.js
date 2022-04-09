@@ -21,7 +21,6 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/register': {view: 'pages/registration'},
-  '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'},
   '/thankyou': { view : 'pages/thankumsg'},
   '/create'  : {action:'create'},
@@ -35,6 +34,10 @@ module.exports.routes = {
   '/create-listing' : {action : 'listing-categories'},
   'POST /restlisting': {action:"rest-api/create-listing"},
   'POST /register/check-email': { action: "rest-api/check-email"},
+  '/chat' : {action: 'messenger/chat'},
+  'POST /message': { action: 'messenger/chat-message' },
+  'POST /messages' : {action: 'messenger/get-messages'},
+  'POST /joinroom': {action: 'messenger/join-room'},
  
 
   
