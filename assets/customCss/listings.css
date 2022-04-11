@@ -1,4 +1,4 @@
-img {
+ img {
     width: 100px;
     height: 100px;
 }
@@ -76,51 +76,55 @@ input {
     text-align: justify;
 }
 
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-    margin-bottom: 1rem;
+.personsInfo{
+    padding-left: 3%;
 }
-
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-    bottom: 3rem;
-    z-index: 10;
-    background-color: #101214bb;
-    width: fit-content;
-    height: fit-content;
-    padding-left: 2% ;
-    padding-right: 2%;
-    color: #ffffff;
+.small{
+    display: none;
 }
+@media screen and (max-width: 1200px) {
+    .listing {
+        width: 65%; 
+        margin: 0 auto;
+    }
 
-/* Declare heights because of positioning of img element */
-.carousel-item {
-    height: 32rem;
-    background-color: rgb(0, 0, 0);
 }
+@media screen and (max-width: 900px) {
+    .personsInfo{
+        padding-left: 8%;
+    }
 
-.carousel-item>img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    text-align: center;
-    width: 80%;
-    height: 32rem;
-    
 }
-
-.carousel-btn {
-    background-color: #e33e5a;
-    
-}
-
-
 @media screen and (max-width:790px) {
+    .listing {
+        width: 80%; 
+        margin: 0 auto;
+    }
     .form-group label {
         text-align: left;
     }
+    
 }
+
+@media screen and (max-width:576px) {
+    .listing {
+        width: 95%; 
+        margin: 0 auto;
+    }
+    .small{
+        display: block;
+    }
+    .big{
+        display: none;
+    }
+    .personsInfo{
+        padding-left: 1%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .personsInfo{
+        padding-left: 10%;
+    }
+}
+

@@ -19,14 +19,6 @@ module.exports = {
 
   fn: async function (inputs) {
    
-    // let listingsWithArrangements = await Listing.find({
-    //   where: {
-    //     // Possibly I could have written where user_id != 1
-    //     // to be tested
-    //     id : { nin :  listings },        
-    //   }
-    // }).populate('arrangements', { where: { listing_id : { in: listingIds} } });
-
     let listingsWithArrangements = await Listing.find({
         where: {
           user_id : { '!=' : 1 }, 
@@ -38,7 +30,7 @@ module.exports = {
       }
                 
       });
-   
+        
 
     let properArrangements = [];
 

@@ -1,9 +1,5 @@
-<link rel="stylesheet" href="/customCss/listings.css">
-<style>
-  body {
-    padding-top: 40px;
-  }
-</style>
+<link rel="stylesheet" href="/customCss/events.css">
+
 <header>
   <div class="fixed-top">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -59,7 +55,7 @@
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>Καθαρισμός άλσους </h1>
-            <p>Κυριακή 8 Μαίου 12:00. Σημείο συνάντησης:  </p>
+            <p>Κυριακή 8 Μαίου 12:00. Σημείο συνάντησης: </p>
             <!-- <p><a class="btn carousel-btn btn-lg btn-danger" href="/register">Γίνε μέλος</a></p> -->
           </div>
         </div>
@@ -102,86 +98,156 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
- <!-- second navbar -->
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6">
+  <div class="container">
 
-        <div class="dropdown" style="padding-left: 24.5%">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-            data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0);" >
-            Σειρά εμφάνισης
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Αύξουσα σειρά</a></li>
-            <li><a class="dropdown-item" href="#">Φθίνουσα σειρά</a></li>
-
-          </ul>
-        </div>
+    <div class="row ">
+      <div class="col-sm-7">
+        <h3>Δράσεις</h3>
       </div>
-      <div class="col-md-6">
+      <div class="col-sm-5">
         <div class="text-end">
-          <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-          id="createEvent">Προσθήκη δράσης</button>
+          <button type="button" class="btn btn-danger big btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            id="createEvent">Προσθήκη δράσης</button>
+            <button type="button" class="btn btn-danger small btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            id="createEvent">Προσθήκη</button>
         </div>
       </div>
     </div>
-  </div>
+    <br>
+    <div class="row">
+      <div class="dropdown" id="show">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false"
+          style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); ">
+          Σειρά εμφάνισης
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Αύξουσα σειρά</a></li>
+          <li><a class="dropdown-item" href="#">Φθίνουσα σειρά</a></li>
+        </ul>
+      </div>
+    </div>
 
-  <!-- Modal for creating event -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-  aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-      <div class="modal-content">
+    <!-- Modal for creating event -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία Δράσης</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία Δράσης</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <form id="createForm" class="" action="/restevent" method="POST">
+            <form id="createForm" class="" action="/restevent" method="POST">
 
-                  
-                  <div class="form-group row">
-                      <label for="type" class="col-md-4 col-form-label">Τίτλος: </label>
-                      <div class="col-md-8">
-                          <input placeholder="Τίτλος δράσης" name="title" maxlength="50" required>
-                      </div>
-                  </div>
-                  <div class="form-group row ">
-                      <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
-                      <div class="col-md-8">
-                          <textarea class="form-control" name="description" maxlength="200" id="small_bio"
-                              rows="5" required placeholder="Δώστε περισσότερες πληροφορίες σχετικά με τη συγκεκριμένη δράση. Ποιες ώρες θα διαδραματιστεί; Ποιο είναι το σημείο συνάντησης; Χρειάζεται να παρέχετε κάποιο τηλέφωνο επικοινωνίας;"></textarea>
-                      </div>
-                  </div>
 
-                  <div class="form-group row ">
-                      <label for="startingDate" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
-                      <div class="col-md-8">
-                          <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
+              <div class="form-group row">
+                <label for="type" class="col-md-4 col-form-label">Τίτλος: </label>
+                <div class="col-md-8">
+                  <input placeholder="Τίτλος δράσης" name="title" maxlength="50" required>
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
+                <div class="col-md-8">
+                  <textarea class="form-control" name="description" maxlength="200" id="small_bio" rows="5" required
+                    placeholder="Δώστε περισσότερες πληροφορίες σχετικά με τη συγκεκριμένη δράση. Ποιες ώρες θα διαδραματιστεί; Ποιο είναι το σημείο συνάντησης; Χρειάζεται να παρέχετε κάποιο τηλέφωνο επικοινωνίας;"></textarea>
+                </div>
+              </div>
 
-                      </div>
-                  </div>
-                  <div class="form-group row ">
-                      <label for="endingDate" class="col-md-4 col-form-label">Διαθέσιμη έως: </label>
-                      <div class="col-md-8">
-                          <input type="date" name="endingDate" id="endingDate" oninput="this.className = ''"
-                              required autofocus>
-                          <small id="validationDate">*Παρακαλούμε εισάγετε έγκυρη
-                              ημερομηνία.</small>
-                      </div>
-                  </div>
+              <div class="form-group row ">
+                <label for="startingDate" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
+                <div class="col-md-8">
+                  <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
+
+                </div>
+              </div>
+              <div class="form-group row ">
+                <label for="endingDate" class="col-md-4 col-form-label">Διαθέσιμη έως: </label>
+                <div class="col-md-8">
+                  <input type="date" name="endingDate" id="endingDate" oninput="this.className = ''" required autofocus>
+                  <small id="validationDate">*Παρακαλούμε εισάγετε έγκυρη
+                    ημερομηνία.</small>
+                </div>
+              </div>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-danger">Δημιουργία</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger">Δημιουργία</button>
           </div>
-      </form>
+          </form>
+        </div>
       </div>
+    </div>
+
+
+    <br>
+    <div class="events">
+      <% for (let i=0; i < eventsWithUsers.length; i++) { %>
+        <div class="card mb-4 ">
+
+
+          <div class="card-header">
+            <p class="h5">
+              <%= eventsWithUsers[i].title %>
+            </p>
+          </div>
+
+          <div class="card-body">
+            <br>
+
+            <div class="row">
+
+
+              <div class="col-sm-5">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                    <path
+                      d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                    <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                  </svg>
+                  &nbsp;
+                  <%= eventsWithUsers[i].startingDate.toLocaleDateString("en-GB", { year: "numeric" , month: "2-digit" ,
+                    day: "2-digit" , }) %>
+                </div>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                    <path
+                      d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                    <path
+                      d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                  </svg>
+                  &nbsp;
+                  <%= eventsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" , month: "2-digit" ,
+                    day: "2-digit" , }) %>
+                </div>
+              </div>
+
+              <div class="col-sm-7">
+                <div class="description">
+                  <%= eventsWithUsers[i].description %>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="card-footer">
+            <div>Δημιουργήθηκε από: &nbsp; <b>
+              <%= eventsWithUsers[i].fullname %>
+            </b> </div>
+           
+          </div>
+
+        </div>
+        <% } %>
+    </div>
   </div>
-</div>
-
-
 </main>
 
 <script src="/customJs/creating-listing-event.js"></script>

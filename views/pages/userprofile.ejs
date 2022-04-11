@@ -52,7 +52,7 @@
         <!-- Profile picture card-->
         <div class="card mb-4 mb-xl-0">
           <!-- <div class="card-header">Profile Picture</div> -->
-          <div class="card-body text-center">
+          <div class="card-body text-center" id="regularMenu">
             <!-- Profile picture image-->
             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
               alt="">
@@ -85,10 +85,38 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
           </div>
+
+          <!-- less than 768 version -->
+          <div class="card-body text-center" id="smallMenu">
+            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
+              alt="">
+            <div class="" onclick="displayContent(editCard)"> Επεξεργασία
+              προφίλ </div>
+            <p onclick="displayContent(profileCard)"> Username </p>
+
+            <div>
+              <div class="dropdown">
+                <button class="btn btn-dark btnProf dropdown-toggle mt-2" id="dropdownMenu" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"> Διαχείριση </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <li class="dropdown-item" onclick="displayContent(arrangements)">Συμφωνίες</li>
+                  <li><a class="dropdown-item" href="#">Αγγελίες</a></li>
+                  <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+                </ul>
+              </div>
+
+              <button class="btn btn-dark btnProf mt-2" type="button"
+                onclick="displayContent(historyCard)">Αρχείο</button>
+              <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
+              <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
+            </div>
+          </div>
+          <!-- less than 768 version -->
+
         </div>
       </div>
       <!-- Φόρμα επεξεργασίας προφίλ -->
-      <div class="col-xl-8">
+      <div class="col-xl-8 col-md-8">
 
         <div class="card mb-4 content" id="editCard">
           <div id="editform">
@@ -249,9 +277,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <h5 class="card-title">Βασικές πληροφορίες:</h5>
+                <h5 class="card-title">Πληροφορίες:</h5>
                 <hr>
-                <br>
+                
                 <div class="row pt-2">
                   <div class="col-lg-4">Ηλικία:</div>
                   <div class="col-lg-8" id="cardAge"></div>
@@ -269,7 +297,7 @@
                   </div>
                 </div>
 
-                <div class="row pt-2 pb-3">
+                <div class="row pt-2 pb-4">
                   <div class="col-lg-4">Πόντοι:</div>
                   <div class="col-lg-8">
                     <%= user.points %>
@@ -280,7 +308,7 @@
               <div class="col-md-6">
                 <h5 class="card-title">Περιγραφή:</h5>
                 <hr>
-                <br>
+                
                 <p>
                   <%= user.description %>
                 </p>
@@ -345,7 +373,7 @@
                               d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία έναρξης
+                          Ημερ. έναρξης - λήξης
                         </div>
 
                         <div>
@@ -357,7 +385,7 @@
                               d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία λήξης
+                          Ημερ. σύναψης συμφωνίας
                         </div>
                         <div class="mb-2">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -456,12 +484,7 @@
         </div>
         <!-- Ιστορικότητα -->
 
-        <!-- test arrangement in progress -->
-        <div class="card mb-4 content" id="test">
-
-        </div>
-        <!-- test arrangement in progress -->
-
+        
         <!-- κάρτα διαχείρισης -->
         <div class="card mb-4 content" id="arrangements">
           <nav>
@@ -475,10 +498,99 @@
             </div>
           </nav>
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-guide" role="tabpanel" aria-labelledby="nav-guide-tab">...
+            <div class="tab-pane fade show active" id="nav-guide" role="tabpanel" aria-labelledby="nav-guide-tab">
+              <br>
+              <br>
+              <p>
+                Εδώ είναι το σημείο που μπορείς να διαχειριστείς όλες τις ενεργές συμφωνίες σου.
+              Όταν εκδηλώνεις ενδιαφέρον για κάποια αγγελία, ή όταν κάποιος άλλος χρήστης του Κόμβου εκδηλώνει ενδιαφέρον για μία δικιά σου αγγελία, προκύπτει μία ειδοποίση στη σελίδα σου Συμφωνίες που σε ενημερώνει σχετικά.              
+              </p>
+              <p>
+                Σε κάθε στάδιο μίας συμφωνίας έχεις τον έλεγχο της κατάστασής της:
+                <ul>
+                  <li> μπορείς να επιβεβαιώσεις ή να απορρίψεις το αίτημα ενός άλλου χρήστη για μία υπηρεσία που προσφέρεις.</li>
+                  <li> μπορείς να ακυρώσεις μία συμφωνία για την οποία δεν ενδιαφέρεσαι πλέον </li>
+                  <li> μπορείς να ολοκληρώσεις μία συμφωνία στην οποία έχεις λάβει μία υπηρεσία από κάποιον χρήστη.</li>
+                </ul>
+              </p>
+              <br>
+              <br>
+              <p>Ένα παράδειγμα ειδοποίησης είναι το εξής:</p>
+
+              <div class="card mb-4 arrangementDemo">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-lg-3">
+                        
+                        <small>Ημερ. δημιουργίας της συμφωνίας</small> 
+                        <br>    
+                        </div>
+                        <div class="col-lg-9">
+                            <p class="h5">Ο/H ... εκδήλωσε ενδιαφέρον για την αγγελία σου:
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="card-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"
+                               ></div>
+                        <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
+                            <div> Όνομα - Επώνυμο ενδιαφερόμενου</div>
+                            <div>email </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <span class="badge bg-secondary">Κατηγορία αγγελίας</span>
+                            <div class="text-center"> <b>Τίτλος αγγελίας</b></div>
+                            <div class="description">Περιγραφή</div>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                                <path
+                                d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                                <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                                <path
+                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                                </svg>
+                                &nbsp;
+                                Ημερ. έναρξης
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                                <path
+                                d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                                <path
+                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                                </svg>
+                                &nbsp;
+                                Ημερ. λήξης
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-end">
+                    <button type="button" class="btn btn-danger btnNotification">Επιβεβαίωση</button>                      
+            
+                    <button type="button" class="btn btn-danger btnNotification">Απόρριψη</button>
+                    </div>
+                </div>
+            </div>
+
+              
+
             </div>
             <div class="tab-pane fade" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
-              <!--  -->
+              
               <br>
               <div id="firstcase">
 
