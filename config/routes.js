@@ -21,7 +21,7 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/register': {view: 'pages/registration'},
-  '/login'   : {view : 'pages/loginform'},
+  '/login'   : {action :'loginForm/view-login-form' },
   '/thankyou': { view : 'pages/thankumsg'},
   '/listings-offered': {action : 'listings-pages/listings-offered'},
   '/listings-received': {action : 'listings-pages/listings-received'},
@@ -51,7 +51,7 @@ module.exports.routes = {
   'POST /update-canceled' : { action: "arrangements-create-update/update-canceled" } ,
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
-  
+  'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'}
 
   
   
