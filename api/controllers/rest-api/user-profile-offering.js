@@ -39,7 +39,9 @@ module.exports = {
 
     let userListing = await Listing.find({
       where: { id: { in: numbers } }
-    }).populate('arrangements')
+    }).populate('arrangements', { 
+      where: { offering_user_id: inputs.userId }
+    });
 
     
     let p = new User(userListing)

@@ -206,11 +206,14 @@ a {
     color: black;
 }
 
-#nav-guide{
+#nav-guide,
+#nav-listing,
+#alternative {
     width: 90%; 
     margin: 0 auto;    
 }
-#nav-guide p{
+#nav-guide p,
+#nav-listing p{
     text-align: justify;
 }
 
@@ -240,6 +243,10 @@ a {
         padding-left: 5%;
     }
 
+    #personsInfo {
+        padding-left: 15%;
+    }
+
     .smCard {
         display: none;
     }
@@ -253,6 +260,10 @@ a {
 
     .personsInfo {
         padding-left: 2%;
+    }
+
+    #personsInfo {
+        padding-left: 15%;
     }
 
     .demo-card{
@@ -288,6 +299,10 @@ a {
 @media screen and (max-width: 576px) {
     .personsInfo {
         padding-left: 2%;
+    }
+
+    #personsInfo {
+        padding-left: 3%;
     }
 
     .smCard {

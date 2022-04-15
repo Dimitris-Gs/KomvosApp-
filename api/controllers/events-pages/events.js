@@ -24,10 +24,6 @@ module.exports = {
 
     let userIds = events.map(element => element.user_id);
 
-    // let users = await TestUser.find({
-    //   where: { id: { in: userIds } }
-    // });
-
     let usersEvents = await TestUser.find({
       where: { id: { in: userIds } }
     }).populate('events');

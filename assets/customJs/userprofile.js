@@ -1,7 +1,18 @@
+
+// window.addEventListener("load", function () {
+//   console.log("hi");
+//   let second = document.getElementById("secondcase");
+//   console.log(second.innerHTML);
+//   console.log(second.hasChildNodes());
+// });
+document.getElementById("alternative").style.display = "none";
+
+
 // Hide the cards/tabs 
 document.getElementById("editCard").style.display = "none";
 document.getElementById("historyCard").style.display = "none";
 document.getElementById("arrangements").style.display = "none";
+document.getElementById("listingsCard").style.display = "none";
 
 // For the profile edit page: 
 
@@ -32,23 +43,23 @@ let inputValue = `${year}-${month}-${day}`;
  *              -on editCard displays the user's date of birth
  */
 function displayContent(id) {
-  
+
   let content = id;
   if (content.style.display !== "none") {
     content.style.display = "none";
   }
   else {
-    
+
     hideOtherContent();
     content.style.display = "block";
-    
+
     if (id == editCard) {
       let inputDateOfBirth = document.getElementById("regDateOfBirth");
       // on div display set the value of the input type date to the user's birth date
       inputDateOfBirth.value = inputValue;
     }
-    
-    
+
+
   }
 }
 
@@ -143,8 +154,8 @@ function displayAddress() {
 }
 
 
- // validation for users age between 18 and 80
- 
+// validation for users age between 18 and 80
+
 function checkDateOfBirth(dateValue) {
 
   if (dateValue) {
@@ -187,7 +198,7 @@ function validateDate() {
 function descriptionValidation() {
 
   let textarea = document.getElementById("regSmallBio");
-  
+
   if (!textarea.value?.length) {
     document.getElementById("bioValidation").style.display = 'block';
     return false;

@@ -233,43 +233,43 @@
                         data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>">
                         Ενδιαφέρομαι
                     </button>
-                    <!-- Modal for creating arrangement -->
-                    <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>"
-                        data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                        aria-labelledby="createArrangementLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b>
-                                    </h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body warning">
-                                    Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι
-                                    ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί του/της
-                                    για περισσότερες διευκρινήσεις και λεπτομέρειες.
-                                    <br>
+                </div>
 
-                                </div>
-                                <div class="modal-footer">
-
-                                    <form action="/create-arrangement-offered" method="POST">
-                                        <!-- ideally send the receiving user id from the user logged in -->
-                                        <input type="text" name="offering_user_id"
-                                            value="<%= listingsWithUsers[i].userId %>" hidden>
-                                        <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"
-                                            hidden>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Ακύρωση</button>
-                                        <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
-                                    </form>
-                                </div>
+                <!-- Modal for creating arrangement -->
+                <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>" data-bs-backdrop="static"
+                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b>
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body warning">
+                                Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι
+                                ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί του/της
+                                για περισσότερες διευκρινήσεις και λεπτομέρειες.
+                                <br>
 
                             </div>
+                            <div class="modal-footer">
+
+                                <form action="/create-arrangement-offered" method="POST">
+                                    <!-- ideally send the receiving user id from the user logged in -->
+                                    <input type="text" name="offering_user_id"
+                                        value="<%= listingsWithUsers[i].userId %>" hidden>
+                                    <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>" hidden>
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Ακύρωση</button>
+                                    <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
+                                </form>
+                            </div>
+
                         </div>
                     </div>
                 </div>
+
 
 
 
