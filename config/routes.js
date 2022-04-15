@@ -38,6 +38,7 @@ module.exports.routes = {
   'POST /message': { action: 'messenger/chat-message' },
   'POST /messages' : {action: 'messenger/get-messages'},
   'POST /joinroom': {action: 'messenger/join-room'},
+  '/donation' : {view: 'pages/donation'},
  
 
   

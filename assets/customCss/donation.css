@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100%;
+}
+
+#dropdownMenuButton1 {
+  background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#dropdownMenuButton1 img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  margin-top: 0px;
+  border-radius: 100%;
+}
+
+hr {
+  color: #cacbd5;
+}
+
+/* navbar */
+#dropdownMenuButton1 {
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 17px;
+}
+
+.profileDropdown {
+  padding-left: 9rem;
+}
+
+
+#donationImage{
+  width: 100%;
+  height:70vh;
+  background-image: url('/images/donation/markus-winkler-wLBVAF-kMR0-unsplash.jpg');
+  background-size: cover
+}
+
+.pay{
+  background-color: #3d4251;
+  width: 100%;
+  height: 100%;
+}
+
+#paypal-button-container{
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  color: #fff !important;
+}
+
+
+/* footer p {
+  width: 100%;
+  background-color: #cacbd5;
+  padding-top: 3rem;
+} */

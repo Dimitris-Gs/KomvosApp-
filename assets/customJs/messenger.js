@@ -44,6 +44,7 @@ function renderMessage(isSender, message) {
 
 }
 
+// makes the chat scroll to the bottom automatically
 const scrollToBottom = () => {
   const element = document.getElementById('messages');
   element.scrollTop = element.scrollHeight;
