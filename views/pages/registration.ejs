@@ -32,8 +32,7 @@
                 <div class="col-lg-8"><input type="email" placeholder="Email" oninput="emailInputEventHandler()" name="email" id="regEmail"></div>
                 <div class="col-lg-4"><button type="button" id="checkIfUnique">Επιβεβαίωση</button></div>
               </div>
-              
-              
+
               <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
               <small id="emailExists">*Αυτή η διεύθυνση email υπάρχει ήδη.</small>
               <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση .</small>
@@ -60,8 +59,11 @@
             <small id="genderValidation">*Παρακαλούμε εισάγετε το φύλο σας.</small>
 
             <p>Ημερομηνία Γέννησης: </p>
-            <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="this.className = ''" name="dateOfBirth"
-                id="regDateOfBirth"></p>
+            <p><input type="date" placeholder="Ημερομηνία Γέννησης" oninput="hideAgeValidation()" name="dateOfBirth"
+                id="regDateOfBirth">
+                <small id="ageValidation">*Επιτρεπτό όριο ηλικίας μεταξύ 18 και 80.</small>
+              </p>
+            
 
             <p>Υπάρχει διεύθυνση σταθερής κατοικίας; :</p>
             <label class="container">

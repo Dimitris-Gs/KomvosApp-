@@ -1,17 +1,36 @@
 
-document.getElementById("nav-notifications-tab").addEventListener('click', () => {
+document.getElementById("displayArrangements").addEventListener('click', () => {
+   
     getFirstCase();
     getSecondCase();
     getThirdCase();
     getFourthCase();
+
 });
+
+document.getElementById("nav-notifications-tab").addEventListener('click', () => {
+   
+    let cases = document.getElementsByClassName("cases");
+    
+    let fullcases = [];
+    for (let i = 0; i < cases.length; i++) {
+        if (cases[i].style.display !== "none") {
+            
+             fullcases.push(cases[i])
+        }
+    }
+    if(fullcases.length == 0 ){
+        document.getElementById("alternative").style.display = "block";
+    }
+});
+
 
 function getFirstCase() {
 
     var mySocket = io.sails.connect();
 
     mySocket.on('connect', function onConnect() {
-       
+
         mySocket.request(
             {
                 method: 'post',
@@ -20,23 +39,25 @@ function getFirstCase() {
 
             },
             function (result, response) {
-                
+
                 let root = document.getElementById("firstcase");
 
-               let offered = result[0];
-               let received = result[1];
+                let offered = result[0];
+                let received = result[1];
 
-               let resultOffered = '';
-               for(let i = 0; i < offered.length; i++){
-                resultOffered += 
+                let resultOffered = '';
+                for (let i = 0; i < offered.length; i++) {
+                    resultOffered +=
 
-                `<div class="card mb-4 regCard">
+                        `<div class="card mb-4 regCard">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-lg-3">
                             
-                            ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                            month: "2-digit" , day: "2-digit"})} 
+                            ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                             <br>    
                             </div>
                             <div class="col-lg-9">
@@ -75,8 +96,10 @@ function getFirstCase() {
                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -87,8 +110,10 @@ function getFirstCase() {
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                             </div>
                         </div>
@@ -108,8 +133,10 @@ function getFirstCase() {
                         <div class="row">
                             <div class="col-lg-3">
                             
-                            ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                            month: "2-digit", day: "2-digit"})} 
+                            ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                             <br>    
                             </div>
                             <div class="col-lg-9">
@@ -143,8 +170,10 @@ function getFirstCase() {
                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -155,8 +184,10 @@ function getFirstCase() {
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                             </div>
 
@@ -215,26 +246,31 @@ function getFirstCase() {
                                     <div class="modal-footer">
                                         <form action="/update-accepted" method="POST">
                                             <input type="text" name="id" value="${offered[i].id}"  hidden>
+                                            
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                                             <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
+                                            
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-            `;}
+            `;
+                }
 
-               let resultReceived = '';
-               for(let i = 0; i < received.length; i++){
-                resultReceived += 
+                let resultReceived = '';
+                for (let i = 0; i < received.length; i++) {
+                    resultReceived +=
 
-                `<div class="card mb-4 regCard">
+                        `<div class="card mb-4 regCard">
                 <div class="card-header">
                     <div class="row">
                         <div class="col-lg-3">                   
-                        ${new Date(received[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                        month: "2-digit", day: "2-digit"})} 
+                        ${new Date(received[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                         <br>    
                         </div>
                         <div class="col-lg-9">
@@ -279,8 +315,10 @@ function getFirstCase() {
                                    d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                            </svg>
                            &nbsp;
-                           ${new Date(received[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                           month: "2-digit", day: "2-digit"})}
+                           ${new Date(received[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                          
                        </div>
                        <div>
@@ -292,8 +330,10 @@ function getFirstCase() {
                                    d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                            </svg>
                            &nbsp;
-                           ${new Date(received[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                           month: "2-digit", day: "2-digit"})}
+                           ${new Date(received[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                        </div>
                    </div>
                </div>
@@ -316,8 +356,10 @@ function getFirstCase() {
                 <div class="card-header">
                     <div class="row">
                         <div class="col-lg-3">                   
-                        ${new Date(received[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                        month: "2-digit", day: "2-digit"})} 
+                        ${new Date(received[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                         <br>    
                         </div>
                         <div class="col-lg-9">
@@ -353,8 +395,10 @@ function getFirstCase() {
                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                             </svg>
                             &nbsp;
-                            ${new Date(received[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                            month: "2-digit", day: "2-digit"})}
+                            ${new Date(received[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                             
                         </div>
                         <div>
@@ -366,8 +410,10 @@ function getFirstCase() {
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                             </svg>
                             &nbsp;
-                            ${new Date(received[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                            month: "2-digit", day: "2-digit"})}
+                            ${new Date(received[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                         </div>
                     </div>
 
@@ -389,6 +435,7 @@ function getFirstCase() {
             </div>
            <div class="card-footer">
                 <div class="text-end">
+                
                     <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button>                      
                 
                     <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${received[i].id}">Απόρριψη</button>
@@ -438,8 +485,10 @@ function getFirstCase() {
                                     <div class="modal-footer">
                                         <form action="/update-accepted" method="POST">
                                             <input type="text" name="id" value="${received[i].id}"  hidden>
+                                            
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                                             <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
+                                            
                                         </form>
                                     </div>
                                 </div>
@@ -448,14 +497,22 @@ function getFirstCase() {
           
 
 `;
-               }
-               
-                
+                }
 
-                root.innerHTML = resultOffered + resultReceived ;
+
+
+                root.innerHTML = resultOffered + resultReceived;
+
+
+                if (result[0].length == 0 && result[1].length == 0) {
+                    root.style.display = "none";
+
+                }
 
             })
+
     })
+
 }
 
 function getSecondCase() {
@@ -463,7 +520,7 @@ function getSecondCase() {
     var mySocket = io.sails.connect();
 
     mySocket.on('connect', function onConnect() {
-        
+
         mySocket.request(
             {
                 method: 'post',
@@ -472,22 +529,24 @@ function getSecondCase() {
 
             },
             function (result, response) {
-                
+
                 let root = document.getElementById("secondcase");
 
                 let offered = result[0];
-                
+
                 let received = result[1];
 
-               let resultOffered = '';
-               for(let i = 0; i < offered.length; i++){
-                resultOffered += 
+                let resultOffered = '';
+                for (let i = 0; i < offered.length; i++) {
+                    resultOffered +=
                         `<div class="card mb-4 regCard">
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-lg-3">                                   
-                                        ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})} 
+                                        ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                         <br>
                                     </div>
                                     <div class="col-lg-9">
@@ -531,8 +590,10 @@ function getSecondCase() {
                                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                             </svg>
                                             &nbsp;
-                                            ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                            month: "2-digit", day: "2-digit"})}
+                                            ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                             
                                         </div>
                                         <div>
@@ -544,8 +605,10 @@ function getSecondCase() {
                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                             </svg>
                                             &nbsp;
-                                            ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                            month: "2-digit", day: "2-digit"})}
+                                            ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                         </div>
                                     </div>
                                 </div>
@@ -564,8 +627,10 @@ function getSecondCase() {
                             <div class="card-header">
                                 <div class="row">
                                     <div class="col-lg-3">
-                                        ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(offered[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                         <br>
                                     </div>
                                     <div class="col-lg-9">
@@ -601,8 +666,10 @@ function getSecondCase() {
                                                 <path d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                             </svg>
                                             &nbsp;
-                                            ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                            month: "2-digit", day: "2-digit"})}
+                                            ${new Date(offered[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                         
                                         </div>
                                         <div>
@@ -614,8 +681,10 @@ function getSecondCase() {
                                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                             </svg>
                                             &nbsp;
-                                            ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                            month: "2-digit", day: "2-digit"})}
+                                            ${new Date(offered[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                         </div>
                                         <br>
                                     </div>
@@ -664,20 +733,22 @@ function getSecondCase() {
                             </div>
                         </div>
                         `
-                                    }
+                }
 
-                                    let resultReceived = '';
-                                    for(let i = 0; i < received.length; i++){
-                                        resultReceived += 
+                let resultReceived = '';
+                for (let i = 0; i < received.length; i++) {
+                    resultReceived +=
 
-                                        `<div class="card mb-4 regCard">
+                        `<div class="card mb-4 regCard">
 
 
                                         <div class="card-header">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    ${new Date(received[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                    month: "2-digit", day: "2-digit"})} 
+                                                    ${new Date(received[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                                     <br>
                                                 </div>
                                                 <div class="col-lg-9">
@@ -723,8 +794,10 @@ function getSecondCase() {
                                                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                                         </svg>
                                                         &nbsp;
-                                                        ${new Date(received[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                        month: "2-digit", day: "2-digit"})}
+                                                        ${new Date(received[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                          
                                                     </div>
                                                     <div>
@@ -736,8 +809,10 @@ function getSecondCase() {
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                                         </svg>
                                                         &nbsp;
-                                                        ${new Date(received[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                        month: "2-digit", day: "2-digit"})}
+                                                        ${new Date(received[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                                     </div>
                                                 </div>
                 
@@ -758,8 +833,10 @@ function getSecondCase() {
                                         <div class="card-header">
                                             <div class="row">
                                                 <div class="col-lg-3">
-                                                    ${new Date(received[i].createdAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                    month: "2-digit", day: "2-digit"})} 
+                                                    ${new Date(received[i].createdAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                                     <br>
                                                 </div>
                                                 <div class="col-lg-9">
@@ -795,8 +872,10 @@ function getSecondCase() {
                                                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                                         </svg>
                                                         &nbsp;
-                                                        ${new Date(received[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                        month: "2-digit", day: "2-digit"})}
+                                                        ${new Date(received[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                         
                                                     </div>
                                                     <div>
@@ -808,8 +887,10 @@ function getSecondCase() {
                                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                                         </svg>
                                                         &nbsp;
-                                                        ${new Date(received[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                                        month: "2-digit", day: "2-digit"})}
+                                                        ${new Date(received[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                                     </div>
                                                     <br>
                                                 </div>
@@ -858,13 +939,17 @@ function getSecondCase() {
                                             </div>
                                         </div>
                                         `;
-               }
-               
-                
+                }
 
-               root.innerHTML =  resultOffered + resultReceived ;
-              
-                
+
+
+                root.innerHTML = resultOffered + resultReceived;
+
+
+                if (result[0].length == 0 && result[1].length == 0) {
+                    root.style.display = "none";
+
+                }
 
             })
     })
@@ -875,7 +960,7 @@ function getThirdCase() {
     var mySocket = io.sails.connect();
 
     mySocket.on('connect', function onConnect() {
-        
+
         mySocket.request(
             {
                 method: 'post',
@@ -884,12 +969,12 @@ function getThirdCase() {
 
             },
             function (result, response) {
-                
+
                 let root = document.getElementById("thirdcase");
 
-               let confirmedArrangements = '';
-               for(let i = 0; i < result.length; i++){
-                confirmedArrangements += 
+                let confirmedArrangements = '';
+                for (let i = 0; i < result.length; i++) {
+                    confirmedArrangements +=
                         `<div class="card mb-4 regCard">
 
 
@@ -897,8 +982,10 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-3">
                                
-                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                month: "2-digit", day: "2-digit"})} 
+                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                 <br>
                                 </div>
                                 <div class="col-lg-9">
@@ -943,8 +1030,10 @@ function getThirdCase() {
                                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -955,8 +1044,10 @@ function getThirdCase() {
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                 </div>
                             </div>
@@ -977,8 +1068,10 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-3">
                                
-                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                month: "2-digit", day: "2-digit"})} 
+                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                 <br>
                                 </div>
                                 <div class="col-lg-9">
@@ -1014,8 +1107,10 @@ function getThirdCase() {
                                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -1026,8 +1121,10 @@ function getThirdCase() {
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                     <br>
                                 </div>
@@ -1078,12 +1175,18 @@ function getThirdCase() {
                                                 </div>              
                                             </div>
                                         </div>`
-                                    }
+                }
 
-                                    
-                
 
-                root.innerHTML = confirmedArrangements ;
+
+
+                root.innerHTML = confirmedArrangements;
+
+                if (result.length == 0) {
+                    root.style.display = "none";
+
+                }
+
 
             })
     })
@@ -1094,7 +1197,7 @@ function getFourthCase() {
     var mySocket = io.sails.connect();
 
     mySocket.on('connect', function onConnect() {
-        
+
         mySocket.request(
             {
                 method: 'post',
@@ -1102,12 +1205,12 @@ function getFourthCase() {
                 data: {}
             },
             function (result, response) {
-               
+
                 let root = document.getElementById("fourthcase");
 
-               let confirmedArrangements = '';
-               for(let i = 0; i < result.length; i++){
-                confirmedArrangements += 
+                let confirmedArrangements = '';
+                for (let i = 0; i < result.length; i++) {
+                    confirmedArrangements +=
                         `<div class="card mb-4 regCard">
 
 
@@ -1115,8 +1218,10 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-3">
                                 
-                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                month: "2-digit" , day: "2-digit"})} 
+                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                 <br>
                                 </div>
                                 <div class="col-lg-9">
@@ -1160,8 +1265,10 @@ function getFourthCase() {
                                                 d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -1172,8 +1279,10 @@ function getFourthCase() {
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                         </svg>
                                         &nbsp;
-                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                        month: "2-digit", day: "2-digit"})}
+                                        ${new Date(result[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                     </div>
                                 </div>
                             </div>
@@ -1199,8 +1308,10 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-3">
                                 
-                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", { year: "numeric" ,
-                                month: "2-digit" , day: "2-digit"})} 
+                                ${new Date(result[i].updatedAt).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })} 
                                 <br>
                                 </div>
                                 <div class="col-lg-9">
@@ -1234,8 +1345,10 @@ function getFourthCase() {
                                             d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(result[i].startingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(result[i].startingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -1246,8 +1359,10 @@ function getFourthCase() {
                                             d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                     </svg>
                                     &nbsp;
-                                    ${new Date(result[i].endingDate).toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit", day: "2-digit"})}
+                                    ${new Date(result[i].endingDate).toLocaleDateString("en-GB", {
+                            year: "numeric",
+                            month: "2-digit", day: "2-digit"
+                        })}
                                 </div>
                                 <br>
                             </div>
@@ -1329,15 +1444,64 @@ function getFourthCase() {
                         </div>
                     
                     `
-                                    }
+                }
 
-                                    
-                
 
-                root.innerHTML = confirmedArrangements ;
+
+
+                root.innerHTML = confirmedArrangements;
+
+                if (result.length == 0) {
+                    root.style.display = "none";
+
+                }
+
 
             })
     })
 }
 
+// function checkIfEmpty() {
+//     let cases = document.getElementsByClassName("cases");
 
+//     let fullcases = [];
+//     for (let i = 0; i < cases.length; i++) {
+//         if (cases[i].style.display == "none") {
+//             document.getElementById("alternative").style.display = "block";
+//             // fullcases.push(cases[i])
+//         }
+//     }
+
+//     //  if(fullcases.length == 0 ){
+//     //     document.getElementById("alternative").style.display = "block";
+//     //  }
+//     // if (input1) {
+
+//     //     return;
+//     // }
+//     // else {
+
+//     //     var input2 = getSecondCase();
+//     //     if (input2) {
+
+//     //         return;
+//     //     }
+//     //     else {
+
+//     //         var input3 = getThirdCase();
+//     //         if (input3) {
+
+//     //             return;
+//     //         }
+//     //         else {
+
+//     //             var input4 = getFourthCase();
+//     //         }
+//     //     }
+//     // }
+
+//     // if (input1 == false && input2 == false && input3 == false && input4 == false) {
+
+//     //     document.getElementById("alternative").style.display = "block";
+//     // }
+// }
