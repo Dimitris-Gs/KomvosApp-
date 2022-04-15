@@ -30,4 +30,4 @@ module.exports = {
 };
 
 
-      // select: ['firstName', 'lastName', 'email', "gender", "dateOfBirth", "address", "photo", "description", "employeed", "disabled", "volunteer", "freeTime"]
+ 

@@ -1,0 +1,130 @@
+ img {
+    width: 100px;
+    height: 100px;
+}
+
+/*in order to fit content after the two fixed navbars*/
+body {
+    padding-top: 130px;
+}
+
+#navbarNavDropdown1 {
+    padding-left: 24.5%
+}
+
+#navbarDropdownMenuLink1,
+#navbarDropdownMenuLink2 {
+    border: 1px solid black;
+    margin-right: 1px;
+}
+
+#navbarNavDropdown1 ul li a {
+    padding-left: 20px !important;
+    padding-right: 20px;
+}
+
+/*create listing form in modal*/
+.modal-body form {
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.form-group {
+    padding-bottom: 2%;
+}
+
+.form-group label {
+    padding-top: 0;
+    text-align: right;
+}
+
+input {
+    width: 100%;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    padding: .375rem 2.25rem .375rem .75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+#validationDate {
+    display: none;
+}
+
+/* Listings */
+.listing {
+    width: 50%; 
+    margin: 0 auto;
+}
+.h5 {
+    text-align: center; 
+}
+
+.badge {
+    width: 28%;
+}
+
+.description {
+    text-align: justify;  
+    width: 80%;
+}
+
+.warning {
+    text-align: justify;
+}
+
+.personsInfo{
+    padding-left: 3%;
+}
+.small{
+    display: none;
+}
+@media screen and (max-width: 1200px) {
+    .listing {
+        width: 65%; 
+        margin: 0 auto;
+    }
+
+}
+@media screen and (max-width: 900px) {
+    .personsInfo{
+        padding-left: 8%;
+    }
+
+}
+@media screen and (max-width:790px) {
+    .listing {
+        width: 80%; 
+        margin: 0 auto;
+    }
+    .form-group label {
+        text-align: left;
+    }
+    
+}
+
+@media screen and (max-width:576px) {
+    .listing {
+        width: 95%; 
+        margin: 0 auto;
+    }
+    .small{
+        display: block;
+    }
+    .big{
+        display: none;
+    }
+    .personsInfo{
+        padding-left: 1%;
+    }
+}
+
+@media screen and (max-width: 490px) {
+    .personsInfo{
+        padding-left: 10%;
+    }
+}
+

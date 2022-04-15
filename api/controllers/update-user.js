@@ -25,7 +25,7 @@ module.exports = {
     
     const updatedUser = await TestUser.updateOne({id:1}).set(user);
 
-    return { user:updatedUser };
+    return { user: updatedUser };
 
   }
 
