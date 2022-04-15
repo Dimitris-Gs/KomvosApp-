@@ -1,10 +1,4 @@
 
-// window.addEventListener("load", function () {
-//   console.log("hi");
-//   let second = document.getElementById("secondcase");
-//   console.log(second.innerHTML);
-//   console.log(second.hasChildNodes());
-// });
 document.getElementById("alternative").style.display = "none";
 
 
