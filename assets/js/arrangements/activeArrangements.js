@@ -1,5 +1,6 @@
 
 document.getElementById("displayArrangements").addEventListener('click', () => {
+   
     getFirstCase();
     getSecondCase();
     getThirdCase();
@@ -8,6 +9,7 @@ document.getElementById("displayArrangements").addEventListener('click', () => {
 });
 
 document.getElementById("nav-notifications-tab").addEventListener('click', () => {
+   
     let cases = document.getElementsByClassName("cases");
     
     let fullcases = [];
