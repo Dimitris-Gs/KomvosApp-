@@ -21,16 +21,18 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/register': {view: 'pages/registration'},
-  '/aboutus' : {view: 'pages/aboutus'},
   '/login'   : {view : 'pages/loginform'},
+  '/thankyou': { view : 'pages/thankumsg'},
+  '/listings-offered': {action : 'listings-pages/listings-offered'},
+  '/listings-received': {action : 'listings-pages/listings-received'},
+  '/events': { action : 'events-pages/events'},
   '/create'  : {action:'create'},
-  '/profile' : {action:"profile"},
+  '/delete' : { action : 'delete'},
+  '/userprofile': { action: "user" },
+  'POST /updateuser' : {action: "update-user"},
   'POST /rest': {action:"rest-api/create-user"},
-  '/userprofile' : {view: 'pages/userprofile'},
+  'POST /userprofile': {action: 'rest-api/user-profile'},
   'POST /userprofileoffered': {action: 'rest-api/user-profile-offering'},
-<<<<<<< Updated upstream
-  'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'}
-=======
   'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'},
   'POST /listing-categories' : {action : 'listings-pages/listing-categories'},
   'POST /create-listing': {action:"listings-pages/create-listing"},
@@ -52,7 +54,6 @@ module.exports.routes = {
   'POST /listing-delete-or-update': {action:'listing-delete-or-update'},
   'POST /receive-or-offer-listings-with-arrangements': {action:'receive-or-offer-listings-with-arrangements'},
   
->>>>>>> Stashed changes
 
   
   

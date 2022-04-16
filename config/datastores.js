@@ -48,13 +48,8 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-<<<<<<< Updated upstream
-     adapter: 'sails-mysql',
-     url: 'mysql://root2:Maria1802@ra1.anystream.eu:1802/fotis',
-=======
     adapter: 'sails-mysql',
     url: 'mysql://root2:Maria1802@ra1.anystream.eu:1802/fotis',
->>>>>>> Stashed changes
 
   },
 
