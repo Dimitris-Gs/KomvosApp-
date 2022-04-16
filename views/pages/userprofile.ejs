@@ -69,6 +69,7 @@
             <div class=" d-flex mt-2">
               <button class="editBtn btn-dark" id="received" value="received">έχει δεχθεί</button>
             </div>
+<<<<<<< Updated upstream
             <div class=" d-flex mt-2">
               <button class="editBtn btn-dark">Μηνύματα</button>
             </div>
@@ -76,6 +77,77 @@
               <span>
                 user infos
               </span>
+=======
+            <div class="tab-pane fade" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
+              <br>
+              <div class="menu">
+
+                <select hidden id="offeringfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = 'undefined' hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
+                  </select>
+
+                  <select id="offeringfilterCategory" onchange="getCategoryValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Κατηγορίες</option>
+                      <option value="Σίτιση">Σίτιση</option>
+                      <option value="Στέγαση">Στέγαση</option>
+                      <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                      <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                      <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                      <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                      <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                      <option value="Άλλο">Άλλο</option>
+                  </select>
+
+                  <select id ="offeringfilterDate" onchange="getDateValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                      <option value="Πρόσφατα">Πρόσφατα</option>
+                      <option value="Μακριά">Παλιότερα</option>
+  
+                  </select>
+
+              </div>
+              <br>
+              <div id="offering"></div>
+              <br>
+              <br>
+            </div>
+            <div class="tab-pane fade" id="nav-receive" role="tabpanel" aria-labelledby="nav-receive-tab">
+              <br>
+              <div class="menu">
+
+                <select hidden id="receivingfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = 'undefined' hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
+                  </select>
+
+                  <select id = "receivingfilterCategory" onchange="getCategoryValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Κατηγορίες</option>
+                      <option value="Σίτιση">Σίτιση</option>
+                      <option value="Στέγαση">Στέγαση</option>
+                      <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                      <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                      <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                      <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                      <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                      <option value="Άλλο">Άλλο</option>
+                  </select>
+
+                  <select class="form-select" id ="receivingfilterDate" onchange="getDateValue()" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                      <option value="Πρόσφατα">Πρόσφατα</option>
+                      <option value="Μακριά">Παλιότερα</option>
+  
+                  </select>
+
+              </div>
+              <br>
+              <div id="receiving"></div>
+              <br>
+              <br>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
@@ -203,11 +275,47 @@
 
 
 
+<<<<<<< Updated upstream
 
 
 
+=======
+                </div>
+              </div>
+              <!-- Listing -->
+            </div>
+            <div class="tab-pane fade" id="nav-allListings" role="tabpanel" aria-labelledby="nav-allListings-tab">
+              <br>
+              <div class="menu">
+                <select id="listingsfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = undefined hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
+                </select>
+
+                <select id = "listingsfilterCategory" onchange="getCategoryValue()" class="form-select"
+                  style="width: 150px; display: inline;">
+                  <option value= 'undefined' hidden>Κατηγορίες</option>
+                    <option value="Σίτιση">Σίτιση</option>
+                    <option value="Στέγαση">Στέγαση</option>
+                    <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                    <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                    <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                    <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                    <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                    <option value="Άλλο">Άλλο</option>
+                </select>
+
+                <select id ="listingsfilterDate" onchange="getDateValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                    <option value="Μακριά">Παλιότερες</option>
+                    <option value="Πρόσφατα">Πιο πρόσφατες</option>
+  
+                  </select>
+>>>>>>> Stashed changes
 
 
+<<<<<<< Updated upstream
 
 
 
@@ -222,7 +330,32 @@
                 </div>
               </div>
             </div>
+=======
+              <br>
+              <br>
+              <!-- This is the div in which you are about to bring from a socket all the listings -->
+              <div id="listings"></div>
+            </div>
+
+              <!-- This is an example of a structure of a listing -->
+              <!-- Every div has an ID that can be replaced by listing's unique id -->
+              <!-- Listing -->
+              
+              <!-- Listing -->
+
+
+>>>>>>> Stashed changes
           </div>
         </div>
 
+<<<<<<< Updated upstream
       </div>
+=======
+  </script>
+  <script src="/customJs/userprofile.js"></script>
+  <script src="/customJs/utils.js"></script>
+  <script src="/customJs/userProfileEventController.js"></script>
+  <script src="/js/dtoController.js"></script>
+  <script src="/js/arrangements/activeArrangements.js"></script>
+  
+>>>>>>> Stashed changes

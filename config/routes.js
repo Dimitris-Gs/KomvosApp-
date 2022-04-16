@@ -28,7 +28,31 @@ module.exports.routes = {
   'POST /rest': {action:"rest-api/create-user"},
   '/userprofile' : {view: 'pages/userprofile'},
   'POST /userprofileoffered': {action: 'rest-api/user-profile-offering'},
+<<<<<<< Updated upstream
   'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'}
+=======
+  'POST /userprofilereceived' : {action:'rest-api/user-profile-receiving'},
+  'POST /listing-categories' : {action : 'listings-pages/listing-categories'},
+  'POST /create-listing': {action:"listings-pages/create-listing"},
+  'POST /create-event': {action:"events-pages/create-event"},
+  '/update-event': { action: "event" },
+  'POST /updateevent' : {action: "update-event"},
+  'POST /register/check-email': { action: "rest-api/check-email"},
+  'POST /create-arrangement-offered': { action: "arrangements-create-update/create-arrangement-offered"},
+  'POST /create-arrangement-received': { action: "arrangements-create-update/create-arrangement-received"},
+  'POST /first-case' : { action: "active-arrangements/first-case"},
+  'POST /second-case' : { action: "active-arrangements/second-case"},
+  'POST /third-case' : { action: "active-arrangements/third-case"},
+  'POST /fourth-case' : { action: "active-arrangements/fourth-case"},
+  'POST /update-canceled' : { action: "arrangements-create-update/update-canceled" } ,
+  'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
+  'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
+  'POST /join': {action:'joinroom'},
+  'POST /all-listings-for-a-user': {action:'all-listings-for-a-user'},
+  'POST /listing-delete-or-update': {action:'listing-delete-or-update'},
+  'POST /receive-or-offer-listings-with-arrangements': {action:'receive-or-offer-listings-with-arrangements'},
+  
+>>>>>>> Stashed changes
 
   
   

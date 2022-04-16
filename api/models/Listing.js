@@ -19,6 +19,7 @@ module.exports = {
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
     endingDate: { type: 'string', required: true, columnName: 'endingdate', columnType: 'date'},
     isOffered: { type: 'boolean', required: true, columnName: 'isoffered' },
+    status: {type:'string', defaultsTo:'active', isIn:['active', 'inactive']},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
