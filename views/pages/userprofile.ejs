@@ -148,17 +148,17 @@
                     <label value="Male" class="labels mb-1">Φύλο:</label>
                     <!-- male -->
                     <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
-                        <%=user.gender==='Male' ? 'checked' : '' %> onclick="hideGenderValidation();">
+                        <%=user.gender==='Male' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- female -->
                     <label class="container" for="female"> Γυναίκα <input type="radio" name="gender" id="female"
-                        value="Female" onclick="hideGenderValidation();" <%=user.gender==='Female' ? 'checked' : '' %>>
+                        value="Female" <%=user.gender==='Female' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- other -->
                     <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
-                        value="Non-Binary" onclick="hideGenderValidation();" <%=user.gender==='Non-Binary' ? 'checked'
+                        value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked'
                         : '' %>>
                       <span class="checkmark"></span>
                     </label>
