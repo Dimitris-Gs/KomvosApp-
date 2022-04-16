@@ -65,6 +65,11 @@
     display: none;
     color: #ff0000;
  }
+
+ #ageValidation{
+    display: none;
+    color: #ff0000;
+ }
 /* validations */   
 
  #submitBtn {

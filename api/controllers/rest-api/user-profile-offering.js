@@ -28,7 +28,9 @@ module.exports = {
     let userOfferingArrangements = await Arrangement.find({
       where: {
         offering_user_id: user.id,
-        status: { in: ['finished', 'inProgress'] }
+         // should be 'finished'
+        //now only for display puproses
+        status: { in: ['accepted'] }
       },
       select: ['listing_id']
     })
@@ -37,7 +39,9 @@ module.exports = {
 
     let userListing = await Listing.find({
       where: { id: { in: numbers } }
-    }).populate('arrangements')
+    }).populate('arrangements', { 
+      where: { offering_user_id: inputs.userId }
+    });
 
     
     let p = new User(userListing)

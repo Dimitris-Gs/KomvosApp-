@@ -5,9 +5,7 @@
 }
  
 body {  
-  color: #5a5a5a; 
-  font-family: Raleway;
-  
+  color: #5a5a5a;   
 }
 
 /* nav bar user dropdown  */
@@ -85,20 +83,20 @@ body {
 
 .btnProf {
     width: 150px;
-    background-color: #1f4068;
+    background-color: #31363b;
 }
 
 a {
  text-decoration: none;
- color: #1f4068;
+ color: #69707a;
 }
 
 .nav-link{
-    color: #495057;
+    color: #3c3e40;
 }
 
 .nav-link:hover{
-    color: #1f4068;
+    color: #1e252f;
 }
 
 
@@ -207,7 +205,7 @@ a {
  }
 /* τι συμβαίνει εδώ;*/
 .demo-card{
-    width: 70%; 
+    width: 90%; 
     margin: 0 auto;
 }
 
@@ -216,7 +214,122 @@ a {
     margin: 0 auto;
 }
 
+#nav-intro p{
+    text-align: justify;
+}
+
+
 .card-header p a {
     text-decoration: none;
     color: black;
+}
+
+#nav-guide,
+#nav-listing,
+#alternative {
+    width: 90%; 
+    margin: 0 auto;    
+}
+#nav-guide p,
+#nav-listing p{
+    text-align: justify;
+}
+
+.arrangementDemo {
+    width: 80%;
+    margin: 0 auto;    
+}
+
+
+
+/* responsive effort */
+
+.btnNotification{
+    width: 120px;
+}
+.description{
+    text-align: justify;
+}
+.personsImg{
+    width: 100px;
+    height: 100px;
+}
+
+@media screen and (max-width: 2400px) {
+    
+    .personsInfo {
+        padding-left: 5%;
+    }
+
+    #personsInfo {
+        padding-left: 15%;
+    }
+
+    .smCard {
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        max-width: 900px;
+    }
+
+    .personsInfo {
+        padding-left: 2%;
+    }
+
+    #personsInfo {
+        padding-left: 15%;
+    }
+
+    .demo-card{
+        width: 100%; 
+        
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #smallMenu {
+        display: block;
+    }
+    #smallMenu .dropdown{
+        display: inline;
+    }
+
+    #regularMenu {
+        display: none;
+    }
+
+    .btnProf {
+        width: 110px;
+    }
+    
+}
+
+@media screen and (min-width: 767px) {
+    #smallMenu {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .personsInfo {
+        padding-left: 2%;
+    }
+
+    #personsInfo {
+        padding-left: 3%;
+    }
+
+    .smCard {
+        display: block;
+    }
+
+    .regCard {
+        display: none;
+    }
+
+
 }

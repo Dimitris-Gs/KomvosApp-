@@ -70,3 +70,12 @@ body {
     color: whitesmoke;
    
 }
+
+#invalidEmail{
+    display: none;
+    color: #ff0000;;
+}
+#invalidPassword{
+    display: none;
+    color: #ff0000;
+}
