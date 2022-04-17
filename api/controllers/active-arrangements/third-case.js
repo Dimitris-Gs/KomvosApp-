@@ -22,7 +22,7 @@ module.exports = {
     let arrangement = await Arrangement.find({
       where: {
         status: 'accepted',
-        offering_user_id : 1,
+        offering_user_id : this.req.session.userId,
       },
       select: ['listing_id']
     });
@@ -34,7 +34,7 @@ module.exports = {
         id : { in :  listingIds }, 
         endingDate: { '>=': new Date() }       
       }
-    }).populate('arrangements', { where: { status: 'accepted', offering_user_id: 1 } });
+    }).populate('arrangements', { where: { status: 'accepted', offering_user_id: this.req.session.userId } });
 
     let dto = [];
     for (let j = 0; j < listingsWithArrangements.length; j++) {

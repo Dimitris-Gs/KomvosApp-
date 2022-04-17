@@ -23,7 +23,7 @@ module.exports = {
 
     let user = this.req.body;
     
-    const updatedUser = await TestUser.updateOne({id:1}).set(user);
+    const updatedUser = await TestUser.updateOne({id:this.req.session.userId}).set(user);
 
     return { user: updatedUser };
 

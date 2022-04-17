@@ -20,7 +20,7 @@ module.exports = {
   fn: async function (inputs) {
     let listings = await Listing.find({
       where: {
-        user_id: 1,
+        user_id: this.req.session.userId,
         endingDate: { '>=': new Date() }
       }
     }).populate('arrangements', { where: { status: 'pending' } });

@@ -20,8 +20,9 @@ module.exports = {
 
   fn: async function (inputs) {
     // Find user in db
+    console.log(this.req.session);
     let user = await TestUser.findOne({
-       where: { id: 1 }
+       where: { id: this.req.session.userId }
     });
 
     // All done.

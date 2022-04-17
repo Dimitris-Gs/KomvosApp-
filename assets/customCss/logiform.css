@@ -79,3 +79,7 @@ body {
     display: none;
     color: #ff0000;
 }
+
+#invisibleDivForUserData {
+    display: none;
+}
