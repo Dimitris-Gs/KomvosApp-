@@ -23,12 +23,12 @@ module.exports = {
   fn: async function (inputs) {
 
     let listings = await Listing.find({
-      where: {user_id : { '!=' : 1 } , 
+      where: {user_id : { '!=' : this.req.session.userId } , 
               isOffered: true,
               // add another constraint  : show only the active listings (fotis implementation)
               endingDate: { '>=': new Date() }  }     
     }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
-                                            receiving_user_id : 1 } });
+                                            receiving_user_id : this.req.session.userId } });
 
     let rightListingIds = [];
     let rightListingUsers = [];

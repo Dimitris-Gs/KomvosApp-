@@ -22,7 +22,7 @@ module.exports = {
     let arrangementOffered = this.req.body;
 
     await Arrangement.create({
-      offering_user_id: arrangementOffered.offering_user_id, receiving_user_id: 1, listing_id: arrangementOffered.listing_id,
+      offering_user_id: arrangementOffered.offering_user_id, receiving_user_id: this.req.session.userId, listing_id: arrangementOffered.listing_id,
       status: "pending"
     });
     this.res.redirect('/listings-offered');

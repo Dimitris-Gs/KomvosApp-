@@ -24,7 +24,7 @@ function checkCredentials(emailValue,passwordValue)
                         alert("Δεν υπάρχει χρήστης με τα στοιχεία που εισήγαγες! Παρακαλούμε έλεγξε ξανά το email και τον κωδικό σου!");
                     }
                     else{
-                        // console.log(response);
+                        console.log(response);
                         let output = document.getElementById('invisibleDivForUserData');
                         output.innerHTML = response.body.email;
                         window.location.replace("http://localhost:1337");

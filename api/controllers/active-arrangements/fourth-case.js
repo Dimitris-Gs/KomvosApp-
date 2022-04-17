@@ -22,7 +22,7 @@ module.exports = {
     let arrangement = await Arrangement.find({
       where: {
         status: 'accepted',
-        receiving_user_id: 1,
+        receiving_user_id: this.req.session.userId,
       },
       select: ['listing_id']
     });
