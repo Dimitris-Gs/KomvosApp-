@@ -21,9 +21,9 @@
             Κοινότητα
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Αγγελίες Προσφοράς</a></li>
-            <li><a class="dropdown-item" href="#">Αγγελίες Ζήτησης</a></li>
-            <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+            <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
           </ul>
         </li>
       </ul>
@@ -52,7 +52,7 @@
         <!-- Profile picture card-->
         <div class="card mb-4 mb-xl-0">
           <!-- <div class="card-header">Profile Picture</div> -->
-          <div class="card-body text-center">
+          <div class="card-body text-center" id="regularMenu">
             <!-- Profile picture image-->
             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
               alt="">
@@ -66,7 +66,17 @@
             <!-- Profile picture upload button-->
 
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Διαχείριση</button>
+
+            <div class="btn-group dropend">
+
+              <button class="btn btn-dark btnProf dropdown-toggle mt-2" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false"> Διαχείριση &nbsp; </button>
+              <ul class="dropdown-menu">
+                <li id="displayArrangements" class="dropdown-item" onclick="displayContent(arrangements)">Συμφωνίες</li>
+                <li ><a class="dropdown-item" onclick="displayContent(listingsCard)">Αγγελίες</a></li>
+                <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+              </ul>
+            </div>
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button"
               onclick="displayContent(historyCard)">Αρχείο</button>
@@ -75,11 +85,39 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
           </div>
+
+          <!-- less than 768 version -->
+          <div class="card-body text-center" id="smallMenu">
+            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
+              alt="">
+            <div class="" onclick="displayContent(editCard)"> Επεξεργασία
+              προφίλ </div>
+            <p onclick="displayContent(profileCard)"> Username </p>
+
+            <div>
+              <div class="dropdown">
+                <button class="btn btn-dark btnProf dropdown-toggle mt-2" id="dropdownMenu" type="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"> Διαχείριση </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                  <li class="dropdown-item" onclick="displayContent(arrangements)">Συμφωνίες</li>
+                  <li><a class="dropdown-item" onclick="displayContent(listingsCard)">Αγγελίες</a></li>
+                  <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+                </ul>
+              </div>
+
+              <button class="btn btn-dark btnProf mt-2" type="button"
+                onclick="displayContent(historyCard)">Αρχείο</button>
+              <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
+              <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
+            </div>
+          </div>
+          <!-- less than 768 version -->
+
         </div>
       </div>
       <!-- Φόρμα επεξεργασίας προφίλ -->
-      <div class="col-xl-8">
-        <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
+      <div class="col-xl-8 col-md-8">
+
         <div class="card mb-4 content" id="editCard">
           <div id="editform">
             <div class="p-3 py-5">
@@ -90,56 +128,59 @@
                 <div class="row mt-2">
                   <div class="col-md-6">
                     <label class="labels">Όνομα:</label>
-                    <input type="text" class="form-control"
-                      placeholder="Ονομα" name="firstName" value=<%=user.firstName %> required >
+                    <input type="text" class="form-control" placeholder="Ονομα" name="firstName" value=<%=user.firstName
+                      %> required >
                   </div>
                   <div class="col-md-6">
                     <label class="labels">Επώνυμο:</label>
-                    <input type="text"  class="form-control" placeholder="Επώνυμο" name="lastName"
-                      value=<%=user.lastName %> required>
+                    <input type="text" class="form-control" placeholder="Επώνυμο" name="lastName" value=<%=user.lastName
+                      %> required>
                   </div>
                 </div>
                 <div class="row mt-3">
                   <div class="col-md-12">
                     <label class="labels">Email:</label>
-                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email" id="regEmail" value=<%=user.email %>>
+                    <input type="text" class="form-control" onchange="validateEmail()" placeholder="Email" name="email"
+                      id="regEmail" value=<%=user.email %>>
                     <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
                   </div>
                   <div class="col-md-12 mt-3">
                     <label value="Male" class="labels mb-1">Φύλο:</label>
                     <!-- male -->
                     <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
-                        <%=user.gender==='Male' ? 'checked' : '' %> onclick="hideGenderValidation();">
+                        <%=user.gender==='Male' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- female -->
                     <label class="container" for="female"> Γυναίκα <input type="radio" name="gender" id="female"
-                        value="Female" onclick="hideGenderValidation();" <%=user.gender==='Female' ? 'checked' : '' %>>
+                        value="Female" <%=user.gender==='Female' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- other -->
                     <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
-                        value="Non-Binary" onclick="hideGenderValidation();" <%=user.gender==='Non-Binary' ? 'checked'
+                        value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked'
                         : '' %>>
                       <span class="checkmark"></span>
                     </label>
-                    <!-- <small id="genderValidation">*Παρακαλούμε εισάγετε το φύλο σας.</small> -->
+
                   </div>
                   <div class="col-md-12">
                     <label class="labels">Ημερομηνία Γέννησης:</label>
-                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth" id="regDateOfBirth"
-                       placeholder="Ημερομηνία Γέννησης:">
-                        <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
+                    <input type="date" class="form-control" onchange="validateDate()" name="dateOfBirth"
+                      id="regDateOfBirth" placeholder="Ημερομηνία Γέννησης:">
+                    <small id="dateOfBirthValidation">*Παρακαλούμε εισάγετε έγκυρη ημερομηνία γεννήσεως</small>
                   </div>
-                  <!-- όταν φτιαχτεί στην βάση true false -->
+
                   <div class="col-md-12 mt-3">
                     <label class="labels">Διεύθυνση Κατοικίας</label>
-                    <label class="container">Ναι 
-                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true ? 'checked' : '' %> onclick="displayAddress();"> 
+                    <label class="container">Ναι
+                      <input id="addressYes" type="radio" name="radioAddress" value="true" <%=user.radioAddress===true
+                        ? 'checked' : '' %> onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
-                    <label class="container"> Όχι 
-                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false ? 'checked' : '' %>  onclick="displayAddress();">
+                    <label class="container"> Όχι
+                      <input id="addressNo" type="radio" name="radioAddress" value="false" <%=user.radioAddress===false
+                        ? 'checked' : '' %> onclick="displayAddress();">
                       <span class="checkmark"></span>
                     </label>
                     <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
@@ -151,9 +192,9 @@
                   </div>
                   <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
-                    <textarea onchange="descriptionValidation()" class="form-control" name="description" id="regSmallBio"
-                      rows="5" maxlength="200"><%= user.description %></textarea>
-                      <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
+                    <textarea onchange="descriptionValidation()" class="form-control" name="description"
+                      id="regSmallBio" rows="5" maxlength="200"><%= user.description %></textarea>
+                    <small id="bioValidation">*Παρακαλούμε εισάγετε κείμενο</small>
                   </div>
                   <div class="col-12">
                     <p>Αυτό το διάστημα έχετε μόνιμη εργασία:</p>
@@ -221,7 +262,8 @@
             </div>
           </div>
         </div>
-        <!-- Θέση για τη φόρμα edit που θα ολοκληρώσει ο Δημήτρης -->
+
+
         <!-- User's Profile card  -->
         <div class="card mb-4 content" id="profileCard">
 
@@ -235,9 +277,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-6">
-                <h5 class="card-title">Βασικές πληροφορίες:</h5>
+                <h5 class="card-title">Πληροφορίες:</h5>
                 <hr>
-                <br>
+
                 <div class="row pt-2">
                   <div class="col-lg-4">Ηλικία:</div>
                   <div class="col-lg-8" id="cardAge"></div>
@@ -248,10 +290,17 @@
                   <div class="col-lg-8" id="cardGender"></div>
                 </div>
 
-                <div class="row pt-2 pb-3">
+                <div class="row pt-2">
                   <div class="col-lg-4">Email:</div>
                   <div class="col-lg-8">
                     <%= user.email %>
+                  </div>
+                </div>
+
+                <div class="row pt-2 pb-4">
+                  <div class="col-lg-4">Πόντοι:</div>
+                  <div class="col-lg-8">
+                    <%= user.points %>
                   </div>
                 </div>
               </div>
@@ -259,7 +308,7 @@
               <div class="col-md-6">
                 <h5 class="card-title">Περιγραφή:</h5>
                 <hr>
-                <br>
+
                 <p>
                   <%= user.description %>
                 </p>
@@ -273,14 +322,13 @@
 
         <!-- Ιστορικότητα -->
         <div class="card mb-4 content" id="historyCard">
-          <!-- bootstrap 5 nav tabs -->
           <div class="card-header">
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <button class="nav-link active" id="nav-intro-tab" data-bs-toggle="tab" data-bs-target="#nav-intro"
                   type="button" role="tab" aria-controls="nav-intro" aria-selected="true">Τι συμβαίνει εδώ;</button>
                 <button class="nav-link" id="nav-offer-tab" data-bs-toggle="tab" data-bs-target="#nav-offer"
-                  type="button" role="tab" aria-controls="nav-offer" aria-selected="true" value="offered">Έχω
+                  type="button" role="tab" aria-controls="nav-offer" aria-selected="false" value="offered">Έχω
                   προσφέρει</button>
                 <button class="nav-link" id="nav-receive-tab" data-bs-toggle="tab" data-bs-target="#nav-receive"
                   type="button" role="tab" aria-controls="nav-receive" aria-selected="false" value="received">Έχω
@@ -304,7 +352,7 @@
               <div class="card demo-card">
                 <div class="card-header">
                   <p>
-                      <a href="#demoOffer" role="button">Ο τίτλος της αγγελίας</a>
+                    <a href="#demoOffer" role="button">Ο τίτλος της αγγελίας</a>
                   </p>
                 </div>
 
@@ -324,7 +372,7 @@
                               d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία έναρξης
+                          Ημερ. έναρξης - λήξης
                         </div>
 
                         <div>
@@ -336,7 +384,7 @@
                               d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία λήξης
+                          Ημερ. σύναψης συμφωνίας
                         </div>
                         <div class="mb-2">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -384,7 +432,7 @@
                               d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία έναρξης
+                          Ημερ. έναρξης - λήξης
                         </div>
                         <div>
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -395,7 +443,7 @@
                               d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                           </svg>
                           &nbsp;
-                          Ημερομηνία λήξης
+                          Ημερ. σύναψης συμφωνίας
                         </div>
                         <div class="mb-2">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -419,6 +467,28 @@
             </div>
             <div class="tab-pane fade" id="nav-offer" role="tabpanel" aria-labelledby="nav-offer-tab">
               <br>
+              <div class="menu">
+
+                <select name="categories" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Κατηγορίες</option>
+                  <option value="myFoodCategory">Σίτιση</option>
+                  <option value="myHomeCategory">Στέγαση</option>
+                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
+                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
+                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
+                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
+                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
+                  <option value="myOtherCategory">Άλλο</option>
+                </select>
+
+                <select name="dates" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Εμφάνιση</option>
+                  <option value="olderDate">Παλιότερες</option>
+                  <option value="latestDate">Πιο πρόσφατες</option>
+
+                </select>
+
+              </div>
               <br>
               <div id="offering"></div>
               <br>
@@ -426,15 +496,384 @@
             </div>
             <div class="tab-pane fade" id="nav-receive" role="tabpanel" aria-labelledby="nav-receive-tab">
               <br>
+              <div class="menu">
+
+                <select name="categories" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Κατηγορίες</option>
+                  <option value="myFoodCategory">Σίτιση</option>
+                  <option value="myHomeCategory">Στέγαση</option>
+                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
+                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
+                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
+                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
+                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
+                  <option value="myOtherCategory">Άλλο</option>
+                </select>
+
+                <select name="dates" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Εμφάνιση</option>
+                  <option value="olderDate">Παλιότερες</option>
+                  <option value="latestDate">Πιο πρόσφατες</option>
+
+                </select>
+
+              </div>
               <br>
               <div id="receiving"></div>
               <br>
               <br>
             </div>
           </div>
-          <!-- Ιστορικότητα -->
+        </div>
+        <!-- Ιστορικότητα -->
+
+
+        <!-- κάρτα διαχείρισης -->
+        <!-- Συμφωνίες -->
+        <div class="card mb-4 content" id="arrangements">
+          <div class="card-header">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab-arrangements" role="tablist">
+                <button class="nav-link active" id="nav-guide-tab" data-bs-toggle="tab" data-bs-target="#nav-guide"
+                  type="button" role="tab" aria-controls="nav-guide" aria-selected="true">Τι συμβαίνει εδώ;</button>
+                <button class="nav-link" id="nav-notifications-tab" data-bs-toggle="tab"
+                  data-bs-target="#nav-notifications" type="button" role="tab" aria-controls="nav-notifications"
+                  aria-selected="false">Συμφωνίες</button>
+              </div>
+            </nav>
+          </div>
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-guide" role="tabpanel" aria-labelledby="nav-guide-tab">
+              <br>
+              <br>
+              <p>
+                Εδώ είναι το σημείο που μπορείς να διαχειριστείς όλες τις ενεργές συμφωνίες σου.
+                Όταν εκδηλώνεις ενδιαφέρον για κάποια αγγελία, ή όταν κάποιος άλλος χρήστης του Κόμβου εκδηλώνει
+                ενδιαφέρον για μία δικιά σου αγγελία, προκύπτει μία ειδοποίση στη σελίδα σου Συμφωνίες που σε ενημερώνει
+                σχετικά.
+              </p>
+              <p>
+                Σε κάθε στάδιο μίας συμφωνίας έχεις τον έλεγχο της κατάστασής της:
+              <ul>
+                <li> μπορείς να επιβεβαιώσεις ή να απορρίψεις το αίτημα ενός άλλου χρήστη για μία υπηρεσία που
+                  προσφέρεις.</li>
+                <li> μπορείς να ακυρώσεις μία συμφωνία για την οποία δεν ενδιαφέρεσαι πλέον </li>
+                <li> μπορείς να ολοκληρώσεις μία συμφωνία στην οποία έχεις λάβει μία υπηρεσία από κάποιον χρήστη.</li>
+              </ul>
+              </p>
+              <br>
+              <br>
+              <p>Ένα παράδειγμα ειδοποίησης είναι το εξής:</p>
+
+              <div class="card mb-4 arrangementDemo">
+                <div class="card-header">
+                  <div class="row">
+                    <div class="col-lg-3">
+
+                      <small>Ημερ. δημιουργίας της συμφωνίας</small>
+                      <br>
+                    </div>
+                    <div class="col-lg-9">
+                      <p class="h5">Ο/H ... εκδήλωσε ενδιαφέρον για την αγγελία σου:
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body">
+                  <br>
+                  <div class="row">
+                    <div class="col-lg-2 col-md-3 col-sm-3 "><img
+                        src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
+                    <div class="col-lg-10 col-md-9 col-sm-9" id="personsInfo">
+                      <div> Όνομα - Επώνυμο ενδιαφερόμενου</div>
+                      <div>email </div>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="col-md-7 col-sm-7">
+                      <span class="badge bg-secondary">Κατηγορία αγγελίας</span>
+                      <div class="text-center"> <b>Τίτλος αγγελίας</b></div>
+                      <div class="description">Περιγραφή</div>
+                      <br>
+                    </div>
+                    <div class="col-md-5 col-sm-5">
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                          <path
+                            d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                          <path
+                            d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                        </svg>
+                        &nbsp;
+                        Ημερ. έναρξης
+                      </div>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                          <path
+                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                        </svg>
+                        &nbsp;
+                        Ημερ. λήξης
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-end">
+                    <button type="button" class="btn btn-danger btnNotification">Επιβεβαίωση</button>
+
+                    <button type="button" class="btn btn-danger btnNotification">Απόρριψη</button>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+            <div class="tab-pane fade" id="nav-notifications" role="tabpanel" aria-labelledby="nav-notifications-tab">
+
+              <br>
+              <div id="alternative">
+                <br>
+                <p>Από ότι φάινεται δεν έχεις συνάψει ακόμη συμφωνίες!</p>
+                <p>Μπορείς να μεταβείς στη σελίδα των <a href="/listings-offered"><b> αγγελιών</b></a> και να εκδηλώσεις ενδιαφέρον για κάποια αγγελία!</p>
+              </div>
+              <div class="cases" id="firstcase"></div>
+              <div class="cases" id="secondcase"></div>
+              <div class="cases" id="thirdcase"></div>
+              <div class="cases" id="fourthcase"></div>
+
+            </div>
+
+          </div>
+
+
 
         </div>
+        <!-- Συμφωνίες -->
+
+        <!-- Αγγελίες -->
+        <div class="card mb-4 content" id="listingsCard">
+
+          <div class="card-header">
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-listing-tab" data-bs-toggle="tab" data-bs-target="#nav-listing"
+                  type="button" role="tab" aria-controls="nav-listing" aria-selected="true">Τι συμβαίνει εδώ;</button>
+                <button class="nav-link" id="nav-allListings-tab" data-bs-toggle="tab" data-bs-target="#nav-allListings"
+                  type="button" role="tab" aria-controls="nav-allListings" aria-selected="true">Αγγελίες</button>
+              </div>
+            </nav>
+          </div>
+
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-listing" role="tabpanel" aria-labelledby="nav-listing-tab">
+              <br>
+              <br>
+              <p>Εδώ μπορείς να δεις όλες τις αγγελίες που έχεις δημοσιεύσει και να τις επεξεργαστείς ή να τις
+                διαγράψεις!
+              </p>
+              <p>Σε περίπτωση που υπάρχουν ενεργές συμφωνίες πάνω σε μία αγγελία που θέλεις να επεξεργαστείς ή να
+                διαγράψεις, προχωρώντας σε κάποια αλλαγή, αυτόματα θα ακυρωθούν οι συμφωνίες που έχεις συνάψει!</p>
+              <p>Ακολουθεί ένα παράδειγμα αγγελίας:</p>
+              <br>
+              <!-- Listing -->
+              <div class="card mb-4" style="width: 70%; margin: 0 auto;">
+
+                <div class="card-header">
+                  <div>
+                    <p class="h5">
+                      Όνομα αγγελίας
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <br>
+                  <div class="row">
+                    <div class="col-sm-7">
+                      <div>
+                        <span class="badge bg-secondary">
+                          Κατηγορία αγγελίας
+                        </span>
+                      </div>
+                      <div class="description">
+                        Περιγραφή
+                      </div>
+                      <br>
+                    </div>
+
+                    <div class="col-sm-5">
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                          <path
+                            d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                          <path
+                            d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                        </svg>
+                        &nbsp;
+                        <span id="startingDateID">Ημερ. έναρξης</span>
+
+                      </div>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                          <path
+                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                        </svg>
+                        &nbsp;
+                        <span id="endingDateID">Ημερ. λήξης</span>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+
+                </div>
+                <div class="card-footer">
+                  <div class="text-end">
+                    <button type="button" class="btn btn-danger" id="editID">
+                      Επεξεργασία
+                    </button>
+                    <button type="button" class="btn btn-danger" id="deleteID">
+                      Διαγραφή
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Listing -->
+            </div>
+            <div class="tab-pane fade" id="nav-allListings" role="tabpanel" aria-labelledby="nav-allListings-tab">
+              <br>
+              <div class="menu">
+                <select name="listing" id="listingSelect" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Αγγελία</option>
+                  <option value="offering">Προσφοράς</option>
+                  <option value="receiving">Ζήτησης</option>
+                </select>
+
+                <select name="categories" id="categoriesSelect" class="form-select"
+                  style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Κατηγορίες</option>
+                  <option value="myFoodCategory">Σίτιση</option>
+                  <option value="myHomeCategory">Στέγαση</option>
+                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
+                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
+                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
+                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
+                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
+                  <option value="myOtherCategory">Άλλο</option>
+                </select>
+
+                <select name="dates" id="datesSelect" class="form-select" style="width: 150px; display: inline;">
+                  <option value="undefined" hidden>Εμφάνιση</option>
+                  <option value="olderDate">Παλιότερες</option>
+                  <option value="latestDate">Πιο πρόσφατες</option>
+
+                </select>
+
+              </div>
+
+              <br>
+              <br>
+              <!-- This is the div in which you are about to bring from a socket all the listings -->
+              <div id="listings"></div>
+
+              <!-- This is an example of a structure of a listing -->
+              <!-- Every div has an ID that can be replaced by listing's unique id -->
+              <!-- Listing -->
+              <div class="card mb-4" id="listingID" style="width: 70%; margin: 0 auto;">
+                <!-- ***************************ID will be the id of each listing****** -->
+                <div class="card-header">
+                  <div>
+                    <p class="h5" id="nameID">
+                      <!-- *****************ID will be the id of each listing****** -->
+                      Όνομα αγγελίας
+                    </p>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <br>
+                  <div class="row">
+                    <div class="col-xl-9">
+                      <div>
+                        <span class="badge bg-secondary" id="categoryID">
+                          Κατηγορία
+                        </span>
+                      </div>
+                      <div class="description" id="descriptionID">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem enim, dolorum impedit repellat ea
+                        autem exercitationem ab accusantium minus expedita!
+                      </div>
+
+                    </div>
+
+                    <div class="col-xl-3">
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date" viewBox="0 0 16 16">
+                          <path
+                            d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
+                          <path
+                            d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
+                        </svg>
+                        &nbsp;
+                        <span id="startingDateID">23/12/1996</span>
+
+                        <!-- listingsWithUsers[i].startingDate.toLocaleDateString("en-GB", { year: "numeric" ,
+                                    month: "2-digit" , day: "2-digit" , })  -->
+                      </div>
+                      <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
+                          <path
+                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
+                          <path
+                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
+                        </svg>
+                        &nbsp;
+                        <span id="endingDateID">25/12/1996</span>
+                        <!--  listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" ,
+                                    month: "2-digit" , day: "2-digit" , })  -->
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+
+                </div>
+                <div class="card-footer">
+                  <div class="text-end">
+                    <button type="button" class="btn btn-danger float-end" id="editID">
+                      Επεξεργασία
+                    </button>
+                    <button type="button" class="btn btn-danger float-end" id="deleteID">
+                      Διαγραφή
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+              <!-- Listing -->
+
+            </div>
+
+          </div>
+        </div>
+        <!-- Αγγελίες -->
 
       </div>
     </div>

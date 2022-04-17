@@ -111,9 +111,10 @@ function nextPrev(nextOrPrevious) {
  */
 
 function validateEmail(emailString) {
-
-  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
+ 
+  //var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+ 
   if (emailString.match(validRegex)) {
     return true;
   } else {
@@ -141,11 +142,11 @@ function validateEmail(emailString) {
     console.log(msPerYear);
 
     let properDateValue = +new Date(dateValue);
-    // let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
+    
     let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
-    console.log(age);
-
+    
     if (age < 18 || age > 80) {
+      document.getElementById("ageValidation").style.display = 'block';
       return false;
     }
 
@@ -281,6 +282,7 @@ function emailInputEventHandler() {
   document.getElementById("emailValidation").style.display = 'none';
   document.getElementById("emailExists").style.display = 'none';  
 }
+
 /**********************************
  * function hideGenderValidation()
  * Inputs:
@@ -292,6 +294,11 @@ function emailInputEventHandler() {
  */
 function hideGenderValidation() {
   document.getElementById("genderValidation").style.display = 'none';
+}
+
+function hideAgeValidation(){
+  document.getElementById("regDateOfBirth").className = "";
+  document.getElementById("ageValidation").style.display = 'none';
 }
 
 /****************************
