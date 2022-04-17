@@ -38,6 +38,11 @@ module.exports.routes = {
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
   'POST /register/check-email': { action: "rest-api/check-email"},
+  'POST /restlistingcategories': {action:"admin/create-listing-categories"},
+  'POST /updatelistingcategories' : {action: "admin/update-listing-categories"},
+  '/admin': {action : 'admin/all-listing-categories'},
+  'POST /delete': { action: "admin/delete-listing-categories"},
+
  
 
   
