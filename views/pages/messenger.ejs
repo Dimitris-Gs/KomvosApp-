@@ -30,7 +30,8 @@
       </ul>
     </div>
     <div class="dropdown profileDropdown">
-      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
         <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
@@ -47,32 +48,46 @@
       <div class="col-4 leftSide">
         <div class="settings-tray">
           <a href="/userprofile">
-            <img class="profile-image"src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
+            <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
           </a>
+          <!-- user name in chat  -->
+          <div id="username">
+            <%= userFullName %>
+          </div>
         </div>
-        <div class="search-box">
+        <!-- <div class="search-box">
           <div class="input-wrapper">
             <i class="material-icons">search</i>
             <input placeholder="Search here" type="text">
           </div>
-        </div>
-        <% for (let chat of chats) { %>
-          <div class="conversations" onclick="openChat('<%=chat.userId%>', '<%=chat.firstName%> <%=chat.lastName%>')">
-            <div class="friend-drawer friend-drawer--onhover">
-              <img class="profile-image" src="" alt="">
-              <div class="text">
-                <h6><%=chat.firstName%> <%=chat.lastName%> </h6>
-                <p class="text-muted"><%= chat.text %> </p>
+        </div> -->
+        <div id="chats">
+          <% for (let chat of chats) { %>
+            <div class="conversations" id="<%=chat.userId%>"
+              onclick="openChat('<%=chat.userId%>', '<%=chat.firstName%> <%=chat.lastName%>')">
+              <div class="friend-drawer friend-drawer--onhover">
+                <img class="profile-image" src="" alt="">
+                <div class="text">
+                  <h6>
+                    <%=chat.firstName%>
+                      <%=chat.lastName%>
+                  </h6>
+                  <p class="text-muted">
+                    <%= chat.text %>
+                  </p>
+                </div>
+                <span class="time text-muted small">
+                  <%= new Date(chat.createdAt).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit' , minute:'2-digit', hour12: false}) %>
+                </span>
               </div>
-              <span class="time text-muted small"><%= new Date(chat.createdAt).toLocaleString()  %> </span>
+              <hr>
             </div>
-            <hr>
-          </div>
-          <% } %>
+            <% } %>
+        </div>
       </div>
       <div class="col-8 rightSide" id="rightSide" style="display: none;">
         <div id="userName"></div>
-          <hr> 
+        <hr>
         <div id="messages"></div>
         <hr>
         <div class="messange-box">

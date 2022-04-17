@@ -2,15 +2,28 @@ let activeChatUserId;
 
 function sendMessage() {
   // Create a new chat message via the API.
- 
   const userText = document.getElementById("userMessage").value ;
 
-  io.socket.post('/message', { user1: '2', user2: activeChatUserId, text: userText });
+  io.socket.post('/message', { user2: activeChatUserId, text: userText }, function(createdMessage) {
+    updateConversation(activeChatUserId, userText, createdMessage.createdAt);
+  });
 
   // clear the text area 
   document.getElementById("userMessage").value ='';
 
   renderMessage(true, userText)
+}
+
+//  brinks conversation on top of the side bar and updates text and time
+function updateConversation(userId, text, createdAt) {
+  // Find user's exisitng conversation and update last message and sent time
+  const chatElement = document.getElementById(userId);
+  chatElement.children[0].children[2].innerHTML = new Date(createdAt).toLocaleString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+  chatElement.children[0].children[1].children[1].innerHTML = text;
+
+  // Remove existing conversation and readd it to the top
+  document.getElementById(userId).remove();
+  document.getElementById('chats').prepend(chatElement);
 }
 
 // send the messesage & with enter from keybord
@@ -51,9 +64,14 @@ const scrollToBottom = () => {
 }
 
 window.onload = function () {
-  io.socket.post('/joinroom', { userId: '1' });
+  io.socket.post('/joinroom');
   io.socket.on('message', (message) => {
-    renderMessage(false, message)
+    if(activeChatUserId == message.user) {
+      renderMessage(false, message.text)
+    } 
+
+    updateConversation(message.user, message.text, message.createdAt);
+
   });
 }
 
@@ -67,11 +85,11 @@ function openChat(userId, name) {
     messenger.style.display = 'block';
   }
 
-  io.socket.post('/messages', { user1: '1', user2: userId}, function (resData) {
+  io.socket.post('/messages', { user2: userId}, function (resData) {
     document.getElementById('messages').innerHTML = '';
-    // takes the name of the user and put it in the header
+    // renders each fetched chat message
     resData?.forEach(message => {
-      renderMessage(message.user1 == userId, message.text)
+      renderMessage(!(message.user1 == userId), message.text)
     })
   });
 

@@ -43,17 +43,20 @@ module.exports = {
     ON conversations.lastId = m.id
     INNER JOIN test_user as user1 ON user1.id = m.user1
     INNER JOIN test_user as user2 ON user2.id = m.user2
-    ORDER BY m.createdAt DESC`, [ 1]);
+    ORDER BY m.createdAt DESC`, [this.req.session.userId]);
 
+    let userFullName;
     const chats = result.rows.map(value => {
-      if (value.user1 === 1) {
-        return {text: value.text, createdAt : value.createdAt, userId: value.user2, fistsName: value.user2FirstName, lastName: value.user2LastName}
+      if (value.user1 === this.req.session.userId) {
+        userFullName = `${value.user1FirstName} ${value.user1LastName}`;
+        return {text: value.text, createdAt : value.createdAt, userId: value.user2, firstName: value.user2FirstName, lastName: value.user2LastName}
       } else {
-        return {text: value.text, createdAt: value.createdAt, userId : value.user1, fistsName: value.user1FirstName, lastName: value.user1LastName}
+        userFullName = `${value.user2FirstName} ${value.user2LastName}`;
+        return {text: value.text, createdAt: value.createdAt, userId : value.user1, firstName: value.user1FirstName, lastName: value.user1LastName}
       }
     });
 
-    return { chats };
+    return { chats, userFullName };
   }
 
 

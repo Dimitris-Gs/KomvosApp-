@@ -65,6 +65,14 @@ main {
   border-radius: 40px;
   margin-top: 1rem;
   margin-left: 1rem;
+  margin-bottom: 2rem;
+}
+
+#username{
+  display: inline-block;
+  color: #fff;
+  font-size: 20px;
+  padding-left: 1rem;
 }
 
 /*  serach messenge bar */
