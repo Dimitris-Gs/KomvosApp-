@@ -49,6 +49,7 @@ class User {
                 this.currentArrangement.points = arrangement.pointsOfTransaction
                 this.currentArrangement.status = arrangement.status
                 this.currentArrangement.randomDate = randomDate(new Date(2012, 0, 1), new Date())
+                this.currentArrangement.updated = arrangement.updatedAt
 
                 if (this.isOffered == "offer"){
                     let receiver = await this.user(arrangement.receiving_user_id).then((result, reject) => { return result });

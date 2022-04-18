@@ -99,17 +99,15 @@ function sortingListingsWithArrangementsByDate(array, date) {
 
     };
 
-
     if (date == 'Πρόσφατα') {
-        deconstructedArray.sort(function (a, b) {
-            return new Date(b.arrangements[0].randomDate) - new Date(a.arrangements[0].randomDate);
-        });
-    } else if (date == 'Μακριά') {
-        deconstructedArray.sort(function (a, b) {
-            return new Date(a.arrangements[0].randomDate) - new Date(b.arrangements[0].randomDate);
-        });
-    } else { console.log('error'); }
-
+      deconstructedArray.sort(function (a, b) {
+          return new Date(b.arrangements[0].updated) - new Date(a.arrangements[0].updated);
+      });
+  } else if (date == 'Μακριά') {
+      deconstructedArray.sort(function (a, b) {
+          return new Date(a.arrangements[0].updated) - new Date(b.arrangements[0].updated);
+      });
+  } else { console.log('error'); }
 
     return deconstructedArray;
 
@@ -123,15 +121,15 @@ function sortingListingsByDate(array, date) {
     }
 
     if (date == 'Πρόσφατα') {
-        copyOfOriginalArray.sort(function (a, b) {
-            return new Date(b.randomDate) - new Date(a.randomDate);
-        });
-    } else if (date == 'Μακριά') {
-        copyOfOriginalArray.sort(function (a, b) {
-            return new Date(a.randomDate) - new Date(b.randomDate);
-        });
+      copyOfOriginalArray.sort(function (a, b) {
+          return new Date(b.listingStartingDate) - new Date(a.listingStartingDate);
+      });
+  } else if (date == 'Μακριά') {
+      copyOfOriginalArray.sort(function (a, b) {
+          return new Date(a.listingStartingDate) - new Date(b.listingStartingDate);
+      });
 
-    } else { console.log('error'); }
+  } else { console.log('error'); }
 
 
     return copyOfOriginalArray;
@@ -211,7 +209,7 @@ function div(dto, div) {
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                                 </svg>
                                                 &nbsp;
-                                                ${new Date(dto[i].arrangements[j].randomDate).getDate()}/${new Date(dto[i].arrangements[j].randomDate).getMonth() + 1}/${new Date(dto[i].arrangements[j].randomDate).getFullYear()}
+                                                ${new Date(dto[i].arrangements[j].updated).getDate()}/${new Date(dto[i].arrangements[j].updated).getMonth() + 1}/${new Date(dto[i].arrangements[j].updated).getFullYear()}
                                             </div>
 
                                             
@@ -296,7 +294,7 @@ function div(dto, div) {
                                                 d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                                 </svg>
                                                 &nbsp;
-                                                ${new Date(dto[i].arrangements[j].randomDate).getDate()}/${new Date(dto[i].arrangements[j].randomDate).getMonth() + 1}/${new Date(dto[i].arrangements[j].randomDate).getFullYear()}
+                                                ${new Date(dto[i].arrangements[j].updated).getDate()}/${new Date(dto[i].arrangements[j].updated).getMonth() + 1}/${new Date(dto[i].arrangements[j].updated).getFullYear()}
                                             </div>
 
                                            
@@ -402,20 +400,6 @@ function divListing(dto,div){
                                     month: "2-digit" , day: "2-digit" , })  -->
                       </div>
 
-                      <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
-                          <path
-                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
-                          <path
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
-                        </svg>
-                        &nbsp;
-                        <span id="endingDateID">${new Date(listing.randomDate).getDate()}/${new Date(listing.randomDate).getMonth() + 1}/${new Date(listing.randomDate).getFullYear()}</span>
-                        <!--  listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit" , day: "2-digit" , })  -->
-                      </div>
-
                     </div>
                   </div>
                   <br>
@@ -497,20 +481,6 @@ function divListing(dto,div){
                                     month: "2-digit" , day: "2-digit" , })  -->
                       </div>
 
-                      <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
-                          <path
-                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
-                          <path
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
-                        </svg>
-                        &nbsp;
-                        <span id="endingDateID">${listing.randomDate}</span>
-                        <!--  listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit" , day: "2-digit" , })  -->
-                      </div>
-
                     </div>
                   </div>
                   <br>
@@ -538,15 +508,3 @@ function divListing(dto,div){
 
 
 
-{/* <select name="category_id" class="select" data-mdb-filter="true" style="width: 150px ;">
-                    <option value=${listing.listingCategoryId} hidden>${listing.listingCategoryName}</option>
-                    <option value=1>Σίτιση</option>
-                    <option value=2>Στέγαση</option>
-                    <option value=3>Προσφορά μαθημάτων</option>
-                    <option value=4>Μεταφορικές υπηρεσίες</option>
-                    <option value=5>Τεχνικές εργασίες</option>
-                    <option value=6>Οικιακές εργασίες</option>
-                    <option value=7>Υπηρεσίες φύλαξης</option>
-                    <option value=8>Άλλο</option>
-
-</select> */}
