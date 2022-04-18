@@ -44,7 +44,7 @@ module.exports = {
    
 
 
-    console.log(user);
+    // console.log(user);
     if(user == undefined)
     {
       // console.log("Είμαι στην if user undefined");

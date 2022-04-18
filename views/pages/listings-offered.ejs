@@ -1,83 +1,145 @@
 <link rel="stylesheet" href="/customCss/listings.css">
 
 <header>
-    <div class="fixed-top">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
-                        </li>
+    <% if(interimUser==150000) { %>
+        <div class="fixed-top">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Κοινότητα
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
-                                <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
-                                <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="GuestNavbar">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/">Navbar</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#features">Ποιοι είμαστε</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Κοινότητα
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+                                    <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+                                    <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="login">
+                        <a href="/register">Εγγραφή</a>
+                        <a href="/login">Σύνδεση</a>
+
+                    </div>
+
                 </div>
+            </nav>
+        </div>
+        <% } else { %>
+            <div class="fixed-top">
+                <nav class="navbar navbar-expand-md navbar-dark  bg-dark" id="userNavBar">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="/">Navbar</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Κοινότητα
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+                                        <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="dropdown profileDropdown">
+                            <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png"
+                                    alt="Profile img">
+                            </button>
+                            <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/userprofile">Προφίλ </a></li>
+                                <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </nav>
+                <nav class="navbar navbar-expand-md navbar-light bg-light">
+                    <div class="container-fluid">
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse " id="navbarNavDropdown1">
+                            <ul class="navbar-nav">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle ps-5" href="#" id="navbarDropdownMenuLink1"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Κατηγορίες
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1"
+                                        id="sortCategories">
+
+                                    </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2"
+                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Σειρά εμφάνισης
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                                        <li><a class="dropdown-item" href="#">Αύξουσα σειρά</a></li>
+                                        <li><a class="dropdown-item" href="#">Φθίνουσα σειρά</a></li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" id="createListing">Προσθήκη αγγελίας</button>
+
+                        </div>
+
+                    </div>
+
+
+                </nav>
             </div>
-        </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container-fluid">
+            <% } %>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
 
-                <div class="collapse navbar-collapse " id="navbarNavDropdown1">
-                    <ul class="navbar-nav">
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle ps-5" href="#" id="navbarDropdownMenuLink1" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Κατηγορίες
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink1" id="sortCategories">
 
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Σειρά εμφάνισης
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                                <li><a class="dropdown-item" href="#">Αύξουσα σειρά</a></li>
-                                <li><a class="dropdown-item" href="#">Φθίνουσα σειρά</a></li>
 
-                            </ul>
-                        </li>
-
-                    </ul>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop" id="createListing">Προσθήκη αγγελίας</button>
-
-                </div>
-            </div>
-        </nav>
-
-    </div>
 </header>
 
 <main>
@@ -228,47 +290,53 @@
                 </div>
 
 
-                <div class="card-footer">
-                    <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal"
-                        data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>">
-                        Ενδιαφέρομαι
-                    </button>
-                </div>
-
-                <!-- Modal for creating arrangement -->
-                <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>" data-bs-backdrop="static"
-                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να συνεχίσετε;</b>
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body warning">
-                                Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι
-                                ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί του/της
-                                για περισσότερες διευκρινήσεις και λεπτομέρειες.
-                                <br>
-
-                            </div>
-                            <div class="modal-footer">
-
-                                <form action="/create-arrangement-offered" method="POST">
-                                    <!-- ideally send the receiving user id from the user logged in -->
-                                    <input type="text" name="offering_user_id"
-                                        value="<%= listingsWithUsers[i].userId %>" hidden>
-                                    <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>" hidden>
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Ακύρωση</button>
-                                    <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
-                                </form>
-                            </div>
-
-                        </div>
+                <% if(interimUser !==150000) { %>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal"
+                            data-bs-target="#createArrangement<%= listingsWithUsers[i].id %>">
+                            Ενδιαφέρομαι
+                        </button>
                     </div>
-                </div>
+                    <% } %>
+
+                        <!-- Modal for creating arrangement -->
+                        <div class="modal fade" id="createArrangement<%= listingsWithUsers[i].id %>"
+                            data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                            aria-labelledby="createArrangementLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="createArrangementLabel"><b>Επιθυμείτε να
+                                                συνεχίσετε;</b>
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body warning">
+                                        Πατώντας επιβεβαίωση θα αποσταλλεί ενημέρωση στο/η δημιουργό της αγγελίας ότι
+                                        ενδιαφέρεστε για την προσφορά του/της. Μη διστάσετε να επικοινωνήσετε μαζί
+                                        του/της
+                                        για περισσότερες διευκρινήσεις και λεπτομέρειες.
+                                        <br>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <form action="/create-arrangement-offered" method="POST">
+                                            <!-- ideally send the receiving user id from the user logged in -->
+                                            <input type="text" name="offering_user_id"
+                                                value="<%= listingsWithUsers[i].userId %>" hidden>
+                                            <input type="text" name="listing_id" value="<%= listingsWithUsers[i].id %>"
+                                                hidden>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Ακύρωση</button>
+                                            <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
 
 
 

@@ -22,7 +22,7 @@ module.exports = {
       where: { id: this.req.session.userId },
       select: ['firstName', 'email', "dateOfBirth"]
     })
-    
+  
     let userOfferingArrangements = await Arrangement.find({
       where: {
         offering_user_id: user.id,

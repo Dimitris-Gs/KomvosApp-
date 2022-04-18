@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': { action : 'homepage' },
   '/register': {view: 'pages/registration'},
   '/login'   : {action :'loginForm/view-login-form' },
   '/thankyou': { view : 'pages/thankumsg'},
@@ -49,7 +49,9 @@ module.exports.routes = {
   'POST /update-canceled' : { action: "arrangements-create-update/update-canceled" } ,
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
-  'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'}
+  'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'},
+  'GET /admin' : {view : 'pages/userprofileAntonis'},
+  'GET /logout' : {action : 'logout'}
 
   
   

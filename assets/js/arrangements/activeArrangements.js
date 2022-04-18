@@ -562,8 +562,8 @@ function getSecondCase() {
                                     <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg">
                                     </div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].offerer} </div>
-                                        <div>${offered[i].offererMail}</div>
+                                        <div>${offered[i].receiver} </div>
+                                        <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
                                 <br>
@@ -647,8 +647,8 @@ function getSecondCase() {
                                     <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                             class="personsImg"></div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].offerer} </div>
-                                        <div>${offered[i].offererMail}</div>
+                                        <div>${offered[i].receiver} </div>
+                                        <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
                         
@@ -764,8 +764,8 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].receiver} </div>
-                                                    <div>${received[i].receiverMail}</div>
+                                                    <div>${received[i].offerer} </div>
+                                                    <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
                                             <br>
@@ -852,8 +852,8 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].receiver} </div>
-                                                    <div>${received[i].receiverMail}</div>
+                                                    <div>${received[i].offerer} </div>
+                                                    <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
                                             <br>
@@ -943,7 +943,7 @@ function getSecondCase() {
 
 
 
-                root.innerHTML = resultOffered + resultReceived;
+                root.innerHTML = resultOffered  + resultReceived;
 
 
                 if (result[0].length == 0 && result[1].length == 0) {

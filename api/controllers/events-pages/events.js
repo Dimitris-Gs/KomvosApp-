@@ -20,6 +20,14 @@ module.exports = {
 
 
   fn: async function (inputs) {
+  let interimUser;
+    if(this.req.session.userId)
+    {
+      interimUser = this.req.session.userId;
+    }
+    else{
+      interimUser = 150000;
+    }
     let events = await Event.find( {select: ['user_id']});
 
     let userIds = events.map(element => element.user_id);
@@ -55,7 +63,7 @@ module.exports = {
 
 
     // All done.
-    return { eventsWithUsers: eventsWithUsers };
+    return { eventsWithUsers: eventsWithUsers,interimUser:interimUser };
 
   }
 
