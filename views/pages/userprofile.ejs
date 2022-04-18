@@ -73,7 +73,7 @@
                 aria-expanded="false"> Διαχείριση &nbsp; </button>
               <ul class="dropdown-menu">
                 <li id="displayArrangements" class="dropdown-item" onclick="displayContent(arrangements)">Συμφωνίες</li>
-                <li ><a class="dropdown-item" onclick="displayContent(listingsCard)">Αγγελίες</a></li>
+                <li><a class="dropdown-item" onclick="displayContent(listingsCard)">Αγγελίες</a></li>
                 <li><a class="dropdown-item" href="#">Δράσεις</a></li>
               </ul>
             </div>
@@ -158,8 +158,7 @@
                     </label>
                     <!-- other -->
                     <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
-                        value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked'
-                        : '' %>>
+                        value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
 
@@ -644,7 +643,8 @@
               <div id="alternative">
                 <br>
                 <p>Από ότι φάινεται δεν έχεις συνάψει ακόμη συμφωνίες!</p>
-                <p>Μπορείς να μεταβείς στη σελίδα των <a href="/listings-offered"><b> αγγελιών</b></a> και να εκδηλώσεις ενδιαφέρον για κάποια αγγελία!</p>
+                <p>Μπορείς να μεταβείς στη σελίδα των <a href="/listings-offered"><b> αγγελιών</b></a> και να εκδηλώσεις
+                  ενδιαφέρον για κάποια αγγελία!</p>
               </div>
               <div class="cases" id="firstcase"></div>
               <div class="cases" id="secondcase"></div>
@@ -878,13 +878,21 @@
       </div>
     </div>
   </div>
+  <hr class="featurette-divider">
+    
+  <!-- FOOTER -->
+  <footer class="container">
+      <p class="float-end back-topbtn"><a href="#">Top</a></p>
+      <p>&copy; 2022 Komvos &middot; </p>
+  </footer>
+</div>
 
-  <script>
-    // get the users gender from the controller
-    let gender = '<%= user.gender %>';
+<script>
+  // get the users gender from the controller
+  let gender = '<%= user.gender %>';
 
-    // get the users date of birth from the controller
-    let dateOfBirth = '<%= user.dateOfBirth %>';
+  // get the users date of birth from the controller
+  let dateOfBirth = '<%= user.dateOfBirth %>';
 
-  </script>
-  <script src="/customJs/userprofile.js"></script>
+</script>
+<script src="/customJs/userprofile.js"></script>
