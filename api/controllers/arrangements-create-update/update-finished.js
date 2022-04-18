@@ -22,7 +22,7 @@ module.exports = {
     let arrangementInfo = this.req.body;
 
     //update the arrangements state to finished
-    await Arrangement.updateOne({ id: arrangementInfo.id }).set({ status : "finished"});
+    await Arrangement.updateOne({ id: arrangementInfo.id }).set({ status : "finished",  updatedAt: new Date()});
 
     // add one point to the offering user
     let offeringUserId = arrangementInfo.offererId;

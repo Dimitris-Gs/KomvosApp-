@@ -6,6 +6,7 @@
  
 body {  
   color: #5a5a5a;   
+  background-color: #cfcdcd;
 }
 
 /* nav bar user dropdown  */
@@ -31,9 +32,8 @@ body {
 }
 
 #main{
-    background-color: #69707a;
-    padding-top: 5rem;
-    padding-bottom: 100%; 
+   padding-top: 4rem;
+ 
 }
 
 .profileDropdown{
@@ -239,6 +239,28 @@ a {
     width: 80%;
     margin: 0 auto;    
 }
+
+.featurette-divider {
+    margin: 3rem 0;
+    /* Space out the Bootstrap <hr> more */
+}
+
+/* back to top btn */
+.back-topbtn {
+    border: 1px solid white;
+    border-radius: 10%;
+    background-color: #212529;
+    width: 80px;
+    height: 30px;
+}
+
+.back-topbtn a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
 
 
 

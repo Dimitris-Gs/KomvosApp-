@@ -33,7 +33,7 @@ module.exports = {
     //  await Arrangement.updateOne({ id: 3 }).set({ status : "canceled"});
     //  await Arrangement.updateOne({ id: 4 }).set({ status : "canceled"});
     //  await Arrangement.updateOne({ id: 11 }).set({ status : "canceled"});
-     await Arrangement.updateOne({ id: 14 }).set({ status : "accepted"});
+     await Arrangement.updateOne({ id: 18 }).set({ status : "accepted"});
     // await Arrangement.updateOne({ id: 3 }).set({ status : "accepted"});
     // await Arrangement.updateOne({ id: 10 }).set({ status : "accepted", listing_id : 6, offering_user_id: 2});
     //await Arrangement.destroyOne({ id: 23});
