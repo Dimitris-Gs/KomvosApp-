@@ -40,14 +40,10 @@ module.exports.routes = {
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
   'POST /register/check-email': { action: "rest-api/check-email"},
-<<<<<<< HEAD
   'POST /restlistingcategories': {action:"admin/create-listing-categories"},
   'POST /updatelistingcategories' : {action: "admin/update-listing-categories"},
   '/admin': {action : 'admin/all-listing-categories'},
-  'POST /delete': { action: "admin/delete-listing-categories"},
-
- 
-=======
+  'POST /delete': { action: "admin/delete-listing-categories"}, 
   'POST /create-arrangement-offered': { action: "arrangements-create-update/create-arrangement-offered"},
   'POST /create-arrangement-received': { action: "arrangements-create-update/create-arrangement-received"},
   'POST /first-case' : { action: "active-arrangements/first-case"},
@@ -58,7 +54,6 @@ module.exports.routes = {
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
   
->>>>>>> master
 
   
   
