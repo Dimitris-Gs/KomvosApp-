@@ -4,8 +4,8 @@
   box-sizing: border-box;
 }
 
-body{
-  height: 100%;
+body {
+  background-color: #cfcdcd;
 }
 
 #dropdownMenuButton1 {
@@ -42,25 +42,39 @@ hr {
 }
 
 
-#donationImage{
+#donationImage {
   width: 100%;
-  height:70vh;
+  height: 55vh;
   background-image: url('/images/donation/pexels-antoni-shkraba-7345444.jpg');
   background-size: cover
 }
 
-.pay{
-  background-color: #3d4251;
-  width: 100%;
-  height: 100%;
+.pay {
+  background-color: #cfcdcd;
+  border: 2px solid #212529;
+  color: #212529;
+  padding-top: 2%;
+  width: 50%;
+  margin: 0 auto;
+
 }
 
-#paypal-button-container{
-  padding-top: 7rem;
+.pay p {
+  text-align: justify;
+}
+
+#paypal-button-container {
+  padding-top: 2rem;
   padding-bottom: 3rem;
   display: flex;
   justify-content: center;
   color: #fff !important;
+}
+
+.featurette-divider {
+  color: #212529;
+  margin: 2rem 0;
+  /* Space out the Bootstrap <hr> more */
 }
 
 
