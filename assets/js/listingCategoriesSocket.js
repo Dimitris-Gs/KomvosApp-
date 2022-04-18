@@ -24,15 +24,15 @@ function getListingCategories() {
 
                 root.innerHTML = options;
 
-                let dropdown = document.getElementById("sortCategories");
-                let listItems = '';
-                for (let i = 0; i < result.length; i++) {
-                    listItems += `
-                    <li><a class="dropdown-item" href="#">${result[i].name}</a></li>
-                    `
-                }
+                // let dropdown = document.getElementById("sortCategories");
+                // let listItems = '';
+                // for (let i = 0; i < result.length; i++) {
+                //     listItems += `
+                //     <li><a class="dropdown-item" href="#">${result[i].name}</a></li>
+                //     `
+                // }
 
-                dropdown.innerHTML = listItems;
+                // dropdown.innerHTML = listItems;
 
             })
     })
