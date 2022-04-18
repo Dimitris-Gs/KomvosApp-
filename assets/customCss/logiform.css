@@ -83,3 +83,9 @@ body {
 #invisibleDivForUserData {
     display: none;
 }
+
+#userNotFound{
+    display: none;
+    color: #ff0000;
+    font-size: x-small;
+}

@@ -51,7 +51,8 @@ module.exports.routes = {
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
   'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'},
   'GET /admin' : {view : 'pages/userprofileAntonis'},
-  'GET /logout' : {action : 'logout'}
+  'GET /logout' : {action : 'logout'},
+  'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
 
   
   

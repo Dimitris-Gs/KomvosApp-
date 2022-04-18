@@ -113,10 +113,10 @@ module.exports = {
       }
 
     }
-
+    let pointsBalance = this.req.session.points - this.req.session.reservedPoints;
     
     // All done.
-    return  { listingsWithUsers : listingsWithUsers, interimUser:interimUser } ;
+    return  { listingsWithUsers : listingsWithUsers, interimUser:interimUser, pointsBalance : pointsBalance } ;
 
   }
 

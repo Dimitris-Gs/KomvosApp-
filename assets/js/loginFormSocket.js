@@ -21,10 +21,11 @@ function checkCredentials(emailValue,passwordValue)
 
                         // console.log(response.headers);
                         // console.log(`'Έχουμε response ${response.headers} `);
-                        alert("Δεν υπάρχει χρήστης με τα στοιχεία που εισήγαγες! Παρακαλούμε έλεγξε ξανά το email και τον κωδικό σου!");
+                        document.getElementById("userNotFound").style.display = "block";
                     }
                     else{
                         // console.log(response.admin);
+                        document.getElementById("userNotFound").style.display = "none";
                         if(result.admin)
                         {
                             window.location.replace("http://localhost:1337/admin")
