@@ -20,7 +20,7 @@ function getListings(offeredOrReceived) {
             {
                 method: 'post',
                 url: `/userprofile${offeredOrReceived}`,
-                data: { userId: 1 }
+                data: {  }
             },
             function (result, response) {
                 console.log(result);

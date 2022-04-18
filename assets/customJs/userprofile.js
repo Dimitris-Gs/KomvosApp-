@@ -202,3 +202,7 @@ function descriptionValidation() {
   }
 }
 
+window.onload = () => {
+  displayAddress();
+}
+

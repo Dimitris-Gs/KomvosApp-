@@ -29,13 +29,13 @@
       </ul>
     </div>
     <div class="dropdown profileDropdown">
-      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
+      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
+        <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#" onclick="displayContent(profileCard)">Προφίλ </a></li>
         <li><a class="dropdown-item" href="#" onclick="displayContent(editCard)">Επεξεργασία Προφίλ</a></li>
-        <li><a class="dropdown-item" href="#">Συνδρομή</a></li>
+        <li><a class="dropdown-item" href="/donation">Συνδρομή</a></li>
         <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
       </ul>
     </div>
@@ -83,7 +83,9 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
             <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
+            <form action="/chat" method="GET">
+              <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
+            </form>
           </div>
 
           <!-- less than 768 version -->

@@ -21,7 +21,7 @@ module.exports.routes = {
 
   '/': { view: 'pages/homepage' },
   '/register': {view: 'pages/registration'},
-  '/login'   : {view : 'pages/loginform'},
+  '/login'   : {action :'loginForm/view-login-form' },
   '/thankyou': { view : 'pages/thankumsg'},
   '/listings-offered': {action : 'listings-pages/listings-offered'},
   '/listings-received': {action : 'listings-pages/listings-received'},
@@ -40,6 +40,11 @@ module.exports.routes = {
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
   'POST /register/check-email': { action: "rest-api/check-email"},
+  '/chat' : {action: 'messenger/chat'},
+  'POST /message': { action: 'messenger/chat-message' },
+  'POST /messages' : {action: 'messenger/get-messages'},
+  'POST /joinroom': {action: 'messenger/join-room'},
+  '/donation' : {view: 'pages/donation'},
   'POST /restlistingcategories': {action:"admin/create-listing-categories"},
   'POST /updatelistingcategories' : {action: "admin/update-listing-categories"},
   '/admin': {action : 'admin/all-listing-categories'},
@@ -53,7 +58,7 @@ module.exports.routes = {
   'POST /update-canceled' : { action: "arrangements-create-update/update-canceled" } ,
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
-  
+  'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'}
 
   
   

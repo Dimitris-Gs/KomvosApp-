@@ -21,12 +21,12 @@ module.exports = {
    
     let listingsWithArrangements = await Listing.find({
         where: {
-          user_id : { '!=' : 1 }, 
+          user_id : { '!=' : this.req.session.userId }, 
           endingDate: { '>=': new Date() }       
         }
       }).populate('arrangements', { 
         where: { status: 'pending',
-        or : [ { receiving_user_id: 1 }, { offering_user_id: 1 }]
+        or : [ { receiving_user_id: this.req.session.userId }, { offering_user_id: this.req.session.userId }]
       }
                 
       });
