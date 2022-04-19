@@ -1,5 +1,4 @@
 
-
 module.exports = {
 
 
@@ -15,25 +14,19 @@ module.exports = {
 
 
   exits: {
-
+  
   },
 
 
   fn: async function (inputs) {
 
     let listings = await Listing.find({
-      where: {
-        user_id: { '!=': 1 },
-        isOffered: true,
-        // add another constraint  : show only the active listings (fotis implementation)
-        endingDate: { '>=': new Date() }
-      }
-    }).populate('arrangements', {
-      where: {
-        status: { in: ['pending', 'accepted'] },
-        receiving_user_id: 1
-      }
-    });
+      where: {user_id : { '!=' : 1 } , 
+              isOffered: true,
+              // add another constraint  : show only the active listings (fotis implementation)
+              endingDate: { '>=': new Date() }  }     
+    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
+                                            receiving_user_id : 1 } });
 
     let rightListingIds = [];
     let rightListingUsers = [];
@@ -45,24 +38,21 @@ module.exports = {
       }
     }
 
-    let userListings = await TestUser.find({
-      where: { id: { in: rightListingUsers } }
-    }).populate('listings', {
-      where: {
-        id: { in: rightListingIds },
-        isOffered: true,
-        endingDate: { '>=': new Date() }
-      }
-    });
+    let userListings = await TestUser.find({ 
+      where: {id : {in : rightListingUsers}}
+    }).populate('listings', { where: {  id : { in : rightListingIds},
+                                        isOffered: true,
+                                        endingDate: { '>=': new Date() }  }
+                               });
 
     let listingsWithUsers = [];
 
-
+   
 
     const msPerYearNormal = 31557600000;
     const msPerYearLarge = 31622400000;
     const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
-
+    
 
     for (let i = 0; i < userListings.length; i++) {
 
@@ -77,7 +67,7 @@ module.exports = {
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-        currentListing.status = userListings[i].listings[j].status;
+
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -98,8 +88,9 @@ module.exports = {
 
     }
 
-
-    return listingsWithUsers;
+    // All done.
+    // return  { listingsWithUsers : listingsWithUsers } ;
+    return listingsWithUsers
   }
 
 

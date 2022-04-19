@@ -21,7 +21,7 @@ module.exports = {
   fn: async function (inputs) {
     // Find user in db
     let user = await TestUser.findOne({
-       where: { id: 1 }
+       where: { id: 3 }
     });
 
     // All done.

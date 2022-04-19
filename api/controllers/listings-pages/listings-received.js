@@ -13,9 +13,7 @@ module.exports = {
 
 
   exits: {
-    success: {
-      viewTemplatePath: 'pages/listings-received'
-    }
+    
   },
 
 
@@ -81,7 +79,7 @@ module.exports = {
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-
+        currentListing.status = userListings[i].listings[j].status;
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -104,7 +102,8 @@ module.exports = {
 
     
     // All done.
-    return  { listingsWithUsers : listingsWithUsers } ;
+    // return  { listingsWithUsers : listingsWithUsers } ;
+    return listingsWithUsers
 
   }
 

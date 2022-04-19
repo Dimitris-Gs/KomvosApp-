@@ -27,7 +27,7 @@ module.exports = {
     
 
     let user = await TestUser.findOne({
-      where: { id: 1 },
+      where: { id: inputs.userId },
       select: ['firstName', 'lastName']
     })
 

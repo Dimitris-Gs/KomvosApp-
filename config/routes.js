@@ -23,8 +23,9 @@ module.exports.routes = {
   '/register': {view: 'pages/registration'},
   '/login'   : {view : 'pages/loginform'},
   '/thankyou': { view : 'pages/thankumsg'},
-  '/listings-offered': {action : 'listings-pages/listings-offered'},
-  '/listings-received': {action : 'listings-pages/listings-received'},
+  '/listings-offered': {view : 'pages/all-listings-offered'},
+  '/listings-received': {view : 'pages/all-listings-received'},
+  // '/listings-received': {action : 'listings-pages/listings-received'},
   '/events': { action : 'events-pages/events'},
   '/create'  : {action:'create'},
   '/delete' : { action : 'delete'},
@@ -49,10 +50,12 @@ module.exports.routes = {
   'POST /update-canceled' : { action: "arrangements-create-update/update-canceled" } ,
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
-  'POST /join': {action:'joinroom'},
   'POST /all-listings-for-a-user': {action:'all-listings-for-a-user'},
   'POST /listing-delete-or-update': {action:'listing-delete-or-update'},
   'POST /receive-or-offer-listings-with-arrangements': {action:'receive-or-offer-listings-with-arrangements'},
+  'POST /all-listings-offered': {action : 'listings-pages/listings-offered'},
+  'POST /all-listings-received': {action : 'listings-pages/listings-received'},
+  '/all-listings': {action:'test-listings'}
   
 
   

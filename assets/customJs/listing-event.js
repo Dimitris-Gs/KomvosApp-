@@ -36,10 +36,10 @@ today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("startingDate").setAttribute("min", today);
 document.getElementById("endingDate").setAttribute("min", today);
 
-document.getElementById("navbarDropdownMenuLink1").addEventListener('click', () => {
-  getListingCategories()
-});
+// document.getElementById("navbarDropdownMenuLink1").addEventListener('click', () => {
+//   getListingCategories()
+// });
 
-document.getElementById("createListing").addEventListener('click', () => {
-  getListingCategories()
-});
+// document.getElementById("createListing").addEventListener('click', () => {
+//   getListingCategories()
+// });

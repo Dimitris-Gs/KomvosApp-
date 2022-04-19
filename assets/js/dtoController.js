@@ -9,7 +9,7 @@ let globalDto = []
 rest-api controllers and pushes in specific places the returned data. The globalDto variable should look
 like this [[{offered Arrangements with Listings}],[{offered Arrangements with Listings}].[{all active listings}]]
 */
-socket2.post('/all-listings-for-a-user', { userId: 1 }, function (result, jwres) {
+socket2.post('/all-listings-for-a-user', { userId: 3 }, function (result, jwres) {
     console.log(result);
     globalDto[2] = result
 })
