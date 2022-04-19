@@ -14,8 +14,8 @@ module.exports = {
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
     user_id: { model : 'testuser'},
     category_id: { model: 'listingcategories'},
-    // createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
-    // updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
+    createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
+    updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     name: {type:'string', required:true, maxLength:50},
     description: {type:'string', maxLength:200},
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},

@@ -1,6 +1,4 @@
-
 document.getElementById("alternative").style.display = "none";
-
 
 // Hide the cards/tabs 
 document.getElementById("editCard").style.display = "none";
@@ -106,6 +104,7 @@ let usersGender = document.getElementById("cardGender");
 window.onload = () => {
   usersGender.innerHTML = genderStr;
   ageDiv.innerHTML = usersAge;
+ 
 }
 
 // validations 
@@ -201,4 +200,6 @@ function descriptionValidation() {
     return true;
   }
 }
+// displayAddress();
+
 

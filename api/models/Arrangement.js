@@ -17,7 +17,6 @@ module.exports = {
     createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     listing_id: { model: 'listing'},
-    pointsOfTransaction: { type: 'number', defaultsTo: 1, columnName: 'pointsoftransaction'},
     status: { type: 'string', required: true , isIn: ['pending','accepted', 'finished', 'canceled'] },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
