@@ -38,7 +38,7 @@ module.exports = {
               isOffered: false,
               // add another constraint  : show only the active listings (fotis implementation)
               endingDate: { '>=': new Date() }  }     
-    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
+    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted', 'finished']},
                                             offering_user_id : interimUser } });
     
     let rightListingIds = [];
