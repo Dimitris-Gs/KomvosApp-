@@ -34,49 +34,42 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <div class="container-fluid">
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <select id="listingsfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
-                    <option value = undefined hidden>Aγγελία</option>
-                    <option value = 'true'>Προσφοράς</option>
-                    <option value = 'false' >Ζήτησης</option>
-                </select>
+        <div class="container-fluid pt-1">
+            <div class="row">
+                <div class="col-md-7">
+                    <select id="listingsfilterType" onchange="getIsOffered()" class="form-select sorted">
+                        <option value=undefined hidden>Aγγελία</option>
+                        <option value='true'>Προσφοράς</option>
+                        <option value='false'>Ζήτησης</option>
+                    </select>
 
-                <select id = "listingsfilterCategory" onchange="getCategoryValue()" class="form-select"
-                  style="width: 150px; display: inline;">
-                  <option value= 'undefined' hidden>Κατηγορίες</option>
-                    <option value="Σίτιση">Σίτιση</option>
-                    <option value="Στέγαση">Στέγαση</option>
-                    <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
-                    <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
-                    <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
-                    <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
-                    <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
-                    <option value="Άλλο">Άλλο</option>
-                </select>
+                    <select id="listingsfilterCategory" onchange="getCategoryValue()" class="form-select sorted">
+                        <option value='undefined' hidden>Κατηγορίες</option>
+                        <option value="Σίτιση">Σίτιση</option>
+                        <option value="Στέγαση">Στέγαση</option>
+                        <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                        <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                        <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                        <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                        <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                        <option value="Άλλο">Άλλο</option>
+                    </select>
 
-                <select id ="listingsfilterDate" onchange="getDateValue()" class="form-select" style="width: 165px; display: inline;">
-                    <option value= 'undefined' hidden>Ημερομηνία</option>
-                    <option value="Μακριά">Παλιότερες</option>
-                    <option value="Πρόσφατα">Πιο πρόσφατες</option>
-  
-                </select>
-                <div>
-                    <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop" id="createListing">Προσθήκη αγγελίας</button>
+                    <select id="listingsfilterDate" onchange="getDateValue()" class="form-select sorted">
+                        <option value='undefined' hidden>Ημερομηνία</option>
+                        <option value="Μακριά">Παλιότερες</option>
+                        <option value="Πρόσφατα">Πιο πρόσφατες</option>
 
+                    </select>
                 </div>
-
+                <div class="col-md-5">
+                    <div class="text-end">
+                        <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="createListing">Προσθήκη αγγελίας</button>
+                    </div>
+                </div>
             </div>
-
-
-        </nav>
+        </div>
     </div>
 </header>
 
@@ -84,39 +77,39 @@
     <h4 class="text-center">Υπηρεσίες Ζήτησης</h4>
     <br>
     <div class="listing">
-        
+
     </div>
 
 
 
-   <!-- Modal -->
-   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-   aria-labelledby="staticBackdropLabel" aria-hidden="true">
-   <div class="modal-dialog">
-       <div class="modal-content">
-           <div class="modal-header">
-               <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία αγγελίας</h5>
-               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-           </div>
-           <div class="modal-body">
-               <form id="createForm" class="form-create-listing " action="/create-listing" method="POST">
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Δημιουργία αγγελίας</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="createForm" class="form-create-listing " action="/create-listing" method="POST">
 
-                   <div class="form-group row">
-                       <label for="type" class="col-md-4 col-form-label">Τύπος: </label>
-                       <div class="col-md-8">
-                           <select id="type" class="form-select" aria-label="multiple select example"
-                               name="isOffered">
-                               <option value="false" name="isOffered">Αγγελία ζήτησης</option>
-                               <!-- <option value="true" name="isOffered">Αγγελία προσφοράς</option> -->
-                           </select>
-                       </div>
-                   </div>
-                   <div class="form-group row">
-                       <label for="type" class="col-md-4 col-form-label">Κατηγορία: </label>
-                       <div class="col-md-8">
-                           <select id="category_id" class="form-select" aria-label="multiple select example"
-                               name="category_id">
-                               <!-- <option value= 'undefined' hidden>Κατηγορίες</option> -->
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label">Τύπος: </label>
+                            <div class="col-md-8">
+                                <select id="type" class="form-select" aria-label="multiple select example"
+                                    name="isOffered">
+                                    <option value="false" name="isOffered">Αγγελία ζήτησης</option>
+                                    <!-- <option value="true" name="isOffered">Αγγελία προσφοράς</option> -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="type" class="col-md-4 col-form-label">Κατηγορία: </label>
+                            <div class="col-md-8">
+                                <select id="category_id" class="form-select" aria-label="multiple select example"
+                                    name="category_id">
+                                    <!-- <option value= 'undefined' hidden>Κατηγορίες</option> -->
                                     <option value=1>Σίτιση</option>
                                     <option value=2>Στέγαση</option>
                                     <option value=3>Προσφορά μαθημάτων</option>
@@ -125,53 +118,54 @@
                                     <option value="6">Οικιακές εργασίες</option>
                                     <option value="7">Υπηρεσίες φύλαξης</option>
                                     <option value="8">Άλλο</option>
-                              
-                           </select>
-                       </div>
-                   </div>
-                   <div class="form-group row ">
-                       <label for="type" class="col-md-4 col-form-label">Όνομα: </label>
-                       <div class="col-md-8">
-                           <input placeholder="Τίτλος αγγελίας" name="name" maxlength="50" required>
-                       </div>
-                   </div>
-                   <div class="form-group row ">
-                       <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
-                       <div class="col-md-8">
-                           <textarea class="form-control" name="description" maxlength="200" id="small_bio"
-                               rows="5" required placeholder="Δώστε περισσότερες πληροφορίες σχετικά με την υπηρεσία που ζητάτε. Ποιες μέρες και ώρες χρειάζεστε τη συγκεκριμένη υπηρεσία; Πως θα προτιμούσατε να επικοινωνήσει κανείς μαζί σας;"></textarea>
 
-                       </div>
-                   </div>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="type" class="col-md-4 col-form-label">Όνομα: </label>
+                            <div class="col-md-8">
+                                <input placeholder="Τίτλος αγγελίας" name="name" maxlength="50" required>
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="small_bio" class="col-md-4 col-form-label bio">Περιγραφή: </label>
+                            <div class="col-md-8">
+                                <textarea class="form-control" name="description" maxlength="200" id="small_bio"
+                                    rows="5" required
+                                    placeholder="Δώστε περισσότερες πληροφορίες σχετικά με την υπηρεσία που ζητάτε. Ποιες μέρες και ώρες χρειάζεστε τη συγκεκριμένη υπηρεσία; Πως θα προτιμούσατε να επικοινωνήσει κανείς μαζί σας;"></textarea>
 
-                   <div class="form-group row ">
-                       <label for="dateOfBirth" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
-                       <div class="col-md-8">
-                           <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
+                            </div>
+                        </div>
 
-                       </div>
-                   </div>
-                   <div class="form-group row ">
-                       <label for="dateOfBirth" class="col-md-4 col-form-label">Διαθέσιμη έως: </label>
-                       <div class="col-md-8">
-                           <input type="date" name="endingDate" id="endingDate" oninput="this.className = ''"
-                               required autofocus>
-                           <small id="validationDate">*Παρακαλούμε εισάγετε έγκυρη
-                               ημερομηνία.</small>
-                       </div>
-                   </div>
+                        <div class="form-group row ">
+                            <label for="dateOfBirth" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
+                            <div class="col-md-8">
+                                <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
 
-               
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label for="dateOfBirth" class="col-md-4 col-form-label">Διαθέσιμη έως: </label>
+                            <div class="col-md-8">
+                                <input type="date" name="endingDate" id="endingDate" oninput="this.className = ''"
+                                    required autofocus>
+                                <small id="validationDate">*Παρακαλούμε εισάγετε έγκυρη
+                                    ημερομηνία.</small>
+                            </div>
+                        </div>
 
-           </div>
-           <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-               <button type="submit" class="btn btn-danger">Δημιουργία</button>
-           </div>
-       </form>
-       </div>
-   </div>
-</div>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Δημιουργία</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 
 </main>
