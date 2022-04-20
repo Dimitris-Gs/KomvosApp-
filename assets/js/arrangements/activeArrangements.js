@@ -2,9 +2,9 @@
 document.getElementById("displayArrangements").addEventListener('click', () => {
    
     getFirstCase();
-    getSecondCase();
+     getSecondCase();
     getThirdCase();
-    getFourthCase();
+     getFourthCase();
 
 });
 
@@ -562,8 +562,8 @@ function getSecondCase() {
                                     <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg">
                                     </div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].offerer} </div>
-                                        <div>${offered[i].offererMail}</div>
+                                        <div>${offered[i].receiver} </div>
+                                        <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
                                 <br>
@@ -647,10 +647,10 @@ function getSecondCase() {
                                     <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                             class="personsImg"></div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <form action="/view-profile/${offered[i].offererId}" method="GET">
-                                        <button type="submit" class = "view-profileBtn">${offered[i].offerer} </button>
+                                    <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
                                     </form>
-                                        <div>${offered[i].offererMail}</div>
+                                        <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
                         
@@ -766,10 +766,10 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                 <form action="/view-profile/${received[i].receiverId}" method="GET">
-                                                    <button type="submit" class = "view-profileBtn">${received[i].receiver} </button>
+                                                 <form action="/view-profile/${received[i].offererId}" method="GET">
+                                                    <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
                                                 </form>
-                                                    <div>${received[i].receiverMail}</div>
+                                                    <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
                                             <br>
@@ -856,10 +856,10 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <form action="/view-profile/${received[i].receiverId}" method="GET">
-                                                        <button type="submit" class = "view-profileBtn">${received[i].receiver} </button>
+                                                    <form action="/view-profile/${received[i].offererId}" method="GET">
+                                                        <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
                                                     </form>
-                                                    <div>${received[i].receiverMail}</div>
+                                                    <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
                                             <br>
@@ -1211,7 +1211,7 @@ function getFourthCase() {
                 data: {}
             },
             function (result, response) {
-
+                console.log(result);
                 let root = document.getElementById("fourthcase");
 
                 let confirmedArrangements = '';
@@ -1296,9 +1296,8 @@ function getFourthCase() {
                         </div>
                         <div class="card-footer">
                             <div class="text-end">
-                                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#finishArrangement${result[i].id}">Ολοκληρώθηκε</button>                      
-         
                                 <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${result[i].id}">Απόρριψη</button>
+                                <button type="button" class="btn btn-danger " data-bs-toggle="modal" data-bs-target="#finishArrangement${result[i].id}">Ολοκληρώθηκε</button>                      
                             </div>
                             
                         </div>
@@ -1441,8 +1440,10 @@ function getFourthCase() {
                                             <input type="text" name="offererId" value="${result[i].offererId}"  hidden>
                                             <input type="text" name="receiverId" value="${result[i].receiverId}"  hidden>
                                             <input type="text" name="categoryrId" value="${result[i].categoryrId}"  hidden>
+                                            <div class="text-end">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
-                                            <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
+                                            <button type="submit" class="btn btn-danger ">Επιβεβαίωση</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
