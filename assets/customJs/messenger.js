@@ -1,4 +1,5 @@
 let activeChatUserId;
+let activeChatUserFullName;
 
 function sendMessage() {
   // Create a new chat message via the API.
@@ -17,12 +18,37 @@ function sendMessage() {
 //  brinks conversation on top of the side bar and updates text and time
 function updateConversation(userId, text, createdAt) {
   // Find user's exisitng conversation and update last message and sent time
-  const chatElement = document.getElementById(userId);
-  chatElement.children[0].children[2].innerHTML = new Date(createdAt).toLocaleString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
-  chatElement.children[0].children[1].children[1].innerHTML = text;
+  let chatElement = document.getElementById(userId);
 
-  // Remove existing conversation and readd it to the top
-  document.getElementById(userId).remove();
+  if (chatElement) {
+    chatElement.children[0].children[2].innerHTML = new Date(createdAt).toLocaleString([], { year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+    chatElement.children[0].children[1].children[1].innerHTML = text;
+  
+    // Remove existing conversation
+    document.getElementById(userId).remove();
+  } else {
+    chatElement = document.createElement('div');
+    chatElement.id = userId;
+    chatElement.className = 'conversations';
+    chatElement.innerHTML = `
+        <div class="friend-drawer friend-drawer--onhover">
+          <img class="profile-image" src="" alt="">
+          <div class="text">
+            <h6>${activeChatUserFullName}</h6>
+            <p class="text-muted">
+              ${text}
+            </p>
+          </div>
+          <span class="time text-muted small">
+            ${new Date(createdAt).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit' , minute:'2-digit', hour12: false})}
+          </span>
+        </div>
+        <hr>
+    `;
+    chatElement.addEventListener("click", () => openChat(userId));
+  }
+
+  // Add conversation to the top of the list
   document.getElementById('chats').prepend(chatElement);
 }
 
@@ -64,6 +90,10 @@ const scrollToBottom = () => {
 }
 
 window.onload = function () {
+  const params = new URLSearchParams(window.location.search);
+
+  if (activeChatUser) openChat(activeChatUser)
+
   io.socket.post('/joinroom');
   io.socket.on('message', (message) => {
     if(activeChatUserId == message.user) {
@@ -76,7 +106,7 @@ window.onload = function () {
 }
 
 // function that hide and show the chat bettween the users 
-function openChat(userId, name) {
+function openChat(userId) {
   activeChatUserId = userId;
 
   const messenger = document.getElementById('rightSide');
@@ -85,18 +115,19 @@ function openChat(userId, name) {
     messenger.style.display = 'block';
   }
 
-  io.socket.post('/messages', { user2: userId}, function (resData) {
+  io.socket.get(`/messages/${userId}`, function (resData) {
+    const { user, messages } = resData;
     document.getElementById('messages').innerHTML = '';
+
+    activeChatUserFullName = user.firstName + ' ' + user.lastName;
+
+    document.getElementById('userName').innerHTML = activeChatUserFullName;
+
     // renders each fetched chat message
-    resData?.forEach(message => {
+    messages?.forEach(message => {
       renderMessage(!(message.user1 == userId), message.text)
     })
   });
-
-
-  document.getElementById('userName').innerHTML = name;
-  
-
 }
 
 

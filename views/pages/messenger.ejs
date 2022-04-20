@@ -64,7 +64,7 @@
         <div id="chats">
           <% for (let chat of chats) { %>
             <div class="conversations" id="<%=chat.userId%>"
-              onclick="openChat('<%=chat.userId%>', '<%=chat.firstName%> <%=chat.lastName%>')">
+              onclick="openChat('<%=chat.userId%>')">
               <div class="friend-drawer friend-drawer--onhover">
                 <img class="profile-image" src="" alt="">
                 <div class="text">
@@ -98,4 +98,7 @@
     </div>
   </div>
 </main>
+<script>
+  let activeChatUser = '<%= activeChatUser %>';
+</script>
 <script src="/customJs/messenger.js"></script>
