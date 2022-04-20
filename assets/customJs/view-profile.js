@@ -30,3 +30,12 @@ window.onload = () => {
   usersGender.innerHTML = genderStr;
   ageDiv.innerHTML = usersAge;
 }
+
+function toggleCard() {
+  const card = document.getElementById("profileCard");
+  if (card.style.display === "none") {
+    card.style.display = "block";
+  } else {
+    card.style.display = "none";
+  }
+}
