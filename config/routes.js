@@ -62,6 +62,7 @@ module.exports.routes = {
   'GET /admin' : {view : 'pages/admin'},
   'GET /logout' : {action : 'logout'},
   'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
+  'POST /point-balance': { action : 'listings-pages/point-balance'},
 
   
   

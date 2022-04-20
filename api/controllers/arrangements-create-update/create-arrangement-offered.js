@@ -32,10 +32,8 @@ module.exports = {
       if(arrangementOffered.category_id !== "1" && arrangementOffered.category_id !== "2" )
       {
         this.req.session.reservedPoints = this.req.session.reservedPoints + 1;
-
-        
-
       }
+      
       this.res.redirect('/listings-offered');
     }
     else {
