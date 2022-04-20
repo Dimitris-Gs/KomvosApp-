@@ -28,7 +28,7 @@ module.exports = {
     volunteer: { type:'boolean', required: true},
     freeTime: { type:'string', required: true, columnName:'free_time', isIn: ['freeTimeNone', 'freeTimeMinimum', 'freeTimeWeekend', 'freeTimeSome'] }, //isIn: ['ΚΑΘΟΛΟΥ', 'ΜΕΡΙΚΩΣ', 'Σ-Κ']
     admin: { type: 'boolean', required: true },
-    reservedPoints : {type : 'number',required:false, isInteger: true},
+    reservedPoints : {type: 'number', required: false, isInteger: true},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
@@ -63,6 +63,14 @@ module.exports = {
       collection: 'arrangement',
       via: 'receiving_user_id'
     },
+    messages: {
+      collection: 'chatmessages',
+      via: 'user1'
+    },
+    messages: {
+      collection: 'chatmessages',
+      via: 'user2'
+    }
   },
 
 };

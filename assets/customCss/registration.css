@@ -70,6 +70,11 @@
     display: none;
     color: #ff0000;
  }
+
+ #passwordCheck{
+    display: none;
+    color: #ff0000;
+ }
 /* validations */   
 
  #submitBtn {

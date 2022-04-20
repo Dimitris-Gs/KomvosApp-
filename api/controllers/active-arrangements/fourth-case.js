@@ -33,7 +33,7 @@ module.exports = {
         id: { in: listingIds },
         endingDate: { '>=': new Date() }
       }
-    }).populate('arrangements', { where: { status: 'accepted', receiving_user_id: 1  } });
+    }).populate('arrangements', { where: { status: 'accepted', receiving_user_id: this.req.session.userId  } });
 
 
     let dto = [];

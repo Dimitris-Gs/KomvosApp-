@@ -28,13 +28,21 @@ module.exports = {
         status: "pending"
       });
       
+<<<<<<< HEAD
       // console.log(this.req.session.reservedPoints);
       if(arrangementOffered.category_id !== 1 && arrangementOffered.category_id !== 2 )
       {
         this.req.session.reservedPoints = this.req.session.reservedPoints + 1;
         // console.log(this.req.session.reservedPoints);
 
+=======
+      
+      if(arrangementOffered.category_id !== "1" && arrangementOffered.category_id !== "2" )
+      {
+        this.req.session.reservedPoints = this.req.session.reservedPoints + 1;
+>>>>>>> bb22cb2c209027be3b98ba156dba8cb6a23420a0
       }
+      
       this.res.redirect('/listings-offered');
     }
     else {

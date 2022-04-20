@@ -35,10 +35,14 @@
 
               <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
               <small id="emailExists">*Αυτή η διεύθυνση email υπάρχει ήδη.</small>
-              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση .</small>
+              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση.</small>
             </p>
 
-            <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>
+            <p>
+              <input type="password" placeholder="Κωδικός" oninput="hidePassValidation()" name="password" id="password">
+              <small id="passwordCheck">*Ο κωδικός πρέπει να αποτελείται από 8 τουλάχιστον χαρακτήρες χωρίς κενά.</small>
+            </p>
+            
           </div>
 
           <!-- Second tab -->
@@ -170,3 +174,4 @@
 
 <!-- textarea and buttons styling needed in order to be responsive -->
 <script src="/customJs/registration.js"></script>
+<script src="/js/emailSocket.js"></script>
