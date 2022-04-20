@@ -28,11 +28,11 @@ module.exports = {
         status: "pending"
       });
       
-      console.log(this.req.session.reservedPoints);
+      // console.log(this.req.session.reservedPoints);
       if(arrangementOffered.category_id !== 1 && arrangementOffered.category_id !== 2 )
       {
         this.req.session.reservedPoints = this.req.session.reservedPoints + 1;
-        console.log(this.req.session.reservedPoints);
+        // console.log(this.req.session.reservedPoints);
 
       }
       this.res.redirect('/listings-offered');

@@ -36,8 +36,8 @@ module.exports = {
 
 
   fn: async function (inputs,res) {
-    console.log(inputs.email);
-    console.log(inputs.password);
+    // console.log(inputs.email);
+    // console.log(inputs.password);
     let user = await TestUser.findOne({
       where: { email: inputs.email, password: inputs.password }
     });

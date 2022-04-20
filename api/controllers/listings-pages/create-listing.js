@@ -30,7 +30,11 @@ module.exports = {
       this.res.redirect('/listings-offered');
     }
     else {
-      this.req.session.reservedPoints = this.req.session.reservedPoints + 1 ;
+
+      if(listing.category_id !== '1' && listing.category_id !== '2'){
+
+        this.req.session.reservedPoints = this.req.session.reservedPoints + 1 ;
+      }
       this.res.redirect('/listings-received');
     }
     

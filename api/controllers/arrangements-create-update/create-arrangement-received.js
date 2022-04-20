@@ -19,9 +19,9 @@ module.exports = {
 
   fn: async function (inputs) {
     let arrangementReceived = this.req.body;
-   
+    
     let arrangement = await Arrangement.create({
-      offering_user_id: this.req.userId, receiving_user_id: arrangementReceived.receiving_user_id, listing_id: arrangementReceived.listing_id,
+      offering_user_id: this.req.session.userId, receiving_user_id: arrangementReceived.receiving_user_id, listing_id: arrangementReceived.listing_id,
       status: "pending"
     });
     

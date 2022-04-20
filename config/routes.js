@@ -53,6 +53,8 @@ module.exports.routes = {
   'GET /admin' : {view : 'pages/userprofileAntonis'},
   'GET /logout' : {action : 'logout'},
   'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
+  'POST /user/avatar' : {action : 'rest-api/upload-picture'},
+  'GET /uploadPicture' : {view : 'pages/uploadPicture'}
 
   
   
