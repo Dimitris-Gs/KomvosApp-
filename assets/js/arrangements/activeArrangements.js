@@ -647,7 +647,9 @@ function getSecondCase() {
                                     <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                             class="personsImg"></div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].offerer} </div>
+                                    <form action="/view-profile/${offered[i].offererId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${offered[i].offerer} </button>
+                                    </form>
                                         <div>${offered[i].offererMail}</div>
                                     </div>
                                 </div>
@@ -764,7 +766,9 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].receiver} </div>
+                                                 <form action="/view-profile/${received[i].receiverId}" method="GET">
+                                                    <button type="submit" class = "view-profileBtn">${received[i].receiver} </button>
+                                                </form>
                                                     <div>${received[i].receiverMail}</div>
                                                 </div>
                                             </div>
@@ -852,7 +856,9 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].receiver} </div>
+                                                    <form action="/view-profile/${received[i].receiverId}" method="GET">
+                                                        <button type="submit" class = "view-profileBtn">${received[i].receiver} </button>
+                                                    </form>
                                                     <div>${received[i].receiverMail}</div>
                                                 </div>
                                             </div>
