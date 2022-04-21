@@ -62,12 +62,9 @@ module.exports.routes = {
   'GET /admin' : {view : 'pages/admin'},
   'GET /logout' : {action : 'logout'},
   'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
-<<<<<<< HEAD
   'POST /user/avatar' : {action : 'rest-api/upload-picture'},
-  'GET /uploadPicture' : {view : 'pages/uploadPicture'}
-=======
+  'GET /uploadPicture' : {view : 'pages/uploadPicture'},
   'POST /point-balance': { action : 'listings-pages/point-balance'},
->>>>>>> bb22cb2c209027be3b98ba156dba8cb6a23420a0
 
   
   
