@@ -24,3 +24,36 @@ This app was originally generated on Thu Mar 10 2022 21:56:14 GMT+0200 (Χειμ
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
+In order to run this app you need to folow the next steps
+
+## Set up Database
+### Create Database 
+
+Firstly we need to create a Database in Worckbench.
+* Navigate to config > datastores.js file.
+* Find url property of default object.
+* Update its values with your database's url.
+
+## installation
+
+* Go to the root folder of the cloned repository on your computer and execute:
+```console
+npm install
+```
+
+* Go to node_modules directory and delete bootstrap module. Otherwise, when you run the app it will automatically take some files from modules and pass them to assets. In some files it will create conflicts with sails and js and the app will not run properly.
+## create tables in database 
+
+* Navigate to config > models.js file and change migrate property's value to 'alter'.
+
+! Note !
+After you run the app this will automatically create the tables in your database. So, after the first run go back to config and change the migrate property from 'alter' to 'safe' to prevent issues with the database.
+
+### run the app
+
+
+* Go to the root folder and execute:
+```console
+sails lift
+```
+* Launch the app on [localhost:1337](localhost:1337)
