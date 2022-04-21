@@ -40,6 +40,7 @@
       </ul>
     </div>
 
+
   </div>
 </nav>
 
@@ -80,11 +81,11 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button"
               onclick="displayContent(historyCard)">Αρχείο</button>
-          
             <br>
             <form action="/chat" method="GET">
               <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
             </form>
+            
           </div>
 
           <!-- less than 768 version -->
@@ -108,10 +109,9 @@
 
               <button class="btn btn-dark btnProf mt-2" type="button"
                 onclick="displayContent(historyCard)">Αρχείο</button>
-              
-              <form action="/chat" method="GET">
-                <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
-              </form>
+                <form action="/chat" method="GET">
+                  <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
+                </form>
             </div>
           </div>
           <!-- less than 768 version -->
@@ -151,17 +151,17 @@
                     <label value="Male" class="labels mb-1">Φύλο:</label>
                     <!-- male -->
                     <label class="container" for="male">Άνδρας <input type="radio" name="gender" id="male" value="Male"
-                        <%=user.gender==='Male' ? 'checked' : '' %>>
+                      <%=user.gender==='Male' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- female -->
                     <label class="container" for="female"> Γυναίκα <input type="radio" name="gender" id="female"
-                        value="Female" <%=user.gender==='Female' ? 'checked' : '' %>>
+                      value="Female" <%=user.gender==='Female' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
                     <!-- other -->
                     <label class="container" for="other">Άλλο <input type="radio" name="gender" id="other"
-                        value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked' : '' %>>
+                      value="Non-Binary" <%=user.gender==='Non-Binary' ? 'checked' : '' %>>
                       <span class="checkmark"></span>
                     </label>
 
@@ -471,24 +471,30 @@
               <br>
               <div class="menu">
 
-                <select name="categories" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Κατηγορίες</option>
-                  <option value="myFoodCategory">Σίτιση</option>
-                  <option value="myHomeCategory">Στέγαση</option>
-                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
-                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
-                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
-                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
-                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
-                  <option value="myOtherCategory">Άλλο</option>
-                </select>
+                <select hidden id="offeringfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = 'undefined' hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
+                  </select>
 
-                <select name="dates" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Εμφάνιση</option>
-                  <option value="olderDate">Παλιότερες</option>
-                  <option value="latestDate">Πιο πρόσφατες</option>
+                  <select id="offeringfilterCategory" onchange="getCategoryValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Κατηγορίες</option>
+                      <option value="Σίτιση">Σίτιση</option>
+                      <option value="Στέγαση">Στέγαση</option>
+                      <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                      <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                      <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                      <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                      <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                      <option value="Άλλο">Άλλο</option>
+                  </select>
 
-                </select>
+                  <select id ="offeringfilterDate" onchange="getDateValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                      <option value="Πρόσφατα">Πρόσφατα</option>
+                      <option value="Μακριά">Παλιότερα</option>
+  
+                  </select>
 
               </div>
               <br>
@@ -500,24 +506,30 @@
               <br>
               <div class="menu">
 
-                <select name="categories" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Κατηγορίες</option>
-                  <option value="myFoodCategory">Σίτιση</option>
-                  <option value="myHomeCategory">Στέγαση</option>
-                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
-                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
-                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
-                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
-                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
-                  <option value="myOtherCategory">Άλλο</option>
-                </select>
+                <select hidden id="receivingfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = 'undefined' hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
+                  </select>
 
-                <select name="dates" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Εμφάνιση</option>
-                  <option value="olderDate">Παλιότερες</option>
-                  <option value="latestDate">Πιο πρόσφατες</option>
+                  <select id = "receivingfilterCategory" onchange="getCategoryValue()" class="form-select" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Κατηγορίες</option>
+                      <option value="Σίτιση">Σίτιση</option>
+                      <option value="Στέγαση">Στέγαση</option>
+                      <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                      <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                      <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                      <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                      <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                      <option value="Άλλο">Άλλο</option>
+                  </select>
 
-                </select>
+                  <select class="form-select" id ="receivingfilterDate" onchange="getDateValue()" style="width: 150px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                      <option value="Πρόσφατα">Πρόσφατα</option>
+                      <option value="Μακριά">Παλιότερα</option>
+  
+                  </select>
 
               </div>
               <br>
@@ -761,30 +773,30 @@
             <div class="tab-pane fade" id="nav-allListings" role="tabpanel" aria-labelledby="nav-allListings-tab">
               <br>
               <div class="menu">
-                <select name="listing" id="listingSelect" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Αγγελία</option>
-                  <option value="offering">Προσφοράς</option>
-                  <option value="receiving">Ζήτησης</option>
+                <select id="listingsfilterType" onchange="getIsOffered()" class="form-select" style="width: 150px; display: inline;">
+                    <option value = undefined hidden>Aγγελία</option>
+                    <option value = 'true'>Προσφοράς</option>
+                    <option value = 'false' >Ζήτησης</option>
                 </select>
 
-                <select name="categories" id="categoriesSelect" class="form-select"
+                <select id = "listingsfilterCategory" onchange="getCategoryValue()" class="form-select"
                   style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Κατηγορίες</option>
-                  <option value="myFoodCategory">Σίτιση</option>
-                  <option value="myHomeCategory">Στέγαση</option>
-                  <option value="myCoursesCategory">Προσφορά μαθημάτων</option>
-                  <option value="myTransportCategory">Μεταφορικές υπηρεσίες</option>
-                  <option value="myTechnicalCategory">Τεχνικές εργασίες</option>
-                  <option value="myCleaningCategory">Οικιακές εργασίες</option>
-                  <option value="myCompanyCategory">Υπηρεσίες φύλαξης</option>
-                  <option value="myOtherCategory">Άλλο</option>
+                  <option value= 'undefined' hidden>Κατηγορίες</option>
+                    <option value="Σίτιση">Σίτιση</option>
+                    <option value="Στέγαση">Στέγαση</option>
+                    <option value="Προσφορά μαθημάτων">Προσφορά μαθημάτων</option>
+                    <option value="Μεταφορικές υπηρεσίες">Μεταφορικές υπηρεσίες</option>
+                    <option value="Τεχνικές εργασίες">Τεχνικές εργασίες</option>
+                    <option value="Οικιακές εργασίες">Οικιακές εργασίες</option>
+                    <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
+                    <option value="Άλλο">Άλλο</option>
                 </select>
 
-                <select name="dates" id="datesSelect" class="form-select" style="width: 150px; display: inline;">
-                  <option value="undefined" hidden>Εμφάνιση</option>
-                  <option value="olderDate">Παλιότερες</option>
-                  <option value="latestDate">Πιο πρόσφατες</option>
-
+                <select id ="listingsfilterDate" onchange="getDateValue()" class="form-select" style="width: 165px; display: inline;">
+                    <option value= 'undefined' hidden>Ημερομηνία</option>
+                    <option value="Μακριά">Παλιότερες</option>
+                    <option value="Πρόσφατα">Πιο πρόσφατες</option>
+  
                 </select>
 
               </div>
@@ -793,86 +805,14 @@
               <br>
               <!-- This is the div in which you are about to bring from a socket all the listings -->
               <div id="listings"></div>
+            </div>
 
               <!-- This is an example of a structure of a listing -->
               <!-- Every div has an ID that can be replaced by listing's unique id -->
               <!-- Listing -->
-              <div class="card mb-4" id="listingID" style="width: 70%; margin: 0 auto;">
-                <!-- ***************************ID will be the id of each listing****** -->
-                <div class="card-header">
-                  <div>
-                    <p class="h5" id="nameID">
-                      <!-- *****************ID will be the id of each listing****** -->
-                      Όνομα αγγελίας
-                    </p>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <br>
-                  <div class="row">
-                    <div class="col-xl-9">
-                      <div>
-                        <span class="badge bg-secondary" id="categoryID">
-                          Κατηγορία
-                        </span>
-                      </div>
-                      <div class="description" id="descriptionID">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem enim, dolorum impedit repellat ea
-                        autem exercitationem ab accusantium minus expedita!
-                      </div>
-
-                    </div>
-
-                    <div class="col-xl-3">
-                      <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-calendar2-date" viewBox="0 0 16 16">
-                          <path
-                            d="M6.445 12.688V7.354h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23z" />
-                          <path
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z" />
-                          <path
-                            d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
-                        </svg>
-                        &nbsp;
-                        <span id="startingDateID">23/12/1996</span>
-
-                        <!-- listingsWithUsers[i].startingDate.toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit" , day: "2-digit" , })  -->
-                      </div>
-                      <div>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                          class="bi bi-calendar2-date-fill" viewBox="0 0 16 16">
-                          <path
-                            d="M9.402 10.246c.625 0 1.184-.484 1.184-1.18 0-.832-.527-1.23-1.16-1.23-.586 0-1.168.387-1.168 1.21 0 .817.543 1.2 1.144 1.2z" />
-                          <path
-                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
-                        </svg>
-                        &nbsp;
-                        <span id="endingDateID">25/12/1996</span>
-                        <!--  listingsWithUsers[i].endingDate.toLocaleDateString("en-GB", { year: "numeric" ,
-                                    month: "2-digit" , day: "2-digit" , })  -->
-                      </div>
-                    </div>
-                  </div>
-                  <br>
-
-                </div>
-                <div class="card-footer">
-                  <div class="text-end">
-                    <button type="button" class="btn btn-danger float-end" id="editID">
-                      Επεξεργασία
-                    </button>
-                    <button type="button" class="btn btn-danger float-end" id="deleteID">
-                      Διαγραφή
-                    </button>
-                  </div>
-
-                </div>
-              </div>
+              
               <!-- Listing -->
 
-            </div>
 
           </div>
         </div>
@@ -889,15 +829,17 @@
       <p>&copy; 2022 Komvos &middot; </p>
   </footer>
 </div>
+  <script>
+    // get the users gender from the controller
+    let gender = '<%= user.gender %>';
 
-<script>
-  // get the users gender from the controller
-  let gender = '<%= user.gender %>';
+    // get the users date of birth from the controller
+    let dateOfBirth = '<%= user.dateOfBirth %>';
 
-  // get the users date of birth from the controller
-  let dateOfBirth = '<%= user.dateOfBirth %>';
-
-</script>
-<script src="/customJs/userprofile.js"></script>
-<script src="/js/arrangements/activeArrangements.js"></script>
-<script src="/js/userProfileSocket.js"></script>
+  </script>
+  <script src="/customJs/userprofile/userprofile.js"></script>
+  <script src="/customJs/userprofile/userProfileEventController.js"></script>
+  <script src="/customJs/userprofile/utils.js"></script>
+  <script src="/js/userprofile/activeArrangements.js"></script>
+  <script src="/js/userprofile/userProfileDtoController.js"></script>
+  

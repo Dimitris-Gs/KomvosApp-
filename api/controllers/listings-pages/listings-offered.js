@@ -1,4 +1,5 @@
 
+
 module.exports = {
 
 
@@ -14,34 +15,37 @@ module.exports = {
 
 
   exits: {
-    success: {
-      viewTemplatePath: 'pages/listings-offered'
-    }
+
   },
 
 
   fn: async function (inputs) {
-    
-    let interimUser ;
 
-    if(this.req.session.userId)
-    {
-        interimUser = this.req.session.userId;
-        
+    let interimUser;
+
+    if (this.req.session.userId) {
+      interimUser = this.req.session.userId;
+
     }
-    else{
-        interimUser = 150000;
+    else {
+      interimUser = 150000;
     }
 
     let listings = await Listing.find({
-      where: {user_id : { '!=' : interimUser } , 
-              isOffered: true,
-              // add another constraint  : show only the active listings (fotis implementation)
-              endingDate: { '>=': new Date() }  }     
-    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
-                                            receiving_user_id : interimUser } });
+      where: {
+        user_id: { '!=': interimUser },
+        isOffered: true,
+        // add another constraint  : show only the active listings (fotis implementation)
+        endingDate: { '>=': new Date() }
+      }
+    }).populate('arrangements', {
+      where: {
+        status: { in: ['pending', 'accepted'] },
+        receiving_user_id: interimUser
+      }
+    });
 
-   
+
     let rightListingIds = [];
     let rightListingUsers = [];
 
@@ -52,37 +56,24 @@ module.exports = {
       }
     }
 
-    let userListings = await TestUser.find({ 
-      where: {id : {in : rightListingUsers}}
-    }).populate('listings', { where: {  id : { in : rightListingIds},
-                                        isOffered: true,
-                                        endingDate: { '>=': new Date() }  }
-                               });
-
-
-    
-    // let listings = await Listing.find({
-    //   where: { isOffered: true },
-    //   select: ['user_id']
-    // });
-
-    // let userIds = listings.map(element => element.user_id);
-    
-
-    // let userListings = await TestUser.find({
-    //   where: { id: { in: userIds } }
-    // }).populate('listings', { where: { isOffered: true,
-    //                                    endingDate: { '>=': new Date() }  }
-    //                            });
+    let userListings = await TestUser.find({
+      where: { id: { in: rightListingUsers } }
+    }).populate('listings', {
+      where: {
+        id: { in: rightListingIds },
+        isOffered: true,
+        endingDate: { '>=': new Date() }
+      }
+    });
 
     let listingsWithUsers = [];
 
-   
+
 
     const msPerYearNormal = 31557600000;
     const msPerYearLarge = 31622400000;
     const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
-    
+
 
     for (let i = 0; i < userListings.length; i++) {
 
@@ -97,7 +88,7 @@ module.exports = {
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-
+        currentListing.status = userListings[i].listings[j].status
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -118,9 +109,9 @@ module.exports = {
 
     }
 
-    // All done.
-    return  { listingsWithUsers : listingsWithUsers , interimUser : interimUser} ;
+
+    return [listingsWithUsers,interimUser];
   }
-  
+
 
 };

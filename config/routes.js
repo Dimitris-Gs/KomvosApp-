@@ -23,8 +23,10 @@ module.exports.routes = {
   '/register': {view: 'pages/registration'},
   '/login'   : {action :'loginForm/view-login-form' },
   '/thankyou': { view : 'pages/thankumsg'},
-  '/listings-offered': {action : 'listings-pages/listings-offered'},
-  '/listings-received': {action : 'listings-pages/listings-received'},
+  '/listings-offered': {action : 'listings-pages/listings-offered-static'},
+  '/listings-received': {action : 'listings-pages/listings-received-static'},
+  'POST /all-listings-offered': {action : 'listings-pages/listings-offered'},
+  'POST /all-listings-received': {action : 'listings-pages/listings-received'},
   '/events': { action : 'events-pages/events'},
   '/create'  : {action:'create'},
   '/delete' : { action : 'delete'},
@@ -66,6 +68,9 @@ module.exports.routes = {
   'GET /uploadPicture' : {view : 'pages/uploadPicture'},
   'POST /point-balance': { action : 'listings-pages/point-balance'},
   '/view-profile/:userId': { action: 'view-profile' },
+  'POST /all-listings-for-a-user': {action:'rest-api/userprofile/all-listings-for-a-user'},
+  'POST /listing-delete-or-update': {action:'rest-api/userprofile/listing-delete-or-update'},
+  'POST /receive-or-offer-listings-with-arrangements': {action:'rest-api/userprofile/receive-or-offer-listings-with-arrangements'},
 
   
   

@@ -13,15 +13,12 @@ module.exports = {
 
 
   exits: {
-    success: {
-      viewTemplatePath: 'pages/listings-received'
-    }
+    
   },
 
 
   fn: async function (inputs) {
 
-      
     let interimUser ;
 
     if(this.req.session.userId)
@@ -93,7 +90,7 @@ module.exports = {
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-
+        currentListing.status = userListings[i].listings[j].status
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -114,9 +111,11 @@ module.exports = {
 
     }
     let pointsBalance = this.req.session.points - this.req.session.reservedPoints;
+
     
     // All done.
-    return  { listingsWithUsers : listingsWithUsers, interimUser:interimUser, pointsBalance : pointsBalance } ;
+    // return  { listingsWithUsers : listingsWithUsers } ;
+    return [listingsWithUsers,interimUser]
 
   }
 

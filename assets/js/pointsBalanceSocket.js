@@ -9,7 +9,7 @@ function getPointBalance() {
             },
             function (result, response) {
                 console.log(result);
-                document.getElementById("root").innerHTML = result ;
+                document.getElementById('availablePoints').innerHTML = result ;
             }
         )
     })

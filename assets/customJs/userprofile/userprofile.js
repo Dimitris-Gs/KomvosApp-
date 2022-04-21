@@ -131,12 +131,12 @@ if (radioAddressValue == null) {
   valid = false;
 
 }
-else if (document.getElementById('addressYes').checked) {
-  if (document.getElementById("regAddress").value == "") {
-    valid = false;
-    document.getElementById("regAddress").className += " invalid";
-  }
-}
+// else if (document.getElementById('addressYes').checked) {
+//   if (document.getElementById("regAddress").value == "") {
+//     valid = false;
+//     document.getElementById("regAddress").className += " invalid";
+//   }
+// }
 
 // display address input 
 function displayAddress() {
