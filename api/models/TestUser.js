@@ -16,12 +16,12 @@ module.exports = {
     lastName: { type: 'string', required: true, columnName: 'last_name' },
     email: { type: 'string', required: true, isEmail: true, unique: true, maxLength: 200},
     password: {type:'string', required: true, },
-    gender: {type:'string', required:true, isIn: ['Male', 'Female', 'Non-Binary'] }, //isIn: ['Male', 'Female', 'Non-Binary']
+    gender: {type:'string', required: true, isIn: ['Male', 'Female', 'Non-Binary'] },
     dateOfBirth: { type: 'string', required: true, columnName: 'date_of_birth', isAfter: new Date('Mon Jan 01 1940 00:00:00 GMT-0000'), isBefore: new Date('Thr Jan 01 2004 00:00:00 GMT-0000'), columnType: 'date'}, //
     radioAddress: { type:'boolean', required: true},
-    address: { type: 'string', required: false }, //Is required true necessary
+    address: { type: 'string', required: false }, 
     photo: {type:'string'},
-    description: {type:'string', maxLength: 200},
+    description: {type:'string', maxLength: 200, required: true},
     points: { type: 'number', required: true, isInteger: true },
     employeed: { type:'boolean', required: true},
     disabled: { type:'boolean', required: true},
@@ -48,10 +48,6 @@ module.exports = {
     },
     events: {
       collection: 'event',
-      via: 'user_id'
-    },
-    donations: {
-      collection: 'donation',
       via: 'user_id'
     },
     arrangements: {
