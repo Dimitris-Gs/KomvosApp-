@@ -40,9 +40,10 @@ module.exports.routes = {
   '/update-event': { action: "event" },
   'POST /updateevent' : {action: "update-event"},
   'POST /register/check-email': { action: "rest-api/check-email"},
-  '/chat' : {action: 'messenger/chat'},
+  '/chat': { action: 'messenger/chat' },
+  '/chat/:userId': { action: 'messenger/chat' },
   'POST /message': { action: 'messenger/chat-message' },
-  'POST /messages' : {action: 'messenger/get-messages'},
+  '/messages/:userId' : {action: 'messenger/get-messages'},
   'POST /joinroom': {action: 'messenger/join-room'},
   '/donation' : {view: 'pages/donation'},
   'POST /restlistingcategories': {action:"admin/create-listing-categories"},
@@ -65,6 +66,7 @@ module.exports.routes = {
   'POST /user/avatar' : {action : 'rest-api/upload-picture'},
   'GET /uploadPicture' : {view : 'pages/uploadPicture'},
   'POST /point-balance': { action : 'listings-pages/point-balance'},
+  '/view-profile/:userId': { action: 'view-profile' },
 
   
   

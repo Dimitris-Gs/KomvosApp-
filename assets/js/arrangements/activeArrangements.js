@@ -39,7 +39,7 @@ function getFirstCase() {
 
             },
             function (result, response) {
-
+                
                 let root = document.getElementById("firstcase");
 
                 let offered = result[0];
@@ -73,7 +73,9 @@ function getFirstCase() {
                             <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"
                                    ></div>
                             <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                <div>${offered[i].receiver} </div>
+                                <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                </form>
                                 <div>${offered[i].receiverMail}</div>
                             </div>
                         </div>
@@ -150,7 +152,9 @@ function getFirstCase() {
                         <div class="row">
                             <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                             <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                <div>${offered[i].receiver} </div>
+                                <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                </form>
                                 <div>${offered[i].receiverMail}</div>
                             </div>
                         </div>
@@ -285,7 +289,9 @@ function getFirstCase() {
                    <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                    class="personsImg"></div>
                    <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                       <div>${received[i].offerer} </div>
+                        <form action="/view-profile/${received[i].offererId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                        </form>
                        <div>${received[i].offererMail}</div>
                    </div>
                </div>
@@ -373,7 +379,9 @@ function getFirstCase() {
                    <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                    class="personsImg"></div>
                    <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                       <div>${received[i].offerer} </div>
+                        <form action="/view-profile/${received[i].offererId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                        </form>
                        <div>${received[i].offererMail}</div>
                    </div>
                </div>
@@ -554,7 +562,9 @@ function getSecondCase() {
                                     <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg">
                                     </div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].receiver} </div>
+                                        <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                            <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                        </form>
                                         <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
@@ -639,7 +649,9 @@ function getSecondCase() {
                                     <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                                             class="personsImg"></div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].receiver} </div>
+                                    <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                    </form>
                                         <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
@@ -756,7 +768,9 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].offerer} </div>
+                                                 <form action="/view-profile/${received[i].offererId}" method="GET">
+                                                    <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                                                </form>
                                                     <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
@@ -844,7 +858,9 @@ function getSecondCase() {
                                             <div class="row">
                                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                                    <div>${received[i].offerer} </div>
+                                                    <form action="/view-profile/${received[i].offererId}" method="GET">
+                                                        <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                                                    </form>
                                                     <div>${received[i].offererMail}</div>
                                                 </div>
                                             </div>
@@ -993,7 +1009,9 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg" ></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].receiver} </div>
+                                    <form action="/view-profile/${result[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].receiver} </button>
+                                    </form>
                                     <div>${result[i].receiverMail}</div>
                                 </div>
                             </div>
@@ -1079,7 +1097,9 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg" ></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].receiver} </div>
+                                    <form action="/view-profile/${result[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].receiver} </button>
+                                    </form>
                                     <div>${result[i].receiverMail}</div>
                                 </div>
                             </div>
@@ -1228,7 +1248,9 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].offerer} </div>
+                                    <form action="/view-profile/${result[i].offererId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].offerer} </button>
+                                    </form>
                                     <div>${result[i].offererMail}</div>
                                 </div>
                             </div>
@@ -1317,7 +1339,9 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].offerer} </div>
+                                    <form action="/view-profile/${result[i].offererId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].offerer} </button>
+                                    </form>
                                     <div>${result[i].offererMail}</div>
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ module.exports = {
 
 
   exits: {
-      //layout page
+    
   },
 
 
@@ -22,7 +22,7 @@ module.exports = {
 
     await TestUser.create( { firstName: "Eva", lastName: "Papageorgiou", email: "skinsep@gmail.com", password:"123456789", gender:"Female", dateOfBirth: "1996-02-17", radioAddress: 'true',  address: "Panepistimiou 39", photo:'a', description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam omnis earum laborum esse nemo, aliquam ullam delectus eaque facere quae quis quam labore maxime cumque.',  points: 20, employeed: 'true', disabled: 'false', volunteer: 'true', freeTime: 'freeTimeWeekend', admin: false}).fetch();
 
-    await TestUser.create( { firstName: "Antonis", lastName: "Markoulinos", email: "antoni@mark.com", password:"123456789", gender:"Male", dateOfBirth: "1980-07-02", radioAddress: 'false', photo:'a', description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam omnis earum laborum esse nemo, aliquam ullam delectus eaque facere quae quis quam labore maxime cumque.',  points: 20, employeed: 'false', disabled: 'false',volunteer: 'false',freeTime: 'freeTimeMinimum',admin: false}).fetch();
+    await TestUser.create( { firstName: "Antonis", lastName: "Markoulinos", email: "antoni@mark.com", password:"123456789", gender:"Male", dateOfBirth: "1983-07-02", radioAddress: 'false', photo:'a', description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam omnis earum laborum esse nemo, aliquam ullam delectus eaque facere quae quis quam labore maxime cumque.',  points: 20, employeed: 'false', disabled: 'false',volunteer: 'false',freeTime: 'freeTimeMinimum',admin: false}).fetch();
    
     await TestUser.create( { firstName: "John", lastName: "Papajohn", email: "john@papajohn.com", password:"123456789", gender:"Male", dateOfBirth: "1990-07-02", radioAddress: 'false', photo:'a', description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam omnis earum laborum esse nemo, aliquam ullam delectus eaque facere quae quis quam labore maxime cumque.',  points: 20, employeed: 'false', disabled: 'false',volunteer: 'false',freeTime: 'freeTimeMinimum',admin: false}).fetch();
    
@@ -64,12 +64,12 @@ module.exports = {
 
     await Listing.create( { user_id: 4, category_id: 5, name: 'Υπηρεσία σχετική με την προσφορά τεχνικών εργασιών', description:' Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minus laudantium consequuntur ipsa nobis ad laborum?', startingDate: "2022-02-02", endingDate: "2022-02-03", isOffered: true }).fetch();
 
-    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, pointsOfTransaction:1, status:'accepted'}).fetch();
-    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:3, listing_id: 1, pointsOfTransaction:1, status:'pending'}).fetch();
-    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 2, pointsOfTransaction:1, status:'pending'}).fetch();
-    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, pointsOfTransaction:1, status:'accepted'}).fetch();
-    await Arrangement.create ( {offering_user_id: 2, receiving_user_id:4, listing_id: 3, pointsOfTransaction:1, status:'pending'}).fetch();
-    await Arrangement.create ( {offering_user_id: 4, receiving_user_id:3, listing_id: 5, pointsOfTransaction:1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:2, listing_id: 1, status:'accepted'}).fetch();
+    await Arrangement.create ( {offering_user_id: 1, receiving_user_id:3, listing_id: 1, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 2, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 3, receiving_user_id:1, listing_id: 4, status:'accepted'}).fetch();
+    await Arrangement.create ( {offering_user_id: 2, receiving_user_id:4, listing_id: 3, status:'pending'}).fetch();
+    await Arrangement.create ( {offering_user_id: 4, receiving_user_id:3, listing_id: 5, status:'pending'}).fetch();
 
   
     return;

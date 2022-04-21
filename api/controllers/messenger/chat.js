@@ -45,18 +45,24 @@ module.exports = {
     INNER JOIN test_user as user2 ON user2.id = m.user2
     ORDER BY m.createdAt DESC`, [this.req.session.userId]);
 
-    let userFullName;
+    let requestUser = await TestUser.findOne({ id: this.req.session.userId });
+    let activeChatUser;
+
+    if (this.req.param('userId')) {
+      activeChatUser = (await TestUser.findOne({ id: this.req.param('userId') })).id;
+    }
+
+    const userFullName = `${requestUser.firstName} ${requestUser.lastName}`;
     const chats = result.rows.map(value => {
       if (value.user1 === this.req.session.userId) {
-        userFullName = `${value.user1FirstName} ${value.user1LastName}`;
         return {text: value.text, createdAt : value.createdAt, userId: value.user2, firstName: value.user2FirstName, lastName: value.user2LastName}
       } else {
-        userFullName = `${value.user2FirstName} ${value.user2LastName}`;
         return {text: value.text, createdAt: value.createdAt, userId : value.user1, firstName: value.user1FirstName, lastName: value.user1LastName}
       }
     });
 
-    return { chats, userFullName };
+
+    return { chats, userFullName, activeChatUser };
   }
 
 
