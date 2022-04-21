@@ -19,7 +19,7 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': { action : 'homepage' },
   '/register': {view: 'pages/registration'},
   '/login'   : {action :'loginForm/view-login-form' },
   '/thankyou': { view : 'pages/thankumsg'},
@@ -60,6 +60,12 @@ module.exports.routes = {
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
   'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'},
+  'GET /admin' : {view : 'pages/admin'},
+  'GET /logout' : {action : 'logout'},
+  'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
+  'POST /user/avatar' : {action : 'rest-api/upload-picture'},
+  'GET /uploadPicture' : {view : 'pages/uploadPicture'},
+  'POST /point-balance': { action : 'listings-pages/point-balance'},
   '/view-profile/:userId': { action: 'view-profile' },
 
   

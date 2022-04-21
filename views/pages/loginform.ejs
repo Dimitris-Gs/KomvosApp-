@@ -42,8 +42,9 @@
   <div class="row d-flex justify-content-center">
     <div class="col-md-6">
       <div class="card login-form px-5 py-5" id="form1">
+        <p id="userNotFound">Παρακαλούμε έλεγξε ξανά το email και τον κωδικό σου!</p>
         <div class="form-data" v-if="!submitted">
-          <div class="forms-inputs mb-4"> <span class="spans">Email </span> <input autocomplete="off" type="text"
+          <div class="forms-inputs mb-4 " > <span class="spans">Email </span> <input autocomplete="off" type="text"
               v-model="email" v-bind:class="{'form-control':true, 'is-invalid' : !validEmail(email) && emailBlured}"
               v-on:blur="emailBlured = true" id="emailInput">
             <small id="invalidEmail">Το email πρέπει να είναι της μορφής info@example.com!</small>

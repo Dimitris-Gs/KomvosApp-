@@ -21,13 +21,25 @@ module.exports = {
 
   fn: async function (inputs) {
 
+      
+    let interimUser ;
+
+    if(this.req.session.userId)
+    {
+        interimUser = this.req.session.userId;
+        
+    }
+    else{
+        interimUser = 150000;
+    }
+
     let listings = await Listing.find({
-      where: { user_id : { '!=' : this.req.session.userId } , 
+      where: { user_id : { '!=' : interimUser } , 
               isOffered: false,
               // add another constraint  : show only the active listings (fotis implementation)
               endingDate: { '>=': new Date() }  }     
-    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
-                                            offering_user_id : this.req.session.userId } });
+    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted', 'finished']},
+                                            offering_user_id : interimUser } });
     
     let rightListingIds = [];
     let rightListingUsers = [];
@@ -101,10 +113,10 @@ module.exports = {
       }
 
     }
-
+    let pointsBalance = this.req.session.points - this.req.session.reservedPoints;
     
     // All done.
-    return  { listingsWithUsers : listingsWithUsers } ;
+    return  { listingsWithUsers : listingsWithUsers, interimUser:interimUser, pointsBalance : pointsBalance } ;
 
   }
 

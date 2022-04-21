@@ -33,10 +33,10 @@
         <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" onclick="displayContent(profileCard)">Προφίλ </a></li>
+        <li><a class="dropdown-item" href="#" onclick="displayContent(profileCard)">Προφίλ</a></li>
         <li><a class="dropdown-item" href="#" onclick="displayContent(editCard)">Επεξεργασία Προφίλ</a></li>
-        <li><a class="dropdown-item" href="/donation">Συνδρομή</a></li>
-        <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
+        <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
+        <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
       </ul>
     </div>
 
@@ -80,8 +80,7 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" type="button"
               onclick="displayContent(historyCard)">Αρχείο</button>
-            <br>
-            <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
+          
             <br>
             <form action="/chat" method="GET">
               <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
@@ -109,8 +108,10 @@
 
               <button class="btn btn-dark btnProf mt-2" type="button"
                 onclick="displayContent(historyCard)">Αρχείο</button>
-              <button class="btn btn-dark btnProf mt-2" type="button">Σχόλια</button>
-              <button class="btn btn-dark btnProf mt-2" type="button">Μηνύματα</button>
+              
+              <form action="/chat" method="GET">
+                <button class="btn btn-dark btnProf mt-2" type="submit">Μηνύματα</button>
+              </form>
             </div>
           </div>
           <!-- less than 768 version -->
