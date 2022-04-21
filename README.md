@@ -42,7 +42,7 @@ npm install
 ```
 
 * Go to node_modules directory and delete bootstrap module. Otherwise, when you run the app it will automatically take some files from modules and pass them to assets. In some files it will create conflicts with sails and js and the app will not run properly.
-## create tables in database 
+## Create tables in database 
 
 * Navigate to config > models.js file and change migrate property's value to 'alter'.
 
