@@ -3,7 +3,7 @@ document.getElementById("displayArrangements").addEventListener('click', () => {
    
     getFirstCase();
      getSecondCase();
-    getThirdCase();
+     getThirdCase();
      getFourthCase();
 
 });
@@ -39,7 +39,7 @@ function getFirstCase() {
 
             },
             function (result, response) {
-
+                
                 let root = document.getElementById("firstcase");
 
                 let offered = result[0];
@@ -73,7 +73,9 @@ function getFirstCase() {
                             <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"
                                    ></div>
                             <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                <div>${offered[i].receiver} </div>
+                                <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                </form>
                                 <div>${offered[i].receiverMail}</div>
                             </div>
                         </div>
@@ -151,7 +153,9 @@ function getFirstCase() {
                         <div class="row">
                             <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                             <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                <div>${offered[i].receiver} </div>
+                                <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                </form>
                                 <div>${offered[i].receiverMail}</div>
                             </div>
                         </div>
@@ -287,7 +291,9 @@ function getFirstCase() {
                    <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                    class="personsImg"></div>
                    <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                       <div>${received[i].offerer} </div>
+                        <form action="/view-profile/${received[i].offererId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                        </form>
                        <div>${received[i].offererMail}</div>
                    </div>
                </div>
@@ -376,7 +382,9 @@ function getFirstCase() {
                    <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""
                    class="personsImg"></div>
                    <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                       <div>${received[i].offerer} </div>
+                        <form action="/view-profile/${received[i].offererId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${received[i].offerer} </button>
+                        </form>
                        <div>${received[i].offererMail}</div>
                    </div>
                </div>
@@ -562,7 +570,9 @@ function getSecondCase() {
                                     <img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg">
                                     </div>
                                     <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                        <div>${offered[i].receiver} </div>
+                                        <form action="/view-profile/${offered[i].receiverId}" method="GET">
+                                            <button type="submit" class = "view-profileBtn">${offered[i].receiver} </button>
+                                        </form>
                                         <div>${offered[i].receiverMail}</div>
                                     </div>
                                 </div>
@@ -1007,7 +1017,9 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg" ></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].receiver} </div>
+                                    <form action="/view-profile/${result[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].receiver} </button>
+                                    </form>
                                     <div>${result[i].receiverMail}</div>
                                 </div>
                             </div>
@@ -1093,7 +1105,9 @@ function getThirdCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3 "><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg" ></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].receiver} </div>
+                                    <form action="/view-profile/${result[i].receiverId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].receiver} </button>
+                                    </form>
                                     <div>${result[i].receiverMail}</div>
                                 </div>
                             </div>
@@ -1242,7 +1256,9 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].offerer} </div>
+                                    <form action="/view-profile/${result[i].offererId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].offerer} </button>
+                                    </form>
                                     <div>${result[i].offererMail}</div>
                                 </div>
                             </div>
@@ -1331,7 +1347,9 @@ function getFourthCase() {
                             <div class="row">
                                 <div class="col-lg-2 col-md-3 col-sm-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="personsImg"></div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 personsInfo">
-                                    <div>${result[i].offerer} </div>
+                                    <form action="/view-profile/${result[i].offererId}" method="GET">
+                                        <button type="submit" class = "view-profileBtn">${result[i].offerer} </button>
+                                    </form>
                                     <div>${result[i].offererMail}</div>
                                 </div>
                             </div>
@@ -1468,47 +1486,3 @@ function getFourthCase() {
     })
 }
 
-// function checkIfEmpty() {
-//     let cases = document.getElementsByClassName("cases");
-
-//     let fullcases = [];
-//     for (let i = 0; i < cases.length; i++) {
-//         if (cases[i].style.display == "none") {
-//             document.getElementById("alternative").style.display = "block";
-//             // fullcases.push(cases[i])
-//         }
-//     }
-
-//     //  if(fullcases.length == 0 ){
-//     //     document.getElementById("alternative").style.display = "block";
-//     //  }
-//     // if (input1) {
-
-//     //     return;
-//     // }
-//     // else {
-
-//     //     var input2 = getSecondCase();
-//     //     if (input2) {
-
-//     //         return;
-//     //     }
-//     //     else {
-
-//     //         var input3 = getThirdCase();
-//     //         if (input3) {
-
-//     //             return;
-//     //         }
-//     //         else {
-
-//     //             var input4 = getFourthCase();
-//     //         }
-//     //     }
-//     // }
-
-//     // if (input1 == false && input2 == false && input3 == false && input4 == false) {
-
-//     //     document.getElementById("alternative").style.display = "block";
-//     // }
-// }
