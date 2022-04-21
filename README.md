@@ -1,4 +1,4 @@
-# group-project
+# KomvosApp
 
 A [Sails v1](https://sailsjs.com) application
 
@@ -34,7 +34,7 @@ Firstly we need to create a Database in MySQL Workbench.
 * Find url property of default object.
 * Update its values with your database's url.
 
-## installation
+## Installation
 
 * Go to the root folder of the cloned repository on your computer and execute:
 ```console
@@ -49,7 +49,7 @@ npm install
 ! Note !
 After you run the app this will automatically create the tables in your database. So, after the first run go back to config and change the migrate property from 'alter' to 'safe' to prevent issues with the database.
 
-### run the app
+### Run the app
 
 
 * Go to the root folder and execute:
