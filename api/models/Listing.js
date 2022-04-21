@@ -12,15 +12,16 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    user_id: { model : 'testuser'},
-    category_id: { model: 'listingcategories'},
+    user_id: { model : 'testuser', required: true},
+    category_id: { model: 'listingcategories', required: true},
     createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     name: {type:'string', required:true, maxLength:50},
-    description: {type:'string', maxLength:200},
+    description: {type:'string', maxLength:200, required: true},
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
     endingDate: { type: 'string', required: true, columnName: 'endingdate', columnType: 'date'},
     isOffered: { type: 'boolean', required: true, columnName: 'isoffered' },
+    status: {type:'string', defaultsTo:'active', isIn: ['active', 'inactive']},
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗

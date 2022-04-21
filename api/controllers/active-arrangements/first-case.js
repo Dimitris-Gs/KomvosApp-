@@ -61,6 +61,7 @@ module.exports = {
         
         currentArrangement.id = properArrangements[j].arrangements[k].id;
         currentArrangement.receiver = receiving_user.firstName + " " + receiving_user.lastName;
+        currentArrangement.receiverId = properArrangements[j].arrangements[k].receiving_user_id;
         currentArrangement.receiverMail = receiving_user.email;
 
 
@@ -70,6 +71,7 @@ module.exports = {
         });
         
         currentArrangement.offerer = offering_user.firstName + " " + offering_user.lastName;
+        currentArrangement.offererId = properArrangements[j].arrangements[k].offering_user_id;
         currentArrangement.offererMail = offering_user.email;
 
         currentArrangement.createdAt = properArrangements[j].arrangements[k].createdAt;
