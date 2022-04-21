@@ -10,21 +10,24 @@ body{
 
 
 
-#dropdownMenuButton1{
+#dropdownMenuButton1 {
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
   color: #fff;
   border: none;
-  padding: 10px;
-  border-radius: 5px;
+  /* padding: 10px; */
+  padding: 5px 10px;
+  font-size: 17px;
   font-size: 15px;
   cursor: pointer;
 }
 
-#dropdownMenuButton1 img{
+#dropdownMenuButton1 img {
   width: 30px;
   height: 30px;
   margin-right: 5px;
   margin-top: 0px;
+  border: 1px solid #666f88;
+  border-radius: 100%;
 
 }
 
@@ -33,11 +36,7 @@ hr{
 }
 
 /* navbar */
-#dropdownMenuButton1 {
-  border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 17px;
-}
+
 
 .profileDropdown {
   padding-left: 9rem;
@@ -46,7 +45,7 @@ hr{
 /* messenger container */
 
 main {
-  margin-top: 6rem;
+  margin-top: 8rem;
   margin-left: 0px;
   height: 80vh;
 }
