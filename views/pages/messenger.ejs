@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="/customCss/messenger.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="userNavBar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,26 +22,27 @@
             Κοινότητα
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Αγγελίες Προσφοράς</a></li>
-            <li><a class="dropdown-item" href="#">Αγγελίες Ζήτησης</a></li>
-            <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+            <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
           </ul>
         </li>
       </ul>
     </div>
     <div class="dropdown profileDropdown">
-      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
+      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
         <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/userprofile">Προφίλ </a></li>
-        <li><a class="dropdown-item" href="/donation">Συνδρομή</a></li>
-        <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
+        <li><a class="dropdown-item" href="/userprofile" >Προφίλ </a></li>
+        <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
       </ul>
     </div>
+
   </div>
 </nav>
+
+
 <main>
   <div class="container-fluid px-4 mt-4">
     <div class="row">
