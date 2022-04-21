@@ -37,7 +37,7 @@ module.exports = {
     else{
       infoForFront = false
     }
-    // console.log(infoForFront)
+     console.log(this.req.session)
 
     return {infoForFront};
   }

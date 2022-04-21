@@ -26,7 +26,7 @@ module.exports = {
     // });
     // let points = userPoints.points;
     // points = points - 1;
-     await TestUser.updateOne({ id: 5 }).set({ points : 2});
+    await TestUser.create( { firstName: "Nikos", lastName: "Karapas", email: "nikoskar@gmail.com", password:"123456789", gender:"Male", dateOfBirth: "1950-02-02", radioAddress: 'true', address: "Panepistimiou 39", photo:'a', description:'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam omnis earum laborum esse nemo, aliquam ullam delectus eaque facere quae quis quam labore maxime cumque.',  points: 20, employeed: 'false', disabled: 'false', volunteer: 'false', freeTime: 'freeTimeNone', admin: true}).fetch();
      //await Arrangement.updateOne({ id: 12 }).set({ status : "accepted"});
     //  await Arrangement.updateOne({ id: 1 }).set({ status : "canceled"});
     //  await Arrangement.updateOne({ id: 2 }).set({ status : "canceled"});

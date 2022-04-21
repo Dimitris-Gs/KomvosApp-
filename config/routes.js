@@ -60,7 +60,6 @@ module.exports.routes = {
   'POST /update-accepted' : { action: "arrangements-create-update/update-accepted" } ,
   'POST /update-finished' : { action: "arrangements-create-update/update-finished" } ,
   'POST /loginForm/checkCredentials' : {action :'loginForm/check-credentials-for-login-form'},
-  'GET /admin' : {view : 'pages/admin'},
   'GET /logout' : {action : 'logout'},
   'GET /notEnoughPoints' : {view : 'pages/notEnoughPoints'},
   'POST /user/avatar' : {action : 'rest-api/upload-picture'},
