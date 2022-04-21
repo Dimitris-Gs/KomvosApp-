@@ -48,9 +48,17 @@ module.exports = {
 
     let receivingUserPoints = receivingUserInfo.points;
     receivingUserPoints = receivingUserPoints - 1;
+    let receivingUserReservedPoints = receivingUserInfo.reservedPoints;
+    receivingUserReservedPoints = receivingUserReservedPoints - 1;
+    if(this.req.session.userId == receivingUserId && categoryId !== 1 && categoryId !== 2 )
+    { 
+      this.req.session.points = this.req.session.points - 1 ;
+      this.req.session.reservedPoints = this.req.session.reservedPoints - 1; 
+    }
       
     if( categoryId !== 1 && categoryId !== 2) {
-      await TestUser.updateOne({ id: receivingUserId }).set({ points: receivingUserPoints });
+      await TestUser.updateOne({ id: receivingUserId }).set({ points: receivingUserPoints});
+      
     }
 
     this.res.redirect('/userprofile');

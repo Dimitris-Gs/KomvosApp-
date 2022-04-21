@@ -26,7 +26,7 @@ module.exports = {
     // });
     // let points = userPoints.points;
     // points = points - 1;
-    // await TestUser.updateOne({ id: 3 }).set({ points : points});
+     await TestUser.updateOne({ id: 5 }).set({ points : 2});
      //await Arrangement.updateOne({ id: 12 }).set({ status : "accepted"});
     //  await Arrangement.updateOne({ id: 1 }).set({ status : "canceled"});
     //  await Arrangement.updateOne({ id: 2 }).set({ status : "canceled"});

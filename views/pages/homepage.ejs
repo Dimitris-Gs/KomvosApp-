@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="/customCss/homepage.css">
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  
+  <% if(infoForFront == false) { %>
+   
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="GuestNavbar">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Navbar</a>
+      <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,6 +40,49 @@
 
     </div>
   </nav>
+  <% } else { %>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="userNavBar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Αρχική</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/#features">Ποιοι είμαστε</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Κοινότητα
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+                <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+                <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown profileDropdown">
+          <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
+            <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
+          </button>
+          <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/userprofile" >Προφίλ </a></li>
+            <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
+          </ul>
+        </div>
+    
+      </div>
+    </nav>
+
+  <% } %>
 </header>
 
 <main>
@@ -58,7 +104,7 @@
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>Καλώς ήρθατε στον Κόμβο</h1>
-            <p>Μία πλατφόρμα αλληλεγγύης και αλληλοβοήθειας.</p>
+            <p>Μία πλατφόρμα αλληλεγγύης και αλληλοβοήθειας</p>
             <p><a class="btn carousel-btn btn-lg btn-danger" href="/register">Γίνε μέλος</a></p>
           </div>
         </div>
@@ -72,7 +118,7 @@
         <div class="container">
           <div class="carousel-caption text-start">
             <h1>Συλλογική κουζίνα.</h1>
-            <p>Στο Αιγάλεω κάθε Σάββατο στις 11:00 (στην Έξοδο του Μετρό).</p>
+            <p>Στο Αιγάλεω κάθε Σάββατο στις 11:00 (στην Έξοδο του Μετρό)</p>
             <p><a class="btn carousel-btn btn-lg btn-danger" href="http://oallosanthropos.blogspot.com/" target="_blank">Ο άλλος άνθρωπος</a></p>
           </div>
         </div>
@@ -85,7 +131,7 @@
 
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>Ανοιχτή γραμμή βοήθειας - 2103617089.</h1>
+            <h1>Ανοιχτή γραμμή βοήθειας - 2103617089</h1>
             <p></p>
             <p><a class="btn carousel-btn btn-lg btn-danger" href="http://www.18ano.gov.gr/" target="_blank">Μονάδα Απεξάρτησης 18 Άνω</a></p>
           </div>
@@ -178,7 +224,9 @@
     
         <h2>Συνεισφέρω</h2>
         <p>Έχεις χρόνο και μεράκι να προσφέρεις τις υπηρεσίες σου ή κάποια αγαθά στην κοινότητα; Δημιούργησε μια αγγελία και ενημέρωσέ μας σχετικά.</p>
+        
         <p><a class="btn btn-secondary" href="/listings-offered">Περισσότερα &raquo;</a></p>
+      
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
@@ -190,7 +238,9 @@
         <h2>Ζητώ</h2>
         <p>Χρειάζεσαι τη βοήθεια ή τις υπηρεσίες κάποιου μέλους του κόμβου; Μπορείς δημιουργείς μία αγγελία ζήτησης και να το μοιραστείς μαζί μας!
         </p>
+        
         <p><a class="btn btn-secondary" href="/listings-received">Περισσότερα &raquo;</a></p>
+       
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
         <img class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +250,9 @@
       </img>
         <h2>Δράσεις</h2>
         <p>Έχεις μία όμορφη ιδέα για κάποια δράση που θα μπορούσαμε να συμμετέχουμε όλοι; Δημιούργησε μία δράση και προσκάλεσέ μας να συνδράμουμε!</p>
+       
         <p><a class="btn btn-secondary" href="/events">Περισσότερα &raquo;</a></p>
+        
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
     <hr class="featurette-divider">
@@ -208,11 +260,15 @@
     <!-- /END THE FEATURETTES -->
 
   </div><!-- /.container -->
-
+    
 
   <!-- FOOTER -->
   <footer class="container">
-    <p class="float-end back-topbtn"><a href="#">Top</a></p>
-    <p>&copy; 2022 Komvos &middot; </p>
+    <div class="row pb-3">
+      <div class="col-md-4"><p>&copy; 2022 Komvos &middot; </p></div>
+      <div class="col-md-4"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="50em"></div>
+      <div class="col-md-4"> <p class="float-end back-topbtn"><a href="#">Top</a></p></div>
+    </div>
+      
   </footer>
 </main>

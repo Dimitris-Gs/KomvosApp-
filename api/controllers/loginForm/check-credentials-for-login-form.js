@@ -36,15 +36,15 @@ module.exports = {
 
 
   fn: async function (inputs,res) {
-    console.log(inputs.email);
-    console.log(inputs.password);
+    // console.log(inputs.email);
+    // console.log(inputs.password);
     let user = await TestUser.findOne({
       where: { email: inputs.email, password: inputs.password }
     });
    
 
 
-    console.log(user);
+    // console.log(user);
     if(user == undefined)
     {
       // console.log("Είμαι στην if user undefined");
@@ -57,6 +57,7 @@ module.exports = {
       this.req.session.userId = user.id;
       this.req.session.isAdmin = user.admin;
       this.req.session.points = user.points;
+      this.req.session.reservedPoints = user.reservedPoints;
       // console.log(this.req.session);
       return user;
 

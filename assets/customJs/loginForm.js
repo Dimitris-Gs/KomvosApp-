@@ -29,8 +29,8 @@ function inputsValidator(event){
         }
         // console.log(invalidEmail.style.display);
         // console.log(invalidPassword.style.display);
-        console.log(emailValue.match(validRegex));
-        console.log(passwordValue);
+        // console.log(emailValue.match(validRegex));
+        // console.log(passwordValue);
     if(emailValue.match(validRegex) && passwordValue.length >= 8)
     {
         //Here goes the function that verifies that this user exists in 

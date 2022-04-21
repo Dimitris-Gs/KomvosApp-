@@ -1,25 +1,25 @@
 
 document.getElementById("displayArrangements").addEventListener('click', () => {
-   
+
     getFirstCase();
-     getSecondCase();
-     getThirdCase();
-     getFourthCase();
+    getSecondCase();
+    getThirdCase();
+    getFourthCase();
 
 });
 
 document.getElementById("nav-notifications-tab").addEventListener('click', () => {
-   
+
     let cases = document.getElementsByClassName("cases");
-    
+
     let fullcases = [];
     for (let i = 0; i < cases.length; i++) {
         if (cases[i].style.display !== "none") {
-            
-             fullcases.push(cases[i])
+
+            fullcases.push(cases[i])
         }
     }
-    if(fullcases.length == 0 ){
+    if (fullcases.length == 0) {
         document.getElementById("alternative").style.display = "block";
     }
 });
@@ -121,10 +121,9 @@ function getFirstCase() {
                         </div>
                     </div>
                     <div class="card-footer">
-                        <div class="text-end">
-                        <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${offered[i].id}">Επιβεβαίωση</button>                      
-         
-                        <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Απόρριψη</button>
+                        <div class="text-end">                        
+                            <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Απόρριψη</button>
+                            <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${offered[i].id}">Επιβεβαίωση</button>
                         </div>
                     </div>
                 </div>
@@ -204,9 +203,8 @@ function getFirstCase() {
                     </div>
                     <div class="card-footer">
                         <div class="text-end">
-                        <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${offered[i].id}">Επιβεβαίωση</button>                      
-         
-                        <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Απόρριψη</button>
+                            <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${offered[i].id}">Επιβεβαίωση</button>                      
+                            <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${offered[i].id}">Απόρριψη</button>
                         </div>
                     </div>
                 </div>
@@ -250,10 +248,10 @@ function getFirstCase() {
                                     <div class="modal-footer">
                                         <form action="/update-accepted" method="POST">
                                             <input type="text" name="id" value="${offered[i].id}"  hidden>
-                                            
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
-                                            <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
-                                            
+                                            <div class="text-end">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                                <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -348,9 +346,8 @@ function getFirstCase() {
            </div>
            <div class="card-footer">
                 <div class="text-end">
-                    <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button>                      
-                
                     <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${received[i].id}">Απόρριψη</button>
+                    <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button> 
                 </div>
            </div>
         </div>
@@ -443,10 +440,8 @@ function getFirstCase() {
             </div>
            <div class="card-footer">
                 <div class="text-end">
-                
-                    <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button>                      
-                
                     <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#cancelArrangement${received[i].id}">Απόρριψη</button>
+                    <button type="button" class="btn btn-danger btnNotification" data-bs-toggle="modal" data-bs-target="#confirmArrangement${received[i].id}">Επιβεβαίωση</button>
                 </div>
            </div>
         </div>
@@ -492,19 +487,16 @@ function getFirstCase() {
 
                                     <div class="modal-footer">
                                         <form action="/update-accepted" method="POST">
-                                            <input type="text" name="id" value="${received[i].id}"  hidden>
-                                            
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
-                                            <button type="submit" class="btn btn-danger float-end">Επιβεβαίωση</button>
-                                            
+                                            <input type="text" name="id" value="${received[i].id}" hidden>
+                                            <div class="text-end">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
+                                                <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-          
-
-`;
+                        </div>`;
                 }
 
 
@@ -1225,7 +1217,7 @@ function getFourthCase() {
                 data: {}
             },
             function (result, response) {
-                console.log(result);
+               
                 let root = document.getElementById("fourthcase");
 
                 let confirmedArrangements = '';
