@@ -1,6 +1,6 @@
 # group-project
 
-a [Sails v1](https://sailsjs.com) application
+A [Sails v1](https://sailsjs.com) application
 
 
 ### Links
@@ -29,7 +29,7 @@ In order to run this app you need to folow the next steps
 ## Set up Database
 ### Create Database 
 
-Firstly we need to create a Database in Worckbench.
+Firstly we need to create a Database in MySQL Workbench.
 * Navigate to config > datastores.js file.
 * Find url property of default object.
 * Update its values with your database's url.
