@@ -21,9 +21,9 @@
             Κοινότητα
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Αγγελίες Προσφοράς</a></li>
-            <li><a class="dropdown-item" href="#">Αγγελίες Ζήτησης</a></li>
-            <li><a class="dropdown-item" href="#">Δράσεις</a></li>
+            <li><a class="dropdown-item" href="/listings-offered">Αγγελίες Προσφοράς</a></li>
+            <li><a class="dropdown-item" href="/listings-received">Αγγελίες Ζήτησης</a></li>
+            <li><a class="dropdown-item" href="/events">Δράσεις</a></li>
           </ul>
         </li>
       </ul>
@@ -35,7 +35,6 @@
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="/userprofile">Προφίλ </a></li>
-        <li><a class="dropdown-item" href="/donation">Συνδρομή</a></li>
         <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
       </ul>
     </div>
@@ -51,7 +50,7 @@
   </div>
   <br>
   
-  <!-- paypal sesion -->
+  <!-- paypal session -->
   <div class="row">
     
     <div class="pay">
@@ -65,16 +64,24 @@
       <!-- Include the PayPal JavaScript SDK -->
       <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
       <script src="/customJs/donation.js"></script>
-      <script>
-        // let creditCard = document.getElementById('credit-card-numder');
-        // creditCard.setAttribute("oninvalid",   "alert('You must fill out the form!')")
-      </script>
+      
     </div>
     
   </div>
-  <hr class="featurette-divider">
-  <footer class="container">
-    <p>&copy; 2022 Komvos &middot; </p>
-  </footer>
 </div>
+
+<!-- FOOTER -->
+<footer class="container-fluid">
+  <hr class="featurette-divider mb-3">
+  <div class="row">
+    <div class="col-md-5">
+      <p>&copy; 2022 Komvos &middot; </p>
+    </div>
+    <div class="col-md-3"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="35em"></div>
+    <div class="col-md-4">
+      <p class="float-end back-topbtn"><a href="#">&uarr;</a></p>
+    </div>
+  </div>
+
+</footer>
 

@@ -87,7 +87,7 @@ body {
 #userNotFound{
     display: none;
     color: #ff0000;
-    font-size: x-small;
+    font-size: small;
 }
 
 footer {

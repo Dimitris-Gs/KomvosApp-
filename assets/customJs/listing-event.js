@@ -36,6 +36,21 @@ today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("startingDate").setAttribute("min", today);
 document.getElementById("endingDate").setAttribute("min", today);
 
+var monthMax = new Date();
+var day = monthMax.getDate();
+var month = monthMax.getMonth() + 3; 
+var year = monthMax.getFullYear();
+if (day < 10) {
+  day = '0' + day;
+}
+if (month < 10) {
+  month = '0' + month;
+}
+
+monthMax = year + '-' + month + '-' + day;
+document.getElementById("startingDate").setAttribute("max", monthMax);
+document.getElementById("endingDate").setAttribute("max", monthMax);
+
 document.getElementById("navbarDropdownMenuLink1").addEventListener('click', () => {
   getListingCategories()
 });
