@@ -5,6 +5,7 @@ document.getElementById("editCard").style.display = "none";
 document.getElementById("historyCard").style.display = "none";
 document.getElementById("arrangements").style.display = "none";
 document.getElementById("listingsCard").style.display = "none";
+document.getElementById("addPhoto").style.display = "none";
 
 // For the profile edit page: 
 

@@ -42,9 +42,11 @@ module.exports = {
             console.log("No files for you sir");
           }
           await TestUser.updateOne({ id: userId }).set({ photo:`/images/users/user${userId}/image.jpg` });
+          
         }
       })
     // }
     this.req.session.photo = `/images/users/user${userId}/image.jpg`;
+    this.res.redirect('/userprofile')
   }
 }
