@@ -47,6 +47,6 @@ module.exports = {
       })
     // }
     this.req.session.photo = `/images/users/user${userId}/image.jpg`;
-    this.res.redirect('/userprofile')
+    this.res.redirect('/userprofile');
   }
 }
