@@ -6,7 +6,7 @@
 
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="GuestNavbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/"></a>
+                    <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-md navbar-dark  bg-dark" id="userNavBar">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/"></a>
+                        <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -90,7 +90,7 @@
                     </div>
                 </nav>
 
-                <div class="container-fluid pt-1">
+                <div class="container-fluid pt-1 sortNav">
                     <div class="row">
                         <div class="col-md-7">
                             <select id="listingsfilterType" onchange="getIsOffered()" class="form-select sorted" style="visibility: hidden;">
@@ -148,24 +148,34 @@
 </header>
 
 <main>
-    <h4 class="text-center">Υπηρεσίες Ζήτησης</h4>
+    <h4 class="text-center">Ζήτηση Υπηρεσιών</h4>
     <br>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 ">
-    
-                <div class="card text-white bg-secondary mb-3 ms-3">
-                    <div class="card-body">
-                        <h5 class="card-title">Πόντοι</h5>
-                        <p class="card-text">Οι διαθέσιμοι πόντοι σου : </p>
-                        <h3 class="text-center" id='availablePoints'> </h3>
+
+        <% if(interimUser !==150000) { %>
+            <div class="row">
+                <div class="col-sm-3 ">
+
+                    <div class="card text-white bg-secondary mb-3 ms-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Πόντοι</h5>
+                            <p class="card-text">Οι διαθέσιμοι πόντοι σου : </p>
+                            <h3 class="text-center" id="availablePoints"> </h3>
+                        </div>
                     </div>
                 </div>
+                <div class="col-sm-9">
+                    <div class="listing listingUser"></div>
+                </div>
             </div>
-            <div class="col-sm-9">
-                <div class="listing"></div>
+        <% } else { %>
+            <div>
+                <div class="listing listingVisitor"></div>
             </div>
-        </div>
+        <% } %>
+
+
+
     </div>
     
 
@@ -248,7 +258,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                     <button type="submit" class="btn btn-danger">Δημιουργία</button>
                 </div>
                 </form>
@@ -323,7 +333,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                     <button type="submit" class="btn btn-danger">Δημιουργία</button>
                 </div>
                 </form>
@@ -331,21 +341,23 @@
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <hr class="featurette-divider mb-3">
-        <div class="row">
-            <div class="col-md-4">
-                <p>&copy; 2022 Komvos &middot; </p>
-            </div>
-            <div class="col-md-4 "></div>
-            <div class="col-md-4">
-                <p class="float-end back-topbtn"><a href="#">Top</a></p>
-            </div>
-        </div>
-
-    </footer>
+   
 
 </main>
+
+<footer class="container-fluid">
+    <hr class="featurette-divider mb-3">
+    <div class="row">
+        <div class="col-md-5">
+            <p>&copy; 2022 Komvos &middot; </p>
+        </div>
+        <div class="col-md-3"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="35em"></div>
+        <div class="col-md-4">
+            <p class="float-end back-topbtn"><a href="#">&uarr;</a></p>
+        </div>
+    </div>
+
+</footer>
 
 <script src="/customJs/listing-event.js"></script>
 <script src="/customJs/listings/listingsUtils.js"></script>

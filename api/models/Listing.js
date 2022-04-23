@@ -16,8 +16,8 @@ module.exports = {
     category_id: { model: 'listingcategories', required: true},
     createdAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
     updatedAt: { type: 'ref', columnType: 'timestamp', defaultsTo: new Date() },
-    name: {type:'string', required:true, maxLength:50},
-    description: {type:'string', maxLength:200, required: true},
+    name: {type:'string', required:true, maxLength: 50}, //100
+    description: {type:'string', maxLength: 200, required: true}, //500
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
     endingDate: { type: 'string', required: true, columnName: 'endingdate', columnType: 'date'},
     isOffered: { type: 'boolean', required: true, columnName: 'isoffered' },

@@ -5,7 +5,7 @@
 
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="GuestNavbar">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/"></a>
+                    <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
             <div class="fixed-top">
                 <nav class="navbar navbar-expand-md navbar-dark  bg-dark" id="userNavBar">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/"></a>
+                        <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em" ></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -89,16 +89,18 @@
 
                     </div>
                 </nav>
-                <div class="container-fluid pt-1">
+                <div class="container-fluid pt-1 sortNav">
                     <div class="row">
                         <div class="col-md-7">
-                            <select  id="listingsfilterType" onchange="getIsOffered()" class="form-select sorted" style="visibility: hidden;">
+                            <select id="listingsfilterType" onchange="getIsOffered()" class="form-select sorted"
+                                style="visibility: hidden;">
                                 <option value=undefined hidden>Aγγελία</option>
                                 <option value='true'>Προσφοράς</option>
                                 <option value='false'>Ζήτησης</option>
                             </select>
-        
-                            <select id="listingsfilterCategory" onchange="getCategoryValue()" class="form-select sorted">
+
+                            <select id="listingsfilterCategory" onchange="getCategoryValue()"
+                                class="form-select sorted">
                                 <option value='undefined' hidden>Κατηγορίες</option>
                                 <option value="Σίτιση">Σίτιση</option>
                                 <option value="Στέγαση">Στέγαση</option>
@@ -109,25 +111,25 @@
                                 <option value="Υπηρεσίες φύλαξης">Υπηρεσίες φύλαξης</option>
                                 <option value="Άλλο">Άλλο</option>
                             </select>
-        
+
                             <select id="listingsfilterDate" onchange="getDateValue()" class="form-select sorted">
                                 <option value='undefined' hidden>Ημερομηνία</option>
                                 <option value="Μακριά">Παλιότερες</option>
                                 <option value="Πρόσφατα">Πιο πρόσφατες</option>
-        
+
                             </select>
                         </div>
                         <div class="col-md-5">
                             <div class="text-end">
                                 <button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
                                     data-bs-target="#staticBackdrop" id="createListing">Προσθήκη αγγελίας</button>
-        
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-    <% } %>
+            <% } %>
 
 
 
@@ -138,24 +140,31 @@
     <h4 class="text-center">Υπηρεσίες Προσφοράς</h4>
     <br>
     <div class="container-fluid">
-        <div class="row">
-            <% if(interimUser == 150000) { %>
-                <div  class="col-sm-3 ">
-                    
-                    <div hidden class="card text-white bg-secondary mb-3 ms-3">
-                        <div  class="card-body">
+
+        <% if(interimUser !==150000) { %>
+            <div class="row">
+                <div class="col-sm-3 ">
+
+                    <div class="card text-white bg-secondary mb-3 ms-3">
+                        <div class="card-body">
                             <h5 class="card-title">Πόντοι</h5>
                             <p class="card-text">Οι διαθέσιμοι πόντοι σου : </p>
                             <h3 class="text-center" id="availablePoints"> </h3>
                         </div>
                     </div>
                 </div>
-            <% } %>
-                
-            <div class="col-sm-9">
-                <div class="listing"></div>
+                <div class="col-sm-9">
+                    <div class="listing listingUser"></div>
+                </div>
             </div>
-        </div>
+        <% } else { %>
+            <div>
+                <div class="listing listingVisitor"></div>
+            </div>
+        <% } %>
+
+
+
     </div>
     <!-- Modal for creating listing -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -216,7 +225,7 @@
                         <div class="form-group row ">
                             <label for="dateOfBirth" class="col-md-4 col-form-label">Διαθέσιμη από: </label>
                             <div class="col-md-8">
-                                <input type="date" name="startingDate" id="startingDate" min="today" required autofocus>
+                                <input type="date" name="startingDate" id="startingDate" min="today" max="monthMax" required autofocus>
 
                             </div>
                         </div>
@@ -234,7 +243,7 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                     <button type="submit" class="btn btn-danger">Δημιουργία</button>
                 </div>
                 </form>
@@ -242,24 +251,21 @@
         </div>
     </div>
 
-    <footer class="container-fluid">
-        <hr class="featurette-divider mb-3">
-        <div class="row">
-            <div class="col-md-4">
-                <p>&copy; 2022 Komvos &middot; </p>
-            </div>
-            <div class="col-md-4 "></div>
-            <div class="col-md-4">
-                <p class="float-end back-topbtn"><a href="#">Top</a></p>
-            </div>
-        </div>
-
-    </footer>
-
-
-
-
 </main>
+
+<footer class="container-fluid">
+    <hr class="featurette-divider mb-3">
+    <div class="row">
+        <div class="col-md-5">
+            <p>&copy; 2022 Komvos &middot; </p>
+        </div>
+        <div class="col-md-3"><img src="images/komvos/komvosRed.png" alt="komvosLogo" height="35em"></div>
+        <div class="col-md-4">
+            <p class="float-end back-topbtn"><a href="#">&uarr;</a></p>
+        </div>
+    </div>
+
+</footer>
 
 
 <script src="/customJs/listing-event.js"></script>

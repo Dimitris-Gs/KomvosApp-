@@ -86,9 +86,9 @@ main{
 /* back to top btn */
 .back-topbtn {
   border: 1px solid white;
-  border-radius: 10%;
+  border-radius: 50%;
   background-color: #212529;
-  width: 80px;
+  width: 35px;
   height: 30px;
 }
 
