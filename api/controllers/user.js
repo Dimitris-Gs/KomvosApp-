@@ -25,8 +25,9 @@ module.exports = {
        where: { id: this.req.session.userId }
     });
 
+    let pointsBalance = this.req.session.points - this.req.session.reservedPoints;
     // All done.
-    return  { user } ;
+    return  { user : user, pointsBalance : pointsBalance } ;
   }
 };
 

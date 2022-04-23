@@ -2,7 +2,8 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
+    <a class="navbar-brand" href="/"><img src="http://localhost:1337/images/komvos/KOMVOS7.png" alt="Komvos logo"
+        width="45em" height="28em"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,21 +30,21 @@
       </ul>
     </div>
     <div class="dropdown profileDropdown">
-      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
+      <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
         <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="#" onclick="displayContent(profileCard)">Προφίλ </a></li>
-        <li><a class="dropdown-item" href="#" onclick="displayContent(editCard)">Επεξεργασία Προφίλ</a></li>
-        <li><a class="dropdown-item" href="/donation">Συνδρομή</a></li>
-        <li><a class="dropdown-item" href="#">Αποσύνδεση</a></li>
+        <li><a class="dropdown-item" href="/userprofile">Προφίλ</a></li>
+        <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
+        <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
       </ul>
     </div>
 
   </div>
 </nav>
 
-<div id="main" class="px-4">
+<div id="view" class="px-4 ">
   <div class="container-xl px-4 mt-4">
 
     <div class="row">
@@ -66,7 +67,7 @@
             <br>
             <button class="btn btn-dark btnProf mt-2" onclick="toggleCard()" type="button">Προφίλ</button>
             <br>
-            <form action=<%= '/chat/' + user.id%> method="GET">
+            <form action=<%='/chat/' + user.id%> method="GET">
               <button class="btn btn-dark btnProf mt-2" type="submit">Στείλε Μήνυμα</button>
             </form>
           </div>
@@ -75,17 +76,20 @@
           <div class="card-body text-center" id="smallMenu">
             <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
               alt="">
-            <div class="" onclick="displayContent(editCard)"> Επεξεργασία
-              προφίλ </div>
-            <p onclick="displayContent(profileCard)"> Username </p>
+            <p onclick="displayContent(profileCard)"> <a href="#">
+                <%= user.firstName + " " + user.lastName %>
+              </a> </p>
+            <button class="btn btn-dark btnProf inline mt-2" onclick="toggleCard()" type="button"">Προφίλ</button>
+            <form action=<%='/chat/' + user.id%> method=" GET" class="inline">
+              <button class="btn btn-dark btnProf mt-2" type="submit">Μήνυμα</button>
+              </form>
 
-            
           </div>
           <!-- less than 768 version -->
 
         </div>
       </div>
-      <!-- Φόρμα επεξεργασίας προφίλ -->
+
       <div class="col-xl-8 col-md-8">
         <!-- User's Profile card  -->
         <div class="card mb-4 content" id="profileCard">
@@ -138,19 +142,29 @@
         </div>
         <!-- User's Profile card  -->
 
-       
+
 
       </div>
     </div>
+
   </div>
-  <hr class="featurette-divider">
-    
-  <!-- FOOTER -->
-  <footer class="container">
-      <p class="float-end back-topbtn"><a href="#">Top</a></p>
-      <p>&copy; 2022 Komvos &middot; </p>
-  </footer>
+
 </div>
+<!-- FOOTER -->
+<footer class="container-fluid">
+  <hr class="featurette-divider mb-3">
+  <div class="row">
+    <div class="col-md-5">
+      <p>&copy; 2022 Komvos &middot; </p>
+    </div>
+    <div class="col-md-3"><img src="http://localhost:1337/images/komvos/komvosRed.png" alt="komvosLogo" height="35em">
+    </div>
+    <div class="col-md-4">
+      <!-- <p class="float-end back-topbtn"></p> -->
+    </div>
+  </div>
+
+</footer>
 <script>
   // get the users gender from the controller
   let gender = '<%= user.gender %>';

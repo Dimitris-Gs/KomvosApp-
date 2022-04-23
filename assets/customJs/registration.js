@@ -112,7 +112,6 @@ function nextPrev(nextOrPrevious) {
 
 function validateEmail(emailString) {
 
-  //var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
   if (emailString.match(validRegex)) {
@@ -393,3 +392,4 @@ document.addEventListener('keypress', function (e) {
     return false;
   }
 });
+

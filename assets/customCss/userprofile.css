@@ -9,6 +9,15 @@ body {
   background-color: #cfcdcd;
 }
 
+#main {
+    padding-bottom: 9%;
+}
+
+#view {
+    padding-top: 4rem;
+    padding-bottom: 14%;
+}
+
 /* nav bar user dropdown  */
 #dropdownMenuButton1 {
     background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
@@ -261,11 +270,6 @@ a {
     text-align: center;
 }
 
-
-
-
-/* responsive effort */
-
 .btnNotification{
     width: 120px;
 }
@@ -275,6 +279,10 @@ a {
 .personsImg{
     width: 100px;
     height: 100px;
+}
+
+.inline {
+    display: inline;
 }
 
 @media screen and (max-width: 2400px) {
