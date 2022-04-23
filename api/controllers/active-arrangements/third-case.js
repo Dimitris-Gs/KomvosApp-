@@ -58,11 +58,12 @@ module.exports = {
 
         let receiving_user = await TestUser.findOne({
           where: { id: listingsWithArrangements[j].arrangements[k].receiving_user_id },
-          select: ['firstName', 'lastName', 'email']
+          select: ['firstName', 'lastName', 'email', 'photo']
         });
         currentArrangement.receiverId = receiving_user.id;
         currentArrangement.receiver = receiving_user.firstName + " " + receiving_user.lastName;
         currentArrangement.receiverMail = receiving_user.email;
+        currentArrangement.receiverPhoto = receiving_user.photo;
 
 
         let offering_user = await TestUser.findOne({

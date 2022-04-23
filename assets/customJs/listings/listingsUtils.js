@@ -113,7 +113,7 @@ function divListing(dto,user){
                     <br>
 
                     <div class="row">
-                        <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></div>
+                        <div class="col-sm-2"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-sm-5 personsInfo">
                             <div>
@@ -178,7 +178,7 @@ function divListing(dto,user){
                     <br>
 
                     <div class="row">
-                        <div class="col-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></div>
+                        <div class="col-3"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-9 personsInfo">
                             <div>
@@ -320,7 +320,7 @@ function divListingReceived(dto,user){
                     <br>
 
                     <div class="row">
-                        <div class="col-sm-2"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></div>
+                        <div class="col-sm-2"><img src="${dto[i].photo}" alt=""></div>
                         <div class="col-sm-5 personsInfo">
                             <div>
                                 ${dto[i].fullname}
@@ -378,7 +378,7 @@ function divListingReceived(dto,user){
                     <br>
 
                     <div class="row">
-                        <div class="col-3"><img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt=""></div>
+                        <div class="col-3"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-9 personsInfo">
                             <div>

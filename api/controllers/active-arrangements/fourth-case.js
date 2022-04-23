@@ -68,11 +68,12 @@ module.exports = {
 
         let offering_user = await TestUser.findOne({
           where: { id: listingsWithArrangements[j].arrangements[k].offering_user_id },
-          select: ['firstName', 'lastName', 'email']
+          select: ['firstName', 'lastName', 'email', 'photo']
         });
         currentArrangement.offererId = offering_user.id;
         currentArrangement.offerer = offering_user.firstName + " " + offering_user.lastName;
         currentArrangement.offererMail = offering_user.email;
+        currentArrangement.offererPhoto = offering_user.photo;
 
         currentArrangement.createdAt = listingsWithArrangements[j].arrangements[k].createdAt;
         currentArrangement.updatedAt = listingsWithArrangements[j].arrangements[k].updatedAt;

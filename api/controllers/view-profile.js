@@ -20,7 +20,9 @@ module.exports = {
     let user = await TestUser.findOne({
       where: { id: this.req.param('userId') }
     });
-    return {user};
+    let isAdmin = this.req.session.isAdmin;
+    let photo = this.req.session.photo;
+    return {user,isAdmin ,photo};
 
   }
 

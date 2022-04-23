@@ -58,6 +58,7 @@ module.exports = {
       this.req.session.isAdmin = user.admin;
       this.req.session.points = user.points;
       this.req.session.reservedPoints = user.reservedPoints;
+      this.req.session.photo = user.photo
       // console.log(this.req.session);
       return user;
 

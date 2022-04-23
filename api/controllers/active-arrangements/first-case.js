@@ -56,23 +56,25 @@ module.exports = {
 
         let receiving_user = await TestUser.findOne({
           where: { id: properArrangements[j].arrangements[k].receiving_user_id },
-          select: ['firstName', 'lastName', 'email']
+          select: ['firstName', 'lastName', 'email', 'photo']
         });
         
         currentArrangement.id = properArrangements[j].arrangements[k].id;
         currentArrangement.receiver = receiving_user.firstName + " " + receiving_user.lastName;
         currentArrangement.receiverId = properArrangements[j].arrangements[k].receiving_user_id;
         currentArrangement.receiverMail = receiving_user.email;
+        currentArrangement.receiverPhoto = receiving_user.photo;
 
 
         let offering_user = await TestUser.findOne({
           where: { id: properArrangements[j].arrangements[k].offering_user_id },
-          select: ['firstName', 'lastName', 'email']
+          select: ['firstName', 'lastName', 'email', 'photo']
         });
         
         currentArrangement.offerer = offering_user.firstName + " " + offering_user.lastName;
         currentArrangement.offererId = properArrangements[j].arrangements[k].offering_user_id;
         currentArrangement.offererMail = offering_user.email;
+        currentArrangement.offererPhoto = offering_user.photo;
 
         currentArrangement.createdAt = properArrangements[j].arrangements[k].createdAt;
         currentArrangement.status = properArrangements[j].arrangements[k].status;

@@ -21,7 +21,7 @@ module.exports = {
 
   fn: async function (req, res) {
     var userId = this.req.session.userId;
-
+    
 
     //   //   console.log(this.req.body.photo);
     //   //   console.log("Έχουμε controller");
@@ -45,5 +45,6 @@ module.exports = {
         }
       })
     // }
+    this.req.session.photo = `/images/users/user${userId}/image.jpg`;
   }
 }

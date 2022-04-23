@@ -21,9 +21,12 @@ module.exports = {
 
   fn: async function (inputs) {
   let interimUser;
+  let isAdmin;
+  let photo = this.req.session.photo;
     if(this.req.session.userId)
     {
       interimUser = this.req.session.userId;
+      isAdmin = this.req.session.isAdmin;
     }
     else{
       interimUser = 150000;
@@ -63,7 +66,7 @@ module.exports = {
 
 
     // All done.
-    return { eventsWithUsers: eventsWithUsers,interimUser:interimUser };
+    return { eventsWithUsers: eventsWithUsers,interimUser:interimUser, isAdmin:isAdmin, photo:photo };
 
   }
 

@@ -71,10 +71,14 @@
         </div>
         <div class="dropdown profileDropdown">
           <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
-            <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
+            <img class="profile-image" src="<%= photo %>" alt="Profile img">
           </button>
           <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
             <li><a class="dropdown-item" href="/userprofile" >Προφίλ </a></li>
+            <% if(isAdmin) { %>
+              <li><a class="dropdown-item" href="/admin">Σελίδα Διαχειριστή </a></li>
+            <% } %>
+            <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
             <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
           </ul>
         </div>

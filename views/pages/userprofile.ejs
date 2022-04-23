@@ -32,11 +32,14 @@
     <div class="dropdown profileDropdown">
       <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
-        <img class="profile-image" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile img">
+        <img class="profile-image" src="<%= user.photo %>" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="#" onclick="displayContent(profileCard)">Προφίλ</a></li>
         <li><a class="dropdown-item" href="#" onclick="displayContent(editCard)">Επεξεργασία Προφίλ</a></li>
+        <% if(isAdmin) { %>
+          <li><a class="dropdown-item" href="/admin">Σελίδα Διαχειριστή </a></li>
+          <% } %>                         
         <li><a class="dropdown-item" href="/donation">Δωρεά</a></li>
         <li><a class="dropdown-item" href="/logout">Αποσύνδεση</a></li>
       </ul>
@@ -92,7 +95,7 @@
 
           <!-- less than 768 version -->
           <div class="card-body text-center" id="smallMenu">
-            <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png"
+            <img class="img-account-profile rounded-circle mb-2" src="<%= user.photo %>"
               alt="">
             <div class="" onclick="displayContent(editCard)"> Επεξεργασία
               προφίλ </div>
@@ -190,10 +193,10 @@
                     <input id="addressInput" type="text" class="form-control" placeholder="Διεύθυνση Κατοικίας"
                       value="<%= user.address %>" id="regAddress" name="address">
                   </div>
-                  <div class="col-md-12 mt-3">
+                  <!-- <div class="col-md-12 mt-3">
                     <label class="labels">Προσθέστε φωτογραφία :</label>
                     <input type="file" class="form-control-file" id="regProfileImg" name="photo">
-                  </div>
+                  </div> -->
                   <div class="col-12 mt-3">
                     <label for="regSmallBio" value="description" class="labels">Λίγα λόγια για εμένα:</label>
                     <textarea onchange="descriptionValidation()" class="form-control" name="description"

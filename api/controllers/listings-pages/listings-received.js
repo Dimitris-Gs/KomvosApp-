@@ -86,6 +86,7 @@ module.exports = {
         currentListing.userId = userListings[i].id;
         currentListing.fullname = userListings[i].firstName + " " + userListings[i].lastName;
         currentListing.email = userListings[i].email;
+        currentListing.photo = userListings[i].photo;
         let dateOfBirth = userListings[i].dateOfBirth;
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
