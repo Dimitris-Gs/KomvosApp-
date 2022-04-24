@@ -32,7 +32,7 @@ function updateConversation(userId, text, createdAt) {
     chatElement.className = 'conversations';
     chatElement.innerHTML = `
         <div class="friend-drawer friend-drawer--onhover">
-          <img class="profile-image" src="" alt="">
+          <img class="profile-image" src="http://localhost:1337/${activeChatUserPhoto}" alt="">
           <div class="text">
             <h6>${activeChatUserFullName}</h6>
             <p class="text-muted">

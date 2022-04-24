@@ -48,9 +48,11 @@ module.exports = {
     let photo = this.req.session.photo;
     let requestUser = await TestUser.findOne({ id: this.req.session.userId });
     let activeChatUser;
+    let activeChatUserPhoto;
 
     if (this.req.param('userId')) {
       activeChatUser = (await TestUser.findOne({ id: this.req.param('userId') })).id;
+      activeChatUserPhoto = (await TestUser.findOne({ id: this.req.param('userId') })).photo;
     }
 
     const userFullName = `${requestUser.firstName} ${requestUser.lastName}`;
@@ -63,7 +65,7 @@ module.exports = {
     });
 
 
-    return { chats, userFullName, activeChatUser , isAdmin, photo };
+    return { chats, userFullName, activeChatUser , activeChatUserPhoto, isAdmin, photo };
   }
 
 
