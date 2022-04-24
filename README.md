@@ -1,7 +1,13 @@
 # KomvosApp
 
-A [Sails v1](https://sailsjs.com) application
+Komvos, a solidarity platform aiming to promote solidarity between its members serves as the final group project for PeopleCert's Javascript Coding Bootcamp (October 2021 - April 2022). 
 
+Komvos was created using the following technologies: 
++ [Sails v1](https://sailsjs.com) MVC framework
++ MySQL
++ HTML5 / CSS3
++ Bootstrap 5
++ jQuery
 
 ### Links
 
@@ -24,12 +30,12 @@ This app was originally generated on Thu Mar 10 2022 21:56:14 GMT+0200 (Χειμ
 Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
 -->
 
-In order to run this app you need to folow the next steps
+In order to run this app you need to follow the next steps.
 
 ## Set up Database
 ### Create Database 
 
-Firstly we need to create a Database in MySQL Workbench.
+First, we need to create a Database in MySQL Workbench.
 * Navigate to config > datastores.js file.
 * Find url property of default object.
 * Update its values with your database's url.
@@ -41,7 +47,7 @@ Firstly we need to create a Database in MySQL Workbench.
 npm install
 ```
 
-* Go to node_modules directory and delete bootstrap module. Otherwise, when you run the app it will automatically take some files from modules and pass them to assets. In some files it will create conflicts with sails and js and the app will not run properly.
+* Go to node_modules directory and delete bootstrap module. Otherwise, when you run the app it will automatically run some files that will create conflicts and the app will not run properly.
 ## Create tables in database 
 
 * Navigate to config > models.js file and change migrate property's value to 'alter'.
