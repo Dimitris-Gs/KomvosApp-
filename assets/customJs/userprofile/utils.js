@@ -178,9 +178,9 @@ function jQueryInitialize() {
       (obj, item) => ((obj[item.name] = item.value), obj),
       {}
     );
-    console.log(fields);
-    console.log(formToObject);
-    console.log('WORKED');
+    // console.log(fields);
+    // console.log(formToObject);
+    // console.log('WORKED');
 
     if (formToObject.startingDate >= formToObject.endingDate) {
       alert('endingdate must be at least one day apart from starting date')
@@ -197,7 +197,7 @@ function jQueryInitialize() {
         $(`#endingDate${value}`).html(`${formToObject.endingDate}`)
         $(`#notHidden${value}`).attr('hidden', false)
         $(`#hidden${value}`).attr('hidden', true)
-        alert('Success')
+        // alert('Success')
       })
     } else (alert("fill in the dates"))
 
@@ -558,7 +558,6 @@ function divListing(dto, div) {
 
 
   })
-
   root.innerHTML = listings
 
 }
@@ -740,7 +739,7 @@ function updateListingCategories(categories){
   })
   $('#offeringfilterCategory').empty()
   $('#receivingfilterCategory').empty()
-  $('#listingsfilterCategory').empty
+  $('#listingsfilterCategory').empty()
 
   $('#offeringfilterCategory').append(options)
   $('#receivingfilterCategory').append(options)

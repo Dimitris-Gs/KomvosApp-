@@ -91,8 +91,9 @@ function sortedListingsArray(array, typeOfListing, listingCategoryName, date) {
 
 function divListing(dto, user) {
     let root = $('.listing')[0]
+    console.log(root);
     let typeUser = user
-    let listings = '';
+    let listings = ``;
 
 
     for (let i = 0; i < dto.length; i++) {
@@ -292,11 +293,10 @@ function divListing(dto, user) {
 
 
             </div>
-    </div>`
-
+            </div>`
+            
+        }
         root.innerHTML = listings
-
-    }
 }
 
 
@@ -498,14 +498,19 @@ function divListingReceived(dto, user) {
 
 function listingCategories(categories) {
     let options = ``;
+    let modalOptions = ``;
     categories.forEach(categorie => {
         options += `
       <option id="${categorie.id}" value="${categorie.name}">
       ${categorie.name} 
       </option>`
+      modalOptions += `
+      <option id="${categorie.id}" value="${categorie.id}">
+      ${categorie.name} 
+      </option>`
     })
     $('#listingsfilterCategory').append(options)
-    $('#category_id').append(options)
+    $('#category_id').append(modalOptions)
 }
 
 function updateListingCategories(categories){
@@ -517,7 +522,7 @@ function updateListingCategories(categories){
       ${categorie.name} 
       </option>`
       modalOptions += `
-      <option id="${categorie.id}" value="${categorie.name}">
+      <option id="${categorie.id}" value="${categorie.id}">
       ${categorie.name} 
       </option>`
     })
