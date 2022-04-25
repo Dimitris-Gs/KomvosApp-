@@ -33,58 +33,7 @@ function getDateValue() {
         let haveOffered = sortedListingsArray(globalDto[positionOfDto], filters[0], filters[1], filters[2])
         console.log(haveOffered);
         divListing(haveOffered, divRoot)
-        $('.deleteListing').on('click', function () {
-            console.log('i worked from controller button');
-            let value = $(this).val();
-            socket2.post('/event', { event:'delete', listingId: value }, function (result, jwres) {
-                $(`#notHidden${value}`).remove()
-                alert('Listing has been deleted')
-            })
-        })
-
-        $('.editListing').on('click', function () {
-            let value = $(this).val();
-            $(`#notHidden${value}`).attr('hidden', true)
-            $(`#hidden${value}`).attr('hidden', false)
-        })
-
-        $('.saveListing').on('click', function () {
-            let value = $(this).val();
-            let fields = $(`#editForm${value}`).serializeArray();
-            let formToObject = fields.reduce(
-                (obj, item) => ((obj[item.name] = item.value), obj),
-                {}
-            );
-            console.log(fields);
-            console.log(formToObject);
-            console.log('WORKED');
-
-
-            if (formToObject.startingDate != '' && formToObject.endingDate != '') {
-                console.log('passed');
-                socket2.post('/event', { event: 'edit', listingId: value, updatedListing: formToObject }, function (result, jwres) {
-                    console.log(result);
-                    $(`#name${value}`).html(`${formToObject.name}`)
-                    $(`#description${value}`).html(`${formToObject.description}`)
-                    $(`#startingDate${value}`).html(`${formToObject.startingDate}`)
-                    $(`#endingDate${value}`).html(`${formToObject.endingDate}`)
-                    $(`#notHidden${value}`).attr('hidden', false)
-                    $(`#hidden${value}`).attr('hidden', true)
-                    alert('Success')
-                })
-            } else (alert("fill in the dates"))
-
-
-        })
-        $('.cancelListing').on('click', function () {
-            let value = $(this).val();
-    
-            $(`#notHidden${value}`).attr('hidden', false)
-            $(`#hidden${value}`).attr('hidden', true)
-    
-    
-        })
-
+        jQueryInitialize()
     }
 }
 
@@ -99,60 +48,7 @@ function getCategoryValue() {
         let haveOffered = sortedListingsArray(globalDto[positionOfDto], filters[0], filters[1], filters[2])
         console.log(haveOffered);
         divListing(haveOffered, divRoot)
-        $('.deleteListing').on('click', function () {
-            console.log('i worked from controller button');
-            let value = $(this).val();
-            socket2.post('/event', { event:'delete', listingId: value }, function (result, jwres) {
-                $(`#notHidden${value}`).remove()
-                alert('Listing has been deleted')
-                
-            })
-        })
-
-        $('.editListing').on('click', function () {
-            console.log('i worked from controller button');
-            let value = $(this).val();
-            console.log(value);
-            $(`#notHidden${value}`).attr('hidden', true)
-            $(`#hidden${value}`).attr('hidden', false)
-        })
-
-        $('.saveListing').on('click', function () {
-            let value = $(this).val();
-            let fields = $(`#editForm${value}`).serializeArray();
-            let formToObject = fields.reduce(
-                (obj, item) => ((obj[item.name] = item.value), obj),
-                {}
-            );
-            console.log(fields);
-            console.log(formToObject);
-            console.log('WORKED');
-
-
-            if (formToObject.startingDate != '' && formToObject.endingDate != '') {
-                console.log('passed');
-                socket2.post('/event', { event: 'edit', listingId: value, updatedListing: formToObject }, function (result, jwres) {
-                    console.log(result);
-                    $(`#name${value}`).html(`${formToObject.name}`)
-                    $(`#description${value}`).html(`${formToObject.description}`)
-                    $(`#startingDate${value}`).html(`${formToObject.startingDate}`)
-                    $(`#endingDate${value}`).html(`${formToObject.endingDate}`)
-                    $(`#notHidden${value}`).attr('hidden', false)
-                    $(`#hidden${value}`).attr('hidden', true)
-                    alert('Success')
-                })
-            } else (alert("fill in the dates"))
-
-
-        })
-        $('.cancelListing').on('click', function () {
-            let value = $(this).val();
-    
-            $(`#notHidden${value}`).attr('hidden', false)
-            $(`#hidden${value}`).attr('hidden', true)
-    
-    
-        })
+        jQueryInitialize()
     }
 }
 
@@ -167,59 +63,7 @@ function getIsOffered() {
         let haveOffered = sortedListingsArray(globalDto[positionOfDto], filters[0], filters[1], filters[2])
         console.log(haveOffered);
         divListing(haveOffered, divRoot)
-        $('.deleteListing').on('click', function () {
-            console.log('i worked from controller button');
-            let value = $(this).val();
-            socket2.post('/event', { event:'delete', listingId: value }, function (result, jwres) {
-                $(`#notHidden${value}`).remove()
-                alert('Listing has been deleted')
-            })
-        })
-
-        $('.editListing').on('click', function () {
-            console.log('i worked from controller button');
-            let value = $(this).val();
-            console.log(value);
-            $(`#notHidden${value}`).attr('hidden', true)
-            $(`#hidden${value}`).attr('hidden', false)
-        })
-
-        $('.saveListing').on('click', function () {
-            let value = $(this).val();
-            let fields = $(`#editForm${value}`).serializeArray();
-            let formToObject = fields.reduce(
-                (obj, item) => ((obj[item.name] = item.value), obj),
-                {}
-            );
-            console.log(fields);
-            console.log(formToObject);
-            console.log('WORKED');
-
-
-            if (formToObject.startingDate != '' && formToObject.endingDate != '') {
-                console.log('passed');
-                socket2.post('/event', { event: 'edit', listingId: value, updatedListing: formToObject }, function (result, jwres) {
-                    console.log(result);
-                    $(`#name${value}`).html(`${formToObject.name}`)
-                    $(`#description${value}`).html(`${formToObject.description}`)
-                    $(`#startingDate${value}`).html(`${formToObject.startingDate}`)
-                    $(`#endingDate${value}`).html(`${formToObject.endingDate}`)
-                    $(`#notHidden${value}`).attr('hidden', false)
-                    $(`#hidden${value}`).attr('hidden', true)
-                    alert('Success')
-                })
-            } else (alert("fill in the dates"))
-
-
-        })
-        $('.cancelListing').on('click', function () {
-            let value = $(this).val();
-    
-            $(`#notHidden${value}`).attr('hidden', false)
-            $(`#hidden${value}`).attr('hidden', true)
-    
-    
-        })
+        jQueryInitialize()
     }
 }
 
@@ -254,62 +98,7 @@ document.getElementById("nav-allListings-tab").addEventListener('click', () => {
     let unfilteredListings = sortingByListingsStatus(globalDto[2])
     console.log(unfilteredListings);
     divListing(unfilteredListings, 'listings')
-    $('.deleteListing').on('click', function () {
-        let value = $(this).val();
-        socket2.post('/listing-delete-or-update', { event:'delete', listingId: value }, function (result, jwres) {
-            console.log(result);
-            $(`#notHidden${value}`).detach()
-        })
-    })
-
-    $('.editListing').on('click', function () {
-        let value = $(this).val();
-        // console.log(value);
-        $(`#notHidden${value}`).attr('hidden', true)
-        $(`#hidden${value}`).attr('hidden', false)
-    })
-
-    $('.saveListing').on('click', function () {
-        let value = $(this).val();
-        let fields = $(`#editForm${value}`).serializeArray();
-        let formToObject = fields.reduce(
-            (obj, item) => ((obj[item.name] = item.value), obj),
-            {}
-        );
-        console.log(fields);
-        console.log(formToObject);
-        console.log('WORKED');
-
-        if (formToObject.startingDate >= formToObject.endingDate){
-            alert('endingdate must be at least one day apart from starting date')
-            return ;
-        }
-
-        if (formToObject.startingDate != '' && formToObject.endingDate != '') {
-            console.log('passed');
-            socket2.post('/listing-delete-or-update', { event: 'edit', listingId: value, updatedListing: formToObject }, function (result, jwres) {
-                console.log(result);
-                $(`#name${value}`).html(`${formToObject.name}`)
-                $(`#description${value}`).html(`${formToObject.description}`)
-                $(`#startingDate${value}`).html(`${formToObject.startingDate}`)
-                $(`#endingDate${value}`).html(`${formToObject.endingDate}`)
-                $(`#notHidden${value}`).attr('hidden', false)
-                $(`#hidden${value}`).attr('hidden', true)
-                alert('Success')
-            })
-        } else (alert("fill in the dates"))
-
-
-    })
-
-    $('.cancelListing').on('click', function () {
-        let value = $(this).val();
-
-        $(`#notHidden${value}`).attr('hidden', false)
-        $(`#hidden${value}`).attr('hidden', true)
-
-
-    })
+    jQueryInitialize()
 });
 
 

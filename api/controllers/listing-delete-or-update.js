@@ -38,9 +38,12 @@ module.exports = {
         listing_id: inputs.listingId
       }).set({
         status: 'canceled'
-      })
+      }).fetch();
+      if (arrangementsToCancel.length == 0 ){
+        await Listing.destroyOne({id:inputs.listingId})
+      } 
       sails.sockets.broadcast('userProfileDto', 'updateDto');
-      return listingsToCancel
+      return 
     } 
     else if (inputs.event == 'edit'){
       let updated = await Listing.updateOne({

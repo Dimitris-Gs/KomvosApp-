@@ -24,6 +24,11 @@ socket2.post('/receive-or-offer-listings-with-arrangements', { userType: 'receiv
     globalDto[1] = result
 })
 
+socket2.post('/listing-categories', function(result, jwres){
+    console.log(result);
+    listingCategories(result)    
+})
+
 /*When a user updates or deletes an active listing of his at the same time the globalDto is getting updated.
 In the case of the receive and offer option at the history tab the pre-existing div is getting emptied 
 and being reconstructed with the new data
@@ -53,4 +58,21 @@ socket2.on('updateDto', function (msg) {
         // console.log('CHANGED AFTER UPDATE');
     })
 
+})
+
+// If a user creates a new listing with his id the userprofile socket gets updated with the new data
+
+socket2.on('newListing', function(result,jwres){
+    console.log(result);
+    let newListings = newListing(result)
+    $('#listings').append(newListings)
+    jQueryInitialize()
+})
+
+socket2.on('newAdminCategorie', function(result, jwres){
+    console.log(result);
+    socket2.post('/listing-categories', function(result, jwres){
+        console.log(result);
+        updateListingCategories(result)    
+    })
 })
