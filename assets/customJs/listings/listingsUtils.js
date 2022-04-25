@@ -273,10 +273,11 @@ function divListing(dto,user){
                             <div class="modal-footer">
 
                                 <form action="/create-arrangement-offered" method="POST">
-                                    <!-- ideally send the receiving user id from the user logged in -->
+                                    
                                     <input type="text" name="offering_user_id"
                                         value=${dto[i].userId} hidden>
                                     <input type="text" name="listing_id" value=${dto[i].id} hidden>
+                                    <input type="text" name="category_id" value=${dto[i].category_id} hidden>
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Ακύρωση</button>
                                     <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
@@ -480,7 +481,7 @@ function divListingReceived(dto,user){
                       <form action="/create-arrangement-received" method="POST">
                         <input type="text" name="receiving_user_id" value=${dto[i].userId}  hidden>
                         <input type="text" name="listing_id" value=${dto[i].id}  hidden>
-                        <!-- ideally send the offering user id from the user logged in -->
+                        <input type="text" name="category_id" value=${dto[i].category_id} hidden>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ακύρωση</button>
                       <button type="submit" class="btn btn-danger">Επιβεβαίωση</button>
                     </form>
