@@ -36,10 +36,25 @@ today = yyyy + '-' + mm + '-' + dd;
 document.getElementById("startingDate").setAttribute("min", today);
 document.getElementById("endingDate").setAttribute("min", today);
 
-// document.getElementById("navbarDropdownMenuLink1").addEventListener('click', () => {
-//   getListingCategories()
-// });
+var monthMax = new Date();
+var day = monthMax.getDate();
+var month = monthMax.getMonth() + 3; 
+var year = monthMax.getFullYear();
+if (day < 10) {
+  day = '0' + day;
+}
+if (month < 10) {
+  month = '0' + month;
+}
 
-// document.getElementById("createListing").addEventListener('click', () => {
-//   getListingCategories()
-// });
+monthMax = year + '-' + month + '-' + day;
+document.getElementById("startingDate").setAttribute("max", monthMax);
+document.getElementById("endingDate").setAttribute("max", monthMax);
+
+document.getElementById("navbarDropdownMenuLink1").addEventListener('click', () => {
+  getListingCategories()
+});
+
+document.getElementById("createListing").addEventListener('click', () => {
+  getListingCategories()
+});

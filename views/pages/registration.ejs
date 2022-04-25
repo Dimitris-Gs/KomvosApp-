@@ -35,10 +35,14 @@
 
               <small id="emailValidation">*Παρακαλούμε εισάγετε έγκυρη διεύθυνση email.</small>
               <small id="emailExists">*Αυτή η διεύθυνση email υπάρχει ήδη.</small>
-              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση .</small>
+              <small id="emailChecking">*Παρακαλούμε πατήστε το κουμπί επιβεβαίωση.</small>
             </p>
 
-            <p><input type="password" placeholder="Κωδικός" oninput="this.className = ''" name="password"></p>
+            <p>
+              <input type="password" placeholder="Κωδικός" oninput="hidePassValidation()" name="password" id="password">
+              <small id="passwordCheck">*Ο κωδικός πρέπει να αποτελείται από 8 τουλάχιστον χαρακτήρες χωρίς κενά.</small>
+            </p>
+            
           </div>
 
           <!-- Second tab -->
@@ -72,7 +76,7 @@
               <span class="checkmark"></span>
             </label>
             <label class="container">
-              Όχι <input id="addressNo" type="radio" name="radioAddress" value="false" onclick="displayAddress();">
+              Όχι <input id="addressNo" type="radio" name="radioAddress" value="false" onclick="displayAddress();" checked>
               <span class="checkmark"></span>
             </label>
             <div id="divAddress">
@@ -83,13 +87,6 @@
 
           <!-- Third tab -->
           <div class="tab">
-            <div class="form-group row pt-3">
-              <label for="profileImg" class="col-4 col-form-label pt-2"> Προσθέστε φωτογραφία : </label>
-              <!-- to be modified when time comes, ideally display a round image-->
-              <div class="col-6">
-                <input type="file" class="form-control-file" id="regProfileImg" name="photo">
-              </div>
-            </div>
             <div class="form-group row pt-2 pb-4">
               <label for="regSmallbio" class="col-4 col-form-label"> Λίγα λόγια για εμένα: </label>
               <div class="col-6">

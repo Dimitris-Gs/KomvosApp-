@@ -1,27 +1,53 @@
- img {
+/*in order to fit content after the two fixed navbars*/
+body {
+    padding-top: 160px;
+}
+
+main {
+    padding-bottom: 9%;
+}
+.view-profileBtn{
+    border: 1px solid #fff;
+    background-color: #fff;
+
+}
+
+.card-body img {
     width: 100px;
     height: 100px;
 }
 
-/*in order to fit content after the two fixed navbars*/
-body {
-    padding-top: 130px;
+#dropdownMenuButton1 {
+    background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 17px;
+    /* font-size: 15px; */
+    cursor: pointer;
 }
 
-#navbarNavDropdown1 {
-    padding-left: 24.5%
+#dropdownMenuButton1 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    margin-top: 0px;
+    border: 1px solid #666f88;
+    border-radius: 100%;
+
 }
 
-#navbarDropdownMenuLink1,
-#navbarDropdownMenuLink2 {
-    border: 1px solid black;
-    margin-right: 1px;
+#login a {
+    margin-right: 1rem;
+    font-size: large;
+    text-decoration: none;
+    color: white;
 }
 
-#navbarNavDropdown1 ul li a {
-    padding-left: 20px !important;
-    padding-right: 20px;
+.profileDropdown {
+    padding-left: 6rem;
 }
+
 
 /*create listing form in modal*/
 .modal-body form {
@@ -50,25 +76,31 @@ input {
     line-height: 1.5;
     color: #212529;
 }
+
 #validationDate {
     display: none;
 }
 
 /* Listings */
-.listing {
-    width: 50%; 
+.listingUser {
+    width: 70%;
+}
+
+.listingVisitor {
+    width: 50%;
     margin: 0 auto;
 }
+
 .h5 {
-    text-align: center; 
+    text-align: center;
 }
 
 .badge {
-    width: 28%;
+    width: 30%;
 }
 
 .description {
-    text-align: justify;  
+    text-align: justify;
     width: 80%;
 }
 
@@ -76,66 +108,184 @@ input {
     text-align: justify;
 }
 
-.personsInfo{
+.personsInfo {
     padding-left: 3%;
 }
-.small{
+
+.small {
     display: none;
 }
 .sorted {
     width: 20%;
     display: inline;
 }
+
+.sortNav {
+    background-color: #fff;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;  
+}
+
+/* back to top btn */
+.back-topbtn {
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #212529;
+    width: 35px;
+    height: 30px;
+}
+
+.back-topbtn a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
 @media screen and (max-width: 1200px) {
-    .listing {
-        width: 65%; 
-        margin: 0 auto;
+    .listingVisitor .personsInfo {
+        padding-left: 8%;
     }
+
+    .listingUser {
+        width: 80%;
+        
+    }
+    .personsInfo {
+        padding-left: 5%;
+    }
+
     .sorted {
         width: 30%;
         display: inline;
     }
 
 }
-@media screen and (max-width: 900px) {
-    .personsInfo {
+
+@media screen and (max-width: 1000px) {
+    /* .listingVisitor .personsInfo {
         padding-left: 8%;
+    } */
+    .listingVisitor  {
+        width: 70%;
+        margin: 0 auto;
     }
 
+}
+@media screen and (max-width: 930px) {
+    .badge{
+        width: 35%;
+    }
+    .listingUser  .personsInfo{
+        padding-left: 10%;
+        
+    }
+}
+@media screen and (max-width: 900px) {
+    .listingUser {
+        width: 90%;
+        
+    }
+    .personsInfo {
+        padding-left: 10%;
+    }
     h4 {
         padding-top: 3%;
     }
-
-}
-@media screen and (max-width:790px) {
-    .listing {
-        width: 80%; 
-        margin: 0 auto;
+    main {
+        padding-bottom: 18%;
     }
+}
+
+@media screen and (max-width:790px) {
+    
+    .listingUser {
+        width: 100%;
+    }
+
     .form-group label {
         text-align: left;
     }
-    
+
+}
+
+@media screen and (max-width:768px) {
+    .listingVisitor {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .listingVisitor .small{
+        display: none;
+    }
+
+    .listingVisitor .big{
+        display: block;
+    }
+
+    .listingUser .small {
+        display: block;
+    }
+
+    .listingUser .big {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 690px) {
+    .card-text{
+        display: none;
+    }
+    main {
+        padding-bottom: 25%;
+    }
+}
+
+@media screen and (max-width:577px) {
+    .card-text{
+        display: block;
+    }
 }
 
 @media screen and (max-width:576px) {
-    .listing {
-        width: 95%; 
+    .listingVisitor {
+        width: 90%;
         margin: 0 auto;
     }
-    .small{
+    .listingVisitor .personsInfo {
+        padding-left: 9%;
+    }
+
+    .listingVisitor .small{
         display: block;
     }
-    .big{
+
+    .listingVisitor .big{
         display: none;
+    } 
+    .listingUser {
+        width: 95%;
+        margin: 0 auto;
     }
-    .personsInfo{
+    .personsInfo {
         padding-left: 1%;
     }
+    main {
+        padding-bottom: 30%;
+    }   
 }
 
+
 @media screen and (max-width: 490px) {
-    .personsInfo{
+    .listingVisitor {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .personsInfo {
         padding-left: 10%;
     }
 }

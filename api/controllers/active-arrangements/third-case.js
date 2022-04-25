@@ -22,7 +22,7 @@ module.exports = {
     let arrangement = await Arrangement.find({
       where: {
         status: 'accepted',
-        offering_user_id : 1,
+        offering_user_id : this.req.session.userId,
       },
       select: ['listing_id']
     });
@@ -34,7 +34,7 @@ module.exports = {
         id : { in :  listingIds }, 
         endingDate: { '>=': new Date() }       
       }
-    }).populate('arrangements', { where: { status: 'accepted', offering_user_id: 1 } });
+    }).populate('arrangements', { where: { status: 'accepted', offering_user_id: this.req.session.userId } });
 
     let dto = [];
     for (let j = 0; j < listingsWithArrangements.length; j++) {
@@ -58,11 +58,12 @@ module.exports = {
 
         let receiving_user = await TestUser.findOne({
           where: { id: listingsWithArrangements[j].arrangements[k].receiving_user_id },
-          select: ['firstName', 'lastName', 'email']
+          select: ['firstName', 'lastName', 'email', 'photo']
         });
         currentArrangement.receiverId = receiving_user.id;
         currentArrangement.receiver = receiving_user.firstName + " " + receiving_user.lastName;
         currentArrangement.receiverMail = receiving_user.email;
+        currentArrangement.receiverPhoto = receiving_user.photo;
 
 
         let offering_user = await TestUser.findOne({

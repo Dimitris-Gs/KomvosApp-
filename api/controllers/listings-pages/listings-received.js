@@ -19,13 +19,24 @@ module.exports = {
 
   fn: async function (inputs) {
 
+    let interimUser ;
+
+    if(this.req.session.userId)
+    {
+        interimUser = this.req.session.userId;
+        
+    }
+    else{
+        interimUser = 150000;
+    }
+
     let listings = await Listing.find({
-      where: { user_id : { '!=' : 1 } , 
+      where: { user_id : { '!=' : interimUser } , 
               isOffered: false,
               // add another constraint  : show only the active listings (fotis implementation)
               endingDate: { '>=': new Date() }  }     
-    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted']},
-                                            offering_user_id : 1 } });
+    }).populate('arrangements', { where: { status: {in: ['pending', 'accepted', 'finished']},
+                                            offering_user_id : interimUser } });
     
     let rightListingIds = [];
     let rightListingUsers = [];
@@ -75,11 +86,12 @@ module.exports = {
         currentListing.userId = userListings[i].id;
         currentListing.fullname = userListings[i].firstName + " " + userListings[i].lastName;
         currentListing.email = userListings[i].email;
+        currentListing.photo = userListings[i].photo;
         let dateOfBirth = userListings[i].dateOfBirth;
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-        currentListing.status = userListings[i].listings[j].status;
+        currentListing.status = userListings[i].listings[j].status
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -99,11 +111,12 @@ module.exports = {
       }
 
     }
+    let pointsBalance = this.req.session.points - this.req.session.reservedPoints;
 
     
     // All done.
     // return  { listingsWithUsers : listingsWithUsers } ;
-    return listingsWithUsers
+    return [listingsWithUsers,interimUser]
 
   }
 

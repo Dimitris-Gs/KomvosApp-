@@ -111,10 +111,9 @@ function nextPrev(nextOrPrevious) {
  */
 
 function validateEmail(emailString) {
- 
-  //var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
- 
+
+  let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
   if (emailString.match(validRegex)) {
     return true;
   } else {
@@ -133,18 +132,17 @@ function validateEmail(emailString) {
  *  Description: -calculates the user's age
  *               -returns true if the calculated user's age is between 18 and 80 and false if it's not
  */
- function checkDateOfBirth(dateValue) {
+function checkDateOfBirth(dateValue) {
 
   if (dateValue) {
     const msPerYearNormal = 31557600000;
     const msPerYearLarge = 31622400000;
     const msPerYear = (3 * msPerYearNormal + msPerYearLarge) / 4;
-    console.log(msPerYear);
 
     let properDateValue = +new Date(dateValue);
-    
+
     let age = Math.floor((Date.now() - properDateValue) / (msPerYear));
-    
+
     if (age < 18 || age > 80) {
       document.getElementById("ageValidation").style.display = 'block';
       return false;
@@ -156,6 +154,29 @@ function validateEmail(emailString) {
     return false;
   }
 
+}
+/*************************************
+ * function checkPassword(passwordValue) 
+ * Inputs:
+ *    -passwordValue: (string) the password to be checked
+ * Outputs:
+ *    -(boolean) returns true if the password is at least 8 characters long without whitespaces and false if it's not
+ * 
+ *  Description:  - returns true if the password is at least 8 characters long without whitespaces and false if it's not
+ */
+
+function checkPassword(passwordValue) {
+
+  const expression = /^\S+$/g;
+
+  if (passwordValue.length >= 8) {
+    if (expression.test(passwordValue) || passwordValue === '') {
+      return true;
+    }
+  }
+  else {
+    return false;
+  }
 }
 
 /**************************
@@ -191,13 +212,21 @@ function validateForm() {
             inputsOfTab[i].className += " invalid";
             valid = false;
           }
-          else if(inputsOfTab[i].style.backgroundColor !== "rgb(205, 245, 175)"){
+          else if (inputsOfTab[i].style.backgroundColor !== "rgb(205, 245, 175)") {
             console.log(inputsOfTab[i].style.backgroundColor);
             inputsOfTab[i].className += " invalid";
             let checkingValidation = document.getElementById("emailChecking");
-            checkingValidation.style.display = "block" ;
+            checkingValidation.style.display = "block";
             valid = false;
           }
+        } else if (inputsOfTab[i].type == "password") {
+
+          if (!checkPassword(inputsOfTab[i].value)) {
+            document.getElementById("passwordCheck").style.display = "block";
+            inputsOfTab[i].className += " invalid";
+            valid = false;
+          }
+
         }
         else if (inputsOfTab[i].value == "") {
           inputsOfTab[i].className += " invalid";
@@ -218,7 +247,7 @@ function validateForm() {
 
       // validation for users age between 18 and 80
       let date = document.getElementById("regDateOfBirth");
-      
+
       if (!checkDateOfBirth(date.value)) {
         valid = false;
         date.className += " invalid";
@@ -244,7 +273,7 @@ function validateForm() {
 
       //validation for textarea
       let textarea = document.getElementById("regSmallbio");
-     
+
       if (textarea.value == "") {
         valid = false;
         textarea.className += " invalid";
@@ -280,7 +309,7 @@ function validateForm() {
 function emailInputEventHandler() {
   document.getElementById("regEmail").className = "";
   document.getElementById("emailValidation").style.display = 'none';
-  document.getElementById("emailExists").style.display = 'none';  
+  document.getElementById("emailExists").style.display = 'none';
 }
 
 /**********************************
@@ -296,11 +325,15 @@ function hideGenderValidation() {
   document.getElementById("genderValidation").style.display = 'none';
 }
 
-function hideAgeValidation(){
+function hideAgeValidation() {
   document.getElementById("regDateOfBirth").className = "";
   document.getElementById("ageValidation").style.display = 'none';
 }
 
+function hidePassValidation() {
+  document.getElementById("password").className = "";
+  document.getElementById("passwordCheck").style.display = 'none';
+}
 /****************************
  * function displayAddress()
  * Inputs: 
@@ -311,7 +344,7 @@ function hideAgeValidation(){
  * Description: -displays or hides the div containing the input for the address
  */
 
- function displayAddress() {
+function displayAddress() {
   if (document.getElementById('addressYes').checked) {
     document.getElementById('divAddress').style.display = 'block';
   }
@@ -321,15 +354,15 @@ function hideAgeValidation(){
  * 
  */
 
-function getEmail(){
+function getEmail() {
   let emailInput = document.getElementById("regEmail");
   let emailInputValue = emailInput.value;
- 
+
   if (!validateEmail(emailInputValue)) {
     emailInput.className += " invalid";
     return "false";
   }
-  else if(emailInputValue == ""){
+  else if (emailInputValue == "") {
     emailInput.className += " invalid";
     return "false";
   }
@@ -342,20 +375,21 @@ document.getElementById("checkIfUnique").addEventListener('click', (e) => {
   document.getElementById("emailChecking").style.display = 'none';
   let emailInput = document.getElementById("regEmail");
 
-   let emailValue = getEmail();
+  let emailValue = getEmail();
 
-   if(emailValue == "false"){
+  if (emailValue == "false") {
     emailInput.className += " invalid";
-   }
-   else{
+  }
+  else {
     checkEmail(emailValue);
-   }
- 
+  }
+
 });
 
 document.addEventListener('keypress', function (e) {
   if (e.keyCode === 13 || e.which === 13) {
-      e.preventDefault();
-      return false;
+    e.preventDefault();
+    return false;
   }
 });
+

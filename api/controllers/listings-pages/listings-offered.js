@@ -21,9 +21,19 @@ module.exports = {
 
   fn: async function (inputs) {
 
+    let interimUser;
+
+    if (this.req.session.userId) {
+      interimUser = this.req.session.userId;
+
+    }
+    else {
+      interimUser = 150000;
+    }
+
     let listings = await Listing.find({
       where: {
-        user_id: { '!=': 1 },
+        user_id: { '!=': interimUser },
         isOffered: true,
         // add another constraint  : show only the active listings (fotis implementation)
         endingDate: { '>=': new Date() }
@@ -31,9 +41,10 @@ module.exports = {
     }).populate('arrangements', {
       where: {
         status: { in: ['pending', 'accepted'] },
-        receiving_user_id: 1
+        receiving_user_id: interimUser
       }
     });
+
 
     let rightListingIds = [];
     let rightListingUsers = [];
@@ -73,11 +84,12 @@ module.exports = {
         currentListing.userId = userListings[i].id;
         currentListing.fullname = userListings[i].firstName + " " + userListings[i].lastName;
         currentListing.email = userListings[i].email;
+        currentListing.photo = userListings[i].photo;
         let dateOfBirth = userListings[i].dateOfBirth;
         dateOfBirth = new Date(dateOfBirth);
         currentListing.age = Math.floor((Date.now() - dateOfBirth) / (msPerYear));
 
-        currentListing.status = userListings[i].listings[j].status;
+        currentListing.status = userListings[i].listings[j].status
         currentListing.id = userListings[i].listings[j].id;
         currentListing.name = userListings[i].listings[j].name;
         currentListing.startingDate = userListings[i].listings[j].startingDate;
@@ -99,7 +111,7 @@ module.exports = {
     }
 
 
-    return listingsWithUsers;
+    return [listingsWithUsers,interimUser];
   }
 
 

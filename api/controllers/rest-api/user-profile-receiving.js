@@ -1,5 +1,3 @@
-const { User } = require("../view-models/UserListingArrangement")
-
 module.exports = {
 
 
@@ -22,7 +20,7 @@ module.exports = {
   fn: async function (inputs) {
     //is it necessary?
     let user = await TestUser.findOne({
-      where: { id: inputs.userId },
+      where: { id: this.req.session.userId },
       select: ['firstName', 'email', "dateOfBirth"]
     })
  

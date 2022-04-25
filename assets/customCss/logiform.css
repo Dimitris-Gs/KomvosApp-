@@ -7,7 +7,7 @@
 
 body {
     color: #5a5a5a;
-    background: #5a5a5a;
+    background:  #cfcdcd;
 }
 
 #form1 {
@@ -78,4 +78,20 @@ body {
 #invalidPassword{
     display: none;
     color: #ff0000;
+}
+
+#invisibleDivForUserData {
+    display: none;
+}
+
+#userNotFound{
+    display: none;
+    color: #ff0000;
+    font-size: small;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color:  #cfcdcd;
 }
