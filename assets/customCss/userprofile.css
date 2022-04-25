@@ -45,6 +45,12 @@ body {
  
 }
 
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: #cfcdcd;
+}
+
 .profileDropdown{
     padding-left: 7rem;
 }
@@ -52,6 +58,7 @@ body {
 
 
 .img-account-profile {
+    max-width: 8.125rem ;
     height: 10rem;
 }
 .rounded-circle {
@@ -72,7 +79,7 @@ body {
     background-color: rgba(33, 40, 50, 0.03);
     border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
-.form-control {
+#editForm .form-control {
     display: block;
     width: 100%;
     padding: 0.875rem 1.125rem;
@@ -285,6 +292,12 @@ a {
     display: inline;
 }
 
+.view-profileBtn{
+    border: 1px solid #fff;
+    background-color: #fff;
+
+}
+
 @media screen and (max-width: 2400px) {
     
     .personsInfo {
@@ -364,8 +377,3 @@ a {
 
 }
 
-.view-profileBtn{
-    border: 1px solid #fff;
-    background-color: #fff;
-
-}

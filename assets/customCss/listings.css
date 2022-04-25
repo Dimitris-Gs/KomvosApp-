@@ -6,6 +6,11 @@ body {
 main {
     padding-bottom: 9%;
 }
+.view-profileBtn{
+    border: 1px solid #fff;
+    background-color: #fff;
+
+}
 
 .card-body img {
     width: 100px;

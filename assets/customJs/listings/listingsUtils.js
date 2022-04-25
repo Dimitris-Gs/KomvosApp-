@@ -117,7 +117,9 @@ function divListing(dto,user){
 
                         <div class="col-sm-5 personsInfo">
                             <div>
-                                 ${dto[i].fullname }
+                                <form action="/view-profile/${dto[i].userId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>
                             </div>
                             <div>
                                  ${dto[i].age }
@@ -182,7 +184,9 @@ function divListing(dto,user){
 
                         <div class="col-9 personsInfo">
                             <div>
-                                 ${dto[i].fullname }
+                                <form action="/view-profile/${dto[i].userId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>
                             </div>
                             <div>
                                  ${dto[i].age }
@@ -323,7 +327,9 @@ function divListingReceived(dto,user){
                         <div class="col-sm-2"><img src="${dto[i].photo}" alt=""></div>
                         <div class="col-sm-5 personsInfo">
                             <div>
-                                ${dto[i].fullname}
+                                <form action="/view-profile/${dto[i].userId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>
                             </div>
                             <div>
                             ${dto[i].age}
@@ -382,7 +388,9 @@ function divListingReceived(dto,user){
 
                         <div class="col-9 personsInfo">
                             <div>
-                            ${dto[i].fullname}
+                                <form action="/view-profile/${dto[i].userId}" method="GET">
+                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>
                             </div>
                             <div>
                             ${dto[i].age}

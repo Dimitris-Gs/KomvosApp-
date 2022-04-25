@@ -14,7 +14,9 @@ module.exports = {
 
 
   exits: {
-
+    // success: {
+    //   viewTemplatePath: 'pages/userprofile'
+    // }
 
   },
 
@@ -44,9 +46,19 @@ module.exports = {
           await TestUser.updateOne({ id: userId }).set({ photo:`/images/users/user${userId}/image.jpg` });
           
         }
+        
       })
     // }
+  
+    
+    
     this.req.session.photo = `/images/users/user${userId}/image.jpg`;
+   
     this.res.redirect('/userprofile');
+   
+   
+   
+    
+    
   }
 }

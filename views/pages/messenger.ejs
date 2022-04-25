@@ -3,7 +3,7 @@
 
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="userNavBar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><img src="images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
+    <a class="navbar-brand" href="/"><img src="http://localhost:1337/images/komvos/KOMVOS7.png" alt="Komvos logo" width="45em" height="28em"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
     </div>
     <div class="dropdown profileDropdown">
       <button class=" btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"aria-expanded="false">
-        <img class="profile-image" src="<%= photo %>" alt="Profile img">
+        <img class="profile-image" src="http://localhost:1337/<%= photo %>" alt="Profile img">
       </button>
       <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton1">
         <li><a class="dropdown-item" href="/userprofile" >Προφίλ </a></li>
@@ -54,7 +54,7 @@
         <div class="settings-tray">
           <a href="/userprofile">
             <!-- my photo -->
-            <img class="profile-image" src="<%= photo %>" alt="Profile img">
+            <img class="profile-image" src="http://localhost:1337/<%= photo %>" alt="Profile img">
           </a>
           <!-- user name in chat  -->
           <div id="username">
@@ -73,7 +73,7 @@
               onclick="openChat('<%=chat.userId%>')">
               <div class="friend-drawer friend-drawer--onhover">
                 <!-- other persons photo -->
-                <img class="profile-image" src="<%=chat.photo%>" alt="">
+                <img class="profile-image" src="http://localhost:1337/<%=chat.photo%>" alt="">
                 <div class="text">
                   <h6>
                     <%=chat.firstName%>
@@ -107,5 +107,7 @@
 </main>
 <script>
   let activeChatUser = '<%= activeChatUser %>';
+  let activeChatUserPhoto = '<%= activeChatUserPhoto %>'
+ 
 </script>
 <script src="/customJs/messenger.js"></script>
