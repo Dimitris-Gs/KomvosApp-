@@ -1,6 +1,7 @@
 # KomvosApp
 
 Komvos, a social media platform aiming to promote solidarity between its members serves as the final group project for PeopleCert's Javascript Coding Bootcamp (October 2021 - April 2022). 
+
 Designed by Gioulis Dimitris, Kogias Fotis, Markoulinos Antonis, Mourloukos Vasilis, Papageorgiou Eva.
 
 Komvos was created using the following technologies: 
