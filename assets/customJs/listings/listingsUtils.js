@@ -116,11 +116,20 @@ function divListing(dto,user){
                         <div class="col-sm-2"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-sm-5 personsInfo">
-                            <div>
-                                <form action="/view-profile/${dto[i].userId}" method="GET">
-                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
-                                </form>
-                            </div>
+                        <div>`
+                        if (typeUser != 150000){
+
+                            listings +=`<form action="/view-profile/${dto[i].userId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                            </form>`;
+                        }
+                        else{
+
+                            listings += `${dto[i].fullname}`;
+                        }
+
+                                        
+                       listings+= `</div>
                             <div>
                                  ${dto[i].age }
                             </div>
@@ -183,11 +192,21 @@ function divListing(dto,user){
                         <div class="col-3"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-9 personsInfo">
-                            <div>
-                                <form action="/view-profile/${dto[i].userId}" method="GET">
-                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
-                                </form>
-                            </div>
+                            
+                        <div>`
+                        if (typeUser != 150000){
+
+                            listings +=`<form action="/view-profile/${dto[i].userId}" method="GET">
+                            <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                            </form>`;
+                        }
+                        else{
+
+                            listings += `${dto[i].fullname}`;
+                        }
+
+                                        
+                       listings+= `</div>
                             <div>
                                  ${dto[i].age }
                             </div>
@@ -327,11 +346,21 @@ function divListingReceived(dto,user){
                     <div class="row">
                         <div class="col-sm-2"><img src="${dto[i].photo}" alt=""></div>
                         <div class="col-sm-5 personsInfo">
-                            <div>
-                                <form action="/view-profile/${dto[i].userId}" method="GET">
-                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
-                                </form>
-                            </div>
+                            <div>`
+                            if (typeUser != 150000){
+
+                                listings +=`<form action="/view-profile/${dto[i].userId}" method="GET">
+                                <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>`;
+                            }
+                            else{
+
+                                listings += `${dto[i].fullname}`;
+                            }
+
+                                            
+                           listings+= `</div>
+                           
                             <div>
                             ${dto[i].age}
                             </div>
@@ -388,11 +417,20 @@ function divListingReceived(dto,user){
                         <div class="col-3"><img src="${dto[i].photo}" alt=""></div>
 
                         <div class="col-9 personsInfo">
-                            <div>
-                                <form action="/view-profile/${dto[i].userId}" method="GET">
-                                    <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
-                                </form>
-                            </div>
+                            <div>`
+                            if (typeUser != 150000){
+
+                                listings +=`<form action="/view-profile/${dto[i].userId}" method="GET">
+                                <button type="submit" class = "view-profileBtn">${dto[i].fullname} </button>
+                                </form>`;
+                            }
+                            else{
+
+                                listings += `${dto[i].fullname}`;
+                            }
+
+                                            
+                           listings+= `</div>
                             <div>
                             ${dto[i].age}
                             </div>
