@@ -1,6 +1,7 @@
 # KomvosApp
 
-Komvos, a solidarity platform aiming to promote solidarity between its members serves as the final group project for PeopleCert's Javascript Coding Bootcamp (October 2021 - April 2022). 
+Komvos, a social media platform aiming to promote solidarity between its members serves as the final group project for PeopleCert's Javascript Coding Bootcamp (October 2021 - April 2022). 
+Designed by Gioulis Dimitris, Kogias Fotis, Markoulinos Antonis, Mourloukos Vasilis, Papageorgiou Eva.
 
 Komvos was created using the following technologies: 
 + [Sails v1](https://sailsjs.com) MVC framework
@@ -63,3 +64,4 @@ After you run the app this will automatically create the tables in your database
 sails lift
 ```
 * Launch the app on [localhost:1337](localhost:1337)
+* You can optionally navigate to localhost:1337/create in order to populate the database with synthetic data.
