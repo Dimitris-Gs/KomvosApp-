@@ -22,7 +22,7 @@ module.exports = {
 
     let listingCategories = this.req.body
     let categorie = await ListingCategories.create({ name: listingCategories.name, description: listingCategories.description }).fetch();
-    sails.sockets.broadcast('userProfileDto', 'newAdminCategorie', categorie );
+    sails.sockets.blast('newAdminCategorie', categorie );
     this.res.redirect('/admin')
     return listingCategories;
 

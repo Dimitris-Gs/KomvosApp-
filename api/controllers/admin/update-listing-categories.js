@@ -31,7 +31,7 @@ module.exports = {
     })
     
     await ListingCategories.create( {name: categories.name, description: categories.description});
-    sails.sockets.broadcast('userProfileDto', 'newAdminCategorie');
+    sails.sockets.blast('newAdminCategorie');
     this.res.redirect('/admin')
     return 
 

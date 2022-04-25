@@ -18,12 +18,12 @@ function sortingByListingsStatus(array) {
 
 function sortingByTypeOfListing(array, typeOfListing) {
     let copyOfOriginalArray = JSON.parse(JSON.stringify(array))
-    if (typeOfListing == 'undefined'){
+    if (typeOfListing == 'undefined') {
         return copyOfOriginalArray;
     }
     if (typeOfListing == 'true') {
         typeOfListing = true
-    } else {typeOfListing = false}
+    } else { typeOfListing = false }
     for (let currentListing = 0; currentListing < copyOfOriginalArray.length; currentListing++) {
         let listing = copyOfOriginalArray[currentListing]
         if (listing.listingIsOffered != typeOfListing) {
@@ -39,7 +39,7 @@ function sortingByTypeOfListing(array, typeOfListing) {
 
 function sortingByListingCategory(array, listingCategoryName) {
     let copyOfOriginalArray = JSON.parse(JSON.stringify(array))
-    if (listingCategoryName == 'undefined'){
+    if (listingCategoryName == 'undefined') {
         return copyOfOriginalArray;
     }
     for (let currentListing = 0; currentListing < copyOfOriginalArray.length; currentListing++) {
@@ -59,20 +59,20 @@ function sortingByListingCategory(array, listingCategoryName) {
 
 function sortingListingsByDate(array, date) {
     let copyOfOriginalArray = JSON.parse(JSON.stringify(array))
-    if (date == 'undefined'){
+    if (date == 'undefined') {
         return copyOfOriginalArray;
     }
 
     if (date == 'Πρόσφατα') {
-      copyOfOriginalArray.sort(function (a, b) {
-          return new Date(b.startingDate) - new Date(a.startingDate);
-      });
-  } else if (date == 'Μακριά') {
-      copyOfOriginalArray.sort(function (a, b) {
-          return new Date(a.startingDate) - new Date(b.startingDate);
-      });
+        copyOfOriginalArray.sort(function (a, b) {
+            return new Date(b.startingDate) - new Date(a.startingDate);
+        });
+    } else if (date == 'Μακριά') {
+        copyOfOriginalArray.sort(function (a, b) {
+            return new Date(a.startingDate) - new Date(b.startingDate);
+        });
 
-  } else { console.log('error'); }
+    } else { console.log('error'); }
 
 
     return copyOfOriginalArray;
@@ -89,14 +89,14 @@ function sortedListingsArray(array, typeOfListing, listingCategoryName, date) {
 
 }
 
-function divListing(dto,user){
+function divListing(dto, user) {
     let root = $('.listing')[0]
     let typeUser = user
     let listings = '';
 
 
-        for (let i=0; i < dto.length; i++) { 
-            listings += `
+    for (let i = 0; i < dto.length; i++) {
+        listings += `
             <div class="card mb-4">
                 
 
@@ -122,10 +122,10 @@ function divListing(dto,user){
                                 </form>
                             </div>
                             <div>
-                                 ${dto[i].age }
+                                 ${dto[i].age}
                             </div>
                             <div>
-                                ${ dto[i].email }
+                                ${dto[i].email}
                             </div>
                             <br>
                         </div>
@@ -142,7 +142,7 @@ function divListing(dto,user){
                                         d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                 </svg>
                                 &nbsp;
-                                ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                                ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                                 
                                 
 
@@ -156,7 +156,7 @@ function divListing(dto,user){
                                         d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                 </svg>
                                 &nbsp;
-                                ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                                ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                                 
                             </div>
                         </div>
@@ -166,11 +166,11 @@ function divListing(dto,user){
                     <br>
                     <div>
                         <span class="badge bg-secondary">
-                             ${dto[i].category }
+                             ${dto[i].category}
                         </span>
                     </div>
                     <div class="description">
-                         ${dto[i].description }
+                         ${dto[i].description}
                     </div>
 
                 </div>
@@ -189,10 +189,10 @@ function divListing(dto,user){
                                 </form>
                             </div>
                             <div>
-                                 ${dto[i].age }
+                                 ${dto[i].age}
                             </div>
                             <div>
-                                 ${dto[i].email }
+                                 ${dto[i].email}
                             </div>
                             <br>
                         </div>
@@ -210,7 +210,7 @@ function divListing(dto,user){
                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                             </svg>
                             &nbsp;
-                            ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                            ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                             
 
                         </div>
@@ -223,7 +223,7 @@ function divListing(dto,user){
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                             </svg>
                             &nbsp;
-                            ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                            ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                             
                         </div>
                     </div>
@@ -233,26 +233,26 @@ function divListing(dto,user){
                     <br>
                     <div>
                         <span class="badge bg-secondary">
-                            ${ dto[i].category }
+                            ${dto[i].category}
                         </span>
                     </div>
                     <div class="description">
-                         ${dto[i].description }
+                         ${dto[i].description}
                     </div>
 
                 </div>`
 
-                if (typeUser != 150000){
-                listings +=     
+        if (typeUser != 150000) {
+            listings +=
                 `<div class="card-footer">
                     <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal"
                         data-bs-target="#createArrangement${dto[i].id}">
                         Ενδιαφέρομαι
                     </button>
                 </div>`
-                }
-                listings += 
-                `<!-- Modal for creating arrangement -->
+        }
+        listings +=
+            `<!-- Modal for creating arrangement -->
                 <div class="modal fade" id="createArrangement${dto[i].id}" data-bs-backdrop="static"
                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="createArrangementLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -293,21 +293,21 @@ function divListing(dto,user){
 
             </div>
     </div>`
-    
-    root.innerHTML = listings
 
+        root.innerHTML = listings
+
+    }
 }
-}
 
 
-function divListingReceived(dto,user){
+function divListingReceived(dto, user) {
     let root = $('.listing')[0]
     let typeUser = user
     let listings = '';
 
 
-        for (let i=0; i < dto.length; i++) { 
-            listings += `
+    for (let i = 0; i < dto.length; i++) {
+        listings += `
             <div class="card mb-4">
 
 
@@ -351,7 +351,7 @@ function divListingReceived(dto,user){
                                         d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                                 </svg>
                                 &nbsp;
-                                ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                                ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
 
                             </div>
                             <div>
@@ -363,7 +363,7 @@ function divListingReceived(dto,user){
                                         d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                                 </svg>
                                 &nbsp;
-                                ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                                ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                             </div>
                         </div>
 
@@ -414,7 +414,7 @@ function divListingReceived(dto,user){
                                     d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z" />
                             </svg>
                             &nbsp;
-                            ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                            ${new Date(dto[i].startingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
 
 
                         </div>
@@ -427,7 +427,7 @@ function divListingReceived(dto,user){
                                     d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-4.118 9.79c1.258 0 2-1.067 2-2.872 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82h-.684c.047.64.594 1.406 1.703 1.406zm-2.89-5.435h-.633A12.6 12.6 0 0 0 4.5 8.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61h.675V7.354z" />
                             </svg>
                             &nbsp;
-                            ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit"})}
+                            ${new Date(dto[i].endingDate).toLocaleDateString("en-GB", { year: "numeric", month: "2-digit", day: "2-digit" })}
                         </div>
                     </div>
 
@@ -445,20 +445,20 @@ function divListingReceived(dto,user){
 
                 </div>`
 
-                if (typeUser != 150000){
-                    listings +=     
-                    `<div class="card-footer">
+        if (typeUser != 150000) {
+            listings +=
+                `<div class="card-footer">
                     <button type="button" class="btn btn-danger float-end" data-bs-toggle="modal" data-bs-target="#createArrangement${dto[i].id}" >
                         Ενδιαφέρομαι
                       </button>
                     
                 </div>`
-                    }
-                
+        }
 
 
 
-            listings += `
+
+        listings += `
             </div>
 
             <!-- Modal for creating arrangement -->
@@ -490,9 +490,40 @@ function divListingReceived(dto,user){
                 </div>
               </div>
                 `
-    
-    root.innerHTML = listings
 
-}
+        root.innerHTML = listings
+
+    }
 }
 
+function listingCategories(categories) {
+    let options = ``;
+    categories.forEach(categorie => {
+        options += `
+      <option id="${categorie.id}" value="${categorie.name}">
+      ${categorie.name} 
+      </option>`
+    })
+    $('#listingsfilterCategory').append(options)
+    $('#category_id').append(options)
+}
+
+function updateListingCategories(categories){
+    let options = `<option value='undefined' hidden>Κατηγορίες</option>`
+    let modalOptions = ''
+    categories.forEach(categorie => {
+      options += `
+      <option id="${categorie.id}" value="${categorie.name}">
+      ${categorie.name} 
+      </option>`
+      modalOptions += `
+      <option id="${categorie.id}" value="${categorie.name}">
+      ${categorie.name} 
+      </option>`
+    })
+    $('#listingsfilterCategory').empty()
+    $('#category_id').empty()
+  
+    $('#listingsfilterCategory').append(options)
+    $('#category_id').append(modalOptions)
+  }

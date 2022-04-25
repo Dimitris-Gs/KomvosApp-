@@ -24,7 +24,7 @@ module.exports = {
     }).set({
       status: 'inactive'
     })
-    sails.sockets.broadcast('userProfileDto', 'newAdminCategorie');
+    sails.sockets.blast('newAdminCategorie');
     this.res.redirect('/admin')
     // All done.
     return  { categories } ;
