@@ -64,12 +64,12 @@ module.exports.routes = {
   'GET /logout' : {action : 'logout'},
   'GET /notEnoughPoints' : {action : 'not-enough-points'},
   'POST /user/avatar' : {action : 'rest-api/upload-picture'},
-  'GET /uploadPicture' : {view : 'pages/uploadPicture'},
   'POST /point-balance': { action : 'listings-pages/point-balance'},
   'GET /view-profile/:userId': { action: 'view-profile' },
   'POST /all-listings-for-a-user': {action:'rest-api/userprofile/all-listings-for-a-user'},
   'POST /listing-delete-or-update': {action:'rest-api/userprofile/listing-delete-or-update'},
   'POST /receive-or-offer-listings-with-arrangements': {action:'rest-api/userprofile/receive-or-offer-listings-with-arrangements'},
+  'GET /successfully-uploaded': { view : 'pages/successfully-uploaded'},
 
   
   
