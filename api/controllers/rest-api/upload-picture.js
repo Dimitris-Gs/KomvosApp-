@@ -53,8 +53,8 @@ module.exports = {
     
     
     this.req.session.photo = `/images/users/user${userId}/image.jpg`;
+    this.res.redirect('/successfully-uploaded')
    
-    this.res.redirect('/userprofile');
    
    
    
