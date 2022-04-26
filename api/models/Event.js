@@ -12,9 +12,9 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-    title: { type: 'string', required: true, maxLength:50 },
+    title: { type: 'string', required: true, maxLength: 200 },
     user_id: { model: 'testuser', required: true},
-    description: { type: 'string', required: true, maxLength:200},
+    description: { type: 'string', required: true, maxLength: 500},
     startingDate: { type: 'string', required: true, columnName: 'startingdate', columnType: 'date'},
     endingDate: { type: 'string', required: true, columnName: 'endingdate', columnType: 'date'},
 

@@ -21,7 +21,7 @@ module.exports = {
     radioAddress: { type:'boolean', required: true},
     address: { type: 'string', required: false }, 
     photo: {type:'string'},
-    description: {type:'string', maxLength: 200, required: true},
+    description: {type:'string', maxLength: 250, required: true},
     points: { type: 'number', required: true, isInteger: true },
     employeed: { type:'boolean', required: true},
     disabled: { type:'boolean', required: true},

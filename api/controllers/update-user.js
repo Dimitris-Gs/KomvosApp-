@@ -13,9 +13,7 @@ module.exports = {
 
 
   exits: {
-    success: {
-      viewTemplatePath: 'pages/userprofile'
-    }
+   
   },
 
 
@@ -30,7 +28,7 @@ module.exports = {
     const updatedUser = await TestUser.updateOne({id:this.req.session.userId}).set(user);
     
 
-    return { user: updatedUser };
+    this.res.redirect('userprofile');
 
   }
 
